@@ -21,8 +21,8 @@ SUPERCENT GAME CHALLANGE 공모전을 위한 유니티 기반 2D 탑뷰 어드�
 
 ### 팀원 목록
 - 문현웅 [@devUn9](https://github.com/devUn9)
-- 이진오 [@wlsdh4883](https://github.com/wlsdh4883)
+- 이진오 [@Leetany](https://github.com/Leetany)
 - 배홍범 [@eogk31](https://github.com/eogk31)
-- 김관영 [@manaqua1231](https://github.com/manaqua1231)
+- 김관영 [@manaqua138](https://github.com/manaqua138)
 - 임장록 [@limjr1123](https://github.com/limjr1123)
   
