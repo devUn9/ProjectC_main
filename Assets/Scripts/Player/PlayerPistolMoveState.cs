@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.Windows;
 
-public class PlayerMoveState : PlayerState
+public class PlayerPistolMoveState : PlayerState
 {
-    public PlayerMoveState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) 
+    public PlayerPistolMoveState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) 
         : base(_player, _stateMachine, _animBoolName)
     {
     }
@@ -18,26 +17,13 @@ public class PlayerMoveState : PlayerState
         base.Update();
 
         player.SetVelocity(InputVector.x * player.moveSpeed, InputVector.y * player.moveSpeed);
-        SetAnimDirection(InputVector);
-
-        if (InputVector.x != 0 && InputVector.y != 0)
-        {
-            lastDirection = InputVector.normalized;
-            GetLastDirection();
-        }
-            
 
         if (InputVector.x == 0 && InputVector.y == 0)
-        {
             stateMachine.ChangeState(player.idleState);
-        }
-
-        
     }
 
     public override void Exit()
     {
         base.Exit();
     }
-
 }
