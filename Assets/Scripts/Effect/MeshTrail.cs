@@ -45,7 +45,7 @@ public class SpriteTrail : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Q) && !isTrailActive)
+        if (Input.GetKey(KeyCode.LeftShift) && !isTrailActive)
         {
             isTrailActive = true;
             StartCoroutine(SpawnSpriteTrail(activeTime));
