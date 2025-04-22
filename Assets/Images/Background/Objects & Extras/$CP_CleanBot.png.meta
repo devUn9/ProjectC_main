@@ -348,7 +348,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      $CP_CleanBot_0: -3087563899926420276
+      $CP_CleanBot_1: -8833151484636867145
+      $CP_CleanBot_2: 8417281278337488769
+      $CP_CleanBot_3: 8909712257506565632
+      $CP_CleanBot_4: 7611672100136460021
+      $CP_CleanBot_5: -7639485442241403220
+      $CP_CleanBot_6: -7424187526025139658
+      $CP_CleanBot_7: -3616336788660244164
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

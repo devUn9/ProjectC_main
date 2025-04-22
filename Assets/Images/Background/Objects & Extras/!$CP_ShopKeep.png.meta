@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      '!$CP_ShopKeep_0': -3641635134261211392
+      '!$CP_ShopKeep_1': 2110941138841662928
+      '!$CP_ShopKeep_10': -3516745176166340349
+      '!$CP_ShopKeep_11': 7966488634629450768
+      '!$CP_ShopKeep_2': -8531986737358563298
+      '!$CP_ShopKeep_3': -3478564726194173376
+      '!$CP_ShopKeep_4': -216184100128769707
+      '!$CP_ShopKeep_5': 6343880678454966923
+      '!$CP_ShopKeep_6': 4844809358962326883
+      '!$CP_ShopKeep_7': 8606603152525136792
+      '!$CP_ShopKeep_8': 1497698920661495590
+      '!$CP_ShopKeep_9': 3933973876170112237
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

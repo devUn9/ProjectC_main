@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      $Morgan_0: -4023748172971638937
+      $Morgan_1: 1397186216534134982
+      $Morgan_10: -9165103585701700484
+      $Morgan_11: 6408687420907371152
+      $Morgan_2: -7231631260745681534
+      $Morgan_3: -8202236875313599327
+      $Morgan_4: 1001030724434587024
+      $Morgan_5: 8040274831996882498
+      $Morgan_6: 1942921001138425225
+      $Morgan_7: 4750976084805743944
+      $Morgan_8: 6391697535166911497
+      $Morgan_9: 3486111018442537435
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -298,7 +298,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      $CP_FloatBot_0: 882672794767636302
+      $CP_FloatBot_1: -6463069903120632588
+      $CP_FloatBot_2: -2966314231064533033
+      $CP_FloatBot_3: 2877864415797284805
+      $CP_FloatBot_4: -2720400904402742393
+      $CP_FloatBot_5: -6493426320062094514
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
