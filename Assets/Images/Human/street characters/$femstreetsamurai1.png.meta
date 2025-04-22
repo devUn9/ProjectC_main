@@ -70,7 +70,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -84,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      $femstreetsamurai1_0: -2299467722510289636
+      $femstreetsamurai1_1: -359818990347394339
+      $femstreetsamurai1_10: -5027478478399447257
+      $femstreetsamurai1_11: -344627515521903842
+      $femstreetsamurai1_2: -2415092275781044449
+      $femstreetsamurai1_3: -8078413735127159348
+      $femstreetsamurai1_4: 1491548268124669786
+      $femstreetsamurai1_5: 5871162171360334230
+      $femstreetsamurai1_6: 4408273374648730255
+      $femstreetsamurai1_7: 8355956514000337594
+      $femstreetsamurai1_8: -4474900200642540776
+      $femstreetsamurai1_9: 4382934495875836446
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

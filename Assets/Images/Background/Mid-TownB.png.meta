@@ -151,7 +151,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -165,7 +165,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -189,7 +189,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1123,7 +1123,46 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Mid-TownB_0: 2522045899197748654
+      Mid-TownB_1: 3665913392887134195
+      Mid-TownB_10: 8296509619195271946
+      Mid-TownB_11: -357059319098760687
+      Mid-TownB_12: -1962116137623329825
+      Mid-TownB_13: -8672428954028995139
+      Mid-TownB_14: -20968015855885959
+      Mid-TownB_15: -6877621485100300288
+      Mid-TownB_16: -7423926287902657881
+      Mid-TownB_17: 7666324705025494984
+      Mid-TownB_18: -8058500009419430003
+      Mid-TownB_19: 4790336277760511227
+      Mid-TownB_2: -7346344398456203801
+      Mid-TownB_20: -3634190080241789958
+      Mid-TownB_21: -4405668825621983964
+      Mid-TownB_22: 4057441416943929543
+      Mid-TownB_23: -3961790915053068230
+      Mid-TownB_24: -4722583252181478245
+      Mid-TownB_25: 6515859905597262653
+      Mid-TownB_26: -658113774098711379
+      Mid-TownB_27: -3557015772707452659
+      Mid-TownB_28: -547905237145920689
+      Mid-TownB_29: 8185737521574607141
+      Mid-TownB_3: 7801765433790081836
+      Mid-TownB_30: -1933497610557446663
+      Mid-TownB_31: 5388819745511724021
+      Mid-TownB_32: 7127370501272562565
+      Mid-TownB_33: -3751437777232948132
+      Mid-TownB_34: -8360077404915755620
+      Mid-TownB_35: -634885695288112894
+      Mid-TownB_36: -9185924462664008014
+      Mid-TownB_37: -5469868930484627181
+      Mid-TownB_38: -4137643078571705250
+      Mid-TownB_4: -2705432004832592548
+      Mid-TownB_5: 2735813723245128472
+      Mid-TownB_6: 1612680346984450811
+      Mid-TownB_7: 332577668010309941
+      Mid-TownB_8: 933666032142804049
+      Mid-TownB_9: 8215678407508325594
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

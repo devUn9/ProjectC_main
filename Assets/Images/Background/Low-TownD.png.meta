@@ -97,7 +97,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -111,7 +111,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -135,7 +135,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -673,7 +673,28 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Low-TownD_0: -8063578265071864796
+      Low-TownD_1: 8541858195759480397
+      Low-TownD_10: -5713383658673462614
+      Low-TownD_11: -8596629349768995744
+      Low-TownD_12: 8165340962291620626
+      Low-TownD_13: -5204238684372587176
+      Low-TownD_14: 3169989214724123523
+      Low-TownD_15: 1008998899482551855
+      Low-TownD_16: 1757744570967377169
+      Low-TownD_17: 4535056332639594745
+      Low-TownD_18: 432042086127358883
+      Low-TownD_19: 90304870797040064
+      Low-TownD_2: -5624101544844494317
+      Low-TownD_20: 3965898600688275360
+      Low-TownD_3: -1321519118721576313
+      Low-TownD_4: -7171053232974285114
+      Low-TownD_5: -2871968432143239934
+      Low-TownD_6: 5157775228453433700
+      Low-TownD_7: -916339792002646648
+      Low-TownD_8: -844389221924157597
+      Low-TownD_9: -920797984268411483
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

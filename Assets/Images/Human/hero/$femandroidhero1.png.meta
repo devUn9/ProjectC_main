@@ -70,7 +70,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -84,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      $femandroidhero1_0: -7338897753763398004
+      $femandroidhero1_1: 5850538957695276050
+      $femandroidhero1_10: -7348171798040451512
+      $femandroidhero1_11: -1822255990695025896
+      $femandroidhero1_2: -5943975455179287644
+      $femandroidhero1_3: 8810797226509291271
+      $femandroidhero1_4: -3717863316746192450
+      $femandroidhero1_5: 2391405263010148884
+      $femandroidhero1_6: 4259724562594339506
+      $femandroidhero1_7: -7343043756745184722
+      $femandroidhero1_8: 4464534080543463695
+      $femandroidhero1_9: 110019316736582309
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

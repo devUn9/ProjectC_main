@@ -70,7 +70,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -84,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      $mascwheelchair1_0: 4804153663757927726
+      $mascwheelchair1_1: 7222081059583693601
+      $mascwheelchair1_10: -6569536072124330018
+      $mascwheelchair1_11: -8641278392603746649
+      $mascwheelchair1_2: -6195048600020158346
+      $mascwheelchair1_3: 5808299552089711737
+      $mascwheelchair1_4: -6245839921827792981
+      $mascwheelchair1_5: -1222308962297488495
+      $mascwheelchair1_6: -5420496539319363111
+      $mascwheelchair1_7: -7599059606875829646
+      $mascwheelchair1_8: -123546999833173429
+      $mascwheelchair1_9: 6357983579796010772
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

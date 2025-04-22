@@ -115,7 +115,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -129,7 +129,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -153,7 +153,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -823,7 +823,34 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Mid-TownD_0: 6979434475774794814
+      Mid-TownD_1: 2460300319497339415
+      Mid-TownD_10: -1595132892688580794
+      Mid-TownD_11: 5176475698133821051
+      Mid-TownD_12: 5674572515202307145
+      Mid-TownD_13: 173270651748209008
+      Mid-TownD_14: 3450296678859283326
+      Mid-TownD_15: 1600387241325419295
+      Mid-TownD_16: -7693495087424433283
+      Mid-TownD_17: 5719272914133405476
+      Mid-TownD_18: -1703174744272873735
+      Mid-TownD_19: 8620493534275316517
+      Mid-TownD_2: 4637840566366338874
+      Mid-TownD_20: -6527287180842645432
+      Mid-TownD_21: 31461528943075571
+      Mid-TownD_22: 5391877777428710689
+      Mid-TownD_23: 4958032262148424323
+      Mid-TownD_24: 2156520072723645278
+      Mid-TownD_25: -177988128016857251
+      Mid-TownD_26: -5822707483006107949
+      Mid-TownD_3: 8043218686752873166
+      Mid-TownD_4: 8807037775289265842
+      Mid-TownD_5: 7129626448072369255
+      Mid-TownD_6: -2389140709840393914
+      Mid-TownD_7: -9072321372025392992
+      Mid-TownD_8: -867014612415542479
+      Mid-TownD_9: -1295935590284517168
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

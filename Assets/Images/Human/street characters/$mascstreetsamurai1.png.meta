@@ -70,7 +70,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -84,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      $mascstreetsamurai1_0: 8890657656579132142
+      $mascstreetsamurai1_1: 644833423378730
+      $mascstreetsamurai1_10: 5820583370155018572
+      $mascstreetsamurai1_11: 591258024637458965
+      $mascstreetsamurai1_2: -648592464201529337
+      $mascstreetsamurai1_3: 67991431491215584
+      $mascstreetsamurai1_4: 4169722029562432293
+      $mascstreetsamurai1_5: -8100805184301519363
+      $mascstreetsamurai1_6: 6970622677552263572
+      $mascstreetsamurai1_7: 6335321343852951811
+      $mascstreetsamurai1_8: -2942911019410876500
+      $mascstreetsamurai1_9: -3987784021671104524
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

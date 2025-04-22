@@ -142,7 +142,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -156,7 +156,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -180,7 +180,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1048,7 +1048,43 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Low-TownB_0: 2654459315871468338
+      Low-TownB_1: -5110842138682583547
+      Low-TownB_10: -8253942873858082344
+      Low-TownB_11: -3538934941114940574
+      Low-TownB_12: 4569396998797093832
+      Low-TownB_13: -6972182686595562883
+      Low-TownB_14: -7980870601354664738
+      Low-TownB_15: -6771388918288849908
+      Low-TownB_16: 5067455312058484239
+      Low-TownB_17: 3160850271391244679
+      Low-TownB_18: 1626531807585105557
+      Low-TownB_19: -3779066189318305759
+      Low-TownB_2: -2723460344135736563
+      Low-TownB_20: 7337457167044052879
+      Low-TownB_21: -1805791155457753094
+      Low-TownB_22: 4985700264266236211
+      Low-TownB_23: -4987303932345135939
+      Low-TownB_24: -6178706198294199860
+      Low-TownB_25: -1059134469105614139
+      Low-TownB_26: -1017937369900310757
+      Low-TownB_27: -3010499015624057735
+      Low-TownB_28: -4203875148628852741
+      Low-TownB_29: 6560061418002222020
+      Low-TownB_3: -5557173403660828697
+      Low-TownB_30: 6834518561877464709
+      Low-TownB_31: 8542049432921835813
+      Low-TownB_32: 5908955939780239817
+      Low-TownB_33: -3962543323122657411
+      Low-TownB_34: -1409321895457116188
+      Low-TownB_35: -4276037208160692195
+      Low-TownB_4: 913212456448520218
+      Low-TownB_5: 1224983231941801093
+      Low-TownB_6: -4649127998813927595
+      Low-TownB_7: -550171637748383632
+      Low-TownB_8: -4009600738009352223
+      Low-TownB_9: -2521398136914293808
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

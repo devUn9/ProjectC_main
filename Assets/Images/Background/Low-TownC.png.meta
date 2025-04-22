@@ -91,7 +91,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -105,7 +105,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -129,7 +129,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -623,7 +623,26 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Low-TownC_0: 2977931425058321043
+      Low-TownC_1: 6778381597351490806
+      Low-TownC_10: 1007581264597615169
+      Low-TownC_11: 714056566512273252
+      Low-TownC_12: -5066613361609766489
+      Low-TownC_13: -4845544476054201843
+      Low-TownC_14: -4884627991425757764
+      Low-TownC_15: -3349780959307550590
+      Low-TownC_16: -8221542024642935403
+      Low-TownC_17: -6897660261304833602
+      Low-TownC_18: 572501930243348617
+      Low-TownC_2: -2353002064246196502
+      Low-TownC_3: 5432655189559726379
+      Low-TownC_4: 6986656396631144037
+      Low-TownC_5: 6639136283011109194
+      Low-TownC_6: -3479540404809169373
+      Low-TownC_7: 8366943820165356858
+      Low-TownC_8: 4930648958674324001
+      Low-TownC_9: 3374355243377092360
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
