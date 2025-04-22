@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9d3f60eb1a3aca64e8b808e29dac9d4c
+guid: 8eb954263a58dd14fa416e27ed3dd0a4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3683941752686734007
-    second: neo_zero_tileset_02_ex1_0
+      213: 9132080822374047978
+    second: Gradient _0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -109,43 +109,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: neo_zero_tileset_02_ex1_0
+      name: Gradient _0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 304
-        height: 208
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7ba6f16718dff1330800000000000000
-      internalID: 3683941752686734007
+      spriteID: ae023c5cf1babbe70800000000000000
+      internalID: 9132080822374047978
       vertices: []
       indices: 
       edges: []
@@ -174,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      neo_zero_tileset_02_ex1_0: 3683941752686734007
+      Gradient _0: 9132080822374047978
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
