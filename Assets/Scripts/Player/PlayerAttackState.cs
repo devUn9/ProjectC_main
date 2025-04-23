@@ -16,8 +16,12 @@ public class PlayerAttackState : PlayerState
     {
         base.Update();
 
+        player.attackStateTimer = 0.5f;
+
         if (triggerCalled)
+        {
             stateMachine.ChangeState(player.idleState);
+        }
     }
 
     public override void Exit()

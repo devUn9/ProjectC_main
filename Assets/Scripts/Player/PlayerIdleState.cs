@@ -11,18 +11,14 @@ public class PlayerIdleState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        SetAnimDirection(GetLastDirection());
+        if (lastDirection == null)
+            lastDirection = new Vector2(0,0);
+        SetAnimDirection(lastDirection);
     }
 
     public override void Update()
     {
         base.Update();
-        
-        if(InputVector.x != 0 || InputVector.y != 0)
-        {
-            lastDirection = InputVector.normalized;
-            stateMachine.ChangeState(player.moveState);
-        }
     }
 
     public override void Exit()

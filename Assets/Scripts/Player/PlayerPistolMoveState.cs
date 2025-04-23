@@ -16,10 +16,14 @@ public class PlayerPistolMoveState : PlayerState
     {
         base.Update();
 
+        player.attackStateTimer = 0.5f;
+
         player.SetVelocity(InputVector.x * player.moveSpeed, InputVector.y * player.moveSpeed);
 
-        if (InputVector.x == 0 && InputVector.y == 0)
+        if (triggerCalled)
+        {
             stateMachine.ChangeState(player.idleState);
+        }
     }
 
     public override void Exit()

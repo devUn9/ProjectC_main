@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 
     [Header("Attack Info")]
     public GameObject bulletPrefab;
+    public float attackStateTimer = 0.5f;   //공격 애니매이션 발동후 약간의 방향 유지를 위한 시간 차 don't touch plz
 
     [Header("Interaction Info")]
     [SerializeField] protected Transform interactionCheck;   // 상호작용 체크 위치의 기준점
@@ -35,7 +36,7 @@ public class Player : MonoBehaviour
         stateMachine = new PlayerStateMachine();
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         moveState = new PlayerMoveState(this, stateMachine, "Move");
-        pistolMove = new PlayerPistolMoveState(this, stateMachine, "Attack");
+        pistolMove = new PlayerPistolMoveState(this, stateMachine, "MovingAttack");
         attackState = new PlayerAttackState(this, stateMachine, "Attack");
     }
 
@@ -61,7 +62,7 @@ public class Player : MonoBehaviour
 
         stateMachine.currentState.Update();
         gizmoDistance = SetRaycastDirectionFromInput(InputVector);
-
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Interaction();
@@ -83,7 +84,6 @@ public class Player : MonoBehaviour
 
     protected void OnDrawGizmos()
     {
-
         Gizmos.DrawWireSphere(interactionCheck.position + gizmoDistance, interactionRadius);
     }
 

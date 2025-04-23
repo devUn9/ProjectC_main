@@ -540,6 +540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   bulletPrefab: {fileID: 857579978013763025, guid: a3938c5afa0b40c4391e9220371ca284, type: 3}
+  attackStateTimer: 0.5
   interactionCheck: {fileID: 2076600279}
   interactionDistance: {x: 0, y: 0, z: 0}
   interactionRadius: 0.2

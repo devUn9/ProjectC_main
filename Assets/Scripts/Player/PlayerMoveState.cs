@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Windows;
 
 public class PlayerMoveState : PlayerState
 {
@@ -7,6 +6,7 @@ public class PlayerMoveState : PlayerState
         : base(_player, _stateMachine, _animBoolName)
     {
     }
+
 
     public override void Enter()
     {
@@ -16,23 +16,11 @@ public class PlayerMoveState : PlayerState
     public override void Update()
     {
         base.Update();
-
+        
         player.SetVelocity(InputVector.x * player.moveSpeed, InputVector.y * player.moveSpeed);
-        SetAnimDirection(InputVector);
-
-        if (InputVector.x != 0 && InputVector.y != 0)
-        {
-            lastDirection = InputVector.normalized;
-            GetLastDirection();
-        }
-            
 
         if (InputVector.x == 0 && InputVector.y == 0)
-        {
             stateMachine.ChangeState(player.idleState);
-        }
-
-        
     }
 
     public override void Exit()

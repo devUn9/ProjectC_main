@@ -3,6 +3,7 @@ using UnityEngine;
 public class PistolBullet : MonoBehaviour
 {
     [SerializeField] private float speed;
+    //Player player;
     Vector2 MousePos;
     Transform tr;
     Vector3 dir;
@@ -24,7 +25,6 @@ public class PistolBullet : MonoBehaviour
 
         //normalized ¥‹¿ß∫§≈Õ
         dirNo = new Vector3(dir.x, dir.y, 0).normalized;
-
         Destroy(gameObject, 2f);
     }
     private void Update()
