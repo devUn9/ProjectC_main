@@ -1,87 +1,123 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SpriteTrail : MonoBehaviour
 {
-    public float activeTime = 2f;
-    public float refreshRate = 0.05f;
-    public float destroyDelay = 0.2f;
-    public Transform spawnPoint;
-    public Material spriteMaterial;
-
-    float maxtrailCount = 0;
+    public float activeTime = 2f;         // ����ð�
+    public float refreshRate = 0.05f;     // �ܻ� ������ ����
+    public Transform spawnPoint;          // �ܻ� ������ġ
+    public Material spriteMaterial;     
+    public int poolSize = 30;
     int trailIndex = 0;
 
     SpriteRenderer spriteRenderer;
     bool isTrailActive = false;
 
+    List<GameObject> trailPool = new List<GameObject>();
+    int poolCursor = 0;
+
     Color[] trailColors = {
-    // 청록 → 파랑
-    new Color(0f, 1f, 1f),  // 청록
-    new Color(0f, 0.8f, 1f),
-    new Color(0f, 0.6f, 1f),  // 파랑
-    // 파랑 → 보라
-    new Color(0.2f, 0.4f, 1f),
-    new Color(0.4f, 0.2f, 1f),
-    new Color(0.6f, 0f, 1f),  // 보라
-    // 보라 → 빨강
-    new Color(0.8f, 0f, 1f),
-    new Color(1f, 0f, 0.6f),
-    new Color(1f, 0f, 0.3f),  // 빨강
-    // 빨강 → 노랑
-    new Color(1f, 0.3f, 0f),
-    new Color(1f, 0.6f, 0f),
-    new Color(1f, 1f, 0f),  // 노랑
-    // 노랑 → 청록 
-    new Color(0.5f, 1f, 0f),
-    new Color(0f, 1f, 0.5f),
-    new Color(0f, 1f, 1f),  // 청록
-};
+        new Color(0f, 1f, 1f),
+        new Color(0f, 0.8f, 1f),
+        new Color(0f, 0.6f, 1f),
+        new Color(0.2f, 0.4f, 1f),
+        new Color(0.4f, 0.2f, 1f),
+        new Color(0.6f, 0f, 1f),
+        new Color(0.8f, 0f, 1f),
+        new Color(1f, 0f, 0.6f),
+        new Color(1f, 0f, 0.3f),
+        new Color(1f, 0.3f, 0f),
+        new Color(1f, 0.6f, 0f),
+        new Color(1f, 1f, 0f),
+        new Color(0.5f, 1f, 0f),
+        new Color(0f, 1f, 0.5f),
+        new Color(0f, 1f, 0.8f)
+    };
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        InitializeTrailPool();
     }
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && !isTrailActive)
+        //�ӽ� 
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            StartTrail();
+        }
+
+    }
+
+    public void StartTrail()
+    {
+        if (!isTrailActive)
         {
             isTrailActive = true;
             StartCoroutine(SpawnSpriteTrail(activeTime));
         }
     }
 
+    void InitializeTrailPool()
+    {
+        GameObject trailFolder = new GameObject("TrailPool"); 
+
+        for (int i = 0; i < poolSize; i++)
+        {
+            GameObject trail = new GameObject("SpriteTrail_" + i);
+            trail.transform.SetParent(trailFolder.transform); 
+            trail.SetActive(false);
+
+            SpriteRenderer sr = trail.AddComponent<SpriteRenderer>();
+            sr.material = new Material(spriteMaterial); 
+
+            trailPool.Add(trail);
+        }
+    }
+
+    GameObject GetTrailFromPool()
+    {
+        GameObject trail = trailPool[poolCursor];
+        poolCursor = (poolCursor + 1) % trailPool.Count;
+        return trail;
+    }
+
     IEnumerator SpawnSpriteTrail(float time)
     {
-        maxtrailCount = activeTime / refreshRate;
 
         while (time > 0)
         {
             time -= refreshRate;
 
-            GameObject trail = new GameObject("SpriteTrail");
+            GameObject trail = GetTrailFromPool();
             trail.transform.position = spawnPoint.position;
             trail.transform.rotation = spawnPoint.rotation;
             trail.transform.localScale = transform.localScale;
 
-            SpriteRenderer sr = trail.AddComponent<SpriteRenderer>();
-            sr.sprite = spriteRenderer.sprite; // 현재 애니메이션 프레임 그대로 복사
+            SpriteRenderer sr = trail.GetComponent<SpriteRenderer>();
+            sr.sprite = spriteRenderer.sprite;
             sr.sortingLayerID = spriteRenderer.sortingLayerID;
             sr.sortingOrder = spriteRenderer.sortingOrder - 1;
-            sr.material = spriteMaterial;
 
             Color color = trailColors[trailIndex % trailColors.Length];
             trailIndex++;
 
-            Material matInstance = new Material(spriteMaterial);
-            matInstance.SetColor("_Trail_Color", color);
-            sr.material = matInstance;
+            sr.material.SetColor("_Trail_Color", color);
+            trail.SetActive(true);
 
-            Destroy(trail, time);
+            StartCoroutine(DisableAfterDelay(trail, time));
             yield return new WaitForSeconds(refreshRate);
         }
 
         isTrailActive = false;
     }
+
+    IEnumerator DisableAfterDelay(GameObject obj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        obj.SetActive(false);
+    }
+
 }
