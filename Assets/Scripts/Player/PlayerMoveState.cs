@@ -17,9 +17,9 @@ public class PlayerMoveState : PlayerState
     {
         base.Update();
         
-        player.SetVelocity(InputVector.x * player.moveSpeed, InputVector.y * player.moveSpeed);
+        player.SetVelocity(stateInputVec.x * player.moveSpeed, stateInputVec.y * player.moveSpeed);
 
-        if (InputVector.x == 0 && InputVector.y == 0)
+        if (stateInputVec.x == 0 && stateInputVec.y == 0)
             stateMachine.ChangeState(player.idleState);
     }
 

@@ -18,10 +18,12 @@ public class PlayerPistolMoveState : PlayerState
 
         player.attackStateTimer = 0.5f;
 
-        player.SetVelocity(InputVector.x * player.moveSpeed, InputVector.y * player.moveSpeed);
+        player.SetVelocity(stateInputVec.x * player.moveSpeed, stateInputVec.y * player.moveSpeed);
 
         if (triggerCalled)
         {
+            player.attackStatusRemainTime = 2.0f;
+            SetFinalAttkInputVec();
             stateMachine.ChangeState(player.idleState);
         }
     }
