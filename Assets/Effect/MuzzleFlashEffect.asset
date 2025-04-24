@@ -10,11 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2aab9273df7be6a469900751ae800b90, type: 3}
-  m_Name: SmokeShellEffect
+  m_Name: MuzzleFlashEffect
   m_EditorClassIdentifier: 
-  effectType: 1
-  prefab: {fileID: 1272365366362387747, guid: 748aaa3ba856e8f459bd2a54c96a189c, type: 3}
-  duration: 5
-  useRepeat: 1
-  RepeatCount: 5
-  RepeatInterval: 0.1
+  effectType: 3
+  prefab: {fileID: 0}
+  duration: 0.1

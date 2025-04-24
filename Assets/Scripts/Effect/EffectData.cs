@@ -3,8 +3,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EffectData", menuName = "Effect/EffectData")]
 public class EffectData : ScriptableObject
 {
-    public EffectType effectType; // 이펙트 타입
-    public GameObject prefab; // 이펙트 프리팹
-    public float duration = 2f; // 이펙트 지속 시간
+    public EffectType effectType;
+    public GameObject prefab;
+    public float duration;
 
+    [Header("반복 횟수 설정")]
+    public bool useRepeat = false;
+    public int RepeatCount;
+    public float RepeatInterval;
 }
