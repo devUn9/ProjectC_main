@@ -9,7 +9,7 @@ public class PlayerState
 
     private string animBoolName;
 
-    protected Vector2 InputVector;
+    protected Vector2 stateInputVec;
     protected Vector2 lastDirection;
 
     protected bool triggerCalled;
@@ -31,8 +31,8 @@ public class PlayerState
     {
         player.attackStateTimer -= Time.deltaTime;
 
-        InputVector.x = Input.GetAxisRaw("Horizontal");
-        InputVector.y = Input.GetAxisRaw("Vertical");
+        stateInputVec.x = Input.GetAxisRaw("Horizontal");
+        stateInputVec.y = Input.GetAxisRaw("Vertical");
 
         if(animBoolName != "Idle")
         {
@@ -42,14 +42,14 @@ public class PlayerState
             }
             else
             {
-                SetAnimDirection(InputVector);
+                SetAnimDirection(stateInputVec);
             }
         }
         
 
-        if (InputVector.x != 0 || InputVector.y != 0)
+        if (stateInputVec.x != 0 || stateInputVec.y != 0)
         {
-            lastDirection = InputVector.normalized;
+            lastDirection = stateInputVec.normalized;
             stateMachine.ChangeState(player.moveState);
         }
 
@@ -91,5 +91,23 @@ public class PlayerState
     {
         player.anim.SetFloat("VelocityX", _Velocity.x);
         player.anim.SetFloat("VelocityY", _Velocity.y);
+    }
+
+    public Vector3 PlayerToMousePosVec()
+    {
+        Vector2 MousePos = Input.mousePosition;
+        MousePos = Camera.main.ScreenToWorldPoint(MousePos);
+        Vector3 Pos = new Vector3(MousePos.x, MousePos.y, 0);
+        Vector3 dir = Pos - player.transform.position;
+
+        Vector3 dirNo = new Vector3(dir.x, dir.y, 0).normalized;
+        
+        return dirNo;
+    }
+
+    public void SetFinalAttkInputVec()
+    {
+        Vector2 finalAttkVecNormal = PlayerToMousePosVec();
+        player.finalAttackInputVec = finalAttkVecNormal;
     }
 }

@@ -13,7 +13,11 @@ public class PlayerIdleState : PlayerState
         base.Enter();
         if (lastDirection == null)
             lastDirection = new Vector2(0,0);
-        SetAnimDirection(lastDirection);
+
+        if(player.attackStatusRemainTime > 0)
+            SetAnimDirection(player.finalAttackInputVec);
+        else
+            SetAnimDirection(lastDirection);
     }
 
     public override void Update()

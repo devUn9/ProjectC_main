@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class EffectTest : MonoBehaviour
@@ -13,14 +14,19 @@ public class EffectTest : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-        if (player != null && Input.GetKeyDown(KeyCode.Q))
+        if (player != null)
         {
-            Vector3 position = player.transform.position;
-            EffectManager.Instance.PlayEffect(EffectType.SmokeShellEffect, position);
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                Vector3 position = player.transform.position;
+                EffectManager.Instance.PlayEffect(EffectType.SmokeShellEffect, position);
+
+            }
         }
         else
         {
             Debug.LogWarning("플레이어를 찾을 수 없습니다.");
         }
     }
+
 }

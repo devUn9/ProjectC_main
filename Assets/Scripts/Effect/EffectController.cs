@@ -1,4 +1,7 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
+
 
 public class EffectController : MonoBehaviour
 {
@@ -31,4 +34,7 @@ public class EffectController : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+
+
 }

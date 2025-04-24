@@ -4,7 +4,10 @@ public class Player : MonoBehaviour
 {
     [Header("Move Info")]
     public float moveSpeed = 5f;
-    private Vector3 InputVector;
+
+    public Vector3 finalAttackInputVec;
+    private Vector3 inputVector;
+    public float attackStatusRemainTime;
 
     [Header("Attack Info")]
     public GameObject bulletPrefab;
@@ -18,6 +21,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Vector2 raycastDirection;       // 레이캐스트 방향
     private Vector2 lastDirection;                           // 마지막으로 이동한 방향 저장
     private Vector3 gizmoDistance;                           // 기즈모를 그릴 위치 계산용 변수
+
 
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
@@ -52,16 +56,16 @@ public class Player : MonoBehaviour
 
     protected void Update()
     {
-        InputVector.x = Input.GetAxisRaw("Horizontal");
-        InputVector.y = Input.GetAxisRaw("Vertical");
+        inputVector.x = Input.GetAxisRaw("Horizontal");
+        inputVector.y = Input.GetAxisRaw("Vertical");
 
-        if (InputVector.x != 0 || InputVector.y != 0)
+        if (inputVector.x != 0 || inputVector.y != 0)
         {
-            lastDirection = InputVector.normalized;
+            lastDirection = inputVector.normalized;
         }
 
         stateMachine.currentState.Update();
-        gizmoDistance = SetRaycastDirectionFromInput(InputVector);
+        gizmoDistance = SetRaycastDirectionFromInput(inputVector);
         
         if (Input.GetKeyDown(KeyCode.Space))
         {

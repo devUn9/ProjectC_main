@@ -20,6 +20,8 @@ public class PlayerAttackState : PlayerState
 
         if (triggerCalled)
         {
+            player.attackStatusRemainTime = 2.0f;
+            SetFinalAttkInputVec();
             stateMachine.ChangeState(player.idleState);
         }
     }

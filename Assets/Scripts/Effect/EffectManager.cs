@@ -46,20 +46,40 @@ public class EffectManager : MonoBehaviour
     {
         if (!effectDataMap.TryGetValue(effectType, out EffectData data))
         {
-            Debug.LogWarning($"Effect '{effectType}' 이(가) 없습니다. ");
+            Debug.LogWarning($"Effect '{effectType}' 이(가) 없습니다.");
             return;
         }
 
-        GameObject effectObj = Instantiate(data.prefab, position, rotation);
-        EffectController controller = effectObj.AddComponent<EffectController>();
+        if (data.useRepeat)
+        {
+            StartCoroutine(PlayEffectRepeat(data, position, rotation));
+        }
+        else
+        {
+            PlayEffect(data, position, rotation);
+        }
+    }
 
+    private void PlayEffect(EffectData data, Vector3 position, Quaternion rotation)
+    {
+        GameObject obj = Instantiate(data.prefab, position, rotation);
+        EffectController controller = obj.AddComponent<EffectController>();
         controller.Initialize(data);
         controller.Play(position, rotation, data.duration);
     }
 
+    private IEnumerator PlayEffectRepeat(EffectData data, Vector3 position, Quaternion rotation)
+    {
+        for (int i = 0; i < data.RepeatCount; i++)
+        {
+            PlayEffect(data, position, rotation);
+            yield return new WaitForSeconds(data.RepeatInterval);
+        }
+    }
 
-  
-    
+
+
+
 
 
 
