@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public Vector3 finalAttackInputVec;
     private Vector3 inputVector;
     public float attackStatusRemainTime;
+    public bool isMovingAttack = false;
 
     [Header("Attack Info")]
     public GameObject bulletPrefab;
@@ -66,13 +67,13 @@ public class Player : MonoBehaviour
 
         stateMachine.currentState.Update();
         gizmoDistance = SetRaycastDirectionFromInput(inputVector);
-        
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Interaction();
         }
 
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             MeshTrailscript.StartTrail();
         }

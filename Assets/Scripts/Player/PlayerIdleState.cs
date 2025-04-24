@@ -11,8 +11,6 @@ public class PlayerIdleState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        if (lastDirection == null)
-            lastDirection = new Vector2(0,0);
 
         if(player.attackStatusRemainTime > 0)
             SetAnimDirection(player.finalAttackInputVec);

@@ -17,15 +17,10 @@ public class PlayerPistolMoveState : PlayerState
         base.Update();
 
         player.attackStateTimer = 0.5f;
+        player.attackStatusRemainTime = 0.5f;
+        player.isMovingAttack = true;
 
         player.SetVelocity(stateInputVec.x * player.moveSpeed, stateInputVec.y * player.moveSpeed);
-
-        if (triggerCalled)
-        {
-            player.attackStatusRemainTime = 2.0f;
-            SetFinalAttkInputVec();
-            stateMachine.ChangeState(player.idleState);
-        }
     }
 
     public override void Exit()

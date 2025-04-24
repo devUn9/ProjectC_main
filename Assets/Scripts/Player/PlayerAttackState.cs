@@ -16,11 +16,12 @@ public class PlayerAttackState : PlayerState
     {
         base.Update();
 
-        player.attackStateTimer = 0.5f;
+        player.attackStateTimer = 0.4f;
+        player.attackStatusRemainTime = 0.5f;
 
         if (triggerCalled)
         {
-            player.attackStatusRemainTime = 2.0f;
+            Debug.Log("AttackEnd");
             SetFinalAttkInputVec();
             stateMachine.ChangeState(player.idleState);
         }
