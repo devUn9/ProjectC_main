@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    public static DialogueManager instance { get; private set; }
+
     [SerializeField] private GameObject txt_DialogueBar;
     [SerializeField] private GameObject txt_DialogueNameBar;
 
@@ -22,6 +24,18 @@ public class DialogueManager : MonoBehaviour
     private int lineCount = 0;        //대화 카운트
     private int conTextCount = 0;     //대사 카운트
 
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Update()
     {
