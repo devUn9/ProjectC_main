@@ -42,7 +42,7 @@ public class EffectManager : MonoBehaviour
         }
     }
 
-    public void PlayEffect(EffectType effectType, Vector3 position, Quaternion rotation = default)
+    public void PlayEffect(EffectType effectType, Vector3 position, Quaternion rotation = default)  // 특정 위치와 방향에서 이펙트 생성 함수
     {
         if (!effectDataMap.TryGetValue(effectType, out EffectData data))
         {
@@ -53,32 +53,42 @@ public class EffectManager : MonoBehaviour
         if (data.useRepeat)
         {
             StartCoroutine(PlayEffectRepeat(data, position, rotation));
+            return;
         }
         else
         {
             PlaySingleEffect(data, position, rotation);
-        }
+        } 
     }
 
 
-    public void PlayEffectFollow(EffectType effectType, Transform followTarget, Vector3 offset = default)
+    public EffectController PlayEffectFollow(EffectType effectType, Transform followTarget, Vector3 offset = default)
     {
         if (!effectDataMap.TryGetValue(effectType, out EffectData data))
         {
             Debug.LogWarning($"Effect '{effectType}' 이(가) 없습니다.");
-            return;
+            return null;
         }
 
-        GameObject obj = Instantiate(data.prefab, followTarget.position + offset, followTarget.rotation);
+        // local 기준 offset → world 기준 위치로 변환
+        Vector3 spawnPos = followTarget.TransformPoint(offset);
+
+        GameObject obj = Instantiate(data.prefab, spawnPos, followTarget.rotation);
+        obj.transform.SetParent(followTarget);
 
         EffectController controller = obj.AddComponent<EffectController>();
         controller.Initialize(data);
-        controller.Play(obj.transform.position, obj.transform.rotation, data.duration);
+        controller.Play(spawnPos, followTarget.rotation, data.duration);
 
         FollowTarget follow = obj.AddComponent<FollowTarget>();
         follow.target = followTarget;
         follow.offset = offset; 
+
+        return controller;
     }
+
+
+
 
 
     private void PlaySingleEffect(EffectData data, Vector3 position, Quaternion rotation)

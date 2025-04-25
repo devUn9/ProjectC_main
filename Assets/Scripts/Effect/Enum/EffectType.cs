@@ -7,6 +7,6 @@ public enum EffectType
     SmokeShellEffect,
     BulletHitEffect,
     MuzzleFlashEffect,
-
+    EnemySightEffect,
     BuffEffect,
 }

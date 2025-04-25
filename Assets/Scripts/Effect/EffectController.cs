@@ -32,10 +32,16 @@ public class EffectController : MonoBehaviour
         }
 
         gameObject.SetActive(true);
-        Invoke(nameof(Deactivate), duration);
+
+        if (effectData.effectEndType == EffectEndType.DurationBased)
+        {
+            Invoke(nameof(DestroyEffect), duration);
+        }
+
+
     }
 
-    private void Deactivate()
+    public void DestroyEffect()
     {
         Destroy(gameObject);
     }

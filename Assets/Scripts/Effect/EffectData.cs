@@ -4,6 +4,7 @@ using UnityEngine;
 public class EffectData : ScriptableObject
 {
     public EffectType effectType;
+    public EffectEndType effectEndType;
     public GameObject prefab;
     public float duration;
 
@@ -12,4 +13,6 @@ public class EffectData : ScriptableObject
     public bool useRepeat = false;
     public int RepeatCount;
     public float RepeatInterval;
+
+
 }
