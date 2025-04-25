@@ -20,6 +20,7 @@ public class GrappleHook3 : MonoBehaviour
     private Transform targetObject; // 실제로 끌어올 대상 오브젝트
     private float retractTimer = 0f; // 오브젝트를 끌어올 때, 판정을 너무 늦게 하거나 못 할 수도 있기에 타이머 지정
     public int itemCount;
+    private Vector2 pullStopPosition;
 
     [HideInInspector] public bool isRetractingPlayer = false; // 플레이어가 끌려가지는 여부
     [HideInInspector] public bool isRetractingObject = false; // 오브젝트가 끌려오는지 여부
@@ -64,12 +65,25 @@ public class GrappleHook3 : MonoBehaviour
             {
                 Debug.Log("오브젝트 끌어오기 시작");
                 targetObject = hit.collider.transform;
+
+                // 충돌 무시 처리
+                Collider2D playerCol = GetComponent<Collider2D>();
+                Collider2D targetCol = targetObject.GetComponent<Collider2D>();
+
+                if (playerCol != null && targetCol != null)
+                {
+                    Physics2D.IgnoreCollision(playerCol, targetCol, true);
+                }
+
+                Vector2 directionToPlayer = ((Vector2)transform.position - (Vector2)targetObject.position).normalized;
+                pullStopPosition = (Vector2)transform.position + directionToPlayer * 1.0f;
+
                 StartCoroutine(Grapple(targetObject.position, false));
             }
             else if (targetLayer == LayerMask.NameToLayer("Grappeable2"))
             {
                 Debug.Log("플레이어 이동 시작");
-                target = hit.collider.transform.position;
+                target = hit.point; // 어느 방향으로도 이동 가능하도록 수정
                 StartCoroutine(Grapple(target, true));
             }
         }
@@ -99,7 +113,7 @@ public class GrappleHook3 : MonoBehaviour
     // 플레이어가 끌고 오는 로프 발사
     private void HandleObjectRetract()
     {
-        if(targetObject == null)
+        if (targetObject == null)
         {
             ResetGrapple();
             return;
@@ -121,13 +135,35 @@ public class GrappleHook3 : MonoBehaviour
                 itemCount++;
                 Debug.Log($"아이템 획득! 총 개수: {itemCount}");
                 Destroy(targetObject.gameObject);
+                ResetGrapple();
             }
-            ResetGrapple();
+            else if (targetObject.CompareTag("Grapplable"))
+            {
+                Debug.Log("기절!");
+                StartCoroutine(StunObject(targetObject));
+                ResetGrapple();
+            }
+            else
+            {
+                Debug.Log("방해물 도착 - 플레이어 앞에 배치 완료");
+                ResetGrapple();
+            }
         }
     }
-    
+
     private void ResetGrapple()
     {
+        if (targetObject != null)
+        {
+            Collider2D playerCol = GetComponent<Collider2D>();
+            Collider2D targetCol = targetObject.GetComponent<Collider2D>();
+
+            if (playerCol != null && targetCol != null)
+            {
+                Physics2D.IgnoreCollision(playerCol, targetCol, false);
+            }
+        }
+
         isRetractingObject = false;
         isRetractingPlayer = false;
         isGrappling = false;
@@ -171,4 +207,28 @@ public class GrappleHook3 : MonoBehaviour
             isRetractingObject = true;
     }
 
+    // 적 오브젝트를 끌고 오면 색상 변경 코루틴
+    IEnumerator StunObject(Transform obj)
+    {
+        SpriteRenderer sp = obj.GetComponent<SpriteRenderer>();
+
+        if (sp != null)
+        {
+            Color originalColor = sp.color;
+
+            // 색상 변경
+            sp.color = Color.yellow;
+
+            yield return new WaitForSeconds(2f);
+
+            // 원래 색상 복구
+            sp.color = originalColor;
+        }
+        else
+        {
+            Debug.Log("스프라이트가 없다");
+        }
+
+        ResetGrapple();
+    }
 }
