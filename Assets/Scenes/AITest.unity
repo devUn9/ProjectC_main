@@ -859,6 +859,8 @@ MonoBehaviour:
   zoomSpeed: 10
   defaultSize: 3.5
   zoomedSize: 4.5
+  walkSpeed: 2
+  player: {fileID: 1459403001}
 --- !u!4 &990880541
 Transform:
   m_ObjectHideFlags: 0

@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pxkb_angle_bracket_left_0: -7816529062124622126
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pxkb_curly_bracket_right_0: -391013377802843166
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
