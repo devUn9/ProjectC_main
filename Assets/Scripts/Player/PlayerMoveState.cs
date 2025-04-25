@@ -11,6 +11,8 @@ public class PlayerMoveState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        if (stateInputVec.x != 0 || stateInputVec.y != 0)
+            player.daggerAttackDir = stateInputVec.normalized;
     }
 
     public override void Update()

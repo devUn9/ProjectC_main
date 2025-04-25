@@ -11,7 +11,6 @@ public class PlayerState
 
     protected Vector2 stateInputVec;
     protected Vector2 lastDirection;
-
     protected bool triggerCalled;
 
     public PlayerState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName)
@@ -42,7 +41,13 @@ public class PlayerState
         {
             player.isMovingAttack = false;
             Debug.Log("MoveAttackEnd");
-            SetFinalAttkInputVec();
+            stateMachine.ChangeState(player.idleState);
+        }
+
+        if (triggerCalled && player.isDaggerAttack)
+        {
+            player.isDaggerAttack = false;
+            Debug.Log("DaggerAttackEnd");
             stateMachine.ChangeState(player.idleState);
         }
 
@@ -51,6 +56,11 @@ public class PlayerState
             if (player.attackStateTimer > 0 && player.attackStatusRemainTime > 0)
             {
                 PlayerToMousePosDir();
+            }
+            else if(player.attackStateTimer > 0 && player.isDaggerAttack)
+            {
+                //SetAnimDirection(player.daggerAttackDir);
+                SetAnimDirection(player.lastDirection);
             }
             else
             {
@@ -68,7 +78,12 @@ public class PlayerState
         // AnimationTrigger 발생 전 입력 시 state에서 에러발생 attackStateTimer변수는 player에서 관리
         if (Input.GetKeyDown(KeyCode.Mouse0) && player.attackStateTimer < 0.25)
         {
-            if (animBoolName == "Move")
+            player.Interaction();
+            if (player.isDaggerAttack)
+            {
+                stateMachine.ChangeState(player.daggerAttack);
+            }
+            else if (animBoolName == "Move" && !player.isDaggerAttack)
                 stateMachine.ChangeState(player.pistolMove);
             else
                 stateMachine.ChangeState(player.attackState);
@@ -121,5 +136,10 @@ public class PlayerState
     {
         Vector2 finalAttkVecNormal = PlayerToMousePosVec();
         player.finalAttackInputVec = finalAttkVecNormal;
+    }
+
+    public string CurrentStateRecord()
+    {
+        return player.beforeState = this.animBoolName;
     }
 }
