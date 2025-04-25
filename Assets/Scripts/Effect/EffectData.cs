@@ -8,6 +8,7 @@ public class EffectData : ScriptableObject
     public float duration;
 
     [Header("반복 횟수 설정")]
+
     public bool useRepeat = false;
     public int RepeatCount;
     public float RepeatInterval;

@@ -26,6 +26,11 @@ public class EffectController : MonoBehaviour
             particle.Play();
         }
 
+        if(spriteRenderer != null)
+        {
+
+        }
+
         gameObject.SetActive(true);
         Invoke(nameof(Deactivate), duration);
     }
@@ -34,7 +39,5 @@ public class EffectController : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
-
 
 }

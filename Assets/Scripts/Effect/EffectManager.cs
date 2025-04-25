@@ -56,11 +56,32 @@ public class EffectManager : MonoBehaviour
         }
         else
         {
-            PlayEffect(data, position, rotation);
+            PlaySingleEffect(data, position, rotation);
         }
     }
 
-    private void PlayEffect(EffectData data, Vector3 position, Quaternion rotation)
+
+    public void PlayEffectFollow(EffectType effectType, Transform followTarget, Vector3 offset = default)
+    {
+        if (!effectDataMap.TryGetValue(effectType, out EffectData data))
+        {
+            Debug.LogWarning($"Effect '{effectType}' 이(가) 없습니다.");
+            return;
+        }
+
+        GameObject obj = Instantiate(data.prefab, followTarget.position + offset, followTarget.rotation);
+
+        EffectController controller = obj.AddComponent<EffectController>();
+        controller.Initialize(data);
+        controller.Play(obj.transform.position, obj.transform.rotation, data.duration);
+
+        FollowTarget follow = obj.AddComponent<FollowTarget>();
+        follow.target = followTarget;
+        follow.offset = offset; 
+    }
+
+
+    private void PlaySingleEffect(EffectData data, Vector3 position, Quaternion rotation)
     {
         GameObject obj = Instantiate(data.prefab, position, rotation);
         EffectController controller = obj.AddComponent<EffectController>();
@@ -72,7 +93,7 @@ public class EffectManager : MonoBehaviour
     {
         for (int i = 0; i < data.RepeatCount; i++)
         {
-            PlayEffect(data, position, rotation);
+            PlaySingleEffect(data, position, rotation);
             yield return new WaitForSeconds(data.RepeatInterval);
         }
     }
