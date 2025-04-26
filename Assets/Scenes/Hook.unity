@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 7085351}
   - component: {fileID: 7085346}
   - component: {fileID: 7085350}
+  - component: {fileID: 7085352}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -154,17 +155,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   finalAttackInputVec: {x: 0, y: 0, z: 0}
-  attackStatusRemainTime: 0
-  isMovingAttack: 0
   bulletPrefab: {fileID: 857579978013763025, guid: a3938c5afa0b40c4391e9220371ca284, type: 3}
   attackStateTimer: 0.5
+  daggerAttackDir: {x: 0, y: 0}
+  isMovingAttack: 0
+  attackStatusRemainTime: 0
+  beforeState: 
   interactionCheck: {fileID: 2023873891}
   interactionDistance: {x: 0, y: 0, z: 0}
   interactionRadius: 0.2
-  detectionLayers:
+  raycastDirection: {x: 0, y: 0}
+  detectionEnemyLayers:
     serializedVersion: 2
     m_Bits: 0
-  raycastDirection: {x: 0, y: 0}
+  lastDirection: {x: 0, y: 0}
+  isDaggerAttack: 0
+  daggerAttackEffectPrefab: {fileID: 0}
 --- !u!70 &7085347
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -373,6 +379,24 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &7085352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7085345}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 335d2ceb03804774d9384f66dcecdcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  maxDistance: 10
+  grappleSpeed: 10
+  grappleShootSpeed: 20
 --- !u!1 &214574611
 GameObject:
   m_ObjectHideFlags: 0

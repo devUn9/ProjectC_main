@@ -76,7 +76,7 @@ public class GrappleHook3 : MonoBehaviour
                 }
 
                 Vector2 directionToPlayer = ((Vector2)transform.position - (Vector2)targetObject.position).normalized;
-                pullStopPosition = (Vector2)transform.position + directionToPlayer * 1.0f;
+                pullStopPosition = (Vector2)transform.position + directionToPlayer * -1f;
 
                 StartCoroutine(Grapple(targetObject.position, false));
             }
@@ -121,14 +121,15 @@ public class GrappleHook3 : MonoBehaviour
 
         retractTimer += Time.deltaTime;
 
-        targetObject.position = Vector2.MoveTowards(targetObject.position, transform.position, grappleSpeed * Time.deltaTime);
+
+        targetObject.position = Vector2.MoveTowards(targetObject.position, pullStopPosition, grappleSpeed * Time.deltaTime);
 
         // 로프 갱신
         line.SetPosition(0, transform.position);
         line.SetPosition(1, targetObject.position);
 
         // 도착 시 종료
-        if (Vector2.Distance(targetObject.position, transform.position) < 0.1f || retractTimer > 3f)
+        if (Vector2.Distance(targetObject.position, pullStopPosition) < 0.1f || retractTimer > 3f)
         {
             if (targetObject.CompareTag("Collectible"))
             {
