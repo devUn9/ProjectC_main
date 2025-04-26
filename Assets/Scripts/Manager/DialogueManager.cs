@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,8 +11,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject txt_DialogueBar;
     [SerializeField] private GameObject txt_DialogueNameBar;
 
-    [SerializeField] private Text txt_Dialogue;
-    [SerializeField] private Text txt_Name;
+    [SerializeField] private TextMeshProUGUI txt_Dialogue;
+    [SerializeField] private TextMeshProUGUI txt_Name;
 
     Dialogue[] dialogues;
 
