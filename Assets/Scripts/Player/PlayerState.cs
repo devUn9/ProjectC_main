@@ -34,7 +34,7 @@ public class PlayerState
 
         stateInputVec.x = Input.GetAxisRaw("Horizontal");
         stateInputVec.y = Input.GetAxisRaw("Vertical");
-
+        stateInputVec = stateInputVec.normalized;
         //이동 사격 시 trigger작동을 위한 조건문
         //이동 사격 state로직 마지막에 두면 다른 애니매이션 동작 중간에 다른 state로 변경되어 trigger 발동 하지않음
         if (triggerCalled && player.isMovingAttack)
