@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class EffectTest : MonoBehaviour
 {
+    private GameObject player;
 
     void Start()
     {
-        
+        player = PlayerManager.instance.player;
     }
 
 
     void Update()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         if (player != null)
         {
@@ -26,6 +26,7 @@ public class EffectTest : MonoBehaviour
         else
         {
             Debug.LogWarning("플레이어를 찾을 수 없습니다.");
+            player = PlayerManager.instance.player;
         }
     }
 

@@ -521,7 +521,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -6451326194831460938, guid: 1d53b818d490f924ead28abc132be652, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -588,17 +588,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   finalAttackInputVec: {x: 0, y: 0, z: 0}
-  attackStatusRemainTime: 0
-  isMovingAttack: 0
   bulletPrefab: {fileID: 857579978013763025, guid: a3938c5afa0b40c4391e9220371ca284, type: 3}
   attackStateTimer: 0.5
+  daggerAttackDir: {x: 0, y: 0}
+  isMovingAttack: 0
+  attackStatusRemainTime: 0
+  beforeState: 
   interactionCheck: {fileID: 882180821}
   interactionDistance: {x: 0, y: 0, z: 0}
   interactionRadius: 0.2
-  detectionLayers:
+  raycastDirection: {x: 0, y: 0}
+  detectionEnemyLayers:
     serializedVersion: 2
     m_Bits: 0
-  raycastDirection: {x: 0, y: 0}
+  lastDirection: {x: 0, y: 0}
+  isDaggerAttack: 0
+  daggerAttackEffectPrefab: {fileID: 0}
 --- !u!70 &213438481
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -725,7 +730,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 624b11a7079d3754bbe2e15314e1241d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 5
+  alertRange: 15
+  detectRange: 5
 --- !u!1 &307171778
 GameObject:
   m_ObjectHideFlags: 0
@@ -51701,7 +51707,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &920939817
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51760,6 +51766,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27d79d877344544cb7a240871f1f30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionRange: 0
+  player: {fileID: 0}
+  interactive_KeyUI: {fileID: 0}
+  IE: {fileID: 0}
+  DM: {fileID: 0}
 --- !u!212 &920939819
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -51881,17 +51892,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   finalAttackInputVec: {x: 0, y: 0, z: 0}
-  attackStatusRemainTime: 0
-  isMovingAttack: 0
   bulletPrefab: {fileID: 857579978013763025, guid: a3938c5afa0b40c4391e9220371ca284, type: 3}
   attackStateTimer: 0.5
+  daggerAttackDir: {x: 0, y: 0}
+  isMovingAttack: 0
+  attackStatusRemainTime: 0
+  beforeState: 
   interactionCheck: {fileID: 526638896}
   interactionDistance: {x: 0, y: 0, z: 0}
   interactionRadius: 0.2
-  detectionLayers:
+  raycastDirection: {x: 0, y: 0}
+  detectionEnemyLayers:
     serializedVersion: 2
     m_Bits: 0
-  raycastDirection: {x: 0, y: 0}
+  lastDirection: {x: 0, y: 0}
+  isDaggerAttack: 0
+  daggerAttackEffectPrefab: {fileID: 0}
 --- !u!70 &1075303874
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

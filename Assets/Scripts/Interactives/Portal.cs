@@ -44,8 +44,7 @@ public class Portal : MonoBehaviour
             {
                 confiner.BoundingShape2D = targetBoundingShape; // 새로운 경계 설정
                 confiner.InvalidateBoundingShapeCache(); // 캐시 무효화로 경계 재계산
-                virtualCamera.ForceCameraPosition(player.transform.position, Quaternion.identity);
-                Debug.LogWarning("디버그 경로는 문제없음");
+                virtualCamera.ForceCameraPosition(player.transform.position, Quaternion.identity); 
             }
             else
             {

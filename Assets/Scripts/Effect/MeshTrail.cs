@@ -41,16 +41,6 @@ public class SpriteTrail : MonoBehaviour
         InitializeTrailPool();
     }
 
-    private void Update()
-    {
-        //임시 나중에 이 부분 삭제하고 플레이어 스크립트 수정
-        if(Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            StartTrail();
-        }
-
-    }
-    
     public void StartTrail()
     {
         if (!isTrailActive)
