@@ -70,24 +70,16 @@ public class EffectManager : MonoBehaviour
             return null;
         }
 
-        // local 기준 offset → world 기준 위치로 변환
-        Vector3 spawnPos = followTarget.TransformPoint(offset);
-
-        GameObject obj = Instantiate(data.prefab, spawnPos, followTarget.rotation);
-        obj.transform.SetParent(followTarget);
+        GameObject obj = Instantiate(data.prefab, followTarget); 
+        obj.transform.localPosition = offset;                    
+        obj.transform.localRotation = Quaternion.identity;       
 
         EffectController controller = obj.AddComponent<EffectController>();
         controller.Initialize(data);
-        controller.Play(spawnPos, followTarget.rotation, data.duration);
-
-        FollowTarget follow = obj.AddComponent<FollowTarget>();
-        follow.target = followTarget;
-        follow.offset = offset; 
+        controller.Play(obj.transform.position, obj.transform.rotation, data.duration);
 
         return controller;
     }
-
-
 
 
 
