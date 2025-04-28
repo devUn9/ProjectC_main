@@ -260,7 +260,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7085345}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 566e186a7e02b50489cb3ef01d4e3088, type: 3}
   m_Name: 
@@ -269,11 +269,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3072
   maxDistance: 5
-  grappleSpeed: 10
+  grappleSpeed: 20
   grappleShootSpeed: 30
   itemCount: 0
   isRetractingPlayer: 0
   isRetractingObject: 0
+  isUpgrade: 0
 --- !u!120 &7085351
 LineRenderer:
   serializedVersion: 2
@@ -340,25 +341,25 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.13510147, g: 0.8679245, b: 0.7908729, a: 1}
-      key1: {r: 0.13510147, g: 0.8679245, b: 0.7908729, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 0.34509805, g: 0, b: 1, a: 1}
+      key1: {r: 0.34509805, g: 0, b: 1, a: 0.84313726}
+      key2: {r: 0, g: 0.5882353, b: 1, a: 1}
+      key3: {r: 0, g: 0.84313726, b: 1, a: 0}
+      key4: {r: 0.44705883, g: 1, b: 1, a: 0}
+      key5: {r: 0.44705883, g: 1, b: 1, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
+      ctime1: 19661
+      ctime2: 39321
+      ctime3: 58982
+      ctime4: 65535
+      ctime5: 65535
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 0
+      atime1: 39128
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -366,8 +367,8 @@ LineRenderer:
       atime7: 0
       m_Mode: 1
       m_ColorSpace: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumColorKeys: 5
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 20
     alignment: 0
@@ -386,17 +387,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7085345}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 335d2ceb03804774d9384f66dcecdcda, type: 3}
+  m_Script: {fileID: 11500000, guid: a50054cabec667b4b84a418f5e06e8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallMask:
+  grapplableMask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 3072
   maxDistance: 10
   grappleSpeed: 10
   grappleShootSpeed: 20
+  itemCount: 0
+  isRetractingPlayer: 0
+  isRetractingObject: 0
+  isUpgrade: 0
 --- !u!1 &214574611
 GameObject:
   m_ObjectHideFlags: 0
@@ -53989,6 +53994,7 @@ MonoBehaviour:
   itemCount: 0
   isRetractingPlayer: 0
   isRetractingObject: 0
+  isUpgrade: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
