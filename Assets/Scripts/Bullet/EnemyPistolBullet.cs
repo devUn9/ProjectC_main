@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
-public class PistolBullet : MonoBehaviour
+public class EnemyPistolBullet : MonoBehaviour
 {
     [SerializeField] private float speed;
-    //Player player;
-    Vector2 MousePos;
+    Vector2 startPos;
     Transform tr;
     Vector3 dir;
 
@@ -15,17 +15,17 @@ public class PistolBullet : MonoBehaviour
     private void Start()
     {
         tr = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        MousePos = Input.mousePosition;
-        MousePos = Camera.main.ScreenToWorldPoint(MousePos);
-        Vector3 Pos = new Vector3(MousePos.x, MousePos.y, 0);
-        dir = Pos - tr.position;
+        startPos = transform.position;
+        Vector3 Pos = new Vector3(startPos.x, startPos.y, 0);
+
+        dir = tr.position - Pos;
 
         //바라보는 각도구하기
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
         //normalized 단위벡터
         dirNo = new Vector3(dir.x, dir.y, 0).normalized;
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 2.4f);
     }
     private void Update()
     {
@@ -36,9 +36,9 @@ public class PistolBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         int layer = collision.gameObject.layer;
-        if (layer == LayerMask.NameToLayer("Enemy"))
+        if (layer == LayerMask.NameToLayer("Player"))
         {
-            Debug.Log("Enemy에게 빅 Damage.");
+            Debug.Log("Player에게 빅 Damage.");
         }
         Destroy(gameObject);
     }

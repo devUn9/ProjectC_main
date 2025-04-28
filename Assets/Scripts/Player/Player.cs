@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+ï»¿using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 
     [Header("AttackState Info")]
     public GameObject bulletPrefab;
-    public float attackStateTimer = 0.5f;   //°ø°İ ¾Ö´Ï¸ÅÀÌ¼Ç ¹ßµ¿ÈÄ ¾à°£ÀÇ ¹æÇâ À¯Áö¸¦ À§ÇÑ ½Ã°£ Â÷ don't touch plz
+    public float attackStateTimer = 0.5f;   //ê³µê²© ì• ë‹ˆë§¤ì´ì…˜ ë°œë™í›„ ì•½ê°„ì˜ ë°©í–¥ ìœ ì§€ë¥¼ ìœ„í•œ ì‹œê°„ ì°¨ don't touch plz
     public Vector2 daggerAttackDir;
     public bool isMovingAttack = false;
     public float attackStatusRemainTime;
@@ -21,13 +21,13 @@ public class Player : MonoBehaviour
     public string beforeState;
 
     [Header("Interaction Info")]
-    [SerializeField] protected Transform interactionCheck;   // »óÈ£ÀÛ¿ë Ã¼Å© À§Ä¡ÀÇ ±âÁØÁ¡
-    [SerializeField] private Vector3 interactionDistance;    // »óÈ£ÀÛ¿ë °Å¸® ¼³Á¤°ª
-    [SerializeField] private float interactionRadius;        // »óÈ£ÀÛ¿ë °¨Áö ¹İ°æ
-    [SerializeField] private Vector2 raycastDirection;       // ·¹ÀÌÄ³½ºÆ® ¹æÇâ
-    [SerializeField] private LayerMask detectionEnemyLayers; // Enemy ·¹ÀÌ¾î ¼³Á¤
-    public Vector2 lastDirection;                           // ¸¶Áö¸·À¸·Î ÀÌµ¿ÇÑ ¹æÇâ ÀúÀå
-    private Vector3 gizmoDistance;                           // ±âÁî¸ğ¸¦ ±×¸± À§Ä¡ °è»ê¿ë º¯¼ö
+    [SerializeField] protected Transform interactionCheck;   // ìƒí˜¸ì‘ìš© ì²´í¬ ìœ„ì¹˜ì˜ ê¸°ì¤€ì 
+    [SerializeField] private Vector3 interactionDistance;    // ìƒí˜¸ì‘ìš© ê±°ë¦¬ ì„¤ì •ê°’
+    [SerializeField] private float interactionRadius;        // ìƒí˜¸ì‘ìš© ê°ì§€ ë°˜ê²½
+    [SerializeField] private Vector2 raycastDirection;       // ë ˆì´ìºìŠ¤íŠ¸ ë°©í–¥
+    [SerializeField] private LayerMask detectionEnemyLayers; // Enemy ë ˆì´ì–´ ì„¤ì •
+    public Vector2 lastDirection;                           // ë§ˆì§€ë§‰ìœ¼ë¡œ ì´ë™í•œ ë°©í–¥ ì €ì¥
+    private Vector3 gizmoDistance;                           // ê¸°ì¦ˆëª¨ë¥¼ ê·¸ë¦´ ìœ„ì¹˜ ê³„ì‚°ìš© ë³€ìˆ˜
 
     [Header("Melee Attack Info")]
     public bool isDaggerAttack = false;
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
         Gizmos.DrawWireSphere(interactionCheck.position + gizmoDistance, interactionRadius);
     }
 
-    // ÀÔ·Â °ª ±â¹İÀ¸·Î ·¹ÀÌÄ³½ºÆ® ¹æÇâ ¼³Á¤
+    // ì…ë ¥ ê°’ ê¸°ë°˜ìœ¼ë¡œ ë ˆì´ìºìŠ¤íŠ¸ ë°©í–¥ ì„¤ì •
     public Vector3 SetRaycastDirectionFromInput(Vector2 inputVector)
     {
         if (inputVector.magnitude > 0.1f)
@@ -121,7 +121,7 @@ public class Player : MonoBehaviour
         return raycastDirection * 0.7f;
     }
 
-    //»óÈ£ÀÛ¿ë
+    //ìƒí˜¸ì‘ìš©
     public void Interaction()
     {
         Vector3 checkPosition = interactionCheck.position + gizmoDistance;
@@ -131,20 +131,20 @@ public class Player : MonoBehaviour
         if (colliders != null)
         {
             if (colliders.GetComponent<Npc>() != null)
-                Debug.Log("NPC»óÈ£ÀÛ¿ë");  // NPC¿Í »óÈ£ÀÛ¿ë
+                Debug.Log("NPCìƒí˜¸ì‘ìš©");  // NPCì™€ ìƒí˜¸ì‘ìš©
             else if (colliders.GetComponent<Obj>() != null)
-                Debug.Log("OBJ»óÈ£ÀÛ¿ë");  // ÀÏ¹İ ¿ÀºêÁ§Æ®¿Í »óÈ£ÀÛ¿ë
-            else if (colliders.gameObject.layer == LayerMask.NameToLayer("Enemy"))    //ÀûÀÌ °¨ÁöµÈ °æ¿ì
+                Debug.Log("OBJìƒí˜¸ì‘ìš©");  // ì¼ë°˜ ì˜¤ë¸Œì íŠ¸ì™€ ìƒí˜¸ì‘ìš©
+            else if (colliders.gameObject.layer == LayerMask.NameToLayer("Enemy"))    //ì ì´ ê°ì§€ëœ ê²½ìš°
             {
                 isDaggerAttack = true;
                 Instantiate(daggerAttackEffectPrefab, interactionCheck.position + gizmoDistance, Quaternion.identity);
             }
             else
-                Debug.Log("ÀÎ½ÄÇÒ ¼ö ¾ø´Â ¿ÀºêÁ§Æ®ÀÔ´Ï´Ù.");
+                Debug.Log("ì¸ì‹í•  ìˆ˜ ì—†ëŠ” ì˜¤ë¸Œì íŠ¸ì…ë‹ˆë‹¤.");
         }
         else
         {
-            Debug.Log("±ÙÃ³¿¡ ¿ÀºêÁ§Æ®°¡ ¾ø½À´Ï´Ù.");  // °¨ÁöµÈ ¿ÀºêÁ§Æ®°¡ ¾øÀ½
+            Debug.Log("ê·¼ì²˜ì— ì˜¤ë¸Œì íŠ¸ê°€ ì—†ìŠµë‹ˆë‹¤.");  // ê°ì§€ëœ ì˜¤ë¸Œì íŠ¸ê°€ ì—†ìŒ
         }
     }
 

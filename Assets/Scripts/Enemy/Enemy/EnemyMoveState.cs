@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyMoveState : EnemyState
 {
@@ -18,6 +18,13 @@ public class EnemyMoveState : EnemyState
         base.Update();
         enemy.moveTimer -= Time.deltaTime;
 
+        if (enemy.isBattle)
+        {
+            if (EnemyToPlayerDistance() > 3.5f)
+                return;
+            stateMachine.ChangeState(enemy.attackState);
+        }
+
         if (enemy.moveTimer < 0)
             stateMachine.ChangeState(enemy.idleState);
 
@@ -31,7 +38,6 @@ public class EnemyMoveState : EnemyState
             enemy.anim.SetFloat("VelocityY", enemy.moveDirection);
             enemy.SetVelocity(0, enemy.moveSpeed * enemy.moveDirection);
         }
-
     }
     public override void Exit()
     {
