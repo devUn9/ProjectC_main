@@ -42,7 +42,8 @@ public class EffectManager : MonoBehaviour
         }
     }
 
-    public void PlayEffect(EffectType effectType, Vector3 position, Quaternion rotation = default)  // 특정 위치와 방향에서 이펙트 생성 함수
+    // 특정 위치와 방향에서 이펙트 생성 함수 (이펙트 타입, 생성 위치, 초기 회전(입력 필수 아님))
+    public void PlayEffect(EffectType effectType, Vector3 position, Quaternion rotation = default)  
     {
         if (!effectDataMap.TryGetValue(effectType, out EffectData data))
         {
@@ -61,8 +62,9 @@ public class EffectManager : MonoBehaviour
         } 
     }
 
+    // 이펙트 컨트롤러 반환하고 타겟을 따라가는 이펙트 생성함수 (이펙트 타입, 타겟 위치, 초기 회전, 위치 조정) (초기 회전과 위치 조정은 입력 필수 아님) 
 
-    public EffectController PlayEffectFollow(EffectType effectType, Transform followTarget, Vector3 offset = default)
+    public EffectController PlayEffectFollow(EffectType effectType, Transform followTarget, Quaternion rotation = default, Vector3 offset = default)
     {
         if (!effectDataMap.TryGetValue(effectType, out EffectData data))
         {
@@ -70,9 +72,9 @@ public class EffectManager : MonoBehaviour
             return null;
         }
 
-        GameObject obj = Instantiate(data.prefab, followTarget); 
-        obj.transform.localPosition = offset;                    
-        obj.transform.localRotation = Quaternion.identity;       
+        GameObject obj = Instantiate(data.prefab, followTarget);
+        obj.transform.localPosition = offset;
+        obj.transform.localRotation = rotation;
 
         EffectController controller = obj.AddComponent<EffectController>();
         controller.Initialize(data);
@@ -80,6 +82,7 @@ public class EffectManager : MonoBehaviour
 
         return controller;
     }
+
 
 
 
