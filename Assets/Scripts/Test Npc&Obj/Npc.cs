@@ -2,15 +2,30 @@
 
 public class Npc : MonoBehaviour
 {
+    public static Npc instance;
     public float interactionRange;
     public Transform player;
     public GameObject interactive_KeyUI;
+    public GameObject selectInterface; // 선택 인터페이스 UI
 
-    public InteractionEvent IE; // InteractionEvent 참조
-    public DialogueManager DM; // DialogueManager 참조
+    private InteractionEvent IE; // InteractionEvent 참조
+    private DialogueManager DM; // DialogueManager 참조
 
     private bool isPlayerNearby = false;
+    private bool doSomething = false;
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+    
     void Start()
     {
         IE = GetComponent<InteractionEvent>();
@@ -19,28 +34,41 @@ public class Npc : MonoBehaviour
 
     void Update()
     {
-        float distance = Vector3.Distance(player.position, transform.position);
-
-        isPlayerNearby = distance <= interactionRange;
-
+        CheckNearby();
         InteractiveKeySet();
+        CheckInput();
+    }
 
+    private void CheckInput()
+    {
         if (Input.GetKeyDown(KeyCode.E) && isPlayerNearby)
         {
-            Debug.Log("실행됨");
-            if (IE != null && DM != null)
-            {
-                // InteractionEvent에서 대화 데이터를 가져와 DialogueManager로 전달
-                DM.ShowDialogue(IE.GetDialogues());
-            }
+            doSomething = true;
+            ShowSelectInterface();
         }
+    }
+
+    private void CheckNearby()
+    {
+        float distance = Vector3.Distance(player.position, transform.position);
+        isPlayerNearby = distance <= interactionRange;
     }
 
     private void InteractiveKeySet()
     {
-        if (isPlayerNearby)
+        if (isPlayerNearby && !doSomething)
             interactive_KeyUI.SetActive(true);
         else
             interactive_KeyUI.SetActive(false);
+    }
+
+    private void ShowSelectInterface()
+    {
+        selectInterface.SetActive(true);
+    }
+
+    public void ShowDialogue()
+    {
+        DM.ShowDialogue(IE.GetDialogues());
     }
 }
