@@ -27,7 +27,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - SightEffect
   - 
   - 
   - 
@@ -45,6 +45,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3660821743
+    locked: 0
+  - name: SightEffect
+    uniqueID: 1932469415
     locked: 0
   m_RenderingLayers:
   - Default

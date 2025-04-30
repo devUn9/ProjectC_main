@@ -21,7 +21,7 @@ public class EnemySightTest : MonoBehaviour
     {
         _player = PlayerManager.instance.player;
 
-        sightEffect = EffectManager.Instance.PlayEffectFollow(EffectType.EnemySightEffect, transform, Quaternion.Euler(0, 0, -90f));
+        sightEffect = EffectManager.Instance.PlayEffectFollow(EffectType.EnemySightEffect, transform, Quaternion.Euler(0, 0, -180f));
 
         UpdateState(EnemySightState.Patrol); 
     }
@@ -58,11 +58,11 @@ public class EnemySightTest : MonoBehaviour
         switch (currentState)
         {
             case EnemySightState.Patrol:
-                sightEffect.SetSightEffect(0.2f, Quaternion.Euler(0, 0, -90f), 60f);
+                sightEffect.SetSightEffect(0.2f, Quaternion.Euler(0, 0, -180f), 60f);
                 break;
 
             case EnemySightState.Alert:
-                sightEffect.SetSightEffect(0.3f, Quaternion.Euler(0, 0, 0f), 90f);
+                sightEffect.SetSightEffect(0.3f, Quaternion.Euler(0, 0, -90f), 90f);
                 break;
 
             case EnemySightState.Detected:
