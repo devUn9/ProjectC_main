@@ -3,51 +3,64 @@ using UnityEngine;
 
 public class GrappleHook5 : MonoBehaviour
 {
+    // 로프 시각화를 위한 LineRenderer 컴포넌트
     private LineRenderer line;
 
     [Header("Grappling 설정")]
-    [SerializeField] LayerMask grapplableMask;
-    [SerializeField] float maxDistance = 10f;
-    [SerializeField] float grappleSpeed = 10f;
-    [SerializeField] float grappleShootSpeed = 20f;
+    [SerializeField] LayerMask grapplableMask;   // 그래플링 가능한 오브젝트의 레이어 마스크
+    [SerializeField] float maxDistance = 10f;     // 그래플링 최대 거리
+    [SerializeField] float grappleSpeed = 10f;    // 끌려오는 속도 (플레이어나 오브젝트)
+    [SerializeField] float grappleShootSpeed = 20f; // 훅 발사 속도 (현재 미사용)
 
-    private bool isGrappling = false;
+    private bool isGrappling = false;             // 그래플링 중인지 여부
 
-    private Vector2 target;
-    private Transform targetObject;
-    private float retractTimer = 0f;
-    public int itemCount;
-    private Vector2 pullStopPosition;
+    private Vector2 target;                       // 플레이어가 이동할 목표 지점 (벽 그래플링)
+    private Transform targetObject;               // 끌어올 오브젝트 참조
+    private float retractTimer = 0f;              // 오브젝트 끌기 제한 시간용 타이머
+    public int itemCount;                         // 수집한 아이템 개수
+    private Vector2 pullStopPosition;             // 오브젝트가 멈출 위치 (플레이어 앞)
 
-    [HideInInspector] public bool isRetractingPlayer = false;
-    [HideInInspector] public bool isRetractingObject = false;
+    [HideInInspector] public bool isRetractingPlayer = false;  // 플레이어가 이동 중인지 여부
+    [HideInInspector] public bool isRetractingObject = false;  // 오브젝트가 끌려오는 중인지 여부
 
-    public bool isUpgrade = false;
-    public float SpeedMultiplier => isUpgrade ? 1.5f : 1f;
+    public bool isUpgrade = false;                // 속도 업그레이드 여부
+    public float SpeedMultiplier => isUpgrade ? 1.5f : 1f;   // 속도 배율 계산
 
-    private bool isTargetLocked = false;
-    private RaycastHit2D lockedHit;
+    private bool isTargetLocked = false;   // 타겟이 고정되었는지 여부
+    private RaycastHit2D lockedHit;        // 고정된 타겟 정보 저장
+
+    [SerializeField] private GameObject crosshair;  // 조준점 이미지 오브젝트
 
     private void Start()
     {
-        line = GetComponent<LineRenderer>();
+        line = GetComponent<LineRenderer>();  // LineRenderer 컴포넌트 초기화
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        // 우클릭 누르고 있는 동안 조준 (계속 감지)
+        if (!isGrappling && Input.GetMouseButton(1))
         {
-            if (!isGrappling && !isTargetLocked)
-                LockTarget();
-            else if (isTargetLocked && !isGrappling)
-                ExecuteGrapple();
+            LockTarget(); // 지속적으로 Raycast로 감지 (대상 있을 때만 조준점 표시)
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-            CancelGrappleTarget();
+        // 우클릭 뗄 때: 조준이 완료된 상태면 실행
+        if (!isGrappling && Input.GetMouseButtonUp(1) && isTargetLocked)
+        {
+            ExecuteGrapple(); // 조준했던 대상에 대해 그래플링 실행
+        }
 
+        // 0번을 누르면 연결 해제
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            CancelGrappleTarget();
+        }
+
+        // 라인 렌더러의 시작점을 항상 플레이어 위치로 갱신
         if (line.enabled)
+        {
             line.SetPosition(0, transform.position);
+        }
 
         if (isTargetLocked)
         {
@@ -56,18 +69,25 @@ public class GrappleHook5 : MonoBehaviour
                 CancelGrappleTarget();
         }
 
+        // 플레이어 이동 처리
         if (isRetractingPlayer)
             HandlePlayerRetract();
 
+        // 오브젝트 끌어오기 처리
         if (isRetractingObject)
             HandleObjectRetract();
 
-        if (isUpgrade)
+        // 속도 업그레이드 처리
+        if (isUpgrade == true)
             SpeedUpgrade();
     }
 
-    private void SpeedUpgrade() { }
+    private void SpeedUpgrade() 
+    {
+        // 속도 업그레이드 기능 예정
+    }
 
+    // 그래플링 훅 발사 메서드
     private void StartGrapple()
     {
         Vector2 origin = transform.position;
@@ -84,39 +104,47 @@ public class GrappleHook5 : MonoBehaviour
 
             int targetLayer = hit.collider.gameObject.layer;
 
+            // 오브젝트 그래플링 처리
             if (targetLayer == LayerMask.NameToLayer("Grappleable"))
             {
                 targetObject = hit.collider.transform;
 
+                // 플레이어와 오브젝트 충돌 무시 설정
                 Collider2D playerCol = GetComponentInParent<Collider2D>();
                 Collider2D targetCol = targetObject.GetComponent<Collider2D>();
 
                 if (playerCol && targetCol)
                     Physics2D.IgnoreCollision(playerCol, targetCol, true);
 
+                // 플레이어 앞 1f 지점으로 끌어올 위치 계산
                 Vector2 dirToPlayer = ((Vector2)transform.position - (Vector2)targetObject.position).normalized;
                 pullStopPosition = (Vector2)transform.position + dirToPlayer * -1f;
 
                 StartCoroutine(Grapple(targetObject.position, false));
             }
+            // 벽 그래플링 처리
             else if (targetLayer == LayerMask.NameToLayer("Grappeable2"))
             {
-                target = hit.point;
+                target = hit.point; // 벽 위치로 설정
                 StartCoroutine(Grapple(target, true));
             }
         }
     }
 
+    // 플레이어가 벽으로 끌려가는 처리
     private void HandlePlayerRetract()
     {
+        // 로프 시각화 갱신
         transform.parent.position = Vector2.MoveTowards(transform.parent.position, target, grappleSpeed * Time.deltaTime);
         line.SetPosition(0, transform.position);
         line.SetPosition(1, target);
 
+        // 목표 지점 도착 시 종료
         if (Vector2.Distance(transform.parent.position, target) < 0.5f)
             ResetGrapple();
     }
 
+    // 오브젝트를 끌어오는 처리
     private void HandleObjectRetract()
     {
         if (!targetObject)
@@ -128,9 +156,11 @@ public class GrappleHook5 : MonoBehaviour
         retractTimer += Time.deltaTime;
         targetObject.position = Vector2.MoveTowards(targetObject.position, pullStopPosition, grappleSpeed * Time.deltaTime);
 
+        // 로프 시각화 갱신
         line.SetPosition(0, transform.position);
         line.SetPosition(1, targetObject.position);
 
+        // 도착 시 판정 처리
         if (Vector2.Distance(targetObject.position, pullStopPosition) < 0.1f || retractTimer > 3f)
         {
             if (targetObject.CompareTag("Collectible"))
@@ -146,6 +176,7 @@ public class GrappleHook5 : MonoBehaviour
         }
     }
 
+    // 그래플링 상태 초기화
     private void ResetGrapple()
     {
         if (targetObject)
@@ -165,10 +196,14 @@ public class GrappleHook5 : MonoBehaviour
         retractTimer = 0f;
     }
 
+    // 훅 발사 애니메이션 코루틴
     IEnumerator Grapple(Vector2 targetPosition, bool isPlayerMoving)
     {
         float t = 0f;
         float time = 0.2f;
+
+        line.enabled = true;
+        line.positionCount = 2;
 
         line.SetPosition(0, transform.position);
         line.SetPosition(1, transform.position);
@@ -189,6 +224,7 @@ public class GrappleHook5 : MonoBehaviour
             isRetractingObject = true;
     }
 
+    // 적 오브젝트 기절 효과 코루틴
     IEnumerator StunObject(Transform obj)
     {
         SpriteRenderer sp = obj.GetComponent<SpriteRenderer>();
@@ -196,13 +232,14 @@ public class GrappleHook5 : MonoBehaviour
         if (sp)
         {
             Color originalColor = sp.color;
-            sp.color = Color.yellow;
+            sp.color = Color.yellow; // 기절 색상
             yield return new WaitForSeconds(0.5f);
-            sp.color = originalColor;
+            sp.color = originalColor; // 원래 색상 복구
         }
         ResetGrapple();
     }
 
+    // 레이캐스트로 타겟을 맞추고, 라인만 표시
     private void LockTarget()
     {
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -213,19 +250,26 @@ public class GrappleHook5 : MonoBehaviour
             isTargetLocked = true;
             lockedHit = hit;
 
-            line.enabled = true;
-            line.positionCount = 2;
-            line.SetPosition(0, transform.position);
-            line.SetPosition(1, hit.point);
+            // 월드 좌표 → 화면 좌표 변환
+            Vector3 screenPos = Camera.main.WorldToScreenPoint(hit.point);
+            crosshair.transform.position = screenPos;
+
+            crosshair.SetActive(true);  // 조준점 보이게
+        }
+        else
+        {
+            crosshair.SetActive(false); // 감지 안 되면 숨김
         }
     }
 
+    // 고정된 lockedHit 정보를 이용해서 기존 StartGrapple() 로직 실행
     private void ExecuteGrapple()
     {
         if (!lockedHit.collider)
         {
             isTargetLocked = false;
             line.enabled = false;
+            crosshair.SetActive(false);
             return;
         }
 
@@ -245,15 +289,20 @@ public class GrappleHook5 : MonoBehaviour
             StartCoroutine(Grapple(target, true));
         }
 
-        isTargetLocked = false;
+        isTargetLocked = false; // 실행 후 타겟 해제
+        crosshair.SetActive(false);
     }
 
+    // 0번 입력으로 타겟팅 취소
     private void CancelGrappleTarget()
     {
         if (isTargetLocked)
         {
             isTargetLocked = false;
-            line.enabled = false;
+            crosshair.SetActive(false);  // 조준점 숨김
         }
+
+        line.enabled = false;
     }
+
 }

@@ -1,12 +1,15 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using TMPro;
 
 public class MouseHover : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI speedText;
-    [SerializeField] private SpriteRenderer hoverImage; // 2D ½ºÇÁ¶óÀÌÆ®
-    [SerializeField] private Vector3 textOffset = new Vector3(0, 2f, 0); // ÅØ½ºÆ® ¿ÀÇÁ¼Â (World)
-    [SerializeField] private Vector3 imageOffset = new Vector3(0, 1f, 0); // ÀÌ¹ÌÁö ¿ÀÇÁ¼Â (World)
+    [SerializeField] private SpriteRenderer hoverImage; // 2D ìŠ¤í”„ë¼ì´íŠ¸
+    [SerializeField] private Vector3 textOffset = new Vector3(0, 2f, 0); // í…ìŠ¤íŠ¸ ì˜¤í”„ì…‹ (World)
+    [SerializeField] private Vector3 imageOffset = new Vector3(0, 1f, 0); // ì´ë¯¸ì§€ ì˜¤í”„ì…‹ (World)
+   
+ 
+
     private Enemy enemy;
     private CanvasGroup textCanvasGroup;
     private Camera mainCamera;
@@ -27,12 +30,12 @@ public class MouseHover : MonoBehaviour
         if (textCanvasGroup == null)
             textCanvasGroup = speedText.gameObject.AddComponent<CanvasGroup>();
 
-        //// speedText¿Í hoverImage¸¦ ÀûÀÇ ÀÚ½ÄÀ¸·Î ¼³Á¤
+        //// speedTextì™€ hoverImageë¥¼ ì ì˜ ìì‹ìœ¼ë¡œ ì„¤ì •
         //speedText.transform.SetParent(transform);
         //hoverImage.transform.SetParent(transform);
 
         textCanvasGroup.alpha = 0f;
-        hoverImage.color = new Color(1, 1, 1, 0); // ÀÌ¹ÌÁö ÃÊ±â Åõ¸í
+        hoverImage.color = new Color(1, 1, 1, 0); // ì´ë¯¸ì§€ ì´ˆê¸° íˆ¬ëª…
     }
 
     private void Update()
@@ -50,19 +53,19 @@ public class MouseHover : MonoBehaviour
         {
             if (!wasMouseOver)
             {
-                speedText.text = $"ÀÌµ¿¼Óµµ : {enemy.moveSpeed}";
+                speedText.text = $"ì´ë™ì†ë„ : {enemy.moveSpeed}";
                 textCanvasGroup.alpha = 1f;
-                hoverImage.color = new Color(1, 1, 1, 0.75f); // ÀÌ¹ÌÁö Ç¥½Ã
+                hoverImage.color = new Color(1, 1, 1, 0.75f); // ì´ë¯¸ì§€ í‘œì‹œ
             }
 
-            // ÀÚ½Ä ¿ÀºêÁ§Æ®ÀÇ ·ÎÄÃ À§Ä¡·Î ¿ÀÇÁ¼Â Àû¿ë
+            // ìì‹ ì˜¤ë¸Œì íŠ¸ì˜ ë¡œì»¬ ìœ„ì¹˜ë¡œ ì˜¤í”„ì…‹ ì ìš©
             speedText.transform.localPosition = textOffset;
             hoverImage.transform.localPosition = imageOffset;
         }
         else if (wasMouseOver)
         {
             textCanvasGroup.alpha = 0f;
-            hoverImage.color = new Color(1, 1, 1, 0); // ÀÌ¹ÌÁö ¼û±è
+            hoverImage.color = new Color(1, 1, 1, 0); // ì´ë¯¸ì§€ ìˆ¨ê¹€
             speedText.text = "";
         }
     }
