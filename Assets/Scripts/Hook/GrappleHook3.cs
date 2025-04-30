@@ -201,7 +201,7 @@ public class GrappleHook3 : MonoBehaviour
 
         while (t < time)
         {
-            t += Time.deltaTime;
+            t += grappleShootSpeed * Time.deltaTime;
 
             Vector2 newPos = Vector2.Lerp(transform.position, targetPosition, t / time);
 
