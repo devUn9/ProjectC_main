@@ -898,7 +898,37 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      crosshair shooting sprite_0: 2715406610453178584
+      crosshair shooting sprite_1: 6908459020995364847
+      crosshair shooting sprite_10: -1240491429723214240
+      crosshair shooting sprite_11: 4216957026882723742
+      crosshair shooting sprite_12: -5001144708940953674
+      crosshair shooting sprite_13: 5302806352773278571
+      crosshair shooting sprite_14: 11288252896362929
+      crosshair shooting sprite_15: 5045621108230947316
+      crosshair shooting sprite_16: -8641168657642067078
+      crosshair shooting sprite_17: 5957907470682606131
+      crosshair shooting sprite_18: 3584657474712701000
+      crosshair shooting sprite_19: 3066279471191563629
+      crosshair shooting sprite_2: 4710283760013340675
+      crosshair shooting sprite_20: -7571366548450202033
+      crosshair shooting sprite_21: -3262833559717044037
+      crosshair shooting sprite_22: -6874916638119019563
+      crosshair shooting sprite_23: -4822710165102641733
+      crosshair shooting sprite_24: 2893790447142373416
+      crosshair shooting sprite_25: -800958271468560785
+      crosshair shooting sprite_26: -7684938852009485179
+      crosshair shooting sprite_27: -1428312307955478781
+      crosshair shooting sprite_28: -1001912466798671484
+      crosshair shooting sprite_29: 2837211821655196778
+      crosshair shooting sprite_3: -4544875074150208840
+      crosshair shooting sprite_4: -95421948216075786
+      crosshair shooting sprite_5: 1792457024218181760
+      crosshair shooting sprite_6: -4095880168364142283
+      crosshair shooting sprite_7: -7192320243983194453
+      crosshair shooting sprite_8: -2886455434480587933
+      crosshair shooting sprite_9: -2404651556073599665
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
