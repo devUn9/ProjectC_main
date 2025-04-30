@@ -223,7 +223,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Scalable_Slider-yellow_0: -3986775388366086263
+      Scalable_Slider-yellow_1: 1350976031694207798
+      Scalable_Slider-yellow_2: 6452171556462485653
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

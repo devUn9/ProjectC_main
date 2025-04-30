@@ -298,7 +298,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tablet_spritesheet_yellow_0: -362890892994045242
+      tablet_spritesheet_yellow_1: 4242347170095394301
+      tablet_spritesheet_yellow_2: 8018534740658166191
+      tablet_spritesheet_yellow_3: -5887138214886113337
+      tablet_spritesheet_yellow_4: -4637883346701315488
+      tablet_spritesheet_yellow_5: -4416964489112835156
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

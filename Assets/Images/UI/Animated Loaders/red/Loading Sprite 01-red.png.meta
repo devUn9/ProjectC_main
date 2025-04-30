@@ -948,7 +948,39 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Loading Sprite 01-red_0: 1920600696608899653
+      Loading Sprite 01-red_1: -1507787271745722302
+      Loading Sprite 01-red_10: 3265634791313876952
+      Loading Sprite 01-red_11: -5270848133069371324
+      Loading Sprite 01-red_12: 8296365654643055258
+      Loading Sprite 01-red_13: 7015307214092549304
+      Loading Sprite 01-red_14: 7881845006456274903
+      Loading Sprite 01-red_15: 4050603863184686013
+      Loading Sprite 01-red_16: -8084433016301252330
+      Loading Sprite 01-red_17: 6310041486424907991
+      Loading Sprite 01-red_18: -733770112993872349
+      Loading Sprite 01-red_19: 288698868317274152
+      Loading Sprite 01-red_2: 3999821926601514187
+      Loading Sprite 01-red_20: -395978299242362155
+      Loading Sprite 01-red_21: 5034453024186134090
+      Loading Sprite 01-red_22: 6050430967471980959
+      Loading Sprite 01-red_23: 645645444775874714
+      Loading Sprite 01-red_24: -3111252058166553048
+      Loading Sprite 01-red_25: -6439664065299469408
+      Loading Sprite 01-red_26: -1864926419696264556
+      Loading Sprite 01-red_27: -1034137353397014538
+      Loading Sprite 01-red_28: 7779330784572037473
+      Loading Sprite 01-red_29: -1781896748508532416
+      Loading Sprite 01-red_3: -1018695212483104581
+      Loading Sprite 01-red_30: -3486775573575104216
+      Loading Sprite 01-red_31: 5476316086371056856
+      Loading Sprite 01-red_4: -3625495034895976411
+      Loading Sprite 01-red_5: -6033244463934430267
+      Loading Sprite 01-red_6: -3508926498220597905
+      Loading Sprite 01-red_7: -2045594865387631068
+      Loading Sprite 01-red_8: 498636383526820394
+      Loading Sprite 01-red_9: 5133784456982714640
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

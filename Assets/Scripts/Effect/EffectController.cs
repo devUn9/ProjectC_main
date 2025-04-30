@@ -74,7 +74,6 @@ public class EffectController : MonoBehaviour
     }
 
 
-    // 크기 변하는 코루틴 , 각도는 바로 변하고 크기는 서서히 변함
     private IEnumerator LerpSightEffectCoroutine(float targetRadius, float targetAngle)
     {
         Material mat = spriteRenderer.material;
@@ -83,7 +82,7 @@ public class EffectController : MonoBehaviour
         float startAngle = mat.GetFloat("_Angle");
 
         float elapsed = 0f;
-        float duration = 0.2f; // 변화하는데 걸리는 시간 
+        float duration = 0.3f; // 변화하는데 걸리는 시간 
 
         mat.SetFloat("_Angle", targetAngle);
 
@@ -94,8 +93,10 @@ public class EffectController : MonoBehaviour
             t = Mathf.Clamp01(t); // 혹시 몰라서 안전장치
 
             float tempRadius = Mathf.Lerp(startRadius, targetRadius, t);
+            float tempAngle = Mathf.Lerp(startAngle, targetAngle, t);
 
             mat.SetFloat("_Radius", tempRadius);
+            mat.SetFloat("_Angle", tempAngle);
 
             yield return null;
         }
