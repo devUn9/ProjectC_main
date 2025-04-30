@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Red_tablet_highlighted_0: -9153977935929314639
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

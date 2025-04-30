@@ -948,7 +948,39 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Loading Sprite 01-yellow_0: -4681257305118302294
+      Loading Sprite 01-yellow_1: -2870775901649953745
+      Loading Sprite 01-yellow_10: 3752676484669145622
+      Loading Sprite 01-yellow_11: -5808913367245145277
+      Loading Sprite 01-yellow_12: -4099587447036510745
+      Loading Sprite 01-yellow_13: -4894003533991330504
+      Loading Sprite 01-yellow_14: 4869578234630960602
+      Loading Sprite 01-yellow_15: 9032341814999568771
+      Loading Sprite 01-yellow_16: 8268724102810246251
+      Loading Sprite 01-yellow_17: -7470880932713786872
+      Loading Sprite 01-yellow_18: 8452830740209015873
+      Loading Sprite 01-yellow_19: 392194277343534549
+      Loading Sprite 01-yellow_2: 5529681721686510053
+      Loading Sprite 01-yellow_20: 6996700207020082532
+      Loading Sprite 01-yellow_21: -8041566973328487752
+      Loading Sprite 01-yellow_22: 3069142466773463028
+      Loading Sprite 01-yellow_23: -6263126119581419040
+      Loading Sprite 01-yellow_24: -1087115588691922809
+      Loading Sprite 01-yellow_25: 4198885125588078592
+      Loading Sprite 01-yellow_26: 1829817852928805038
+      Loading Sprite 01-yellow_27: 8673956744400757110
+      Loading Sprite 01-yellow_28: -4166932520137504476
+      Loading Sprite 01-yellow_29: 3288810145253326795
+      Loading Sprite 01-yellow_3: 2330610367054470375
+      Loading Sprite 01-yellow_30: -1865257762796071239
+      Loading Sprite 01-yellow_31: 3790703856145264547
+      Loading Sprite 01-yellow_4: 6015456508578902473
+      Loading Sprite 01-yellow_5: -1557795709814267911
+      Loading Sprite 01-yellow_6: 6080812158871506529
+      Loading Sprite 01-yellow_7: 2670664304534749596
+      Loading Sprite 01-yellow_8: -7837602243312851100
+      Loading Sprite 01-yellow_9: 6814790286112784895
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

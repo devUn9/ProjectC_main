@@ -273,7 +273,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tablet_animation_spritesheet_0: -4005332155936442277
+      tablet_animation_spritesheet_1: -7833054316795480769
+      tablet_animation_spritesheet_2: 8137508507176962519
+      tablet_animation_spritesheet_3: 9034529077760905571
+      tablet_animation_spritesheet_4: 319087728159700999
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

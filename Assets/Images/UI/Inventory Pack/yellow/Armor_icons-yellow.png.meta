@@ -223,7 +223,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Armor_icons-yellow_0: -3708429156537558481
+      Armor_icons-yellow_1: 7973834162735108150
+      Armor_icons-yellow_2: -8735439632997480524
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      weapon animatizeo_nothudnsaze_0: 2938187828736826925
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -248,7 +248,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      betterscreenhud02_red_0: 7797453029571788596
+      betterscreenhud02_red_1: -3344726750190352610
+      betterscreenhud02_red_2: -5958967821324258157
+      betterscreenhud02_red_3: 7888719943909974313
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
