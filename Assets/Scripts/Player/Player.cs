@@ -1,5 +1,8 @@
-﻿using Unity.VisualScripting;
+﻿using System.Collections;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : MonoBehaviour
 {
@@ -8,8 +11,6 @@ public class Player : MonoBehaviour
 
     public Vector3 finalAttackInputVec;
     private Vector3 inputVector;
-    
-    
 
     [Header("AttackState Info")]
     public GameObject bulletPrefab;
@@ -32,10 +33,11 @@ public class Player : MonoBehaviour
     [Header("Melee Attack Info")]
     public bool isDaggerAttack = false;
     [SerializeField] private GameObject daggerAttackEffectPrefab;
-    private Vector3 AttackDistance;
+
+    public bool invisibility = false;
 
 
-
+    public SkillManager skill { get; private set; }
 
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
@@ -49,6 +51,7 @@ public class Player : MonoBehaviour
     public PlayerPistolMoveState pistolMove { get; private set; }
     public PlayerAttackState attackState { get; private set; }
     public PlayerDaggerAttackState daggerAttack { get; private set; }
+    public PlayerGrenadeState grenadeSkill { get; private set; }
 
     protected void Awake()
     {
@@ -58,6 +61,7 @@ public class Player : MonoBehaviour
         pistolMove = new PlayerPistolMoveState(this, stateMachine, "MovingAttack");
         attackState = new PlayerAttackState(this, stateMachine, "Attack");
         daggerAttack = new PlayerDaggerAttackState(this, stateMachine, "daggerAttack");
+        grenadeSkill = new PlayerGrenadeState(this, stateMachine, "GrenadeThrow");
     }
 
     protected void Start()
@@ -66,6 +70,8 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         MeshTrailscript = anim.GetComponent<SpriteTrail>();
+
+        skill = SkillManager.instance;
 
         stateMachine.Initialize(idleState);
     }
@@ -146,6 +152,36 @@ public class Player : MonoBehaviour
         {
             Debug.Log("근처에 오브젝트가 없습니다.");  // 감지된 오브젝트가 없음
         }
+    }
+
+    public IEnumerator Invisibility(float _timer)
+    {
+        Debug.Log("Invisibility on");
+
+        SetLayerRecursively("InvisablePlayer");
+        yield return new WaitForSeconds(_timer);
+        SetLayerRecursively("Player");
+
+        Debug.Log("Invisibility off");
+    }
+
+    private void SetLayerRecursively(string _layer)
+    {
+        gameObject.layer = LayerMask.NameToLayer(_layer);
+        foreach (Transform child in gameObject.transform)
+        {
+            child.gameObject.layer = LayerMask.NameToLayer(_layer); // child의 레이어 설정
+            child.GetComponent<Player>()?.SetLayerRecursively(_layer); // 재귀 호출
+        }
+    }
+
+    public void Invisibility()
+    {
+        SetLayerRecursively("InvisablePlayer");
+    }
+    public void Visiblilty()
+    {
+        SetLayerRecursively("Player");
     }
 
 }

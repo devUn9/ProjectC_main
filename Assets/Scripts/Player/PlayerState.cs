@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerState
@@ -6,12 +6,16 @@ public class PlayerState
     protected Player player;
     protected PlayerStateMachine stateMachine;
     protected Rigidbody2D rb;
-
     private string animBoolName;
 
     protected Vector2 stateInputVec;
     protected Vector2 lastDirection;
     protected bool triggerCalled;
+
+    // í‚¤ ì…ë ¥ ìƒíƒœ ê´€ë¦¬ë¥¼ ìœ„í•œ ë³€ìˆ˜ë“¤
+    protected bool isKeyProcessing = false;   // í˜„ì¬ í‚¤ ì²˜ë¦¬ ì¤‘ì¸ì§€ ì—¬ë¶€
+    protected GrenadeSkill skill;
+    protected Camera mainCamera;
 
     public PlayerState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName)
     {
@@ -35,8 +39,8 @@ public class PlayerState
         stateInputVec.x = Input.GetAxisRaw("Horizontal");
         stateInputVec.y = Input.GetAxisRaw("Vertical");
         stateInputVec = stateInputVec.normalized;
-        //ÀÌµ¿ »ç°İ ½Ã triggerÀÛµ¿À» À§ÇÑ Á¶°Ç¹®
-        //ÀÌµ¿ »ç°İ state·ÎÁ÷ ¸¶Áö¸·¿¡ µÎ¸é ´Ù¸¥ ¾Ö´Ï¸ÅÀÌ¼Ç µ¿ÀÛ Áß°£¿¡ ´Ù¸¥ state·Î º¯°æµÇ¾î trigger ¹ßµ¿ ÇÏÁö¾ÊÀ½
+        //ì´ë™ ì‚¬ê²© ì‹œ triggerì‘ë™ì„ ìœ„í•œ ì¡°ê±´ë¬¸
+        //ì´ë™ ì‚¬ê²© stateë¡œì§ ë§ˆì§€ë§‰ì— ë‘ë©´ ë‹¤ë¥¸ ì• ë‹ˆë§¤ì´ì…˜ ë™ì‘ ì¤‘ê°„ì— ë‹¤ë¥¸ stateë¡œ ë³€ê²½ë˜ì–´ trigger ë°œë™ í•˜ì§€ì•ŠìŒ
         if (triggerCalled && player.isMovingAttack)
         {
             player.isMovingAttack = false;
@@ -59,7 +63,6 @@ public class PlayerState
             }
             else if(player.attackStateTimer > 0 && player.isDaggerAttack)
             {
-                //SetAnimDirection(player.daggerAttackDir);
                 SetAnimDirection(player.lastDirection);
             }
             else
@@ -74,8 +77,8 @@ public class PlayerState
             stateMachine.ChangeState(player.moveState);
         }
 
-        // Á¦ÀÚ¸® °ø°İ ¾Ö´Ï¸ÅÀÌ¼Ç Á¾·á ÈÄ AnimationTrigger ¹ß»ı Àü±îÁö °ø°İ ÀÔ·ÂºÒ°¡´ÉÇÏ°Ô Á¶Á¤
-        // AnimationTrigger ¹ß»ı Àü ÀÔ·Â ½Ã state¿¡¼­ ¿¡·¯¹ß»ı attackStateTimerº¯¼ö´Â player¿¡¼­ °ü¸®
+        // ì œìë¦¬ ê³µê²© ì• ë‹ˆë§¤ì´ì…˜ ì¢…ë£Œ í›„ AnimationTrigger ë°œìƒ ì „ê¹Œì§€ ê³µê²© ì…ë ¥ë¶ˆê°€ëŠ¥í•˜ê²Œ ì¡°ì •
+        // AnimationTrigger ë°œìƒ ì „ ì…ë ¥ ì‹œ stateì—ì„œ ì—ëŸ¬ë°œìƒ attackStateTimerë³€ìˆ˜ëŠ” playerì—ì„œ ê´€ë¦¬
         if (Input.GetKeyDown(KeyCode.Mouse0) && player.attackStateTimer < 0.25)
         {
             player.Interaction();
@@ -89,6 +92,12 @@ public class PlayerState
                 stateMachine.ChangeState(player.attackState);
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha1)
+            ||Input.GetKeyDown(KeyCode.Alpha2)
+            ||Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            stateMachine.ChangeState(player.grenadeSkill);
+        }
     }
 
     public virtual void Exit()
@@ -142,4 +151,6 @@ public class PlayerState
     {
         return player.beforeState = this.animBoolName;
     }
+
+    
 }

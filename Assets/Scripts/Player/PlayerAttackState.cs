@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerAttackState : PlayerState
 {
@@ -21,7 +21,6 @@ public class PlayerAttackState : PlayerState
 
         if (triggerCalled)
         {
-            Debug.Log("AttackEnd");
             SetFinalAttkInputVec();
             stateMachine.ChangeState(player.idleState);
         }

@@ -77,6 +77,12 @@ public class Enemy : MonoBehaviour
 
     private bool playerCheck() => Physics2D.Raycast(transform.position, Vector2.zero,3, playerLayer);
 
+
+    public void TakeDamage(float damage)
+    {
+        Debug.Log("폭탄에 맞았다");
+    }
+
     // 씬 뷰에서 부채꼴 기즈모 그리기
     private void OnDrawGizmos()
     {
