@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Slum5_0: 3047742585015088255
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
