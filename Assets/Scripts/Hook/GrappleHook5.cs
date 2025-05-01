@@ -3,60 +3,63 @@ using UnityEngine;
 
 public class GrappleHook5 : MonoBehaviour
 {
-    // ·ÎÇÁ ½Ã°¢È­¸¦ À§ÇÑ LineRenderer ÄÄÆ÷³ÍÆ®
+    // ë¡œí”„ ì‹œê°í™”ë¥¼ ìœ„í•œ LineRenderer ì»´í¬ë„ŒíŠ¸
     private LineRenderer line;
 
-    [Header("Grappling ¼³Á¤")]
-    [SerializeField] LayerMask grapplableMask;   // ±×·¡ÇÃ¸µ °¡´ÉÇÑ ¿ÀºêÁ§Æ®ÀÇ ·¹ÀÌ¾î ¸¶½ºÅ©
-    [SerializeField] float maxDistance = 10f;     // ±×·¡ÇÃ¸µ ÃÖ´ë °Å¸®
-    [SerializeField] float grappleSpeed = 10f;    // ²ø·Á¿À´Â ¼Óµµ (ÇÃ·¹ÀÌ¾î³ª ¿ÀºêÁ§Æ®)
-    [SerializeField] float grappleShootSpeed = 20f; // ÈÅ ¹ß»ç ¼Óµµ (ÇöÀç ¹Ì»ç¿ë)
+    [Header("Grappling ì„¤ì •")]
+    [SerializeField] LayerMask grapplableMask;   // ê·¸ë˜í”Œë§ ê°€ëŠ¥í•œ ì˜¤ë¸Œì íŠ¸ì˜ ë ˆì´ì–´ ë§ˆìŠ¤í¬
+    [SerializeField] float maxDistance = 10f;     // ê·¸ë˜í”Œë§ ìµœëŒ€ ê±°ë¦¬
+    [SerializeField] float grappleSpeed = 10f;    // ëŒë ¤ì˜¤ëŠ” ì†ë„ (í”Œë ˆì´ì–´ë‚˜ ì˜¤ë¸Œì íŠ¸)
+    [SerializeField] float grappleShootSpeed = 20f; // í›… ë°œì‚¬ ì†ë„ (í˜„ì¬ ë¯¸ì‚¬ìš©)
 
-    private bool isGrappling = false;             // ±×·¡ÇÃ¸µ ÁßÀÎÁö ¿©ºÎ
+    private bool isGrappling = false;             // ê·¸ë˜í”Œë§ ì¤‘ì¸ì§€ ì—¬ë¶€
 
-    private Vector2 target;                       // ÇÃ·¹ÀÌ¾î°¡ ÀÌµ¿ÇÒ ¸ñÇ¥ ÁöÁ¡ (º® ±×·¡ÇÃ¸µ)
-    private Transform targetObject;               // ²ø¾î¿Ã ¿ÀºêÁ§Æ® ÂüÁ¶
-    private float retractTimer = 0f;              // ¿ÀºêÁ§Æ® ²ø±â Á¦ÇÑ ½Ã°£¿ë Å¸ÀÌ¸Ó
-    public int itemCount;                         // ¼öÁıÇÑ ¾ÆÀÌÅÛ °³¼ö
-    private Vector2 pullStopPosition;             // ¿ÀºêÁ§Æ®°¡ ¸ØÃâ À§Ä¡ (ÇÃ·¹ÀÌ¾î ¾Õ)
+    private Vector2 target;                       // í”Œë ˆì´ì–´ê°€ ì´ë™í•  ëª©í‘œ ì§€ì  (ë²½ ê·¸ë˜í”Œë§)
+    private Transform targetObject;               // ëŒì–´ì˜¬ ì˜¤ë¸Œì íŠ¸ ì°¸ì¡°
+    private float retractTimer = 0f;              // ì˜¤ë¸Œì íŠ¸ ëŒê¸° ì œí•œ ì‹œê°„ìš© íƒ€ì´ë¨¸
+    public int itemCount;                         // ìˆ˜ì§‘í•œ ì•„ì´í…œ ê°œìˆ˜
+    private Vector2 pullStopPosition;             // ì˜¤ë¸Œì íŠ¸ê°€ ë©ˆì¶œ ìœ„ì¹˜ (í”Œë ˆì´ì–´ ì•)
 
-    [HideInInspector] public bool isRetractingPlayer = false;  // ÇÃ·¹ÀÌ¾î°¡ ÀÌµ¿ ÁßÀÎÁö ¿©ºÎ
-    [HideInInspector] public bool isRetractingObject = false;  // ¿ÀºêÁ§Æ®°¡ ²ø·Á¿À´Â ÁßÀÎÁö ¿©ºÎ
+    [HideInInspector] public bool isRetractingPlayer = false;  // í”Œë ˆì´ì–´ê°€ ì´ë™ ì¤‘ì¸ì§€ ì—¬ë¶€
+    [HideInInspector] public bool isRetractingObject = false;  // ì˜¤ë¸Œì íŠ¸ê°€ ëŒë ¤ì˜¤ëŠ” ì¤‘ì¸ì§€ ì—¬ë¶€
 
-    public bool isUpgrade = false;                // ¼Óµµ ¾÷±×·¹ÀÌµå ¿©ºÎ
-    public float SpeedMultiplier => isUpgrade ? 1.5f : 1f;   // ¼Óµµ ¹èÀ² °è»ê
+    public bool isUpgrade = false;                // ì†ë„ ì—…ê·¸ë ˆì´ë“œ ì—¬ë¶€
+    public float SpeedMultiplier => isUpgrade ? 1.5f : 1f;   // ì†ë„ ë°°ìœ¨ ê³„ì‚°
 
-    private bool isTargetLocked = false;   // Å¸°ÙÀÌ °íÁ¤µÇ¾ú´ÂÁö ¿©ºÎ
-    private RaycastHit2D lockedHit;        // °íÁ¤µÈ Å¸°Ù Á¤º¸ ÀúÀå
+    private bool isTargetLocked = false;   // íƒ€ê²Ÿì´ ê³ ì •ë˜ì—ˆëŠ”ì§€ ì—¬ë¶€
+    private RaycastHit2D lockedHit;        // ê³ ì •ëœ íƒ€ê²Ÿ ì •ë³´ ì €ì¥
 
-    [SerializeField] private GameObject crosshair;  // Á¶ÁØÁ¡ ÀÌ¹ÌÁö ¿ÀºêÁ§Æ®
+    [SerializeField] private GameObject crosshair;  // ì¡°ì¤€ì  ì´ë¯¸ì§€ ì˜¤ë¸Œì íŠ¸
+
+    private enum LookDirection { Up, Down, Left, Right }
+    [SerializeField] private Animator animator;  // Hookeì—ì„œ Animatorë¥¼ ì—°ê²°
 
     private void Start()
     {
-        line = GetComponent<LineRenderer>();  // LineRenderer ÄÄÆ÷³ÍÆ® ÃÊ±âÈ­
+        line = GetComponent<LineRenderer>();  // LineRenderer ì»´í¬ë„ŒíŠ¸ ì´ˆê¸°í™”
     }
 
     private void Update()
     {
-        // ¿ìÅ¬¸¯ ´©¸£°í ÀÖ´Â µ¿¾È Á¶ÁØ (°è¼Ó °¨Áö)
+        // ìš°í´ë¦­ ëˆ„ë¥´ê³  ìˆëŠ” ë™ì•ˆ ì¡°ì¤€ (ê³„ì† ê°ì§€)
         if (!isGrappling && Input.GetMouseButton(1))
         {
-            LockTarget(); // Áö¼ÓÀûÀ¸·Î Raycast·Î °¨Áö (´ë»ó ÀÖÀ» ¶§¸¸ Á¶ÁØÁ¡ Ç¥½Ã)
+            LockTarget(); // ì§€ì†ì ìœ¼ë¡œ Raycastë¡œ ê°ì§€ (ëŒ€ìƒ ìˆì„ ë•Œë§Œ ì¡°ì¤€ì  í‘œì‹œ)
         }
 
-        // ¿ìÅ¬¸¯ ¶¿ ¶§: Á¶ÁØÀÌ ¿Ï·áµÈ »óÅÂ¸é ½ÇÇà
+        // ìš°í´ë¦­ ë—„ ë•Œ: ì¡°ì¤€ì´ ì™„ë£Œëœ ìƒíƒœë©´ ì‹¤í–‰
         if (!isGrappling && Input.GetMouseButtonUp(1) && isTargetLocked)
         {
-            ExecuteGrapple(); // Á¶ÁØÇß´ø ´ë»ó¿¡ ´ëÇØ ±×·¡ÇÃ¸µ ½ÇÇà
+            ExecuteGrapple(); // ì¡°ì¤€í–ˆë˜ ëŒ€ìƒì— ëŒ€í•´ ê·¸ë˜í”Œë§ ì‹¤í–‰
         }
 
-        // 0¹øÀ» ´©¸£¸é ¿¬°á ÇØÁ¦
+        // 0ë²ˆì„ ëˆ„ë¥´ë©´ ì—°ê²° í•´ì œ
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             CancelGrappleTarget();
         }
 
-        // ¶óÀÎ ·»´õ·¯ÀÇ ½ÃÀÛÁ¡À» Ç×»ó ÇÃ·¹ÀÌ¾î À§Ä¡·Î °»½Å
+        // ë¼ì¸ ë Œë”ëŸ¬ì˜ ì‹œì‘ì ì„ í•­ìƒ í”Œë ˆì´ì–´ ìœ„ì¹˜ë¡œ ê°±ì‹ 
         if (line.enabled)
         {
             line.SetPosition(0, transform.position);
@@ -69,25 +72,25 @@ public class GrappleHook5 : MonoBehaviour
                 CancelGrappleTarget();
         }
 
-        // ÇÃ·¹ÀÌ¾î ÀÌµ¿ Ã³¸®
+        // í”Œë ˆì´ì–´ ì´ë™ ì²˜ë¦¬
         if (isRetractingPlayer)
             HandlePlayerRetract();
 
-        // ¿ÀºêÁ§Æ® ²ø¾î¿À±â Ã³¸®
+        // ì˜¤ë¸Œì íŠ¸ ëŒì–´ì˜¤ê¸° ì²˜ë¦¬
         if (isRetractingObject)
             HandleObjectRetract();
 
-        // ¼Óµµ ¾÷±×·¹ÀÌµå Ã³¸®
+        // ì†ë„ ì—…ê·¸ë ˆì´ë“œ ì²˜ë¦¬
         if (isUpgrade == true)
             SpeedUpgrade();
     }
 
     private void SpeedUpgrade() 
     {
-        // ¼Óµµ ¾÷±×·¹ÀÌµå ±â´É ¿¹Á¤
+        // ì†ë„ ì—…ê·¸ë ˆì´ë“œ ê¸°ëŠ¥ ì˜ˆì •
     }
 
-    // ±×·¡ÇÃ¸µ ÈÅ ¹ß»ç ¸Ş¼­µå
+    // ê·¸ë˜í”Œë§ í›… ë°œì‚¬ ë©”ì„œë“œ
     private void StartGrapple()
     {
         Vector2 origin = transform.position;
@@ -104,47 +107,47 @@ public class GrappleHook5 : MonoBehaviour
 
             int targetLayer = hit.collider.gameObject.layer;
 
-            // ¿ÀºêÁ§Æ® ±×·¡ÇÃ¸µ Ã³¸®
+            // ì˜¤ë¸Œì íŠ¸ ê·¸ë˜í”Œë§ ì²˜ë¦¬
             if (targetLayer == LayerMask.NameToLayer("Grappleable"))
             {
                 targetObject = hit.collider.transform;
 
-                // ÇÃ·¹ÀÌ¾î¿Í ¿ÀºêÁ§Æ® Ãæµ¹ ¹«½Ã ¼³Á¤
+                // í”Œë ˆì´ì–´ì™€ ì˜¤ë¸Œì íŠ¸ ì¶©ëŒ ë¬´ì‹œ ì„¤ì •
                 Collider2D playerCol = GetComponentInParent<Collider2D>();
                 Collider2D targetCol = targetObject.GetComponent<Collider2D>();
 
                 if (playerCol && targetCol)
                     Physics2D.IgnoreCollision(playerCol, targetCol, true);
 
-                // ÇÃ·¹ÀÌ¾î ¾Õ 1f ÁöÁ¡À¸·Î ²ø¾î¿Ã À§Ä¡ °è»ê
+                // í”Œë ˆì´ì–´ ì• 1f ì§€ì ìœ¼ë¡œ ëŒì–´ì˜¬ ìœ„ì¹˜ ê³„ì‚°
                 Vector2 dirToPlayer = ((Vector2)transform.position - (Vector2)targetObject.position).normalized;
                 pullStopPosition = (Vector2)transform.position + dirToPlayer * -1f;
 
                 StartCoroutine(Grapple(targetObject.position, false));
             }
-            // º® ±×·¡ÇÃ¸µ Ã³¸®
+            // ë²½ ê·¸ë˜í”Œë§ ì²˜ë¦¬
             else if (targetLayer == LayerMask.NameToLayer("Grappeable2"))
             {
-                target = hit.point; // º® À§Ä¡·Î ¼³Á¤
+                target = hit.point; // ë²½ ìœ„ì¹˜ë¡œ ì„¤ì •
                 StartCoroutine(Grapple(target, true));
             }
         }
     }
 
-    // ÇÃ·¹ÀÌ¾î°¡ º®À¸·Î ²ø·Á°¡´Â Ã³¸®
+    // í”Œë ˆì´ì–´ê°€ ë²½ìœ¼ë¡œ ëŒë ¤ê°€ëŠ” ì²˜ë¦¬
     private void HandlePlayerRetract()
     {
-        // ·ÎÇÁ ½Ã°¢È­ °»½Å
+        // ë¡œí”„ ì‹œê°í™” ê°±ì‹ 
         transform.parent.position = Vector2.MoveTowards(transform.parent.position, target, grappleSpeed * Time.deltaTime);
         line.SetPosition(0, transform.position);
         line.SetPosition(1, target);
 
-        // ¸ñÇ¥ ÁöÁ¡ µµÂø ½Ã Á¾·á
+        // ëª©í‘œ ì§€ì  ë„ì°© ì‹œ ì¢…ë£Œ
         if (Vector2.Distance(transform.parent.position, target) < 0.5f)
             ResetGrapple();
     }
 
-    // ¿ÀºêÁ§Æ®¸¦ ²ø¾î¿À´Â Ã³¸®
+    // ì˜¤ë¸Œì íŠ¸ë¥¼ ëŒì–´ì˜¤ëŠ” ì²˜ë¦¬
     private void HandleObjectRetract()
     {
         if (!targetObject)
@@ -156,11 +159,11 @@ public class GrappleHook5 : MonoBehaviour
         retractTimer += Time.deltaTime;
         targetObject.position = Vector2.MoveTowards(targetObject.position, pullStopPosition, grappleSpeed * Time.deltaTime);
 
-        // ·ÎÇÁ ½Ã°¢È­ °»½Å
+        // ë¡œí”„ ì‹œê°í™” ê°±ì‹ 
         line.SetPosition(0, transform.position);
         line.SetPosition(1, targetObject.position);
 
-        // µµÂø ½Ã ÆÇÁ¤ Ã³¸®
+        // ë„ì°© ì‹œ íŒì • ì²˜ë¦¬
         if (Vector2.Distance(targetObject.position, pullStopPosition) < 0.1f || retractTimer > 3f)
         {
             if (targetObject.CompareTag("Collectible"))
@@ -176,7 +179,7 @@ public class GrappleHook5 : MonoBehaviour
         }
     }
 
-    // ±×·¡ÇÃ¸µ »óÅÂ ÃÊ±âÈ­
+    // ê·¸ë˜í”Œë§ ìƒíƒœ ì´ˆê¸°í™”
     private void ResetGrapple()
     {
         if (targetObject)
@@ -196,9 +199,11 @@ public class GrappleHook5 : MonoBehaviour
         retractTimer = 0f;
     }
 
-    // ÈÅ ¹ß»ç ¾Ö´Ï¸ŞÀÌ¼Ç ÄÚ·çÆ¾
+    // í›… ë°œì‚¬ ì• ë‹ˆë©”ì´ì…˜ ì½”ë£¨í‹´
     IEnumerator Grapple(Vector2 targetPosition, bool isPlayerMoving)
     {
+        FaceDirection(targetPosition);
+
         float t = 0f;
         float time = 0.2f;
 
@@ -224,7 +229,7 @@ public class GrappleHook5 : MonoBehaviour
             isRetractingObject = true;
     }
 
-    // Àû ¿ÀºêÁ§Æ® ±âÀı È¿°ú ÄÚ·çÆ¾
+    // ì  ì˜¤ë¸Œì íŠ¸ ê¸°ì ˆ íš¨ê³¼ ì½”ë£¨í‹´
     IEnumerator StunObject(Transform obj)
     {
         SpriteRenderer sp = obj.GetComponent<SpriteRenderer>();
@@ -232,14 +237,14 @@ public class GrappleHook5 : MonoBehaviour
         if (sp)
         {
             Color originalColor = sp.color;
-            sp.color = Color.yellow; // ±âÀı »ö»ó
+            sp.color = Color.yellow; // ê¸°ì ˆ ìƒ‰ìƒ
             yield return new WaitForSeconds(0.5f);
-            sp.color = originalColor; // ¿ø·¡ »ö»ó º¹±¸
+            sp.color = originalColor; // ì›ë˜ ìƒ‰ìƒ ë³µêµ¬
         }
         ResetGrapple();
     }
 
-    // ·¹ÀÌÄ³½ºÆ®·Î Å¸°ÙÀ» ¸ÂÃß°í, ¶óÀÎ¸¸ Ç¥½Ã
+    // ë ˆì´ìºìŠ¤íŠ¸ë¡œ íƒ€ê²Ÿì„ ë§ì¶”ê³ , ë¼ì¸ë§Œ í‘œì‹œ
     private void LockTarget()
     {
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -250,19 +255,19 @@ public class GrappleHook5 : MonoBehaviour
             isTargetLocked = true;
             lockedHit = hit;
 
-            // ¿ùµå ÁÂÇ¥ ¡æ È­¸é ÁÂÇ¥ º¯È¯
+            // ì›”ë“œ ì¢Œí‘œ â†’ í™”ë©´ ì¢Œí‘œ ë³€í™˜
             Vector3 screenPos = Camera.main.WorldToScreenPoint(hit.point);
             crosshair.transform.position = screenPos;
 
-            crosshair.SetActive(true);  // Á¶ÁØÁ¡ º¸ÀÌ°Ô
+            crosshair.SetActive(true);  // ì¡°ì¤€ì  ë³´ì´ê²Œ
         }
         else
         {
-            crosshair.SetActive(false); // °¨Áö ¾È µÇ¸é ¼û±è
+            crosshair.SetActive(false); // ê°ì§€ ì•ˆ ë˜ë©´ ìˆ¨ê¹€
         }
     }
 
-    // °íÁ¤µÈ lockedHit Á¤º¸¸¦ ÀÌ¿ëÇØ¼­ ±âÁ¸ StartGrapple() ·ÎÁ÷ ½ÇÇà
+    // ê³ ì •ëœ lockedHit ì •ë³´ë¥¼ ì´ìš©í•´ì„œ ê¸°ì¡´ StartGrapple() ë¡œì§ ì‹¤í–‰
     private void ExecuteGrapple()
     {
         if (!lockedHit.collider)
@@ -289,20 +294,47 @@ public class GrappleHook5 : MonoBehaviour
             StartCoroutine(Grapple(target, true));
         }
 
-        isTargetLocked = false; // ½ÇÇà ÈÄ Å¸°Ù ÇØÁ¦
+        isTargetLocked = false; // ì‹¤í–‰ í›„ íƒ€ê²Ÿ í•´ì œ
         crosshair.SetActive(false);
     }
 
-    // 0¹ø ÀÔ·ÂÀ¸·Î Å¸°ÙÆÃ Ãë¼Ò
+    // 0ë²ˆ ì…ë ¥ìœ¼ë¡œ íƒ€ê²ŸíŒ… ì·¨ì†Œ
     private void CancelGrappleTarget()
     {
         if (isTargetLocked)
         {
             isTargetLocked = false;
-            crosshair.SetActive(false);  // Á¶ÁØÁ¡ ¼û±è
+            crosshair.SetActive(false);  // ì¡°ì¤€ì  ìˆ¨ê¹€
         }
 
         line.enabled = false;
     }
+
+    private LookDirection GetLookDirection(Vector2 direction)
+    {
+        direction = direction.normalized;
+
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            return direction.x > 0 ? LookDirection.Right : LookDirection.Left;
+        }
+        else
+        {
+            return direction.y > 0 ? LookDirection.Up : LookDirection.Down;
+        }
+    }
+
+    private void FaceDirection(Vector2 targetPosition)
+    {
+        Vector2 dir = (targetPosition - (Vector2)transform.position).normalized;
+
+        // Blend Treeìš© íŒŒë¼ë¯¸í„° ì „ë‹¬
+        animator.SetFloat("VelocityX", Mathf.Round(dir.x));
+        animator.SetFloat("VelocityY", Mathf.Round(dir.y));
+
+        Debug.Log($"[DEBUG] Set VelocityX: {Mathf.Round(dir.x)}, VelocityY: {Mathf.Round(dir.y)}");
+    }
+
+
 
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
 
 
@@ -7,6 +8,8 @@ public class EffectController : MonoBehaviour
 {
     private ParticleSystem particle;
     private SpriteRenderer spriteRenderer;
+    private Light2D sightLight;
+
     private EffectData effectData;
 
     private Coroutine sightEffectCoroutine;
@@ -17,6 +20,7 @@ public class EffectController : MonoBehaviour
         effectData = data;
         particle = GetComponent<ParticleSystem>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        sightLight = GetComponent<Light2D>();
         if (spriteRenderer != null) { spriteRenderer.material = new Material(spriteRenderer.material); } 
     }
 
@@ -48,12 +52,12 @@ public class EffectController : MonoBehaviour
     }
 
 
-    // ÀûÀÇ ½Ã¾ß ÀÌÆåÆ® Å©±â, È¸Àü, °¢µµ Á¶Àý 0 < targetRadius < 0.5 »çÀÌ °ª ÀÔ·Â ±ÇÀå, È¸Àü, °¢µµ ÀÔ·Â ÇÊ¼ö ¾Æ´Ô
-    public void SetSightEffect(float targetRadius, Quaternion rotation = default, float targetAngle = 90f )
+    // ì ì˜ ì‹œì•¼ ì´íŽ™íŠ¸ í¬ê¸°, íšŒì „, ê°ë„ ì¡°ì ˆ
+    public void SetSightEffect(float targetRadius, Quaternion rotation, float targetAngle)
     {
-        if (spriteRenderer == null || spriteRenderer.material == null)
+        if (sightLight == null)
         {
-            Debug.Log("SpriteRenderer ¶Ç´Â MaterialÀÌ ¾ø½À´Ï´Ù.");
+            Debug.LogWarning("Light2D ì»´í¬ë„ŒíŠ¸ê°€ ì—†ìŠµë‹ˆë‹¤.");
             return;
         }
 
@@ -62,52 +66,56 @@ public class EffectController : MonoBehaviour
             StopCoroutine(sightEffectCoroutine);
         }
 
-        float targetAngleRadian = (targetAngle * Mathf.Deg2Rad)/2;
 
-        sightEffectCoroutine = StartCoroutine(LerpSightEffectCoroutine(targetRadius, targetAngleRadian));
-
-        if (rotation != default)
-        {
-            transform.localRotation = rotation;
-        }
-
+        sightEffectCoroutine = StartCoroutine(LerpSightEffectCoroutine(targetRadius, rotation, targetAngle));
     }
 
 
-    private IEnumerator LerpSightEffectCoroutine(float targetRadius, float targetAngle)
-    {
-        Material mat = spriteRenderer.material;
 
-        float startRadius = mat.GetFloat("_Radius");
-        float startAngle = mat.GetFloat("_Angle");
+
+    private IEnumerator LerpSightEffectCoroutine(float targetRadius,  Quaternion targetRotation, float targetAngle)
+    {
+        float startRadius = sightLight.pointLightOuterRadius;
+        float startOuterAngle = sightLight.pointLightOuterAngle;
+        float startInnerAngle = sightLight.pointLightInnerAngle;
+        Quaternion startRotation = transform.localRotation;
+
+        // íƒ€ê²Ÿ InnerAngleì€ OuterAngleì˜ 0.8 ì •ë„ 
+        float targetOuterAngle = targetAngle;
+        float targetInnerAngle = targetAngle * 0.9f;
+
+        // DeltaAngle ë³´ì • 
+        float correctedOuterTarget = startOuterAngle + Mathf.DeltaAngle(startOuterAngle, targetOuterAngle);
+        float correctedInnerTarget = startInnerAngle + Mathf.DeltaAngle(startInnerAngle, targetInnerAngle);
 
         float elapsed = 0f;
-        float duration = 0.3f; // º¯È­ÇÏ´Âµ¥ °É¸®´Â ½Ã°£ 
-
-        mat.SetFloat("_Angle", targetAngle);
+        float duration = 0.3f;
 
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
-            float t = elapsed / duration;
-            t = Mathf.Clamp01(t); // È¤½Ã ¸ô¶ó¼­ ¾ÈÀüÀåÄ¡
+            float t = Mathf.Clamp01(elapsed / duration);
 
-            float tempRadius = Mathf.Lerp(startRadius, targetRadius, t);
-            float tempAngle = Mathf.Lerp(startAngle, targetAngle, t);
-
-            mat.SetFloat("_Radius", tempRadius);
-            mat.SetFloat("_Angle", tempAngle);
+            sightLight.pointLightOuterRadius = Mathf.Lerp(startRadius, targetRadius, t);
+            sightLight.pointLightOuterAngle = Mathf.Lerp(startOuterAngle, correctedOuterTarget, t);
+            sightLight.pointLightInnerAngle = Mathf.Lerp(startInnerAngle, correctedInnerTarget, t);
+            transform.localRotation = Quaternion.Slerp(startRotation, targetRotation, t);
 
             yield return null;
         }
 
-        mat.SetFloat("_Radius", targetRadius);
+        // ìµœì¢… ê°’ ë³´ì •
+        sightLight.pointLightOuterRadius = targetRadius;
+        sightLight.pointLightOuterAngle = targetOuterAngle;
+        sightLight.pointLightInnerAngle = targetInnerAngle;
+        transform.localRotation = targetRotation;
 
         sightEffectCoroutine = null;
     }
 
 
-    // »èÁ¦
+
+    // ì‚­ì œ
 
     public void DestroyEffect()
     {
@@ -115,3 +123,4 @@ public class EffectController : MonoBehaviour
     }
 
 }
+

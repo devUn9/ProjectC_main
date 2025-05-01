@@ -37,17 +37,17 @@ public class EffectManager : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning($"ÀÌÆåÆ®°¡ Áßº¹µË´Ï´Ù : {data.effectType}");
+                Debug.LogWarning($"ì´í™íŠ¸ê°€ ì¤‘ë³µë©ë‹ˆë‹¤ : {data.effectType}");
             }
         }
     }
 
-    // Æ¯Á¤ À§Ä¡¿Í ¹æÇâ¿¡¼­ ÀÌÆåÆ® »ı¼º ÇÔ¼ö (ÀÌÆåÆ® Å¸ÀÔ, »ı¼º À§Ä¡, ÃÊ±â È¸Àü(ÀÔ·Â ÇÊ¼ö ¾Æ´Ô))
+    // íŠ¹ì • ìœ„ì¹˜ì™€ ë°©í–¥ì—ì„œ ì´í™íŠ¸ ìƒì„± í•¨ìˆ˜ (ì´í™íŠ¸ íƒ€ì…, ìƒì„± ìœ„ì¹˜, ì´ˆê¸° íšŒì „(ì…ë ¥ í•„ìˆ˜ ì•„ë‹˜))
     public void PlayEffect(EffectType effectType, Vector3 position, Quaternion rotation = default)  
     {
         if (!effectDataMap.TryGetValue(effectType, out EffectData data))
         {
-            Debug.LogWarning($"Effect '{effectType}' ÀÌ(°¡) ¾ø½À´Ï´Ù.");
+            Debug.LogWarning($"Effect '{effectType}' ì´(ê°€) ì—†ìŠµë‹ˆë‹¤.");
             return;
         }
 
@@ -62,13 +62,13 @@ public class EffectManager : MonoBehaviour
         } 
     }
 
-    // ÀÌÆåÆ® ÄÁÆ®·Ñ·¯ ¹İÈ¯ÇÏ°í Å¸°ÙÀ» µû¶ó°¡´Â ÀÌÆåÆ® »ı¼ºÇÔ¼ö (ÀÌÆåÆ® Å¸ÀÔ, Å¸°Ù À§Ä¡, ÃÊ±â È¸Àü, À§Ä¡ Á¶Á¤) (ÃÊ±â È¸Àü°ú À§Ä¡ Á¶Á¤Àº ÀÔ·Â ÇÊ¼ö ¾Æ´Ô) 
+    // ì´í™íŠ¸ ì»¨íŠ¸ë¡¤ëŸ¬ ë°˜í™˜í•˜ê³  íƒ€ê²Ÿì„ ë”°ë¼ê°€ëŠ” ì´í™íŠ¸ ìƒì„±í•¨ìˆ˜ (ì´í™íŠ¸ íƒ€ì…, íƒ€ê²Ÿ ìœ„ì¹˜, ì´ˆê¸° íšŒì „, ìœ„ì¹˜ ì¡°ì •) (ì´ˆê¸° íšŒì „ê³¼ ìœ„ì¹˜ ì¡°ì •ì€ ì…ë ¥ í•„ìˆ˜ ì•„ë‹˜) 
 
     public EffectController PlayEffectFollow(EffectType effectType, Transform followTarget, Quaternion rotation = default, Vector3 offset = default)
     {
         if (!effectDataMap.TryGetValue(effectType, out EffectData data))
         {
-            Debug.LogWarning($"Effect '{effectType}' ÀÌ(°¡) ¾ø½À´Ï´Ù.");
+            Debug.LogWarning($"Effect '{effectType}' ì´(ê°€) ì—†ìŠµë‹ˆë‹¤.");
             return null;
         }
 
@@ -102,8 +102,6 @@ public class EffectManager : MonoBehaviour
             yield return new WaitForSeconds(data.RepeatInterval);
         }
     }
-
-
 
 
 

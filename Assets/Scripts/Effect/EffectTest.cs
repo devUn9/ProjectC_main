@@ -22,12 +22,25 @@ public class EffectTest : MonoBehaviour
                 EffectManager.Instance.PlayEffect(EffectType.SmokeShellEffect, position);
 
             }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Vector3 position = player.transform.position;
+
+     
+                Vector2 randomOffset = Random.insideUnitCircle * 0.15f ;
+
+                Vector3 spawnPosition = position + new Vector3(randomOffset.x, randomOffset.y, 0f);
+
+                EffectManager.Instance.PlayEffect(EffectType.BloodSplatterEffect, spawnPosition);
+            }
         }
         else
         {
-            Debug.LogWarning("ÇÃ·¹ÀÌ¾î¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+            Debug.LogWarning("í”Œë ˆì´ì–´ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
             player = PlayerManager.instance.player;
         }
     }
 
 }
+

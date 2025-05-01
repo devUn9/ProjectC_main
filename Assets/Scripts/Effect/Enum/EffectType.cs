@@ -1,6 +1,7 @@
 using UnityEngine;
 
 
+
 public enum EffectType
 {
     None,
@@ -9,4 +10,6 @@ public enum EffectType
     MuzzleFlashEffect,
     EnemySightEffect,
     BuffEffect,
+    BloodSplatterEffect
+
 }
