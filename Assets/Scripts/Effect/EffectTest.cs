@@ -22,6 +22,18 @@ public class EffectTest : MonoBehaviour
                 EffectManager.Instance.PlayEffect(EffectType.SmokeShellEffect, position);
 
             }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Vector3 position = player.transform.position;
+
+     
+                Vector2 randomOffset = Random.insideUnitCircle * 0.15f ;
+
+                Vector3 spawnPosition = position + new Vector3(randomOffset.x, randomOffset.y, 0f);
+
+                EffectManager.Instance.PlayEffect(EffectType.BloodSplatterEffect, spawnPosition);
+            }
         }
         else
         {

@@ -66,32 +66,30 @@ public class EffectController : MonoBehaviour
             StopCoroutine(sightEffectCoroutine);
         }
 
-        if (rotation != default)
-        {
-            transform.localRotation = rotation;
-        }
 
-        sightEffectCoroutine = StartCoroutine(LerpSightEffectCoroutine(targetRadius, targetAngle));
+        sightEffectCoroutine = StartCoroutine(LerpSightEffectCoroutine(targetRadius, rotation, targetAngle));
     }
 
 
 
-    private IEnumerator LerpSightEffectCoroutine(float targetRadius, float targetAngle)
+
+    private IEnumerator LerpSightEffectCoroutine(float targetRadius,  Quaternion targetRotation, float targetAngle)
     {
         float startRadius = sightLight.pointLightOuterRadius;
         float startOuterAngle = sightLight.pointLightOuterAngle;
         float startInnerAngle = sightLight.pointLightInnerAngle;
+        Quaternion startRotation = transform.localRotation;
 
         // 타겟 InnerAngle은 OuterAngle의 0.8 정도 
         float targetOuterAngle = targetAngle;
-        float targetInnerAngle = targetAngle * 0.8f;
+        float targetInnerAngle = targetAngle * 0.9f;
 
         // DeltaAngle 보정 
         float correctedOuterTarget = startOuterAngle + Mathf.DeltaAngle(startOuterAngle, targetOuterAngle);
         float correctedInnerTarget = startInnerAngle + Mathf.DeltaAngle(startInnerAngle, targetInnerAngle);
 
         float elapsed = 0f;
-        float duration = 0.3f;  
+        float duration = 0.3f;
 
         while (elapsed < duration)
         {
@@ -101,6 +99,7 @@ public class EffectController : MonoBehaviour
             sightLight.pointLightOuterRadius = Mathf.Lerp(startRadius, targetRadius, t);
             sightLight.pointLightOuterAngle = Mathf.Lerp(startOuterAngle, correctedOuterTarget, t);
             sightLight.pointLightInnerAngle = Mathf.Lerp(startInnerAngle, correctedInnerTarget, t);
+            transform.localRotation = Quaternion.Slerp(startRotation, targetRotation, t);
 
             yield return null;
         }
@@ -109,10 +108,11 @@ public class EffectController : MonoBehaviour
         sightLight.pointLightOuterRadius = targetRadius;
         sightLight.pointLightOuterAngle = targetOuterAngle;
         sightLight.pointLightInnerAngle = targetInnerAngle;
-
+        transform.localRotation = targetRotation;
 
         sightEffectCoroutine = null;
     }
+
 
 
     // 삭제
