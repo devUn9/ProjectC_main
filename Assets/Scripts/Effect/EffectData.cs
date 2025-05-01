@@ -8,11 +8,12 @@ public class EffectData : ScriptableObject
     public GameObject prefab;
     public float duration;
 
-    [Header("¹Ýº¹ È½¼ö ¼³Á¤")]
+    [Header("ë°˜ë³µ íšŸìˆ˜ ì„¤ì •")]
 
     public bool useRepeat = false;
     public int RepeatCount;
     public float RepeatInterval;
+
 
 
 }

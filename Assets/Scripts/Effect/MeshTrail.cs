@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SpriteTrail : MonoBehaviour
 {
-    public float activeTime = 2f;         // ½ÇÇà½Ã°£
-    public float refreshRate = 0.05f;     // ÀÜ»ó ³ª¿À´Â °£°İ
-    public Transform spawnPoint;          // ÀÜ»ó ½ºÆùÀ§Ä¡
+    public float activeTime = 2f;         // ì‹¤í–‰ì‹œê°„
+    public float refreshRate = 0.05f;     // ì”ìƒ ë‚˜ì˜¤ëŠ” ê°„ê²©
+    public Transform spawnPoint;          // ì”ìƒ ìŠ¤í°ìœ„ì¹˜
     public Material spriteMaterial;     
     public int poolSize = 30;
     int trailIndex = 0;
@@ -34,6 +34,7 @@ public class SpriteTrail : MonoBehaviour
         new Color(0f, 1f, 0.5f),
         new Color(0f, 1f, 0.8f)
     };
+
 
     void Start()
     {

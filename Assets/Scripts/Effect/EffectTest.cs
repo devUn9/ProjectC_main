@@ -25,9 +25,10 @@ public class EffectTest : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("ÇÃ·¹ÀÌ¾î¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+            Debug.LogWarning("í”Œë ˆì´ì–´ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
             player = PlayerManager.instance.player;
         }
     }
 
 }
+
