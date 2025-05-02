@@ -10,6 +10,8 @@ public enum EffectType
     MuzzleFlashEffect,
     EnemySightEffect,
     BuffEffect,
-    BloodSplatterEffect
+    BloodSplatterEffect,
+    GrenadeEffect,
+    empEffect
 
 }

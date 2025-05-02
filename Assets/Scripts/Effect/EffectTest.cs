@@ -34,6 +34,22 @@ public class EffectTest : MonoBehaviour
 
                 EffectManager.Instance.PlayEffect(EffectType.BloodSplatterEffect, spawnPosition);
             }
+
+            if(Input.GetKeyDown(KeyCode.R))
+            {
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePos.z = 0f;
+                EffectManager.Instance.PlayEffect(EffectType.empEffect, mousePos);
+            }
+
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePos.z = 0f;
+                EffectManager.Instance.PlayEffect(EffectType.GrenadeEffect, mousePos);
+            }
+
+
         }
         else
         {
