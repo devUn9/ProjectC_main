@@ -798,7 +798,33 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lifebar2_Damage_animation-red_0: 1995639472529513541
+      Lifebar2_Damage_animation-red_1: -5457583623087147227
+      Lifebar2_Damage_animation-red_10: 6744052746329793728
+      Lifebar2_Damage_animation-red_11: -3385799707892816741
+      Lifebar2_Damage_animation-red_12: -864575957435986797
+      Lifebar2_Damage_animation-red_13: 2652681124519159521
+      Lifebar2_Damage_animation-red_14: -6155840898279149413
+      Lifebar2_Damage_animation-red_15: -4505475075041961796
+      Lifebar2_Damage_animation-red_16: 5997930355493286968
+      Lifebar2_Damage_animation-red_17: -992469035781451242
+      Lifebar2_Damage_animation-red_18: 5456023023418412023
+      Lifebar2_Damage_animation-red_19: 7373079850247061941
+      Lifebar2_Damage_animation-red_2: 9206310518195650184
+      Lifebar2_Damage_animation-red_20: -8298567729860156799
+      Lifebar2_Damage_animation-red_21: -4107024784532257870
+      Lifebar2_Damage_animation-red_22: 6396667403213943583
+      Lifebar2_Damage_animation-red_23: 9083800080434431598
+      Lifebar2_Damage_animation-red_24: -6658983876950270826
+      Lifebar2_Damage_animation-red_25: -5489531911463875319
+      Lifebar2_Damage_animation-red_3: 5190625714376346068
+      Lifebar2_Damage_animation-red_4: 9083498586612963659
+      Lifebar2_Damage_animation-red_5: 7970465872644262591
+      Lifebar2_Damage_animation-red_6: -7065483624222778073
+      Lifebar2_Damage_animation-red_7: 9084264389982034644
+      Lifebar2_Damage_animation-red_8: -590925218131576608
+      Lifebar2_Damage_animation-red_9: 5784595180919355677
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

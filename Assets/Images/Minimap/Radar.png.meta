@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 142d92ea4c25ff544a1cd00f548a836b
+guid: 1932fb138962960429e34f66f06f042a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4345214845302833466
-    second: health-Red_0
+      213: 6330969168363139030
+    second: Radar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: health-Red_0
+      name: Radar_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 5
-        height: 7
+        width: 171
+        height: 171
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a31870f31ed4d4c30800000000000000
-      internalID: 4345214845302833466
+      spriteID: 6df2c3c6aee1cd750800000000000000
+      internalID: 6330969168363139030
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      health-Red_0: 4345214845302833466
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
