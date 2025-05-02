@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Enemy : MonoBehaviour
@@ -80,7 +80,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        Debug.Log("폭탄에 맞았다");
+        Debug.Log($"{damage}데미지.");
     }
 
     // 씬 뷰에서 부채꼴 기즈모 그리기

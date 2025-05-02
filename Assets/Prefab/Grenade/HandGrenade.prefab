@@ -104,7 +104,7 @@ MonoBehaviour:
   explosionRadius: 3.5
   explosionForce: 700
   throwHeight: 3
-  explosionEffect: {fileID: 1272365366362387747, guid: 748aaa3ba856e8f459bd2a54c96a189c, type: 3}
+  explosionEffect: {fileID: 6192724089161036641, guid: dcd25752d8e4ddb49a57ef2721919f74, type: 3}
   explosionLayers:
     serializedVersion: 2
     m_Bits: 4096

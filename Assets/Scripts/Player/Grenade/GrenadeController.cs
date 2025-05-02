@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -13,12 +13,12 @@ public class GrenadeController : MonoBehaviour
     public GameObject explosionEffect;      // 폭발 이펙트
     public LayerMask explosionLayers;       // 폭발 영향을 받는 레이어
     public LayerMask playerLayers;          // 플레이어 레이어(연막탄용)
-    public LayerMask InvisablePlayerLayers; // 연막탄 효과를 받는 레이어(투명화된 플레이어)
+    public LayerMask invisablePlayerLayers; // 연막탄 효과를 받는 레이어(투명화된 플레이어)
     public float disappearTime = 0.1f;      // 수류탄이 사라지는 시간
 
     [Header("Sound")]
-    public AudioClip throwSound;             // 던지는 소리
-    public AudioClip explosionSound;         // 폭발 소리
+    public AudioClip throwSound;        // 던지는 소리
+    public AudioClip explosionSound;    // 폭발 소리
 
     private bool hasExploded = false;
     private Vector3 targetPosition;
@@ -192,10 +192,10 @@ public class GrenadeController : MonoBehaviour
         }
         //float smokeEnd = explosionRadius + 5.0f;
         // 바깥쪽 원의 감지 결과
-        Collider2D[] outerColliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius + 0.5f, InvisablePlayerLayers);
+        Collider2D[] outerColliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius + 0.5f, invisablePlayerLayers);
 
         // 안쪽 원의 감지 결과
-        Collider2D[] innerColliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, InvisablePlayerLayers);
+        Collider2D[] innerColliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, invisablePlayerLayers);
 
         // 양파링 영역에 해당하는 객체를 저장할 리스트
         List<Collider2D> onionRingColliders = new List<Collider2D>();
@@ -229,7 +229,7 @@ public class GrenadeController : MonoBehaviour
 
     private void disappearSmoke()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, InvisablePlayerLayers);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, invisablePlayerLayers);
         foreach (Collider2D player in colliders)
         {
             Player visibility = player.GetComponent<Player>();

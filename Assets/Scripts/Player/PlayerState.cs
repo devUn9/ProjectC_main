@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerState
@@ -14,7 +14,6 @@ public class PlayerState
 
     // 키 입력 상태 관리를 위한 변수들
     protected bool isKeyProcessing = false;   // 현재 키 처리 중인지 여부
-    protected GrenadeSkill skill;
     protected Camera mainCamera;
 
     public PlayerState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName)
@@ -44,14 +43,12 @@ public class PlayerState
         if (triggerCalled && player.isMovingAttack)
         {
             player.isMovingAttack = false;
-            Debug.Log("MoveAttackEnd");
             stateMachine.ChangeState(player.idleState);
         }
 
         if (triggerCalled && player.isDaggerAttack)
         {
             player.isDaggerAttack = false;
-            Debug.Log("DaggerAttackEnd");
             stateMachine.ChangeState(player.idleState);
         }
 
@@ -97,6 +94,12 @@ public class PlayerState
             ||Input.GetKeyDown(KeyCode.Alpha3))
         {
             stateMachine.ChangeState(player.grenadeSkill);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Q)&& player.skill.launcherArm.CanUseBool())
+        {
+            player.transform.position -= PlayerToMousePosVec().normalized*0.4f;
+            stateMachine.ChangeState(player.launcherArmSkill);
         }
     }
 

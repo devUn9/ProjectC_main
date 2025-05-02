@@ -253,6 +253,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &79015958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 79015959}
+  m_Layer: 6
+  m_Name: LaunchPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &79015959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79015958}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.215, y: -0.212, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1153940916}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &339523816
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,6 +744,7 @@ Transform:
   - {fileID: 339523817}
   - {fileID: 2076600279}
   - {fileID: 1078722124}
+  - {fileID: 79015959}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &1153940917
@@ -809,6 +841,7 @@ MonoBehaviour:
   lastDirection: {x: 0, y: 0}
   isDaggerAttack: 0
   daggerAttackEffectPrefab: {fileID: 4733931811651730748, guid: 1502907c5165b2b46b0fe9cf06bdb1f5, type: 3}
+  invisibility: 0
 --- !u!1 &1174300697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,6 +1369,7 @@ GameObject:
   - component: {fileID: 1941670144}
   - component: {fileID: 1941670145}
   - component: {fileID: 1941670146}
+  - component: {fileID: 1941670147}
   m_Layer: 0
   m_Name: SkillManager
   m_TagString: Untagged
@@ -1370,7 +1404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6383739b0497a8946a6262e056627355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 1
+  cooldown: 5
   cooldownTimer: 0
   smokeGrenadePrefab: {fileID: 9053842674245842921, guid: dd0cd2fb203493243b22b0a110fdf102, type: 3}
   handGrenadePrefab: {fileID: 561558836271913761, guid: 04f98bd009e9c934e88b687913145707, type: 3}
@@ -1390,6 +1424,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a479da51921194bb97448f81150f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1941670147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941670143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344ac60fea8cdc418b68da2b0d35aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 7
+  cooldownTimer: 0
+  launcherMissilePrefab: {fileID: 6066672850729393213, guid: c4a9fea7128d6834a9b0e1a329efbca0, type: 3}
+  launchStartPosition: {fileID: 79015959}
+  direction: {x: 0, y: 0}
 --- !u!1 &2076600278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,7 +1486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 67033025968644505, guid: bbc1ff41f6da36640afa0c5326503c80, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9022671872208954525, guid: bbc1ff41f6da36640afa0c5326503c80, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1496,7 +1547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 494261990300519650, guid: 12110222788511a49b399609bf11117f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1981337879086866570, guid: 12110222788511a49b399609bf11117f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1597,7 +1648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9192316570014959470, guid: 4ac0c7e360b78c040987d2f26fe989b4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

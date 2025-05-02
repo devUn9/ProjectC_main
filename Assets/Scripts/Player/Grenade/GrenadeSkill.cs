@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using UnityEngine;
 
 public class GrenadeSkill : Skill
@@ -10,7 +10,6 @@ public class GrenadeSkill : Skill
 
     public Transform throwPosition;         // 던지는 위치 (플레이어)
     private GameObject selectedGrenadePrefab;
-    private Camera mainCamera;
 
     //폭발 범위 시각화
     [Header("Explode Range Info")]
@@ -18,9 +17,9 @@ public class GrenadeSkill : Skill
     [SerializeField] private Transform rangeTransform;
     private GameObject range;
 
-    private void Start()
+    protected override void Start()
     {
-        mainCamera = Camera.main;
+        base.Start();
         GenerateRange();
     }
 
@@ -33,7 +32,7 @@ public class GrenadeSkill : Skill
             || Input.GetKey(KeyCode.Alpha3)))
         {
             ModifyRange();
-            range.transform.position = MoveRange();
+            range.transform.position = MousePosition();
         }
         if (Input.GetKeyUp(KeyCode.Alpha1)
             || Input.GetKeyUp(KeyCode.Alpha2)
@@ -130,11 +129,5 @@ public class GrenadeSkill : Skill
         range.SetActive(_isActive);
     }
 
-    public Vector3 MoveRange()
-    {
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = 2f; // 카메라와의 거리
-        Vector3 targetPosition = mainCamera.ScreenToWorldPoint(mousePosition);
-        return targetPosition;
-    }
+    
 }

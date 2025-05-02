@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
 public class EnemyPistolBullet : MonoBehaviour
@@ -38,7 +38,7 @@ public class EnemyPistolBullet : MonoBehaviour
         int layer = collision.gameObject.layer;
         if (layer == LayerMask.NameToLayer("Player"))
         {
-            Debug.Log("Player에게 빅 Damage.");
+            Debug.Log("Player에게 탄환 Damage.");
         }
         Destroy(gameObject);
     }

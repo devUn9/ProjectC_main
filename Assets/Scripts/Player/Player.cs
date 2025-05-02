@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
     public PlayerAttackState attackState { get; private set; }
     public PlayerDaggerAttackState daggerAttack { get; private set; }
     public PlayerGrenadeState grenadeSkill { get; private set; }
+    public PlayerLauncherArmState launcherArmSkill { get; private set; }
 
     protected void Awake()
     {
@@ -62,6 +63,7 @@ public class Player : MonoBehaviour
         attackState = new PlayerAttackState(this, stateMachine, "Attack");
         daggerAttack = new PlayerDaggerAttackState(this, stateMachine, "daggerAttack");
         grenadeSkill = new PlayerGrenadeState(this, stateMachine, "GrenadeThrow");
+        launcherArmSkill = new PlayerLauncherArmState(this, stateMachine, "LauncherArm");
     }
 
     protected void Start()
@@ -152,17 +154,6 @@ public class Player : MonoBehaviour
         {
             Debug.Log("근처에 오브젝트가 없습니다.");  // 감지된 오브젝트가 없음
         }
-    }
-
-    public IEnumerator Invisibility(float _timer)
-    {
-        Debug.Log("Invisibility on");
-
-        SetLayerRecursively("InvisablePlayer");
-        yield return new WaitForSeconds(_timer);
-        SetLayerRecursively("Player");
-
-        Debug.Log("Invisibility off");
     }
 
     private void SetLayerRecursively(string _layer)

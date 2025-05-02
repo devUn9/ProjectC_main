@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_DaggerAttack_Left
+  m_Name: Player_LauncherArm_Front
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,19 +21,21 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 2795003380002803459, guid: 21a6fb1614576404c989e480a358b504, type: 3}
-    - time: 0.083333336
-      value: {fileID: -401318210917509266, guid: 21a6fb1614576404c989e480a358b504, type: 3}
-    - time: 0.16666667
-      value: {fileID: -7998998966483472298, guid: 21a6fb1614576404c989e480a358b504, type: 3}
+      value: {fileID: 8670918458655965857, guid: aae40b70683a6c243ae301cd3b75e403, type: 3}
+    - time: 0.125
+      value: {fileID: 5442378224226936367, guid: aae40b70683a6c243ae301cd3b75e403, type: 3}
     - time: 0.25
-      value: {fileID: 6269477535879644016, guid: 21a6fb1614576404c989e480a358b504, type: 3}
+      value: {fileID: 5442378224226936367, guid: aae40b70683a6c243ae301cd3b75e403, type: 3}
+    - time: 0.375
+      value: {fileID: -4058833706713439921, guid: aae40b70683a6c243ae301cd3b75e403, type: 3}
+    - time: 0.5
+      value: {fileID: -763680235998087421, guid: aae40b70683a6c243ae301cd3b75e403, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 12
+  m_SampleRate: 8
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -50,16 +52,17 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 2795003380002803459, guid: 21a6fb1614576404c989e480a358b504, type: 3}
-    - {fileID: -401318210917509266, guid: 21a6fb1614576404c989e480a358b504, type: 3}
-    - {fileID: -7998998966483472298, guid: 21a6fb1614576404c989e480a358b504, type: 3}
-    - {fileID: 6269477535879644016, guid: 21a6fb1614576404c989e480a358b504, type: 3}
+    - {fileID: 8670918458655965857, guid: aae40b70683a6c243ae301cd3b75e403, type: 3}
+    - {fileID: 5442378224226936367, guid: aae40b70683a6c243ae301cd3b75e403, type: 3}
+    - {fileID: 5442378224226936367, guid: aae40b70683a6c243ae301cd3b75e403, type: 3}
+    - {fileID: -4058833706713439921, guid: aae40b70683a6c243ae301cd3b75e403, type: 3}
+    - {fileID: -763680235998087421, guid: aae40b70683a6c243ae301cd3b75e403, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.33333334
+    m_StopTime: 0.625
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -79,7 +82,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.25
+  - time: 0.5
     functionName: AnimationTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
