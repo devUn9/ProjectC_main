@@ -798,7 +798,33 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lifebar2_Damage_animation-yellow_0: -1849329289870352814
+      Lifebar2_Damage_animation-yellow_1: -2815419076858653949
+      Lifebar2_Damage_animation-yellow_10: -113988940702981874
+      Lifebar2_Damage_animation-yellow_11: -3015024695931572738
+      Lifebar2_Damage_animation-yellow_12: 4407044897009816200
+      Lifebar2_Damage_animation-yellow_13: -2072798712908865048
+      Lifebar2_Damage_animation-yellow_14: 1797550865426066665
+      Lifebar2_Damage_animation-yellow_15: -7166467361111212702
+      Lifebar2_Damage_animation-yellow_16: -7293416266038992397
+      Lifebar2_Damage_animation-yellow_17: 5249796468225270190
+      Lifebar2_Damage_animation-yellow_18: -611015972288182261
+      Lifebar2_Damage_animation-yellow_19: -5418118544283699037
+      Lifebar2_Damage_animation-yellow_2: -8628928420244880070
+      Lifebar2_Damage_animation-yellow_20: 3656845718035327722
+      Lifebar2_Damage_animation-yellow_21: 5870829423894338261
+      Lifebar2_Damage_animation-yellow_22: -6664238333239324204
+      Lifebar2_Damage_animation-yellow_23: 2651383476956947063
+      Lifebar2_Damage_animation-yellow_24: -8431177134118583002
+      Lifebar2_Damage_animation-yellow_25: -8610582758273017236
+      Lifebar2_Damage_animation-yellow_3: 7637362144352797082
+      Lifebar2_Damage_animation-yellow_4: -6850327625405837564
+      Lifebar2_Damage_animation-yellow_5: 2441041121113630985
+      Lifebar2_Damage_animation-yellow_6: 8575735004870748078
+      Lifebar2_Damage_animation-yellow_7: -4150107229246918386
+      Lifebar2_Damage_animation-yellow_8: 3680355558368951659
+      Lifebar2_Damage_animation-yellow_9: -6672994426186941831
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -348,7 +348,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lifebar3_Damage_animation_0: 7335654004971776941
+      Lifebar3_Damage_animation_1: -6495857504401222975
+      Lifebar3_Damage_animation_2: 1774865015348320872
+      Lifebar3_Damage_animation_3: -2104948722732618008
+      Lifebar3_Damage_animation_4: 1339127944567436300
+      Lifebar3_Damage_animation_5: 2278909519616512340
+      Lifebar3_Damage_animation_6: -3271037322033310061
+      Lifebar3_Damage_animation_7: 460682009910746526
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

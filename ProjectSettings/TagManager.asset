@@ -23,7 +23,8 @@ TagManager:
   - EnemyBullet
   - InvisablePlayer
   - 
-  - 
+  - Map
+  - Minimap
   - 
   - 
   - 

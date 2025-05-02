@@ -198,7 +198,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Smoll_Button_yellow_0: -5803107360023219545
+      Smoll_Button_yellow_1: -3434551334046022977
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

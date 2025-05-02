@@ -198,7 +198,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      lifebar3-yellow_0: 3124726109136955333
+      lifebar3-yellow_1: -8769802347876032386
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

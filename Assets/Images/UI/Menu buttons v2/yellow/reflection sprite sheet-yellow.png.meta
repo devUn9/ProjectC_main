@@ -373,7 +373,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      reflection sprite sheet-yellow_0: -5248103586546414321
+      reflection sprite sheet-yellow_1: 8922843969003725657
+      reflection sprite sheet-yellow_2: 357806584407795690
+      reflection sprite sheet-yellow_3: 19123345434133588
+      reflection sprite sheet-yellow_4: -2054479166958989911
+      reflection sprite sheet-yellow_5: -2366842690667527067
+      reflection sprite sheet-yellow_6: -1264210126755614293
+      reflection sprite sheet-yellow_7: -1022426830732272635
+      reflection sprite sheet-yellow_8: -7925547565272224468
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

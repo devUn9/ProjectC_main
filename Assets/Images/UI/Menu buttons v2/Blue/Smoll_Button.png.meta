@@ -198,7 +198,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Smoll_Button_0: 8828197819252877834
+      Smoll_Button_1: -2244560277309812258
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
