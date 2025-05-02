@@ -3,52 +3,52 @@ using Unity.Cinemachine;
 
 public class Portal : MonoBehaviour
 {
-    [SerializeField] private GameObject player; // ÇÃ·¹ÀÌ¾î ¿ÀºêÁ§Æ®
-    [SerializeField] private Transform targetPosition; // ÀÌµ¿ÇÒ ¸ñÇ¥ ÁÂÇ¥
-    [SerializeField] private CinemachineVirtualCameraBase virtualCamera; // Cinemachine °¡»ó Ä«¸Ş¶ó
-    [SerializeField] private BoxCollider2D targetBoundingShape; // ¸ñÇ¥ À§Ä¡ÀÇ Bounding Shape 2D
+    [SerializeField] private GameObject player; // í”Œë ˆì´ì–´ ì˜¤ë¸Œì íŠ¸
+    [SerializeField] private Transform targetPosition; // ì´ë™í•  ëª©í‘œ ì¢Œí‘œ
+    [SerializeField] private CinemachineVirtualCameraBase virtualCamera; // Cinemachine ê°€ìƒ ì¹´ë©”ë¼
+    [SerializeField] private BoxCollider2D targetBoundingShape; // ëª©í‘œ ìœ„ì¹˜ì˜ Bounding Shape 2D
     
 
-    private CinemachineConfiner2D confiner; // Cinemachine Confiner 2D ÄÄÆ÷³ÍÆ®
+    private CinemachineConfiner2D confiner; // Cinemachine Confiner 2D ì»´í¬ë„ŒíŠ¸
 
     private void Awake()
     {
-        // Cinemachine Confiner 2D ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
+        // Cinemachine Confiner 2D ì»´í¬ë„ŒíŠ¸ ê°€ì ¸ì˜¤ê¸°
         if (virtualCamera != null)
         {
             confiner = virtualCamera.GetComponent<CinemachineConfiner2D>();
             if (confiner == null)
             {
-                Debug.LogError("CinemachineConfiner2D ÄÄÆ÷³ÍÆ®°¡ °¡»ó Ä«¸Ş¶ó¿¡ ¾ø½À´Ï´Ù!");
+                Debug.LogError("CinemachineConfiner2D ì»´í¬ë„ŒíŠ¸ê°€ ê°€ìƒ ì¹´ë©”ë¼ì— ì—†ìŠµë‹ˆë‹¤!");
             }
-            // Follow ÃÊ±âÈ­
-            virtualCamera.Follow = player.transform; // ¿©±â¼­ Follow ¼³Á¤
+            // Follow ì´ˆê¸°í™”
+            virtualCamera.Follow = player.transform; // ì—¬ê¸°ì„œ Follow ì„¤ì •
         }
         else
         {
-            Debug.LogError("Virtual Camera°¡ ÁöÁ¤µÇÁö ¾Ê¾Ò½À´Ï´Ù!");
+            Debug.LogError("Virtual Cameraê°€ ì§€ì •ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤!");
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        // Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®°¡ ÇÃ·¹ÀÌ¾îÀÎÁö È®ÀÎ
+        // ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸ê°€ í”Œë ˆì´ì–´ì¸ì§€ í™•ì¸
         if (collision.gameObject == player)
         {
-            // ÇÃ·¹ÀÌ¾î À§Ä¡ ÀÌµ¿
+            // í”Œë ˆì´ì–´ ìœ„ì¹˜ ì´ë™
             player.transform.position = new Vector3(targetPosition.position.x, targetPosition.position.y + 1, player.transform.position.z);
 
-            // Ä«¸Ş¶ó °æ°è ¾÷µ¥ÀÌÆ®
+            // ì¹´ë©”ë¼ ê²½ê³„ ì—…ë°ì´íŠ¸
             if (confiner != null && targetBoundingShape != null)
             {
-                confiner.BoundingShape2D = targetBoundingShape; // »õ·Î¿î °æ°è ¼³Á¤
-                confiner.InvalidateBoundingShapeCache(); // Ä³½Ã ¹«È¿È­·Î °æ°è Àç°è»ê
+                confiner.BoundingShape2D = targetBoundingShape; // ìƒˆë¡œìš´ ê²½ê³„ ì„¤ì •
+                confiner.InvalidateBoundingShapeCache(); // ìºì‹œ ë¬´íš¨í™”ë¡œ ê²½ê³„ ì¬ê³„ì‚°
                 virtualCamera.ForceCameraPosition(player.transform.position, Quaternion.identity); 
             }
             else
             {
-                Debug.LogWarning("Confiner ¶Ç´Â Target Bounding Shape°¡ ¼³Á¤µÇÁö ¾Ê¾Ò½À´Ï´Ù!");
+                Debug.LogWarning("Confiner ë˜ëŠ” Target Bounding Shapeê°€ ì„¤ì •ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤!");
             }
         }
     }
