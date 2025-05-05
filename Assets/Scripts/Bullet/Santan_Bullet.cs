@@ -4,6 +4,7 @@ public class Santan_Bullet : MonoBehaviour
 {
     private float speed = 7f;
     private Vector2 vec2;
+    public GameObject hitEffectPrefab;
 
     void Start()
     {
@@ -26,6 +27,8 @@ public class Santan_Bullet : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            GameObject hitEffect = Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
+            Destroy(hitEffect, 0.3f);
             Destroy(gameObject);
         }
     }

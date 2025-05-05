@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      HollowCircle_0: 4410373527818748693
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
