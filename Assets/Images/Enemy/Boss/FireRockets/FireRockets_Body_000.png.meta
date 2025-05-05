@@ -230,9 +230,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1024
-        width: 256
-        height: 256
+        y: 1280
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,10 +251,10 @@ TextureImporter:
       name: FireRockets_Body_000_1
       rect:
         serializedVersion: 2
-        x: 256
-        y: 1024
-        width: 256
-        height: 256
+        x: 320
+        y: 1280
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,10 +273,10 @@ TextureImporter:
       name: FireRockets_Body_000_2
       rect:
         serializedVersion: 2
-        x: 512
-        y: 1024
-        width: 256
-        height: 256
+        x: 640
+        y: 1280
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -295,10 +295,10 @@ TextureImporter:
       name: FireRockets_Body_000_3
       rect:
         serializedVersion: 2
-        x: 768
-        y: 1024
-        width: 256
-        height: 256
+        x: 960
+        y: 1280
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -317,10 +317,10 @@ TextureImporter:
       name: FireRockets_Body_000_4
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 1024
-        width: 256
-        height: 256
+        x: 1280
+        y: 1280
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,10 +339,10 @@ TextureImporter:
       name: FireRockets_Body_000_5
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 1024
-        width: 256
-        height: 256
+        x: 1600
+        y: 1280
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -362,9 +362,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 768
-        width: 256
-        height: 256
+        y: 960
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -383,10 +383,10 @@ TextureImporter:
       name: FireRockets_Body_000_7
       rect:
         serializedVersion: 2
-        x: 256
-        y: 768
-        width: 256
-        height: 256
+        x: 320
+        y: 960
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -405,10 +405,10 @@ TextureImporter:
       name: FireRockets_Body_000_8
       rect:
         serializedVersion: 2
-        x: 512
-        y: 768
-        width: 256
-        height: 256
+        x: 640
+        y: 960
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -427,10 +427,10 @@ TextureImporter:
       name: FireRockets_Body_000_9
       rect:
         serializedVersion: 2
-        x: 768
-        y: 768
-        width: 256
-        height: 256
+        x: 960
+        y: 960
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -449,10 +449,10 @@ TextureImporter:
       name: FireRockets_Body_000_10
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 768
-        width: 256
-        height: 256
+        x: 1280
+        y: 960
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -471,10 +471,10 @@ TextureImporter:
       name: FireRockets_Body_000_11
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 768
-        width: 256
-        height: 256
+        x: 1600
+        y: 960
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -494,9 +494,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 512
-        width: 256
-        height: 256
+        y: 640
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -515,10 +515,10 @@ TextureImporter:
       name: FireRockets_Body_000_13
       rect:
         serializedVersion: 2
-        x: 256
-        y: 512
-        width: 256
-        height: 256
+        x: 320
+        y: 640
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -537,10 +537,10 @@ TextureImporter:
       name: FireRockets_Body_000_14
       rect:
         serializedVersion: 2
-        x: 512
-        y: 512
-        width: 256
-        height: 256
+        x: 640
+        y: 640
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -559,10 +559,10 @@ TextureImporter:
       name: FireRockets_Body_000_15
       rect:
         serializedVersion: 2
-        x: 768
-        y: 512
-        width: 256
-        height: 256
+        x: 960
+        y: 640
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -581,10 +581,10 @@ TextureImporter:
       name: FireRockets_Body_000_16
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 512
-        width: 256
-        height: 256
+        x: 1280
+        y: 640
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -603,10 +603,10 @@ TextureImporter:
       name: FireRockets_Body_000_17
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 512
-        width: 256
-        height: 256
+        x: 1600
+        y: 640
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -626,9 +626,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
-        width: 256
-        height: 256
+        y: 320
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -647,10 +647,10 @@ TextureImporter:
       name: FireRockets_Body_000_19
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
-        width: 256
-        height: 256
+        x: 320
+        y: 320
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -669,10 +669,10 @@ TextureImporter:
       name: FireRockets_Body_000_20
       rect:
         serializedVersion: 2
-        x: 512
-        y: 256
-        width: 256
-        height: 256
+        x: 640
+        y: 320
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -691,10 +691,10 @@ TextureImporter:
       name: FireRockets_Body_000_21
       rect:
         serializedVersion: 2
-        x: 768
-        y: 256
-        width: 256
-        height: 256
+        x: 960
+        y: 320
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -713,10 +713,10 @@ TextureImporter:
       name: FireRockets_Body_000_22
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 256
-        width: 256
-        height: 256
+        x: 1280
+        y: 320
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -735,10 +735,10 @@ TextureImporter:
       name: FireRockets_Body_000_23
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 256
-        width: 256
-        height: 256
+        x: 1600
+        y: 320
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -759,17 +759,17 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 64f78160ac92f554eb5f49d1c804b7d4
+      spriteID: 7531b129474ac1000800000000000000
       internalID: 8062119922307927
       vertices: []
       indices: 
@@ -779,19 +779,19 @@ TextureImporter:
       name: FireRockets_Body_000_25
       rect:
         serializedVersion: 2
-        x: 256
+        x: 320
         y: 0
-        width: 256
-        height: 256
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: cf958b52e8d9e1a4c847e6c9a0342bd0
+      spriteID: 4564ab3829d5b9e60800000000000000
       internalID: 7970066849418856020
       vertices: []
       indices: 
@@ -801,19 +801,19 @@ TextureImporter:
       name: FireRockets_Body_000_26
       rect:
         serializedVersion: 2
-        x: 512
+        x: 640
         y: 0
-        width: 256
-        height: 256
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e4c786c29d6647b4fb9c19bae65a16ce
+      spriteID: eb855b487855a34f0800000000000000
       internalID: -848271539270494018
       vertices: []
       indices: 
@@ -823,19 +823,19 @@ TextureImporter:
       name: FireRockets_Body_000_27
       rect:
         serializedVersion: 2
-        x: 768
+        x: 960
         y: 0
-        width: 256
-        height: 256
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0debbc71c1b99aa4ba7caaccd90d26d1
+      spriteID: 75740ec0b5ca32410800000000000000
       internalID: 1451193012001458007
       vertices: []
       indices: 
@@ -845,19 +845,19 @@ TextureImporter:
       name: FireRockets_Body_000_28
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 1280
         y: 0
-        width: 256
-        height: 256
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3ce75ae46f8d4b44d8fc3d5568813897
+      spriteID: f90c46688facfc350800000000000000
       internalID: 6039268794082574495
       vertices: []
       indices: 
@@ -867,19 +867,19 @@ TextureImporter:
       name: FireRockets_Body_000_29
       rect:
         serializedVersion: 2
-        x: 1280
+        x: 1600
         y: 0
-        width: 256
-        height: 256
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2ce3c9d31574ab240adb132384e74dfd
+      spriteID: 7a8ea84dc88af9d00800000000000000
       internalID: 981688566604818599
       vertices: []
       indices: 
@@ -889,7 +889,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6607e80e01544c54891171cada80580f
+    spriteID: 91af6c5c6c427d64fab012ed344befa8
     internalID: 0
     vertices: []
     indices: 

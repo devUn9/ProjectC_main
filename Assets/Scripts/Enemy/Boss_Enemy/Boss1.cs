@@ -1,10 +1,14 @@
+using System.Collections;
 using System.ComponentModel.Design;
+using Unity.Mathematics;
 using UnityEngine;
+
 
 public class Boss1 : MonoBehaviour
 {
     public Transform player;
     private Animator ani;
+    public SpriteTrail MeshTrailscript {get; private set;}
 
     [Header("Movement")]
     private float speed = 1f;
@@ -13,9 +17,12 @@ public class Boss1 : MonoBehaviour
 
     public GameObject[] FirePoints;
     public GameObject bulletPrefab;
-    public GameObject[] RocketPoints;
-    public GameObject rocketPrefab;
+    public GameObject[] ExplorePoints;
+    public GameObject explorePrefab;
 
+    
+    //몬스터 패턴 관련 변수들
+    private float playerToBossDistance;
     private bool isMoving = true;
     private bool isFire = false;
     private bool isRocket = false;
@@ -31,35 +38,38 @@ public class Boss1 : MonoBehaviour
     void Start()
     {
         ani = GetComponent<Animator>();
+        MeshTrailscript = ani.GetComponent<SpriteTrail>();
     }
 
 
     void Update()
     {
+        CheckInput();
         CheckDistance();
         AngleAnimation();
         HandleLayers();
     }
+    
+    private void CheckInput()
+    {
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            StartCoroutine(SandeVistan());
+            
+        }
+    }
+
+    private IEnumerator SandeVistan()
+    {
+        speed = 5f;
+        MeshTrailscript.StartTrail();
+        yield return new WaitForSeconds(1f);
+        speed = 1f;
+    }
 
     private void CheckDistance()
     {
-        if (Vector3.Distance(transform.position, player.position) < 10f)
-        {
-
-            isMoving = false;
-            isFire = true;
-        }
-        else if (Vector3.Distance(transform.position, player.position) > 20f)
-        {
-            isMoving = false;
-            isFire = false;
-            isRocket = true;
-        }
-        else
-        {
-            isMoving = true;
-            isFire = false;
-        }
+        playerToBossDistance = Vector3.Distance(transform.position, player.position);
     }
 
     #region Movement
@@ -88,7 +98,7 @@ public class Boss1 : MonoBehaviour
     #region Attack
     private void LazerAttack()
     {
-
+        
     }
 
     private void SantanInUp()
@@ -192,44 +202,33 @@ public class Boss1 : MonoBehaviour
 
     private void RocketInUp()
     {
-        RocketPoints[0].SetActive(true);
-    }
-
-    private void RocketOutUp()
-    {
-        RocketPoints[0].SetActive(false);
+        ExplorePoints[0].SetActive(true);
+        Instantiate(explorePrefab, ExplorePoints[0].transform.position, Quaternion.identity);
+        ExplorePoints[0].SetActive(false);
     }
 
     private void RocketInDown()
     {
-        RocketPoints[1].SetActive(true);
+        ExplorePoints[1].SetActive(true);
+        Instantiate(explorePrefab, ExplorePoints[1].transform.position, Quaternion.identity);
+        ExplorePoints[1].SetActive(false);
     }
 
-    private void RocketOutDown()
-    {
-        RocketPoints[1].SetActive(false);
-    }
 
     private void RocketInLeft()
     {
-        RocketPoints[2].SetActive(true);
-    }
-
-    private void RocketOutLeft()
-    {
-        RocketPoints[2].SetActive(false);
+        ExplorePoints[2].SetActive(true);
+        Instantiate(explorePrefab, ExplorePoints[2].transform.position, Quaternion.identity);
+        ExplorePoints[2].SetActive(false);
     }
 
     private void RocketInRight()
     {
-        RocketPoints[3].SetActive(true);
+        ExplorePoints[3].SetActive(true);
+        Instantiate(explorePrefab, ExplorePoints[3].transform.position, Quaternion.identity);
+        ExplorePoints[3].SetActive(false);
     }
 
-    private void RocketOutRight()
-    {
-        RocketPoints[3].SetActive(false);
-    }
-    
     #endregion
 
     #region Animation
