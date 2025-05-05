@@ -31,14 +31,7 @@ public class LauncherArmSkill : Skill
         LauncherMissileController missileController = missile.GetComponent<LauncherMissileController>();
         if (missileController != null)
         {
-            missileController.Initialize(launchPosition);
+            missileController.Initialize(launchPosition, SkillManager.instance.playerStats);
         }
-    }
-    public bool CanUseBool()
-    {
-        if (cooldownTimer < 0)
-            return true;
-
-        return false;
     }
 }

@@ -105,8 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startSpeed: 5
   maxSpeed: 10
-  startPoint: {fileID: 0}
-  explosionRadius: 5
+  explosionRadius: 3
   explosionDelay: 2
   explosionLayers:
     serializedVersion: 2

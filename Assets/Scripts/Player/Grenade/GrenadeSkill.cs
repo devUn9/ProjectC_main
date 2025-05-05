@@ -10,6 +10,7 @@ public class GrenadeSkill : Skill
 
     public Transform throwPosition;         // 던지는 위치 (플레이어)
     private GameObject selectedGrenadePrefab;
+    public bool getKeyLock; //키 입력 Lock
 
     //폭발 범위 시각화
     [Header("Explode Range Info")]
@@ -21,12 +22,19 @@ public class GrenadeSkill : Skill
     {
         base.Start();
         GenerateRange();
+        getKeyLock = true;
     }
 
     protected override void Update()
     {
         base.Update();
 
+        if(!CanUseBool())
+            return;
+
+        if(getKeyLock)
+            return;
+        Debug.Log("getKeyLock : "+getKeyLock);
         if ((Input.GetKey(KeyCode.Alpha1)
             || Input.GetKey(KeyCode.Alpha2)
             || Input.GetKey(KeyCode.Alpha3)))
@@ -48,6 +56,7 @@ public class GrenadeSkill : Skill
             selectedGrenadePrefab = smokeGrenadePrefab;
             isKeyProcessing = true;
             ThrowGrenade();
+            getKeyLock = true;
         }
         else if (Input.GetKeyUp(KeyCode.Alpha2))
         {
@@ -56,6 +65,7 @@ public class GrenadeSkill : Skill
             selectedGrenadePrefab = handGrenadePrefab;
             isKeyProcessing = true;
             ThrowGrenade();
+            getKeyLock = true;
         }
         else if (Input.GetKeyUp(KeyCode.Alpha3))
         {
@@ -64,6 +74,7 @@ public class GrenadeSkill : Skill
             selectedGrenadePrefab = empGrenadePrefab;
             isKeyProcessing = true;
             ThrowGrenade();
+            getKeyLock = true;
         }
     }
 
@@ -84,7 +95,7 @@ public class GrenadeSkill : Skill
 
         if (grenadeController != null)
         {
-            grenadeController.Initialize(throwPos, targetPosition);
+            grenadeController.Initialize(throwPos, targetPosition, SkillManager.instance.playerStats);
         }
         isKeyProcessing = false;
     }

@@ -1,43 +1,43 @@
 fileFormatVersion: 2
-guid: 8398881473d87e343940414374112a61
+guid: ce95c306e9904404a8ab0fb2d3e52514
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1246034417609514359
-    second: $femandroid1_0
+      213: 621560787414938421
+    second: $femandroid2_0
   - first:
-      213: 2304569309574051301
-    second: $femandroid1_1
+      213: 2180663633399397629
+    second: $femandroid2_1
   - first:
-      213: 1714989068490698197
-    second: $femandroid1_2
+      213: 459988040838164920
+    second: $femandroid2_2
   - first:
-      213: -2237731152049053304
-    second: $femandroid1_3
+      213: -7954082592352077935
+    second: $femandroid2_3
   - first:
-      213: 5824486798413434801
-    second: $femandroid1_4
+      213: 1178782289154546287
+    second: $femandroid2_4
   - first:
-      213: -3029743341060009269
-    second: $femandroid1_5
+      213: -6468466359811778694
+    second: $femandroid2_5
   - first:
-      213: 4540256530340683129
-    second: $femandroid1_6
+      213: 4986123392348989212
+    second: $femandroid2_6
   - first:
-      213: 683612355701118259
-    second: $femandroid1_7
+      213: -467129619876051524
+    second: $femandroid2_7
   - first:
-      213: -1084322310356471638
-    second: $femandroid1_8
+      213: -5606050759596661189
+    second: $femandroid2_8
   - first:
-      213: -8971560491195999184
-    second: $femandroid1_9
+      213: -8990077306326118260
+    second: $femandroid2_9
   - first:
-      213: 8070565654701419987
-    second: $femandroid1_10
+      213: -7728467843871028422
+    second: $femandroid2_10
   - first:
-      213: 1471578284751276792
-    second: $femandroid1_11
+      213: -3870868577901790900
+    second: $femandroid2_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -172,79 +172,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: $femandroid1_0
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 96
-        width: 17
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 98269788c4235bee0800000000000000
-      internalID: -1246034417609514359
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: $femandroid1_1
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 97
-        width: 19
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5e5bd61b3997bff10800000000000000
-      internalID: 2304569309574051301
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: $femandroid1_2
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 96
-        width: 17
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5dde01da87ddcc710800000000000000
-      internalID: 1714989068490698197
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: $femandroid1_3
+      name: $femandroid2_0
       rect:
         serializedVersion: 2
         x: 9
-        y: 64
-        width: 16
-        height: 27
+        y: 96
+        width: 14
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8816a4b8f5bf1f0e0800000000000000
-      internalID: -2237731152049053304
+      spriteID: 533fd243e3a30a800800000000000000
+      internalID: 621560787414938421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: $femandroid1_4
+      name: $femandroid2_1
       rect:
         serializedVersion: 2
-        x: 41
-        y: 65
+        x: 40
+        y: 97
         width: 16
-        height: 27
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,20 +209,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1bf826a32ebb4d050800000000000000
-      internalID: 5824486798413434801
+      spriteID: dfc326b5506434e10800000000000000
+      internalID: 2180663633399397629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: $femandroid1_5
+      name: $femandroid2_2
       rect:
         serializedVersion: 2
         x: 73
+        y: 96
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b1361f9fa4326600800000000000000
+      internalID: 459988040838164920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $femandroid2_3
+      rect:
+        serializedVersion: 2
+        x: 10
         y: 64
-        width: 15
-        height: 27
+        width: 12
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,20 +253,64 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bc2538bcb7034f5d0800000000000000
-      internalID: -3029743341060009269
+      spriteID: 1977cb8560c6d9190800000000000000
+      internalID: -7954082592352077935
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: $femandroid1_6
+      name: $femandroid2_4
       rect:
         serializedVersion: 2
-        x: 7
+        x: 42
+        y: 65
+        width: 12
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6a149c1f30eb5010800000000000000
+      internalID: 1178782289154546287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $femandroid2_5
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 64
+        width: 12
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a77daddfd146b36a0800000000000000
+      internalID: -6468466359811778694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $femandroid2_6
+      rect:
+        serializedVersion: 2
+        x: 10
         y: 32
-        width: 16
-        height: 27
+        width: 12
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -319,20 +319,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 97d9a10524b320f30800000000000000
-      internalID: 4540256530340683129
+      spriteID: c172a37cec4423540800000000000000
+      internalID: 4986123392348989212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: $femandroid1_7
+      name: $femandroid2_7
       rect:
         serializedVersion: 2
-        x: 39
+        x: 42
         y: 33
-        width: 16
-        height: 27
+        width: 12
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,20 +341,86 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 33512a9c0ddac7900800000000000000
-      internalID: 683612355701118259
+      spriteID: cb5893fe51c6489f0800000000000000
+      internalID: -467129619876051524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: $femandroid1_8
+      name: $femandroid2_8
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 32
+        width: 12
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b36ae69498e4332b0800000000000000
+      internalID: -5606050759596661189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $femandroid2_9
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 0
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8091254254dc3380800000000000000
+      internalID: -8990077306326118260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $femandroid2_10
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3bc9047177feb490800000000000000
+      internalID: -7728467843871028422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $femandroid2_11
       rect:
         serializedVersion: 2
         x: 72
-        y: 32
+        y: 0
         width: 15
-        height: 27
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,74 +429,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aa0fb2d8a96b3f0f0800000000000000
-      internalID: -1084322310356471638
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: $femandroid1_9
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 0
-        width: 17
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 03c5551444d9e7380800000000000000
-      internalID: -8971560491195999184
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: $femandroid1_10
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 1
-        width: 19
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3dd22f804b8600070800000000000000
-      internalID: 8070565654701419987
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: $femandroid1_11
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 0
-        width: 18
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8fa47c937a81c6410800000000000000
-      internalID: 1471578284751276792
+      spriteID: c4931f18989e74ac0800000000000000
+      internalID: -3870868577901790900
       vertices: []
       indices: 
       edges: []
@@ -449,18 +449,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      $femandroid1_0: -1246034417609514359
-      $femandroid1_1: 2304569309574051301
-      $femandroid1_10: 8070565654701419987
-      $femandroid1_11: 1471578284751276792
-      $femandroid1_2: 1714989068490698197
-      $femandroid1_3: -2237731152049053304
-      $femandroid1_4: 5824486798413434801
-      $femandroid1_5: -3029743341060009269
-      $femandroid1_6: 4540256530340683129
-      $femandroid1_7: 683612355701118259
-      $femandroid1_8: -1084322310356471638
-      $femandroid1_9: -8971560491195999184
+      $femandroid2_0: 621560787414938421
+      $femandroid2_1: 2180663633399397629
+      $femandroid2_10: -7728467843871028422
+      $femandroid2_11: -3870868577901790900
+      $femandroid2_2: 459988040838164920
+      $femandroid2_3: -7954082592352077935
+      $femandroid2_4: 1178782289154546287
+      $femandroid2_5: -6468466359811778694
+      $femandroid2_6: 4986123392348989212
+      $femandroid2_7: -467129619876051524
+      $femandroid2_8: -5606050759596661189
+      $femandroid2_9: -8990077306326118260
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

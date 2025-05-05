@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEditor.ShaderGraph;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class LauncherMissileController : MonoBehaviour
 {
@@ -23,9 +24,13 @@ public class LauncherMissileController : MonoBehaviour
     private Camera mainCamera;
     private Rigidbody2D rb;
 
-    public void Initialize(Vector3 startPosition)
+    private PlayerStats playerStats; // 플레이어 스탯
+
+    public void Initialize(Vector3 startPosition, PlayerStats _playerStats)
     {
         transform.position = startPosition;
+        playerStats = _playerStats;
+
         // 사운드 재생
         if (launchSound != null && GetComponent<AudioSource>() != null)
         {
@@ -83,8 +88,14 @@ public class LauncherMissileController : MonoBehaviour
         // 폭발 이펙트 생성
         if (explosionEffect != null)
         {
-            Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            EffectManager.Instance.PlayEffect(EffectType.GrenadeEffect, transform.position);
         }
+        else
+        {
+            Debug.LogError("폭발 이펙트가 설정되지 않았습니다.");
+        }
+
+
         // 폭발 사운드 재생
         if (explosionSound != null && GetComponent<AudioSource>() != null)
         {
@@ -96,9 +107,10 @@ public class LauncherMissileController : MonoBehaviour
         {
             // 적에게 대미지 적용
             Enemy enemy = collider.GetComponent<Enemy>();
+            EnemyStats _target = enemy.GetComponent<EnemyStats>();
             if (enemy != null)
             {
-                enemy.TakeDamage(110); // 대미지 값 설정
+                playerStats.DoLauncherDamage(_target); // 대미지 값 설정
             }
         }
 

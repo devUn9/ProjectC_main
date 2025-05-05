@@ -4,7 +4,7 @@ public class Skill : MonoBehaviour
 {
     [SerializeField] protected float cooldown;
     [SerializeField] protected float cooldownTimer;
-
+    
     protected Camera mainCamera;
 
     // 키 입력 상태 관리를 위한 변수들
@@ -37,4 +37,11 @@ public class Skill : MonoBehaviour
         return targetPosition;
     }
 
+    public bool CanUseBool()
+    {
+        if (cooldownTimer < 0)
+            return true;
+
+        return false;
+    }
 }

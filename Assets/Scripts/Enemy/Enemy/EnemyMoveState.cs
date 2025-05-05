@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class EnemyMoveState : EnemyState
 {
@@ -20,7 +20,7 @@ public class EnemyMoveState : EnemyState
 
         if (enemy.isBattle)
         {
-            if (EnemyToPlayerDistance() > 3.5f)
+            if (EnemyToPlayerDistance() > enemy.gizmoRadius)
                 return;
             stateMachine.ChangeState(enemy.attackState);
         }

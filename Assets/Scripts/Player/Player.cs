@@ -1,5 +1,6 @@
 using System.Collections;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
@@ -24,7 +25,7 @@ public class Player : MonoBehaviour
     [Header("Interaction Info")]
     [SerializeField] protected Transform interactionCheck;   // 상호작용 체크 위치의 기준점
     [SerializeField] private Vector3 interactionDistance;    // 상호작용 거리 설정값
-    [SerializeField] private float interactionRadius;        // 상호작용 감지 반경
+    [SerializeField] public float interactionRadius;        // 상호작용 감지 반경
     [SerializeField] private Vector2 raycastDirection;       // 레이캐스트 방향
     [SerializeField] private LayerMask detectionEnemyLayers; // Enemy 레이어 설정
     public Vector2 lastDirection;                           // 마지막으로 이동한 방향 저장
@@ -41,9 +42,9 @@ public class Player : MonoBehaviour
 
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
-
+    public EntityFX fx { get; private set; }
     public SpriteTrail MeshTrailscript { get; private set; }
-
+    public PlayerStats stats { get; private set; }
 
     public PlayerStateMachine stateMachine { get; private set; }
     public PlayerIdleState idleState { get; private set; }
@@ -70,11 +71,12 @@ public class Player : MonoBehaviour
     {
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
-
+        fx = GetComponent<EntityFX>();
+        stats = GetComponent<PlayerStats>();
         MeshTrailscript = anim.GetComponent<SpriteTrail>();
 
         skill = SkillManager.instance;
-
+        skill.Initialize(stats);
         stateMachine.Initialize(idleState);
     }
 
@@ -100,6 +102,12 @@ public class Player : MonoBehaviour
         {
             MeshTrailscript.StartTrail();
         }
+    }
+
+    public virtual void DamageEffect()
+    {
+        fx.StartCoroutine("FlashFX");
+        //StartCoroutine("HitKnockBack");
     }
 
     public void AnimationTrigger() => stateMachine.currentState.AnimationFinishTrigger();
@@ -146,6 +154,7 @@ public class Player : MonoBehaviour
             {
                 isDaggerAttack = true;
                 Instantiate(daggerAttackEffectPrefab, interactionCheck.position + gizmoDistance, Quaternion.identity);
+                this.stats.DoMeleeDamage(colliders.GetComponent<EnemyStats>()); // 적에게 대미지 적용
             }
             else
                 Debug.Log("인식할 수 없는 오브젝트입니다.");

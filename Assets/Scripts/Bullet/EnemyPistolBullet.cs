@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
 public class EnemyPistolBullet : MonoBehaviour
 {
     [SerializeField] private float speed;
+    private Enemy enemy;
     Vector2 startPos;
     Transform tr;
     Vector3 dir;
@@ -11,6 +13,10 @@ public class EnemyPistolBullet : MonoBehaviour
     float angle;
     Vector3 dirNo;
 
+    public void Initialize(Enemy _enemy)
+    {
+        enemy = _enemy;
+    }
 
     private void Start()
     {
@@ -36,9 +42,10 @@ public class EnemyPistolBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         int layer = collision.gameObject.layer;
+        PlayerStats _target = collision.GetComponent<PlayerStats>();
         if (layer == LayerMask.NameToLayer("Player"))
         {
-            Debug.Log("Player에게 탄환 Damage.");
+            enemy.stats.DoBulletDamage(_target);
         }
         Destroy(gameObject);
     }

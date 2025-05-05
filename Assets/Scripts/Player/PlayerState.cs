@@ -38,20 +38,23 @@ public class PlayerState
         stateInputVec.x = Input.GetAxisRaw("Horizontal");
         stateInputVec.y = Input.GetAxisRaw("Vertical");
         stateInputVec = stateInputVec.normalized;
-        //이동 사격 시 trigger작동을 위한 조건문
-        //이동 사격 state로직 마지막에 두면 다른 애니매이션 동작 중간에 다른 state로 변경되어 trigger 발동 하지않음
+
+        // 이동 사격 시 trigger작동을 위한 조건문
+        // 이동 사격 state로직 마지막에 두면 다른 애니매이션 동작 중간에 다른 state로 변경되어 trigger 발동 하지않음
         if (triggerCalled && player.isMovingAttack)
         {
             player.isMovingAttack = false;
             stateMachine.ChangeState(player.idleState);
         }
 
+        // 근접 공격 시 trigger작동을 위한 조건문
         if (triggerCalled && player.isDaggerAttack)
         {
             player.isDaggerAttack = false;
             stateMachine.ChangeState(player.idleState);
         }
 
+        // 애니메이션 방향 설정
         if (animBoolName != "Idle")
         {
             if (player.attackStateTimer > 0 && player.attackStatusRemainTime > 0)
@@ -68,12 +71,14 @@ public class PlayerState
             }
         }
 
+        // 이동
         if (stateInputVec.x != 0 || stateInputVec.y != 0)
         {
             lastDirection = stateInputVec.normalized;
             stateMachine.ChangeState(player.moveState);
         }
 
+        // 공격
         // 제자리 공격 애니매이션 종료 후 AnimationTrigger 발생 전까지 공격 입력불가능하게 조정
         // AnimationTrigger 발생 전 입력 시 state에서 에러발생 attackStateTimer변수는 player에서 관리
         if (Input.GetKeyDown(KeyCode.Mouse0) && player.attackStateTimer < 0.25)
@@ -89,13 +94,17 @@ public class PlayerState
                 stateMachine.ChangeState(player.attackState);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1)
+
+        // 수류탄 스킬 사용
+        if ((Input.GetKeyDown(KeyCode.Alpha1)
             ||Input.GetKeyDown(KeyCode.Alpha2)
-            ||Input.GetKeyDown(KeyCode.Alpha3))
+            ||Input.GetKeyDown(KeyCode.Alpha3)) && player.skill.grenade.CanUseBool())
         {
+            player.skill.grenade.getKeyLock = false;
             stateMachine.ChangeState(player.grenadeSkill);
         }
 
+        // 런처암 스킬 사용
         if(Input.GetKeyDown(KeyCode.Q)&& player.skill.launcherArm.CanUseBool())
         {
             player.transform.position -= PlayerToMousePosVec().normalized*0.4f;

@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+public enum GrenadeType
+{
+    SmokeGrenade,
+    handGrenade,
+    EMPGrenade
+}
+
 public class GrenadeController : MonoBehaviour
 {
     [Header("Grenade Info")]
@@ -10,7 +17,10 @@ public class GrenadeController : MonoBehaviour
     public float explosionRadius;       // 폭발 범위
     public float explosionForce;        // 폭발 힘
     public float throwHeight;           // 수류탄이 날아가는 최대 높이
-    public GameObject explosionEffect;      // 폭발 이펙트
+
+    private EffectType explosionEffect;     // 폭발 이펙트
+    public GrenadeType grenadeType;         // 수류탄 종류
+
     public LayerMask explosionLayers;       // 폭발 영향을 받는 레이어
     public LayerMask playerLayers;          // 플레이어 레이어(연막탄용)
     public LayerMask invisablePlayerLayers; // 연막탄 효과를 받는 레이어(투명화된 플레이어)
@@ -26,14 +36,22 @@ public class GrenadeController : MonoBehaviour
     private float elapsedTime = 0f;
     private Vector3 startPosition;
 
+    //Grenade 분류
     [SerializeField] private bool isSmoke;
+    [SerializeField] private bool isFire;
+    [SerializeField] private bool isShock;
     private float smokeTime;
 
+    private Enemy enemy;
+
+    private PlayerStats playerStats; // 플레이어 스탯
+
     // 수류탄 초기화 (플레이어가 던질 때 호출)
-    public void Initialize(Vector3 startPosition, Vector3 target)
+    public void Initialize(Vector3 startPosition, Vector3 target, PlayerStats _playerStats)
     {
         transform.position = startPosition;
         targetPosition = target;
+        playerStats = _playerStats;
 
         // 날아가는 시간 계산 (거리에 비례)
         float distance = Vector3.Distance(startPosition, target);
@@ -52,6 +70,28 @@ public class GrenadeController : MonoBehaviour
     {
         smokeTime = disappearTime;
         startPosition = transform.position;
+
+        switch(grenadeType)
+        {
+            case GrenadeType.SmokeGrenade:
+                explosionEffect = EffectType.SmokeShellEffect;
+                isSmoke = true;
+                isFire = false;
+                isShock = false;
+                break;
+            case GrenadeType.handGrenade:
+                explosionEffect = EffectType.GrenadeEffect;
+                isSmoke = false;
+                isFire = true;
+                isShock = false;
+                break;
+            case GrenadeType.EMPGrenade:
+                explosionEffect = EffectType.empEffect;  
+                isShock = false;
+                isFire = false;
+                isShock = true;
+                break;
+        }
     }
 
     private void Update()
@@ -135,11 +175,8 @@ public class GrenadeController : MonoBehaviour
         if (hasExploded) return;
         hasExploded = true;
 
-        // 폭발 이펙트 생성
-        if (explosionEffect != null)
-        {
-            Instantiate(explosionEffect, transform.position, Quaternion.identity);
-        }
+        // 폭발 이펙트 재생
+        EffectManager.Instance.PlayEffect(explosionEffect, transform.position);
 
         // 폭발 사운드 재생
         if (explosionSound != null && GetComponent<AudioSource>() != null)
@@ -150,29 +187,29 @@ public class GrenadeController : MonoBehaviour
         // 주변 오브젝트에 대미지 및 밀어내기 적용
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, explosionLayers);
 
-        foreach (Collider2D enemy in colliders)
+        foreach (Collider2D collider in colliders)
         {
             // 데미지를 줄 수 있는 컴포넌트가 있는지 확인
-            Enemy damageable = enemy.GetComponent<Enemy>();
-            if (damageable != null)
+            Enemy enemy = collider.GetComponent<Enemy>();
+            EnemyStats _target = enemy.GetComponent<EnemyStats>();
+            if (_target != null)
             {
                 // 거리에 따른 데미지 계산
-                float distance = Vector2.Distance(transform.position, enemy.transform.position);
-                float damagePercent = 1f - Mathf.Clamp01(distance / explosionRadius);
-                int damage = Mathf.RoundToInt(damagePercent * 100f); // 최대 100 데미지
-
-                damageable.TakeDamage(damage);
+                //float distance = Vector2.Distance(transform.position, collision.transform.position);
+                //float damagePercent = 1f - Mathf.Clamp01(distance / explosionRadius);
+                //int damage = Mathf.RoundToInt(damagePercent * 100f); // 최대 100 데미지
+                playerStats.DoGrenadeDamage(_target);
             }
-            // 물리 효과가 있는 오브젝트 밀어내기
-            Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                Vector2 direction = enemy.transform.position - transform.position;
-                float distance = Mathf.Max(0.1f, direction.magnitude);
-                float forceFactor = 1f - Mathf.Clamp01(distance / explosionRadius);
+            //// 물리 효과가 있는 오브젝트 밀어내기
+            //Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
+            //if (rb != null)
+            //{
+            //    Vector2 direction = enemy.transform.position - transform.position;
+            //    float distance = Mathf.Max(0.1f, direction.magnitude);
+            //    float forceFactor = 1f - Mathf.Clamp01(distance / explosionRadius);
 
-                rb.AddForce(direction.normalized * explosionForce * forceFactor, ForceMode2D.Impulse);
-            }
+            //    rb.AddForce(direction.normalized * explosionForce * forceFactor, ForceMode2D.Impulse);
+            //}
         }
 
         Destroy(gameObject, disappearTime);

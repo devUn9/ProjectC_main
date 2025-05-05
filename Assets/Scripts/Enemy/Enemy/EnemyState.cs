@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class EnemyState
@@ -33,7 +33,7 @@ public class EnemyState
             enemy.anim.SetFloat("VelocityX", dir.x);
             enemy.anim.SetFloat("VelocityY", dir.y);
 
-            if (EnemyToPlayerDistance() > 3.5f)
+            if (EnemyToPlayerDistance() > enemy.gizmoRadius)
                 stateMachine.ChangeState(enemy.moveState);
             else
                 stateMachine.ChangeState(enemy.attackState);

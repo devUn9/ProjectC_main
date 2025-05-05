@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class PistolBullet : MonoBehaviour
 {
     [SerializeField] private float speed;
-    //Player player;
+    private Player player;
+    public int damage;
     Vector2 MousePos;
     Transform tr;
     Vector3 dir;
@@ -11,12 +12,14 @@ public class PistolBullet : MonoBehaviour
     float angle;
     Vector3 dirNo;
 
-
+    public void Initialize(Player _player)
+    {
+        player = _player;
+    }
     private void Start()
     {
         tr = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        MousePos = Input.mousePosition;
-        MousePos = Camera.main.ScreenToWorldPoint(MousePos);
+        MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 Pos = new Vector3(MousePos.x, MousePos.y, 0);
         dir = Pos - tr.position;
 
@@ -36,10 +39,16 @@ public class PistolBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         int layer = collision.gameObject.layer;
+        EnemyStats _target = collision.GetComponent<EnemyStats>();
         if (layer == LayerMask.NameToLayer("Enemy"))
         {
-            Debug.Log("Enemy에게 빅 Damage.");
+            player.stats.DoBulletDamage(_target);
         }
         Destroy(gameObject);
+    }
+
+    internal void SetDamage(Stat damage)
+    {
+        this.damage = damage.GetValue();
     }
 }

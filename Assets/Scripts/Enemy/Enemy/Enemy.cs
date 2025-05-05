@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -21,6 +23,8 @@ public class Enemy : MonoBehaviour
     public GameObject bulletPrefab;
     public bool isBattle;
     public float battleTime;
+    public bool isMelee;
+    public bool isBullet;
 
     [Header("player recognition")]
     public LayerMask playerLayer;
@@ -35,6 +39,9 @@ public class Enemy : MonoBehaviour
 
     public Rigidbody2D rb { get; private set; }
     public Animator anim { get; private set; }
+    public EntityFX fx { get; private set; }
+
+    public EnemyStats stats { get; private set; }
 
     public EnemyStateMachine stateMachine { get; private set; }
     public EnemyIdleState idleState { get; private set; }
@@ -46,6 +53,8 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
+        fx = GetComponentInChildren<EntityFX>();
+        stats = GetComponent<EnemyStats>();
 
         stateMachine = new EnemyStateMachine();
         idleState = new EnemyIdleState(this, stateMachine, "Idle");
@@ -76,12 +85,6 @@ public class Enemy : MonoBehaviour
     }
 
     private bool playerCheck() => Physics2D.Raycast(transform.position, Vector2.zero,3, playerLayer);
-
-
-    public void TakeDamage(float damage)
-    {
-        Debug.Log($"{damage}데미지.");
-    }
 
     // 씬 뷰에서 부채꼴 기즈모 그리기
     private void OnDrawGizmos()
@@ -218,5 +221,9 @@ public class Enemy : MonoBehaviour
 
     public void AnimationTrigger() => stateMachine.currentState.AnimationFinishTrigger();
 
-
+    public virtual void DamageEffect()
+    {
+        fx.StartCoroutine("FlashFX");
+        //StartCoroutine("HitKnockBack");
+    }
 }
