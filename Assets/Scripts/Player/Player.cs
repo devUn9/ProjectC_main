@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
     public PlayerDaggerAttackState daggerAttack { get; private set; }
     public PlayerGrenadeState grenadeSkill { get; private set; }
     public PlayerLauncherArmState launcherArmSkill { get; private set; }
+    public PlayerGravitonState gravitonSurgeSkill { get; private set; }
 
     protected void Awake()
     {
@@ -65,6 +66,7 @@ public class Player : MonoBehaviour
         daggerAttack = new PlayerDaggerAttackState(this, stateMachine, "daggerAttack");
         grenadeSkill = new PlayerGrenadeState(this, stateMachine, "GrenadeThrow");
         launcherArmSkill = new PlayerLauncherArmState(this, stateMachine, "LauncherArm");
+        gravitonSurgeSkill = new PlayerGravitonState(this, stateMachine, "GravitonSurge");
     }
 
     protected void Start()
@@ -108,6 +110,11 @@ public class Player : MonoBehaviour
     {
         fx.StartCoroutine("FlashFX");
         //StartCoroutine("HitKnockBack");
+    }
+
+    public void ChargeEffect()
+    {
+        fx.StartCoroutine("ChargeFX");
     }
 
     public void AnimationTrigger() => stateMachine.currentState.AnimationFinishTrigger();

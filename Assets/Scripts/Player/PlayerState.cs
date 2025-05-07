@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerState
 {
@@ -34,10 +33,15 @@ public class PlayerState
         player.attackStateTimer -= Time.deltaTime;
         player.attackStatusRemainTime -= Time.deltaTime;
         Debug.Log(animBoolName);
-
+        
         stateInputVec.x = Input.GetAxisRaw("Horizontal");
         stateInputVec.y = Input.GetAxisRaw("Vertical");
-        stateInputVec = stateInputVec.normalized;
+
+        if (animBoolName != "GravitonSurge")
+            stateInputVec = stateInputVec.normalized;
+        else
+            stateInputVec = Vector2.zero;
+
 
         // 이동 사격 시 trigger작동을 위한 조건문
         // 이동 사격 state로직 마지막에 두면 다른 애니매이션 동작 중간에 다른 state로 변경되어 trigger 발동 하지않음
@@ -61,7 +65,7 @@ public class PlayerState
             {
                 PlayerToMousePosDir();
             }
-            else if(player.attackStateTimer > 0 && player.isDaggerAttack)
+            else if (player.attackStateTimer > 0 && player.isDaggerAttack)
             {
                 SetAnimDirection(player.lastDirection);
             }
@@ -97,18 +101,25 @@ public class PlayerState
 
         // 수류탄 스킬 사용
         if ((Input.GetKeyDown(KeyCode.Alpha1)
-            ||Input.GetKeyDown(KeyCode.Alpha2)
-            ||Input.GetKeyDown(KeyCode.Alpha3)) && player.skill.grenade.CanUseBool())
+            || Input.GetKeyDown(KeyCode.Alpha2)
+            || Input.GetKeyDown(KeyCode.Alpha3)) && player.skill.grenade.CanUseBool())
         {
             player.skill.grenade.getKeyLock = false;
             stateMachine.ChangeState(player.grenadeSkill);
         }
 
         // 런처암 스킬 사용
-        if(Input.GetKeyDown(KeyCode.Q)&& player.skill.launcherArm.CanUseBool())
+        if (Input.GetKeyDown(KeyCode.Q) && player.skill.launcherArm.CanUseBool())
         {
-            player.transform.position -= PlayerToMousePosVec().normalized*0.4f;
+            player.transform.position -= PlayerToMousePosVec().normalized * 0.4f;
             stateMachine.ChangeState(player.launcherArmSkill);
+        }
+
+        // 중력 자탄 스킬 사용
+        if (Input.GetKeyDown(KeyCode.E) && player.skill.gravitonSurge.CanUseBool() && stateInputVec == Vector2.zero)
+        {
+            player.skill.gravitonSurge.GetInProcessCheck();
+            stateMachine.ChangeState(player.gravitonSurgeSkill);
         }
     }
 
@@ -164,5 +175,8 @@ public class PlayerState
         return player.beforeState = this.animBoolName;
     }
 
-    
+    public void SetZeroVelocity()
+    {
+        rb.linearVelocity = Vector2.zero;
+    }
 }

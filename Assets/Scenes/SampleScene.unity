@@ -939,6 +939,9 @@ MonoBehaviour:
   launcherDamage:
     baseValue: 95
     modifiers: 
+  gravitonSurgedDamage:
+    baseValue: 15
+    modifiers: 
   maxHealth:
     baseValue: 250
     modifiers: 
@@ -968,6 +971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitMat: {fileID: 2100000, guid: 0051e34bd4ce1a84591e73cdbad8e55d, type: 2}
+  GravitonCharge: {fileID: 2100000, guid: 9e0af118cf608c541830115e499143b4, type: 2}
 --- !u!1 &1174300697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1484,6 +1488,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1543092205
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8091831470203831090, guid: 804dd0300ba343f49acdde3ded192d92, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.424
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091831470203831090, guid: 804dd0300ba343f49acdde3ded192d92, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.362
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091831470203831090, guid: 804dd0300ba343f49acdde3ded192d92, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091831470203831090, guid: 804dd0300ba343f49acdde3ded192d92, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091831470203831090, guid: 804dd0300ba343f49acdde3ded192d92, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091831470203831090, guid: 804dd0300ba343f49acdde3ded192d92, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091831470203831090, guid: 804dd0300ba343f49acdde3ded192d92, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091831470203831090, guid: 804dd0300ba343f49acdde3ded192d92, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091831470203831090, guid: 804dd0300ba343f49acdde3ded192d92, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091831470203831090, guid: 804dd0300ba343f49acdde3ded192d92, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8256886997530725145, guid: 804dd0300ba343f49acdde3ded192d92, type: 3}
+      propertyPath: m_Name
+      value: GravitonSurge
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 804dd0300ba343f49acdde3ded192d92, type: 3}
 --- !u!1 &1941670143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,6 +1557,7 @@ GameObject:
   - component: {fileID: 1941670145}
   - component: {fileID: 1941670146}
   - component: {fileID: 1941670147}
+  - component: {fileID: 1941670148}
   m_Layer: 0
   m_Name: SkillManager
   m_TagString: Untagged
@@ -1569,6 +1631,79 @@ MonoBehaviour:
   launcherMissilePrefab: {fileID: 6066672850729393213, guid: c4a9fea7128d6834a9b0e1a329efbca0, type: 3}
   launchStartPosition: {fileID: 79015959}
   direction: {x: 0, y: 0}
+--- !u!114 &1941670148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941670143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4137af4229962cc4bb4a665031c1b416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0
+  cooldownTimer: 0
+  GravitonSurgePrefab: {fileID: 8256886997530725145, guid: 804dd0300ba343f49acdde3ded192d92, type: 3}
+  launchPosition: {fileID: 1078722124}
+--- !u!1001 &2057440540
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3510241120163830708, guid: 771f8f641cec7654da30c1e5bf01ecca, type: 3}
+      propertyPath: m_Name
+      value: GravitonSurgeExplode
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012937986115724764, guid: 771f8f641cec7654da30c1e5bf01ecca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012937986115724764, guid: 771f8f641cec7654da30c1e5bf01ecca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012937986115724764, guid: 771f8f641cec7654da30c1e5bf01ecca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012937986115724764, guid: 771f8f641cec7654da30c1e5bf01ecca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012937986115724764, guid: 771f8f641cec7654da30c1e5bf01ecca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012937986115724764, guid: 771f8f641cec7654da30c1e5bf01ecca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012937986115724764, guid: 771f8f641cec7654da30c1e5bf01ecca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012937986115724764, guid: 771f8f641cec7654da30c1e5bf01ecca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012937986115724764, guid: 771f8f641cec7654da30c1e5bf01ecca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012937986115724764, guid: 771f8f641cec7654da30c1e5bf01ecca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 771f8f641cec7654da30c1e5bf01ecca, type: 3}
 --- !u!1 &2076600278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,3 +2011,5 @@ SceneRoots:
   - {fileID: 40850061}
   - {fileID: 841617960}
   - {fileID: 782943156}
+  - {fileID: 1543092205}
+  - {fileID: 2057440540}

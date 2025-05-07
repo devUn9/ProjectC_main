@@ -6,6 +6,7 @@ public class SkillManager : MonoBehaviour
     public PlayerStats playerStats;
     public GrenadeSkill grenade { get; private set; }
     public LauncherArmSkill launcherArm { get; private set; }
+    public GravitonSurgeSkill gravitonSurge { get; private set; }
 
     public void Initialize(PlayerStats _playerStats)
     {
@@ -24,5 +25,6 @@ public class SkillManager : MonoBehaviour
     {
         grenade = GetComponent<GrenadeSkill>();
         launcherArm = GetComponent<LauncherArmSkill>();
+        gravitonSurge = GetComponent<GravitonSurgeSkill>();
     }
 }

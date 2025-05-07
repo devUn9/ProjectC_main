@@ -11,11 +11,12 @@ public class CharacterStats : MonoBehaviour
 
     [Header("공격관련 스탯")]
     public Stat damage;
-    public Stat meleeDamage;        //근접
-    public Stat bulletDamage;       //총알
-    public Stat grenadeDamage;    //폭발
-    public Stat empGrenadeDamage;    //폭발
-    public Stat launcherDamage;     //로켓런처
+    public Stat meleeDamage;            //근접
+    public Stat bulletDamage;           //총알
+    public Stat grenadeDamage;          //수류탄
+    public Stat empGrenadeDamage;       //EMP 수류탄
+    public Stat launcherDamage;         //로켓런처
+    public Stat gravitonSurgedDamage;    //중력자탄
 
 
     [Header("방어관련 스탯")]
@@ -65,11 +66,17 @@ public class CharacterStats : MonoBehaviour
         int damage = grenadeDamage.GetValue();
         _targetStats.TakeDamage(damage);
 
-    }public virtual void DoLauncherDamage(CharacterStats _targetStats)
+    }
+    public virtual void DoLauncherDamage(CharacterStats _targetStats)
     {
         int damage = launcherDamage.GetValue();
         _targetStats.TakeDamage(damage);
 
+    }
+    public virtual void DoGravitonSurgeDamage(CharacterStats _targetStats)
+    {
+        int damage = gravitonSurgedDamage.GetValue();
+        _targetStats.TakeDamage(damage);
     }
 
     public virtual void TakeDamage(int _damage)
