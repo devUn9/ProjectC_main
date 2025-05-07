@@ -7,6 +7,7 @@ public class EntityFX : MonoBehaviour
 
     [Header("FX")]
     [SerializeField] private Material hitMat;
+    [SerializeField] private Material GravitonCharge;
     private Material originalMat;
 
     void Start()
@@ -19,6 +20,13 @@ public class EntityFX : MonoBehaviour
     {
         sr.material = hitMat;
         yield return new WaitForSeconds(0.2f);
+        sr.material = originalMat;
+    }
+
+    private IEnumerator ChargeFX()
+    {
+        sr.material = GravitonCharge;
+        yield return new WaitForSeconds(0.1f);
         sr.material = originalMat;
     }
 
