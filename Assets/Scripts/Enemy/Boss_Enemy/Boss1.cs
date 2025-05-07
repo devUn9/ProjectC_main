@@ -1,61 +1,57 @@
 using System.Collections;
-using System.ComponentModel.Design;
-using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.InputSystem.XR.Haptics;
 
 
 public class Boss1 : MonoBehaviour
 {
-    public Transform player;
-    private Animator ani;
-    public SpriteTrail MeshTrailscript {get; private set;}
+    private BossState currentState = BossState.Idle;
+    private Boss1_AnimationTrigger anicontroller;
 
-    [Header("Movement")]
+    public Transform player;
+    private Animator ani;  
+
+    public SpriteTrail MeshTrailscript { get; private set; }
+
+    [Header("움직임 관련 변수들")]
     private float speed = 1f;
     private float angle;
     private Vector3 dir;
 
+    [Header("공격관련 컴포넌트")]
     public GameObject[] FirePoints;
     public GameObject bulletPrefab;
     public GameObject[] ExplorePoints;
     public GameObject explorePrefab;
 
-    
+
+
     //몬스터 패턴 관련 변수들
-    private float playerToBossDistance;
-    private bool isMoving = true;
-    private bool isFire = false;
-    private bool isRocket = false;
+    protected float playerToBossDistance;
 
-    public enum LayerName
-    {
-        IdleLayer = 0,
-        WalkLayer = 1,
-        FireLayer = 2,
-        RocketLayer = 3
-    }
 
-    void Start()
+    protected virtual void Start()
     {
         ani = GetComponent<Animator>();
         MeshTrailscript = ani.GetComponent<SpriteTrail>();
+        anicontroller = GetComponent<Boss1_AnimationTrigger>();
+        StartCoroutine(HandleLayers());
+        StartCoroutine(MeetPattern());
     }
 
 
-    void Update()
+    protected virtual void Update()
     {
         CheckInput();
         CheckDistance();
         AngleAnimation();
-        HandleLayers();
     }
-    
+
     private void CheckInput()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             StartCoroutine(SandeVistan());
-            
         }
     }
 
@@ -70,35 +66,75 @@ public class Boss1 : MonoBehaviour
     private void CheckDistance()
     {
         playerToBossDistance = Vector3.Distance(transform.position, player.position);
+
+        if (playerToBossDistance < 5f)
+        {
+            ChangeState(BossState.CloseAttack);
+        }
     }
 
     #region Movement
-    private void HandleLayers()
+    private IEnumerator HandleLayers()
     {
-        if (isMoving)
+        while (true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-            ActivateLayer(LayerName.WalkLayer);
-        }
-        else if (isFire)
-        {
-            ActivateLayer(LayerName.FireLayer);
-        }
-        else if (isRocket)
-        {
-            ActivateLayer(LayerName.RocketLayer);
-        }
-        else
-        {
-            ActivateLayer(LayerName.IdleLayer);
+            switch (currentState)
+            {
+                case BossState.Idle:
+                    ActivateLayer(LayerName.IdleLayer);
+                    anicontroller.SetZeroVelocity();
+                    break;
+                case BossState.Walk:
+                    transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+                    ActivateLayer(LayerName.WalkLayer);
+                    break;
+                case BossState.Fire:
+                    ActivateLayer(LayerName.FireLayer);
+                    break;
+
+                case BossState.Rocket:
+                    ActivateLayer(LayerName.RocketLayer);
+                    break;
+
+                case BossState.CloseAttack:
+                    ActivateLayer(LayerName.CloseAttackLayer);
+                    break;
+
+                case BossState.Lancer:
+                    ActivateLayer(LayerName.LancerLayer);
+                    break;
+
+                case BossState.PowerOff:
+                    ActivateLayer(LayerName.PowerOffLayer);
+                    yield break;
+            }
+
+            yield return null;
         }
     }
+
+    public void ChangeState(BossState newState)
+    {
+        currentState = newState;
+    }
+
+    public IEnumerator MeetPattern()
+    {
+        ChangeState(BossState.Lancer);
+        yield return new WaitForSeconds(5f);
+        ChangeState(BossState.Idle);
+        anicontroller.LancerOutRight();
+        yield return new WaitForSeconds(0.1f);
+        ChangeState(BossState.Walk);
+        anicontroller.LancerOutRight();
+    }
+
     #endregion
 
     #region Attack
     private void LazerAttack()
     {
-        
+
     }
 
     private void SantanInUp()

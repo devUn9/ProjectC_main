@@ -4963,6 +4963,7 @@ MonoBehaviour:
   lastDirection: {x: 0, y: 0}
   isDaggerAttack: 0
   daggerAttackEffectPrefab: {fileID: 0}
+  invisibility: 0
 --- !u!70 &1278677967
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
