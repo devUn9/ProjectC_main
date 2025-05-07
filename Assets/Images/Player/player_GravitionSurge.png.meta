@@ -548,7 +548,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      player_GravitionSurge_0: 6927390391687301629
+      player_GravitionSurge_1: 4040804062345848398
+      player_GravitionSurge_10: -4008970087210054903
+      player_GravitionSurge_11: 6915570115554183698
+      player_GravitionSurge_12: 5516251950475101686
+      player_GravitionSurge_13: 7626854946634020273
+      player_GravitionSurge_14: 6932766885389508251
+      player_GravitionSurge_15: 7808567442594939453
+      player_GravitionSurge_2: -4779278323805558726
+      player_GravitionSurge_3: -5883375684743442472
+      player_GravitionSurge_4: 1203842737205311057
+      player_GravitionSurge_5: 7168813963471422034
+      player_GravitionSurge_6: -5339477511785247526
+      player_GravitionSurge_7: -4725783712365694187
+      player_GravitionSurge_8: -3719656957475480281
+      player_GravitionSurge_9: 1652205625889297231
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
