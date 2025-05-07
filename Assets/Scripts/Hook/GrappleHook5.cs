@@ -108,7 +108,7 @@ public class GrappleHook5 : MonoBehaviour
             int targetLayer = hit.collider.gameObject.layer;
 
             // 오브젝트 그래플링 처리
-            if (targetLayer == LayerMask.NameToLayer("Grappleable"))
+            if (targetLayer == LayerMask.NameToLayer("Grappleable") || targetLayer == LayerMask.NameToLayer("Enemy"))
             {
                 targetObject = hit.collider.transform;
 
@@ -171,7 +171,7 @@ public class GrappleHook5 : MonoBehaviour
                 itemCount++;
                 Destroy(targetObject.gameObject);
             }
-            else if (targetObject.CompareTag("Grapplable"))
+            else if (targetObject.CompareTag("Enemy"))
             {
                 StartCoroutine(StunObject(targetObject));
             }
@@ -241,7 +241,7 @@ public class GrappleHook5 : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             sp.color = originalColor; // 원래 색상 복구
         }
-        ResetGrapple();
+        //ResetGrapple();
     }
 
     // 레이캐스트로 타겟을 맞추고, 라인만 표시
@@ -281,7 +281,7 @@ public class GrappleHook5 : MonoBehaviour
         isGrappling = true;
         int targetLayer = lockedHit.collider.gameObject.layer;
 
-        if (targetLayer == LayerMask.NameToLayer("Grappleable"))
+        if (targetLayer == LayerMask.NameToLayer("Grappleable") || targetLayer == LayerMask.NameToLayer("Enemy"))
         {
             targetObject = lockedHit.collider.transform;
             Vector2 dirToPlayer = ((Vector2)transform.position - (Vector2)targetObject.position).normalized;

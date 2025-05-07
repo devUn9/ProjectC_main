@@ -5,10 +5,14 @@ public class Health_Enemy : Health_Entity
 {
     private SpriteRenderer spriteRenderer;
 
+    // hp 흔들림 효과
+    [SerializeField] private Transform hpBarTransform;
+    private Vector3 hpBarOriginalScale;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        hpBarOriginalScale = hpBarTransform.localScale;
         // Entity에 정의된 Setup 호출
         base.SetUP();
     }
@@ -32,18 +36,33 @@ public class Health_Enemy : Health_Entity
         HP -= damage;
 
         StartCoroutine("Hit");
+        StartCoroutine(ScaleHPBar());
     }
 
     private IEnumerator Hit()
     {
-        Color color = spriteRenderer.color;
+        //Color color = spriteRenderer.color;
 
-        color.a = 0.2f;
-        spriteRenderer.color = color;
+        //color.a = 0.2f;
+        //spriteRenderer.color = color;
+
+        //yield return new WaitForSeconds(0.1f);
+
+        //color.a = 1f;
+        //spriteRenderer.color = color;
+
+        Color original = spriteRenderer.color;
+        spriteRenderer.color = Color.red;
 
         yield return new WaitForSeconds(0.1f);
 
-        color.a = 1f;
-        spriteRenderer.color = color;
+        spriteRenderer.color = original;
+    }
+
+    private IEnumerator ScaleHPBar()
+    {
+        hpBarTransform.localScale = hpBarOriginalScale * 1.2f;
+        yield return new WaitForSeconds(0.1f);
+        hpBarTransform.localScale = hpBarOriginalScale;
     }
 }

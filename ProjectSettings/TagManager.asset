@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Grapplable
   - Collectible
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,6 @@ TagManager:
   - 
   - 
   - SightEffect
-  - 
   - 
   - 
   - 
