@@ -2091,7 +2091,7 @@ GameObject:
   - component: {fileID: 701128727}
   - component: {fileID: 701128726}
   - component: {fileID: 701128725}
-  m_Layer: 11
+  m_Layer: 3
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33003,9 +33003,9 @@ GameObject:
   - component: {fileID: 719735441}
   - component: {fileID: 719735444}
   - component: {fileID: 719735443}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: item
-  m_TagString: Collectible
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33428,7 +33428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grapplableMask:
     serializedVersion: 2
-    m_Bits: 7168
+    m_Bits: 4360
   maxDistance: 10
   grappleSpeed: 20
   grappleShootSpeed: 30
@@ -33450,7 +33450,7 @@ GameObject:
   - component: {fileID: 897896406}
   - component: {fileID: 897896409}
   - component: {fileID: 897896408}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: obj2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34262,7 +34262,7 @@ GameObject:
   - component: {fileID: 1496911218}
   - component: {fileID: 1496911221}
   - component: {fileID: 1496911220}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: obj1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

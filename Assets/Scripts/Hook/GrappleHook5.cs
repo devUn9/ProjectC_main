@@ -108,7 +108,7 @@ public class GrappleHook5 : MonoBehaviour
             int targetLayer = hit.collider.gameObject.layer;
 
             // 오브젝트 그래플링 처리
-            if (targetLayer == LayerMask.NameToLayer("Grappleable") || targetLayer == LayerMask.NameToLayer("Enemy"))
+            if (targetLayer == LayerMask.NameToLayer("Obj") || targetLayer == LayerMask.NameToLayer("Enemy"))
             {
                 targetObject = hit.collider.transform;
 
@@ -126,7 +126,7 @@ public class GrappleHook5 : MonoBehaviour
                 StartCoroutine(Grapple(targetObject.position, false));
             }
             // 벽 그래플링 처리
-            else if (targetLayer == LayerMask.NameToLayer("Grappeable2"))
+            else if (targetLayer == LayerMask.NameToLayer("Wall"))
             {
                 target = hit.point; // 벽 위치로 설정
                 StartCoroutine(Grapple(target, true));
@@ -166,7 +166,7 @@ public class GrappleHook5 : MonoBehaviour
         // 도착 시 판정 처리
         if (Vector2.Distance(targetObject.position, pullStopPosition) < 0.1f || retractTimer > 3f)
         {
-            if (targetObject.CompareTag("Collectible"))
+            if (targetObject.CompareTag("Item"))
             {
                 itemCount++;
                 Destroy(targetObject.gameObject);
@@ -281,14 +281,14 @@ public class GrappleHook5 : MonoBehaviour
         isGrappling = true;
         int targetLayer = lockedHit.collider.gameObject.layer;
 
-        if (targetLayer == LayerMask.NameToLayer("Grappleable") || targetLayer == LayerMask.NameToLayer("Enemy"))
+        if (targetLayer == LayerMask.NameToLayer("Obj") || targetLayer == LayerMask.NameToLayer("Enemy"))
         {
             targetObject = lockedHit.collider.transform;
             Vector2 dirToPlayer = ((Vector2)transform.position - (Vector2)targetObject.position).normalized;
             pullStopPosition = (Vector2)transform.position + dirToPlayer * -1f;
             StartCoroutine(Grapple(targetObject.position, false));
         }
-        else if (targetLayer == LayerMask.NameToLayer("Grappeable2"))
+        else if (targetLayer == LayerMask.NameToLayer("Wall"))
         {
             target = lockedHit.point;
             StartCoroutine(Grapple(target, true));
