@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      maine_0: 5228141233292032286
+      maine_1: -7384636217475823741
+      maine_10: 3692569937693520799
+      maine_11: 1102131853493038560
+      maine_2: -7349567767719830283
+      maine_3: 7579598492235952892
+      maine_4: 6978957547944353254
+      maine_5: 2000171036350652037
+      maine_6: 3842500723503947081
+      maine_7: -7019593272560757635
+      maine_8: -4395538856710040464
+      maine_9: -2077398698407048429
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

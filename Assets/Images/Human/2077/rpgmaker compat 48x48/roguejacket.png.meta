@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      roguejacket_0: 857484429051392253
+      roguejacket_1: 1050513747188801399
+      roguejacket_10: -3058422459059217005
+      roguejacket_11: -1061359806907300806
+      roguejacket_2: 7229229666513004685
+      roguejacket_3: 6207449931225683607
+      roguejacket_4: 1285820109415101685
+      roguejacket_5: 4816254670461278462
+      roguejacket_6: -9219340869417711953
+      roguejacket_7: -1676114350925340387
+      roguejacket_8: 8125048699014661534
+      roguejacket_9: -5280969434347637592
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      faraday_0: -3282244176944831052
+      faraday_1: -7177486774716316884
+      faraday_10: -1038920681721320218
+      faraday_11: 4638590182003582834
+      faraday_2: -6080184204152964326
+      faraday_3: 3396443794992193826
+      faraday_4: -7843581085988598039
+      faraday_5: 4670055880909439527
+      faraday_6: 3689910170410654995
+      faraday_7: -1902159523137937355
+      faraday_8: 2791274024403118147
+      faraday_9: -4490577290442880722
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

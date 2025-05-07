@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 87f7428b964fd0a43ac8bab98f33541d
+guid: fdd4fb6f3b74fe543a01a39595dfb79d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2306653173589356423
-    second: Enterprise3_0
+      213: -4903352906042082198
+    second: Illustration_David2_Sad_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enterprise3_0
+      name: Illustration_David2_Sad_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 63
         y: 0
-        width: 1024
-        height: 1024
+        width: 934
+        height: 1531
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 970dd28e82f1dffd0800000000000000
-      internalID: -2306653173589356423
+      spriteID: a6c7bf2d28ac3fbb0800000000000000
+      internalID: -4903352906042082198
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Enterprise3_0: -2306653173589356423
+      Illustration_David2_Sad_0: -4903352906042082198
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      riverwardjacket_0: 5337687584794594162
+      riverwardjacket_1: 1316127101352828966
+      riverwardjacket_10: 1691826205245306932
+      riverwardjacket_11: -6400439527857739869
+      riverwardjacket_2: 523362103286748959
+      riverwardjacket_3: -8919131561153252588
+      riverwardjacket_4: 8592293133429307814
+      riverwardjacket_5: 4599924473553898014
+      riverwardjacket_6: 811198253808221684
+      riverwardjacket_7: 75018462034085297
+      riverwardjacket_8: -9107008685842610698
+      riverwardjacket_9: -2224864814891540894
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      panamjacket_0: -3938025744381552207
+      panamjacket_1: 569180656961834040
+      panamjacket_10: -2513605803100601901
+      panamjacket_11: 4240632161904620292
+      panamjacket_2: -6556245942586446425
+      panamjacket_3: 1193545202444476625
+      panamjacket_4: 6745083376184931569
+      panamjacket_5: 1354597982686148089
+      panamjacket_6: 3276311169474178707
+      panamjacket_7: -6163885163108236994
+      panamjacket_8: -2415761055163808961
+      panamjacket_9: -8286999823303464814
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

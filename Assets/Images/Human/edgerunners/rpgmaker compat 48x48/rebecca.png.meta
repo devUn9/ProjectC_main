@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      rebecca_0: -7845405671362619817
+      rebecca_1: -4487589955204024671
+      rebecca_10: 2404231036046727403
+      rebecca_11: -6824601147974921540
+      rebecca_2: 5772038783906855009
+      rebecca_3: -6640627614439820079
+      rebecca_4: -6912954635762941633
+      rebecca_5: 6128699760569870505
+      rebecca_6: 2722562708263651972
+      rebecca_7: 181625351631015840
+      rebecca_8: 8180510600247387006
+      rebecca_9: 3410609662692650567
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

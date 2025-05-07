@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      rogue_0: 1504909034587979103
+      rogue_1: -3923585554825202695
+      rogue_10: -7729268903744201143
+      rogue_11: -5004589119396567364
+      rogue_2: -1014306279219476998
+      rogue_3: 5084082426598504517
+      rogue_4: 7835555864849025057
+      rogue_5: 3527346130889277753
+      rogue_6: -8920467515723023498
+      rogue_7: 8350070733697006903
+      rogue_8: 1892704026398596414
+      rogue_9: -7941525116440589140
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

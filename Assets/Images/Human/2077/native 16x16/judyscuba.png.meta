@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      judyscuba_0: 683810725199678893
+      judyscuba_1: 3952619652045621138
+      judyscuba_10: 5197387426099887546
+      judyscuba_11: 8817889066783811547
+      judyscuba_2: -5363631251960992864
+      judyscuba_3: -4453725892125429429
+      judyscuba_4: -717483777598387066
+      judyscuba_5: 6637443321409414062
+      judyscuba_6: 7391047204048524153
+      judyscuba_7: -8655267210627991559
+      judyscuba_8: -8924423824332758782
+      judyscuba_9: -6334358129710222446
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

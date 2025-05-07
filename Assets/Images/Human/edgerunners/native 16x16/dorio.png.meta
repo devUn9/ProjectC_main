@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dorio_0: 886568787753327503
+      dorio_1: -1313747282970506434
+      dorio_10: 7159876910931488501
+      dorio_11: 318959183433544909
+      dorio_2: -7358143273380683253
+      dorio_3: 1345941850221286602
+      dorio_4: -8027129686157546843
+      dorio_5: -9067272307387510153
+      dorio_6: -8096430953129380237
+      dorio_7: -7474244105749297339
+      dorio_8: -1430708103849273006
+      dorio_9: 759320843218991479
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

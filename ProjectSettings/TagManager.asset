@@ -24,7 +24,7 @@ TagManager:
   - Enemy
   - EnemyBullet
   - InvisablePlayer
-  - 
+  - PostProcessing
   - Map
   - Minimap
   - 

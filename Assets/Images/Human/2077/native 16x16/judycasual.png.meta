@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      judycasual_0: -3749212108047615797
+      judycasual_1: -7537181146275956431
+      judycasual_10: 7752980987078052998
+      judycasual_11: 7149518385157822423
+      judycasual_2: 5307780886645145917
+      judycasual_3: -7289431263472553933
+      judycasual_4: -4121274067998696719
+      judycasual_5: -3954300608479900424
+      judycasual_6: -8277475634326793779
+      judycasual_7: 9169887279733857902
+      judycasual_8: -8172580737011799279
+      judycasual_9: -5468481704632681303
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

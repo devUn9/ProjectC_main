@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      lucy_0: 8312933390044699808
+      lucy_1: -8556755255318798218
+      lucy_10: 2251874891869823764
+      lucy_11: 8051229245795489030
+      lucy_2: 4908464669708863008
+      lucy_3: 3856876766425978777
+      lucy_4: -2578456415153390009
+      lucy_5: 7350904651747651892
+      lucy_6: 6630673096420251654
+      lucy_7: 4345367501938581478
+      lucy_8: -8203741849372342112
+      lucy_9: 3318237362422448269
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

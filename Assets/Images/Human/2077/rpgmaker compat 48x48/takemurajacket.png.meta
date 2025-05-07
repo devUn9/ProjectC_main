@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      takemurajacket_0: 3057610683256035614
+      takemurajacket_1: 8821942444878446337
+      takemurajacket_10: 172487673841183602
+      takemurajacket_11: -677253566714121750
+      takemurajacket_2: 385732288520465500
+      takemurajacket_3: -6978989652637057370
+      takemurajacket_4: -7569156550650344990
+      takemurajacket_5: 3997945889168090370
+      takemurajacket_6: 733076168457447860
+      takemurajacket_7: 5085273210832764566
+      takemurajacket_8: 851958689105093440
+      takemurajacket_9: 4223190608143398528
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
