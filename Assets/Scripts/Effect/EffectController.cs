@@ -80,9 +80,14 @@ public class EffectController : MonoBehaviour
         float startInnerAngle = sightLight.pointLightInnerAngle;
         Quaternion startRotation = transform.localRotation;
 
+        float modifier = 1;
+
         // 타겟 InnerAngle은 OuterAngle의 0.8 정도 
         float targetOuterAngle = targetAngle;
-        float targetInnerAngle = targetAngle * 0.9f;
+        if (targetAngle == 360)
+            modifier = 10/9f;
+        
+        float targetInnerAngle = targetAngle * modifier * 0.9f ;
 
         // DeltaAngle 보정 
         float correctedOuterTarget = startOuterAngle + Mathf.DeltaAngle(startOuterAngle, targetOuterAngle);

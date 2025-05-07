@@ -16,12 +16,6 @@ public class EffectTest : MonoBehaviour
 
         if (player != null)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                Vector3 position = player.transform.position;
-                EffectManager.Instance.PlayEffect(EffectType.SmokeShellEffect, position);
-
-            }
 
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -35,20 +29,14 @@ public class EffectTest : MonoBehaviour
                 EffectManager.Instance.PlayEffect(EffectType.BloodSplatterEffect, spawnPosition);
             }
 
-            if(Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.R))
             {
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePos.z = 0f;
-                EffectManager.Instance.PlayEffect(EffectType.empEffect, mousePos);
-            }
+                mousePos.z = 0f; // 2D 게임이므로 z값은 0으로 고정
 
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePos.z = 0f;
-                EffectManager.Instance.PlayEffect(EffectType.GrenadeEffect, mousePos);
-            }
+                EffectManager.Instance.PlayEffect(EffectType.SmokeShellEffect, mousePos, 3.0f);
 
+            }
 
         }
         else

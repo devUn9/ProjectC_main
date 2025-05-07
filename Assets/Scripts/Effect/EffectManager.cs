@@ -43,7 +43,7 @@ public class EffectManager : MonoBehaviour
     }
 
     // 특정 위치와 방향에서 이펙트 생성 함수 (이펙트 타입, 생성 위치, 초기 회전(입력 필수 아님))
-    public void PlayEffect(EffectType effectType, Vector3 position, Quaternion rotation = default)  
+    public void PlayEffect(EffectType effectType, Vector3 position,  float scaleMultiplier = 1f, Quaternion rotation = default)
     {
         if (!effectDataMap.TryGetValue(effectType, out EffectData data))
         {
@@ -53,13 +53,12 @@ public class EffectManager : MonoBehaviour
 
         if (data.useRepeat)
         {
-            StartCoroutine(PlayEffectRepeat(data, position, rotation));
-            return;
+            StartCoroutine(PlayEffectRepeat(data, position, rotation, scaleMultiplier));
         }
         else
         {
-            PlaySingleEffect(data, position, rotation);
-        } 
+            PlaySingleEffect(data, position, rotation, scaleMultiplier);
+        }
     }
 
     // 이펙트 컨트롤러 반환하고 타겟을 따라가는 이펙트 생성함수 (이펙트 타입, 타겟 위치, 초기 회전, 위치 조정) (초기 회전과 위치 조정은 입력 필수 아님) 
@@ -86,19 +85,21 @@ public class EffectManager : MonoBehaviour
 
 
 
-    private void PlaySingleEffect(EffectData data, Vector3 position, Quaternion rotation)
+    private void PlaySingleEffect(EffectData data, Vector3 position, Quaternion rotation, float scaleMultiplier)
     {
         GameObject obj = Instantiate(data.prefab, position, rotation);
+        obj.transform.localScale = Vector3.one * scaleMultiplier;
+
         EffectController controller = obj.AddComponent<EffectController>();
         controller.Initialize(data);
         controller.Play(position, rotation, data.duration);
     }
 
-    private IEnumerator PlayEffectRepeat(EffectData data, Vector3 position, Quaternion rotation)
+    private IEnumerator PlayEffectRepeat(EffectData data, Vector3 position, Quaternion rotation, float scaleMultiplier)
     {
         for (int i = 0; i < data.RepeatCount; i++)
         {
-            PlaySingleEffect(data, position, rotation);
+            PlaySingleEffect(data, position, rotation, scaleMultiplier);
             yield return new WaitForSeconds(data.RepeatInterval);
         }
     }
