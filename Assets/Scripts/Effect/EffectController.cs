@@ -70,6 +70,14 @@ public class EffectController : MonoBehaviour
         sightEffectCoroutine = StartCoroutine(LerpSightEffectCoroutine(targetRadius, rotation, targetAngle));
     }
 
+    public void SetSightColor(Color color)
+    {
+        if (sightLight != null)
+        {
+            sightLight.color = color;
+        }
+    }
+
 
 
 

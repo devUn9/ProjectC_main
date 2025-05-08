@@ -58,15 +58,18 @@ public class EnemySightTest : MonoBehaviour
         switch (currentState)
         {
             case EnemySightState.Patrol:
-                sightEffect.SetSightEffect(3f, Quaternion.Euler(0, 0, -90f), 160f);
+                sightEffect.SetSightEffect(3f, Quaternion.Euler(0, 0, -90f), 60f);
+                sightEffect.SetSightColor(Color.red);
                 break;
 
             case EnemySightState.Alert:
-                sightEffect.SetSightEffect(5f, Quaternion.Euler(0, 0, -180f), 160f);
+                sightEffect.SetSightEffect(5f, Quaternion.Euler(0, 0, -180f), 90f);
+                sightEffect.SetSightColor(Color.yellow);
                 break;
 
             case EnemySightState.Detected:
-                sightEffect.SetSightEffect(7f, Quaternion.Euler(0, 0, -270f), 160f);
+                sightEffect.SetSightEffect(7f, Quaternion.Euler(0, 0, -270f), 120f);
+                sightEffect.SetSightColor(Color.green);
                 break;
 
         }
