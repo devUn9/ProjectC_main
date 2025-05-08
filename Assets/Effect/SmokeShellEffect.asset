@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SmokeShellEffect
   m_EditorClassIdentifier: 
   effectType: 1
+  effectEndType: 0
   prefab: {fileID: 1272365366362387747, guid: 748aaa3ba856e8f459bd2a54c96a189c, type: 3}
   duration: 5
   useRepeat: 1

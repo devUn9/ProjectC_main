@@ -16,11 +16,13 @@ public class EffectTest : MonoBehaviour
 
         if (player != null)
         {
+            float angle = 0f;
+            Vector3 position = player.transform.position;
+            Quaternion rotation;
 
-            if (Input.GetKeyDown(KeyCode.E))
+
+            if (Input.GetKeyDown(KeyCode.Y))
             {
-                Vector3 position = player.transform.position;
-
      
                 Vector2 randomOffset = Random.insideUnitCircle * 0.15f ;
 
@@ -32,12 +34,18 @@ public class EffectTest : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePos.z = 0f; // 2D 게임이므로 z값은 0으로 고정
+                mousePos.z = 0f; 
 
                 EffectManager.Instance.PlayEffect(EffectType.SmokeShellEffect, mousePos, 3.0f);
 
             }
 
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                rotation = Quaternion.Euler(0f, 0f, angle);
+                EffectManager.Instance.PlayEffect(EffectType.SlashEffect, position, 1f, rotation);
+
+            }
         }
         else
         {

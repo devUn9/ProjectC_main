@@ -12,6 +12,7 @@ public enum EffectType
     BuffEffect,
     BloodSplatterEffect,
     GrenadeEffect,
-    empEffect
+    empEffect,
+    SlashEffect
 
 }

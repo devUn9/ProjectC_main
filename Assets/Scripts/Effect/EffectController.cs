@@ -81,8 +81,7 @@ public class EffectController : MonoBehaviour
         Quaternion startRotation = transform.localRotation;
 
         float modifier = 1;
-
-        // 타겟 InnerAngle은 OuterAngle의 0.8 정도 
+        
         float targetOuterAngle = targetAngle;
         if (targetAngle == 360)
             modifier = 10/9f;
