@@ -1,0 +1,3 @@
+ID,Character,Dialogue,IllustrationIndex
+1,데이비드,안녕,0
+2,리퍼닥,그래,1

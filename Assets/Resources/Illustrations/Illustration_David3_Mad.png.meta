@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 07729b5cba0f362478ea94d271755bba
+guid: ea3422cb07de4eb47b702b63ede00556
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8899771416879890160
-    second: Illustration_David_Smile_0
+      213: -5529654250280749488
+    second: Illustration_David3_Mad_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -139,12 +139,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Illustration_David_Smile_0
+      name: Illustration_David3_Mad_0
       rect:
         serializedVersion: 2
-        x: 62
+        x: 63
         y: 0
-        width: 935
+        width: 934
         height: 1531
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0fefc4d53f6528b70800000000000000
-      internalID: 8899771416879890160
+      spriteID: 0567949b1c8b243b0800000000000000
+      internalID: -5529654250280749488
       vertices: []
       indices: 
       edges: []
@@ -164,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Illustration_David_Smile_0: 8899771416879890160
+      Illustration_David3_Mad_0: -5529654250280749488
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

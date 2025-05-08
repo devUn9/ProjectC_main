@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a84d96c88cac6a24581c6ae9ae89dbc3
+guid: 4135372199fdc9f4096054574af507eb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2232123565220608329
-    second: Illustration_David2_0
+      213: 534605458464289132
+    second: Illustration_Lucy_a_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Illustration_David2_0
+      name: Illustration_Lucy_a_0
       rect:
         serializedVersion: 2
-        x: 62
+        x: 233
         y: 0
-        width: 935
-        height: 1531
+        width: 763
+        height: 1407
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 949b0c76e881afe10800000000000000
-      internalID: 2232123565220608329
+      spriteID: c61bfbef4dc4b6700800000000000000
+      internalID: 534605458464289132
       vertices: []
       indices: 
       edges: []
@@ -164,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Illustration_David2_0: 2232123565220608329
+      Illustration_Lucy_a_0: 534605458464289132
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

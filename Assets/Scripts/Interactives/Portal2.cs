@@ -13,6 +13,7 @@ public class Portal2 : MonoBehaviour
 
     private CinemachineConfiner2D confiner; // Cinemachine Confiner 2D 컴포넌트
     private bool playerIsInTrigger = false;
+    private bool isTriggerActivated = false; // DialogueTrigger가 실행되었는지 확인
 
     private void Awake()
     {
@@ -66,10 +67,16 @@ public class Portal2 : MonoBehaviour
 
     private void Update()
     {
-        if (playerIsInTrigger && Input.GetKeyDown(KeyCode.Space))
+        if (playerIsInTrigger && isTriggerActivated && Input.GetKeyDown(KeyCode.Space))
         {
             MovePlayer();
         }
+    }
+
+    public void ActivatePortal()
+    {
+        isTriggerActivated = true;
+        Debug.Log("포털이 활성화되었습니다.");
     }
 
     private void MovePlayer()
@@ -86,7 +93,7 @@ public class Portal2 : MonoBehaviour
             }
             else
             {
-               Debug.LogWarning("Confiner 또는 Target Bounding Shape가 설정되지 않았습니다.");
+                Debug.LogWarning("Confiner 또는 Target Bounding Shape가 설정되지 않았습니다.");
             }
         }
     }

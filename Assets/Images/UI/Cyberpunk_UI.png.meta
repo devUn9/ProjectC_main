@@ -1,10 +1,28 @@
 fileFormatVersion: 2
-guid: 37f609a8799f0ba488d8c4aaea7d6ccd
+guid: 42bf8a7812b632e42b5494ae513b089c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6218102085941683
-    second: Illustration_David_Sad_0
+      213: 9128174280404215580
+    second: Cyberpunk_UI_0
+  - first:
+      213: -7865891965721581143
+    second: Cyberpunk_UI_1
+  - first:
+      213: 7433381505573499214
+    second: Cyberpunk_UI_2
+  - first:
+      213: -5839814708051100266
+    second: Cyberpunk_UI_3
+  - first:
+      213: 2746033068766448315
+    second: Cyberpunk_UI_4
+  - first:
+      213: 566952266769720551
+    second: Cyberpunk_UI_5
+  - first:
+      213: 1174845897020095522
+    second: Cyberpunk_UI_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +93,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -139,13 +157,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Illustration_David_Sad_0
+      name: Cyberpunk_UI_0
       rect:
         serializedVersion: 2
-        x: 63
-        y: 0
-        width: 934
-        height: 1531
+        x: 369
+        y: 893
+        width: 1555
+        height: 877
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +172,140 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3b97206b457161000800000000000000
-      internalID: 6218102085941683
+      spriteID: c17a957152acdae70800000000000000
+      internalID: 9128174280404215580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyberpunk_UI_1
+      rect:
+        serializedVersion: 2
+        x: 2117
+        y: 902
+        width: 554
+        height: 876
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a9e095beecb6d290800000000000000
+      internalID: -7865891965721581143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyberpunk_UI_2
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 569
+        width: 744
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e41baa7781da82760800000000000000
+      internalID: 7433381505573499214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyberpunk_UI_3
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 569
+        width: 745
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69d3384b67fc4fea0800000000000000
+      internalID: -5839814708051100266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyberpunk_UI_4
+      rect:
+        serializedVersion: 2
+        x: 1961
+        y: 569
+        width: 745
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbacc45e68edb1620800000000000000
+      internalID: 2746033068766448315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyberpunk_UI_5
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 283
+        width: 753
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e4696135183ed700800000000000000
+      internalID: 566952266769720551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyberpunk_UI_6
+      rect:
+        serializedVersion: 2
+        x: 1589
+        y: 283
+        width: 752
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22c35b56e14ed4010800000000000000
+      internalID: 1174845897020095522
       vertices: []
       indices: 
       edges: []
@@ -173,8 +323,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Illustration_David_Sad_0: 6218102085941683
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
