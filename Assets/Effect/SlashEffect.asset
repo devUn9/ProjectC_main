@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectType: 9
   effectEndType: 0
-  prefab: {fileID: 7611201976539897820, guid: 251f2b73807593f4ab9b7df76bbf3160, type: 3}
-  duration: 2
+  prefab: {fileID: 2325732570684588342, guid: 9fcfec77d5046304ab7128fca677b3a5, type: 3}
+  duration: 1.4
   useRepeat: 0
   RepeatCount: 0
   RepeatInterval: 0
