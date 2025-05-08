@@ -1,22 +1,25 @@
 using System.Collections;
+using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem.XR.Haptics;
-
 
 public class Boss1 : MonoBehaviour
 {
     private BossState currentState = BossState.Idle;
     private Boss1_AnimationTrigger anicontroller;
+    public CharacterStats stats {get; private set;}
 
     public Transform player;
-    private Animator ani;  
+    private Animator ani;
 
     public SpriteTrail MeshTrailscript { get; private set; }
 
     [Header("움직임 관련 변수들")]
-    private float speed = 1f;
+    private float speed = 5f;
     private float angle;
     private Vector3 dir;
+
 
     [Header("공격관련 컴포넌트")]
     public GameObject[] FirePoints;
@@ -27,10 +30,11 @@ public class Boss1 : MonoBehaviour
 
 
     //몬스터 패턴 관련 변수들
-    protected float playerToBossDistance;
+    private float playerToBossDistance;
+    private bool isCoroutineRunning = false;
 
 
-    protected virtual void Start()
+    private void Start()
     {
         ani = GetComponent<Animator>();
         MeshTrailscript = ani.GetComponent<SpriteTrail>();
@@ -40,7 +44,7 @@ public class Boss1 : MonoBehaviour
     }
 
 
-    protected virtual void Update()
+    private void Update()
     {
         CheckInput();
         CheckDistance();
@@ -67,10 +71,45 @@ public class Boss1 : MonoBehaviour
     {
         playerToBossDistance = Vector3.Distance(transform.position, player.position);
 
-        if (playerToBossDistance < 5f)
+        if (playerToBossDistance < 5f && !isCoroutineRunning)
         {
-            ChangeState(BossState.CloseAttack);
+            StartCoroutine(CloseAttack());
         }
+        else if (playerToBossDistance > 5f && playerToBossDistance < 10f && !isCoroutineRunning)
+        {
+            StartCoroutine(ShotgunAttack());
+        }
+        else if (playerToBossDistance > 12f && playerToBossDistance < 13f && !isCoroutineRunning)
+        {
+            StartCoroutine(RocketAttack());
+        }
+    }
+
+    private IEnumerator CloseAttack()
+    {
+        isCoroutineRunning = true;
+        ChangeState(BossState.CloseAttack);
+        yield return new WaitForSeconds(1.2f);
+        isCoroutineRunning = false;
+        ChangeState(BossState.Walk);
+    }
+
+    private IEnumerator ShotgunAttack()
+    {
+        isCoroutineRunning = true;
+        ChangeState(BossState.Fire);
+        yield return new WaitForSeconds(2f);
+        isCoroutineRunning = false;
+        ChangeState(BossState.Walk);
+    }
+
+    private IEnumerator RocketAttack()
+    {
+        isCoroutineRunning = true;
+        ChangeState(BossState.Rocket);
+        yield return new WaitForSeconds(2.5f);
+        isCoroutineRunning = false;
+        ChangeState(BossState.Walk);
     }
 
     #region Movement
@@ -120,23 +159,19 @@ public class Boss1 : MonoBehaviour
 
     public IEnumerator MeetPattern()
     {
+        isCoroutineRunning = true;
         ChangeState(BossState.Lancer);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3.5f);
         ChangeState(BossState.Idle);
         anicontroller.LancerOutRight();
         yield return new WaitForSeconds(0.1f);
         ChangeState(BossState.Walk);
-        anicontroller.LancerOutRight();
+        isCoroutineRunning = false;
     }
 
     #endregion
 
     #region Attack
-    private void LazerAttack()
-    {
-
-    }
-
     private void SantanInUp()
     {
         FirePoints[0].SetActive(true);

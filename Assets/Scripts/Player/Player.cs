@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 
     public Vector3 finalAttackInputVec;
     private Vector3 inputVector;
+    private Vector2 knockbackDir;
 
     [Header("AttackState Info")]
     public GameObject bulletPrefab;
@@ -189,6 +190,24 @@ public class Player : MonoBehaviour
     public void Visiblilty()
     {
         SetLayerRecursively("Player");
+    }
+
+    public void SetupKnockbackDir(Transform _damageDirection)
+    {
+        if (_damageDirection.position.x > transform.position.x && _damageDirection.position.y > transform.position.y)
+            knockbackDir = new Vector2(-1, -1);
+        else if (_damageDirection.position.x > transform.position.x && _damageDirection.position.y < transform.position.y)
+            knockbackDir = new Vector2(-1, 1);
+        else if (_damageDirection.position.x < transform.position.x && _damageDirection.position.y > transform.position.y)
+            knockbackDir = new Vector2(1, -1);
+        else if (_damageDirection.position.x < transform.position.x && _damageDirection.position.y < transform.position.y)
+            knockbackDir = new Vector2(1, 1);
+    }
+
+    public IEnumerator HitKnockback()
+    {
+        rb.linearVelocity = knockbackDir * 100f;
+        yield return new WaitForSeconds(1f);
     }
 
 }

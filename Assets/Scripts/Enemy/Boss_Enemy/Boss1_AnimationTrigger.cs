@@ -1,11 +1,16 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 public class Boss1_AnimationTrigger : MonoBehaviour
 {
+    private Boss1 boss1 => GetComponent<Boss1>();
     public Transform player;
-    public GameObject[] CloseAttackPoints; 
+    public GameObject[] CloseAttackPoints;
+    public float AttackCheckRadius = 2f;
     public Rigidbody2D rb;
+    public GameObject CloseAttackEffectPrefab;
+
 
     private bool lancing = false;
     private float LancingPower = 0.05f;
@@ -15,60 +20,102 @@ public class Boss1_AnimationTrigger : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    
+
     void Update()
     {
-        
+
     }
 
     private void CloseAttackInUp()
     {
-        CloseAttackPoints[0].SetActive(true);  
-    }
+        GameObject effect = Instantiate(CloseAttackEffectPrefab, CloseAttackPoints[0].transform.position, Quaternion.identity);
+        Destroy(effect, 1f);
+        //SoundManager.instance.PlaySFX(2, null);
 
-    private void CloseAttackOutUp()
-    {
-        CloseAttackPoints[0].SetActive(false);
-        CloseAttackPoints[1].SetActive(false);  
-        CloseAttackPoints[2].SetActive(false);
-        CloseAttackPoints[3].SetActive(false);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(CloseAttackPoints[0].transform.position, AttackCheckRadius);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.GetComponent<Health_Entity>() != null)
+            {
+                Health_Entity _target = collider.GetComponent<Health_Entity>();
+                Player player = collider.GetComponent<Player>();
+
+                if (_target != null)
+                {
+                    _target.TakeDamage(10f);
+                    player.SetupKnockbackDir(gameObject.transform);
+                    StartCoroutine(player.HitKnockback());
+                }
+            }
+        }
     }
 
     private void CloseattackInDown()
     {
-        CloseAttackPoints[1].SetActive(true);
+        //SoundManager.instance.PlaySFX(2, null);
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(CloseAttackPoints[1].transform.position, AttackCheckRadius);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.GetComponent<Health_Entity>() != null)
+            {
+                Health_Entity _target = collider.GetComponent<Health_Entity>();
+                Player player = collider.GetComponent<Player>();
+
+                if (_target != null)
+                {
+                    _target.TakeDamage(10f);
+                    player.SetupKnockbackDir(gameObject.transform);
+                    StartCoroutine(player.HitKnockback());
+                }
+            }
+        }
     }
 
-    private void CloseattackOutDown()
-    {
-        CloseAttackPoints[0].SetActive(false);
-        CloseAttackPoints[1].SetActive(false);  
-        CloseAttackPoints[2].SetActive(false);
-        CloseAttackPoints[3].SetActive(false);
-    }
     private void CloseAttackInLeft()
     {
-        CloseAttackPoints[2].SetActive(true);
-    }
+        //SoundManager.instance.PlaySFX(2, null);
 
-    private void CloseattackOutLeft()
-    {
-        CloseAttackPoints[0].SetActive(false);
-        CloseAttackPoints[1].SetActive(false);  
-        CloseAttackPoints[2].SetActive(false);
-        CloseAttackPoints[3].SetActive(false);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(CloseAttackPoints[2].transform.position, AttackCheckRadius);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.GetComponent<Health_Entity>() != null)
+            {
+                Health_Entity _target = collider.GetComponent<Health_Entity>();
+                Player player = collider.GetComponent<Player>();
+
+                if (_target != null)
+                {
+                    _target.TakeDamage(10f);
+                    player.SetupKnockbackDir(gameObject.transform);
+                    StartCoroutine(player.HitKnockback());
+                }
+            }
+        }
     }
 
     private void CloseAttackInRight()
     {
-        CloseAttackPoints[3].SetActive(true);
-    }
-    private void CloseattackOutRight()
-    {
-        CloseAttackPoints[0].SetActive(false);
-        CloseAttackPoints[1].SetActive(false);  
-        CloseAttackPoints[2].SetActive(false);
-        CloseAttackPoints[3].SetActive(false);
+        GameObject effect = Instantiate(CloseAttackEffectPrefab, CloseAttackPoints[3].transform.position, Quaternion.identity);
+        Destroy(effect, 1f);
+        //SoundManager.instance.PlaySFX(2, null);
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(CloseAttackPoints[3].transform.position, AttackCheckRadius);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.GetComponent<Health_Entity>() != null)
+            {
+                Health_Entity _target = collider.GetComponent<Health_Entity>();
+                Player player = collider.GetComponent<Player>();
+
+                if (_target != null)
+                {
+                    _target.TakeDamage(10f);
+                    player.SetupKnockbackDir(gameObject.transform);
+                    StartCoroutine(player.HitKnockback());
+                }
+            }
+        }
     }
 
     private void LancerInUp()
@@ -81,7 +128,7 @@ public class Boss1_AnimationTrigger : MonoBehaviour
     private void LancerOutUp()
     {
         CloseAttackPoints[0].SetActive(false);
-        CloseAttackPoints[1].SetActive(false);  
+        CloseAttackPoints[1].SetActive(false);
         CloseAttackPoints[2].SetActive(false);
         CloseAttackPoints[3].SetActive(false);
         lancing = false;
@@ -99,7 +146,7 @@ public class Boss1_AnimationTrigger : MonoBehaviour
     private void LancerOutDown()
     {
         CloseAttackPoints[0].SetActive(false);
-        CloseAttackPoints[1].SetActive(false);  
+        CloseAttackPoints[1].SetActive(false);
         CloseAttackPoints[2].SetActive(false);
         CloseAttackPoints[3].SetActive(false);
         lancing = false;
@@ -117,7 +164,7 @@ public class Boss1_AnimationTrigger : MonoBehaviour
     private void LancerOutLeft()
     {
         CloseAttackPoints[0].SetActive(false);
-        CloseAttackPoints[1].SetActive(false);  
+        CloseAttackPoints[1].SetActive(false);
         CloseAttackPoints[2].SetActive(false);
         CloseAttackPoints[3].SetActive(false);
         lancing = false;
@@ -135,7 +182,7 @@ public class Boss1_AnimationTrigger : MonoBehaviour
     public void LancerOutRight()
     {
         CloseAttackPoints[0].SetActive(false);
-        CloseAttackPoints[1].SetActive(false);  
+        CloseAttackPoints[1].SetActive(false);
         CloseAttackPoints[2].SetActive(false);
         CloseAttackPoints[3].SetActive(false);
         lancing = false;
@@ -145,7 +192,7 @@ public class Boss1_AnimationTrigger : MonoBehaviour
 
     private IEnumerator Lancing()
     {
-        while(lancing)
+        while (lancing)
         {
             Vector2 direction = (player.position - transform.position).normalized;
             rb.AddForce(direction * LancingPower, ForceMode2D.Impulse);
@@ -157,4 +204,13 @@ public class Boss1_AnimationTrigger : MonoBehaviour
     {
         rb.linearVelocity = Vector2.zero;
     }
+
+    private void OnDrawGizmos()
+    {
+        foreach (GameObject point in CloseAttackPoints)
+        {
+            Gizmos.DrawWireSphere(point.transform.position, AttackCheckRadius);
+        }
+    }
+
 }
