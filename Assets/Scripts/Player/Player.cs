@@ -226,23 +226,25 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void SetLayerRecursively(string _layer)
+    private void SetLayerRecursively(string _changeLayer, string _originLayer)
     {
-        gameObject.layer = LayerMask.NameToLayer(_layer);
+        gameObject.layer = LayerMask.NameToLayer(_changeLayer);
         foreach (Transform child in gameObject.transform)
         {
-            child.gameObject.layer = LayerMask.NameToLayer(_layer); // child의 레이어 설정
-            child.GetComponent<Player>()?.SetLayerRecursively(_layer); // 재귀 호출
+            if (child.gameObject.layer != LayerMask.NameToLayer(_originLayer))
+                return;
+            child.gameObject.layer = LayerMask.NameToLayer(_changeLayer); // child의 레이어 설정
+            child.GetComponent<Player>()?.SetLayerRecursively(_changeLayer, _originLayer); // 재귀 호출
         }
     }
 
     public void Invisibility()
     {
-        SetLayerRecursively("InvisablePlayer");
+        SetLayerRecursively("InvisablePlayer","Player");
     }
     public void Visiblilty()
     {
-        SetLayerRecursively("Player");
+        SetLayerRecursively("Player", "InvisablePlayer");
     }
 
     public void SetupKnockbackDir(Transform _damageDirection)
