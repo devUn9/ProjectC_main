@@ -1,70 +1,64 @@
 fileFormatVersion: 2
-guid: 9f7223a43ddca8c43b69452ff23e9c78
+guid: df0281305932bcb4d85a5a8be0868a8e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8063578265071864796
-    second: Low-TownD_0
+      213: 2977931425058321043
+    second: Low-TownC_0
   - first:
-      213: 8541858195759480397
-    second: Low-TownD_1
+      213: 6778381597351490806
+    second: Low-TownC_1
   - first:
-      213: -5624101544844494317
-    second: Low-TownD_2
+      213: -2353002064246196502
+    second: Low-TownC_2
   - first:
-      213: -1321519118721576313
-    second: Low-TownD_3
+      213: 5432655189559726379
+    second: Low-TownC_3
   - first:
-      213: -7171053232974285114
-    second: Low-TownD_4
+      213: 6986656396631144037
+    second: Low-TownC_4
   - first:
-      213: -2871968432143239934
-    second: Low-TownD_5
+      213: 6639136283011109194
+    second: Low-TownC_5
   - first:
-      213: 5157775228453433700
-    second: Low-TownD_6
+      213: -3479540404809169373
+    second: Low-TownC_6
   - first:
-      213: -916339792002646648
-    second: Low-TownD_7
+      213: 8366943820165356858
+    second: Low-TownC_7
   - first:
-      213: -844389221924157597
-    second: Low-TownD_8
+      213: 4930648958674324001
+    second: Low-TownC_8
   - first:
-      213: -920797984268411483
-    second: Low-TownD_9
+      213: 3374355243377092360
+    second: Low-TownC_9
   - first:
-      213: -5713383658673462614
-    second: Low-TownD_10
+      213: 1007581264597615169
+    second: Low-TownC_10
   - first:
-      213: -8596629349768995744
-    second: Low-TownD_11
+      213: 714056566512273252
+    second: Low-TownC_11
   - first:
-      213: 8165340962291620626
-    second: Low-TownD_12
+      213: -5066613361609766489
+    second: Low-TownC_12
   - first:
-      213: -5204238684372587176
-    second: Low-TownD_13
+      213: -4845544476054201843
+    second: Low-TownC_13
   - first:
-      213: 3169989214724123523
-    second: Low-TownD_14
+      213: -4884627991425757764
+    second: Low-TownC_14
   - first:
-      213: 1008998899482551855
-    second: Low-TownD_15
+      213: -3349780959307550590
+    second: Low-TownC_15
   - first:
-      213: 1757744570967377169
-    second: Low-TownD_16
+      213: -8221542024642935403
+    second: Low-TownC_16
   - first:
-      213: 4535056332639594745
-    second: Low-TownD_17
+      213: -6897660261304833602
+    second: Low-TownC_17
   - first:
-      213: 432042086127358883
-    second: Low-TownD_18
-  - first:
-      213: 90304870797040064
-    second: Low-TownD_19
-  - first:
-      213: 3965898600688275360
-    second: Low-TownD_20
+      213: 572501930243348617
+    second: Low-TownC_18
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -111,7 +105,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -199,463 +193,419 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Low-TownD_0
+      name: Low-TownC_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 230
-        width: 46
-        height: 26
+        x: 2
+        y: 223
+        width: 25
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 424b4d36a4a681090800000000000000
-      internalID: -8063578265071864796
+      spriteID: 392f2147adcb35920800000000000000
+      internalID: 2977931425058321043
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Low-TownD_1
+      name: Low-TownC_1
       rect:
         serializedVersion: 2
-        x: 49
-        y: 230
-        width: 46
-        height: 26
+        x: 37
+        y: 223
+        width: 25
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d4eb008b5c6ca8670800000000000000
-      internalID: 8541858195759480397
+      spriteID: 6f43e2e3626a11e50800000000000000
+      internalID: 6778381597351490806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Low-TownD_2
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 228
-        width: 161
-        height: 28
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 31a71d6517d23f1b0800000000000000
-      internalID: -5624101544844494317
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Low-TownD_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 198
-        width: 65
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 78296bcfc5509ade0800000000000000
-      internalID: -1321519118721576313
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Low-TownD_4
+      name: Low-TownC_2
       rect:
         serializedVersion: 2
         x: 65
-        y: 198
-        width: 62
-        height: 27
+        y: 226
+        width: 32
+        height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c6b627141d4b7c90800000000000000
-      internalID: -7171053232974285114
+      spriteID: ae638dcd615785fd0800000000000000
+      internalID: -2353002064246196502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Low-TownD_5
+      name: Low-TownC_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 95
-        width: 87
-        height: 98
+        x: 97
+        y: 226
+        width: 32
+        height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 20577f36de7b428d0800000000000000
-      internalID: -2871968432143239934
+      spriteID: b21d3e88c1ba46b40800000000000000
+      internalID: 5432655189559726379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Low-TownD_6
+      name: Low-TownC_4
       rect:
         serializedVersion: 2
-        x: 90
-        y: 111
-        width: 39
-        height: 82
+        x: 128
+        y: 223
+        width: 128
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 461b6434e39149740800000000000000
-      internalID: 5157775228453433700
+      spriteID: 566f8e0d9f695f060800000000000000
+      internalID: 6986656396631144037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Low-TownD_7
+      name: Low-TownC_5
       rect:
         serializedVersion: 2
-        x: 147
-        y: 185
-        width: 10
-        height: 8
+        x: 2
+        y: 196
+        width: 63
+        height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 88d702c60d18843f0800000000000000
-      internalID: -916339792002646648
+      spriteID: a41d8441643f22c50800000000000000
+      internalID: 6639136283011109194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Low-TownD_8
+      name: Low-TownC_6
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 164
+        width: 190
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3260bbdef6036bfc0800000000000000
+      internalID: -3479540404809169373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Low-TownC_7
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 164
+        width: 63
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3d1b90131b5d1470800000000000000
+      internalID: 8366943820165356858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Low-TownC_8
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 112
+        width: 112
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12aceedaa1f2d6440800000000000000
+      internalID: 4930648958674324001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Low-TownC_9
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 131
+        width: 40
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 807e77b373e14de20800000000000000
+      internalID: 3374355243377092360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Low-TownC_10
       rect:
         serializedVersion: 2
         x: 207
-        y: 63
-        width: 49
-        height: 130
+        y: 143
+        width: 18
+        height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 367ca07f9702844f0800000000000000
-      internalID: -844389221924157597
+      spriteID: 1420eae52d5abfd00800000000000000
+      internalID: 1007581264597615169
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Low-TownD_9
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 0
-        width: 100
-        height: 65
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5ad19c5ac1ba833f0800000000000000
-      internalID: -920797984268411483
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Low-TownD_10
-      rect:
-        serializedVersion: 2
-        x: 223
-        y: 57
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aa22f3f45dbf5b0b0800000000000000
-      internalID: -5713383658673462614
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Low-TownD_11
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 51
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 06c525d3723a2b880800000000000000
-      internalID: -8596629349768995744
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Low-TownD_12
-      rect:
-        serializedVersion: 2
-        x: 230
-        y: 54
-        width: 8
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 21b9657e75e115170800000000000000
-      internalID: 8165340962291620626
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Low-TownD_13
-      rect:
-        serializedVersion: 2
-        x: 239
-        y: 47
-        width: 17
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 85d20a36d74d6c7b0800000000000000
-      internalID: -5204238684372587176
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Low-TownD_14
+      name: Low-TownC_11
       rect:
         serializedVersion: 2
         x: 225
-        y: 33
-        width: 13
-        height: 11
+        y: 153
+        width: 16
+        height: 19
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 38b637d35601efb20800000000000000
-      internalID: 3169989214724123523
+      spriteID: 467cf7cf9a6d8e900800000000000000
+      internalID: 714056566512273252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Low-TownD_15
+      name: Low-TownC_12
       rect:
         serializedVersion: 2
-        x: 232
-        y: 41
-        width: 6
-        height: 6
+        x: 0
+        y: 100
+        width: 36
+        height: 54
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f26ea66372fa00e00800000000000000
-      internalID: 1008998899482551855
+      spriteID: 7a9800fddf5cfa9b0800000000000000
+      internalID: -5066613361609766489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Low-TownD_16
+      name: Low-TownC_13
       rect:
         serializedVersion: 2
-        x: 239
-        y: 31
-        width: 17
+        x: 33
+        y: 144
+        width: 14
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 115c166df53c46810800000000000000
-      internalID: 1757744570967377169
+      spriteID: d0ade69c8fa21ccb0800000000000000
+      internalID: -4845544476054201843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Low-TownD_17
+      name: Low-TownC_14
       rect:
         serializedVersion: 2
-        x: 226
-        y: 19
-        width: 15
-        height: 9
+        x: 0
+        y: 53
+        width: 49
+        height: 42
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9f86e5fe4b1cfee30800000000000000
-      internalID: 4535056332639594745
+      spriteID: cbd432fb8b0563cb0800000000000000
+      internalID: -4884627991425757764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Low-TownD_18
+      name: Low-TownC_15
       rect:
         serializedVersion: 2
-        x: 241
-        y: 18
-        width: 15
-        height: 12
+        x: 49
+        y: 69
+        width: 80
+        height: 43
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3a3d3affcfbeef500800000000000000
-      internalID: 432042086127358883
+      spriteID: 2803b1527ff2381d0800000000000000
+      internalID: -3349780959307550590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Low-TownD_19
+      name: Low-TownC_16
       rect:
         serializedVersion: 2
-        x: 228
-        y: 3
-        width: 11
-        height: 8
+        x: 5
+        y: 2
+        width: 21
+        height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0c958513dc3d04100800000000000000
-      internalID: 90304870797040064
+      spriteID: 5954633961737ed80800000000000000
+      internalID: -8221542024642935403
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Low-TownD_20
+      name: Low-TownC_17
       rect:
         serializedVersion: 2
-        x: 242
-        y: 4
-        width: 13
-        height: 10
+        x: 38
+        y: 2
+        width: 21
+        height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0af4e3dd3c3b90730800000000000000
-      internalID: 3965898600688275360
+      spriteID: eb9e897a9869640a0800000000000000
+      internalID: -6897660261304833602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Low-TownC_18
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 10
+        width: 66
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9885169e87fe1f700800000000000000
+      internalID: 572501930243348617
       vertices: []
       indices: 
       edges: []
@@ -664,7 +614,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ccfe2b71f9d39044f80cf4424da594c3
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -674,27 +624,25 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Low-TownD_0: -8063578265071864796
-      Low-TownD_1: 8541858195759480397
-      Low-TownD_10: -5713383658673462614
-      Low-TownD_11: -8596629349768995744
-      Low-TownD_12: 8165340962291620626
-      Low-TownD_13: -5204238684372587176
-      Low-TownD_14: 3169989214724123523
-      Low-TownD_15: 1008998899482551855
-      Low-TownD_16: 1757744570967377169
-      Low-TownD_17: 4535056332639594745
-      Low-TownD_18: 432042086127358883
-      Low-TownD_19: 90304870797040064
-      Low-TownD_2: -5624101544844494317
-      Low-TownD_20: 3965898600688275360
-      Low-TownD_3: -1321519118721576313
-      Low-TownD_4: -7171053232974285114
-      Low-TownD_5: -2871968432143239934
-      Low-TownD_6: 5157775228453433700
-      Low-TownD_7: -916339792002646648
-      Low-TownD_8: -844389221924157597
-      Low-TownD_9: -920797984268411483
+      Low-TownC_0: 2977931425058321043
+      Low-TownC_1: 6778381597351490806
+      Low-TownC_10: 1007581264597615169
+      Low-TownC_11: 714056566512273252
+      Low-TownC_12: -5066613361609766489
+      Low-TownC_13: -4845544476054201843
+      Low-TownC_14: -4884627991425757764
+      Low-TownC_15: -3349780959307550590
+      Low-TownC_16: -8221542024642935403
+      Low-TownC_17: -6897660261304833602
+      Low-TownC_18: 572501930243348617
+      Low-TownC_2: -2353002064246196502
+      Low-TownC_3: 5432655189559726379
+      Low-TownC_4: 6986656396631144037
+      Low-TownC_5: 6639136283011109194
+      Low-TownC_6: -3479540404809169373
+      Low-TownC_7: 8366943820165356858
+      Low-TownC_8: 4930648958674324001
+      Low-TownC_9: 3374355243377092360
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
