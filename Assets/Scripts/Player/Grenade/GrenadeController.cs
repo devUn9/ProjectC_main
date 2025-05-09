@@ -227,7 +227,6 @@ public class GrenadeController : MonoBehaviour
                 invisibility.Invisibility();
             }
         }
-        //float smokeEnd = explosionRadius + 5.0f;
         // 바깥쪽 원의 감지 결과
         Collider2D[] outerColliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius + 0.5f, invisablePlayerLayers);
 

@@ -87,17 +87,20 @@ public class PlayerState
         // AnimationTrigger 발생 전 입력 시 state에서 에러발생 attackStateTimer변수는 player에서 관리
         if (Input.GetKeyDown(KeyCode.Mouse0) && player.attackStateTimer < 0.25)
         {
-            player.Interaction();
-            if (player.isDaggerAttack)
-            {
-                stateMachine.ChangeState(player.daggerAttack);
-            }
-            else if (animBoolName == "Move" && !player.isDaggerAttack)
+            if (animBoolName == "Move" && !player.isDaggerAttack)
                 stateMachine.ChangeState(player.pistolMove);
             else
                 stateMachine.ChangeState(player.attackState);
         }
 
+        if(Input.GetKeyDown(KeyCode.Space) && player.attackStateTimer < 0.25)
+        {
+            player.MeleeAttack();
+            if (player.isDaggerAttack)
+            {
+                stateMachine.ChangeState(player.daggerAttack);
+            }
+        }
 
         // 수류탄 스킬 사용
         if ((Input.GetKeyDown(KeyCode.Alpha1)

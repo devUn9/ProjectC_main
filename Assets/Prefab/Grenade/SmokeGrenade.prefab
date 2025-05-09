@@ -104,17 +104,19 @@ MonoBehaviour:
   explosionRadius: 4
   explosionForce: 0
   throwHeight: 3
-  explosionEffect: {fileID: 1272365366362387747, guid: 748aaa3ba856e8f459bd2a54c96a189c, type: 3}
+  grenadeType: 0
   explosionLayers:
     serializedVersion: 2
     m_Bits: 0
   playerLayers:
     serializedVersion: 2
     m_Bits: 64
-  InvisablePlayerLayers:
+  invisablePlayerLayers:
     serializedVersion: 2
     m_Bits: 16384
   disappearTime: 5
   throwSound: {fileID: 0}
   explosionSound: {fileID: 0}
   isSmoke: 1
+  isFire: 0
+  isShock: 0

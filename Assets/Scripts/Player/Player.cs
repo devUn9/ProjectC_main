@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : MonoBehaviour
@@ -26,14 +27,17 @@ public class Player : MonoBehaviour
     [Header("Interaction Info")]
     [SerializeField] protected Transform interactionCheck;   // 상호작용 체크 위치의 기준점
     [SerializeField] private Vector3 interactionDistance;    // 상호작용 거리 설정값
-    [SerializeField] public float interactionRadius;        // 상호작용 감지 반경
+    public float interactionRadius;        // 상호작용 감지 반경
     [SerializeField] private Vector2 raycastDirection;       // 레이캐스트 방향
     [SerializeField] private LayerMask detectionEnemyLayers; // Enemy 레이어 설정
     public Vector2 lastDirection;                           // 마지막으로 이동한 방향 저장
-    private Vector3 gizmoDistance;                           // 기즈모를 그릴 위치 계산용 변수
+    public Quaternion lastRotation;                         // 마지막으로 이동한 방향의 쿼터니언 저장(근접 공격관련)
+    private Vector3 gizmoDirection;                         // 기즈모를 그릴 위치 계산용 변수
+    
 
     [Header("Melee Attack Info")]
     public bool isDaggerAttack = false;
+    public Quaternion rotation;
     [SerializeField] private GameObject daggerAttackEffectPrefab;
 
     public bool invisibility = false;
@@ -94,7 +98,7 @@ public class Player : MonoBehaviour
         }
 
         stateMachine.currentState.Update();
-        gizmoDistance = SetRaycastDirectionFromInput(inputVector);
+        gizmoDirection = SetRaycastDirectionFromInput(inputVector);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -128,7 +132,7 @@ public class Player : MonoBehaviour
 
     protected void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(interactionCheck.position + gizmoDistance, interactionRadius);
+        Gizmos.DrawWireSphere(interactionCheck.position + gizmoDirection, interactionRadius);
     }
 
     // 입력 값 기반으로 레이캐스트 방향 설정
@@ -136,34 +140,66 @@ public class Player : MonoBehaviour
     {
         if (inputVector.magnitude > 0.1f)
         {
-            raycastDirection = inputVector.normalized;
+            // 입력 벡터의 각도를 계산
+            float angle = Mathf.Atan2(inputVector.y, inputVector.x) * Mathf.Rad2Deg;
+
+            // 각도를 0-360 범위로 조정
+            if (angle < 0) angle += 360f;
+
+            // 네 방향 중 하나로 반올림
+            if (angle >= 315f || angle < 45f)
+            {
+                // 오른쪽 (1, 0)
+                rotation = Quaternion.Euler(0f, 0f, 270f);
+                raycastDirection = new Vector2(1f, 0f);
+            }
+            else if (angle >= 45f && angle < 135f)
+            {
+                // 위쪽 (0, 1)
+                rotation = Quaternion.Euler(0f, 0f, 0f);
+                raycastDirection = new Vector2(0f, 1f);
+            }
+            else if (angle >= 135f && angle < 225f)
+            {
+                // 왼쪽 (-1, 0)
+                rotation = Quaternion.Euler(0f, 0f, 90f);
+                raycastDirection = new Vector2(-1f, 0f);
+            }
+            else // angle >= 225f && angle < 315f
+            {
+                // 아래쪽 (0, -1)
+                rotation = Quaternion.Euler(0f, 0f, 180f);
+                raycastDirection = new Vector2(0f, -1f);
+            }
+
+            // 마지막 방향 저장
+            lastRotation = rotation;
+            lastDirection = raycastDirection;
         }
         else if (inputVector.magnitude == 0)
         {
             raycastDirection = lastDirection;
         }
+
         return raycastDirection * 0.7f;
     }
+
+    
 
     //상호작용
     public void Interaction()
     {
-        Vector3 checkPosition = interactionCheck.position + gizmoDistance;
+        Vector3 checkPosition = interactionCheck.position + gizmoDirection;
         Vector2 checkPosition2D = new Vector2(checkPosition.x, checkPosition.y);
 
         Collider2D colliders = Physics2D.OverlapCircle(checkPosition2D, interactionRadius);
         if (colliders != null)
         {
-            if (colliders.GetComponent<Npc>() != null)
+            Debug.Log("layerCheck:"+ colliders.gameObject.layer);
+            if (colliders.GetComponent<Npc>())
                 Debug.Log("NPC상호작용");  // NPC와 상호작용
-            else if (colliders.GetComponent<Obj>() != null)
+            else if (colliders.GetComponent<Obj>())
                 Debug.Log("OBJ상호작용");  // 일반 오브젝트와 상호작용
-            else if (colliders.gameObject.layer == LayerMask.NameToLayer("Enemy"))    //적이 감지된 경우
-            {
-                isDaggerAttack = true;
-                Instantiate(daggerAttackEffectPrefab, interactionCheck.position + gizmoDistance, Quaternion.identity);
-                this.stats.DoMeleeDamage(colliders.GetComponent<EnemyStats>()); // 적에게 대미지 적용
-            }
             else
                 Debug.Log("인식할 수 없는 오브젝트입니다.");
         }
@@ -173,23 +209,42 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void SetLayerRecursively(string _layer)
+    public void MeleeAttack()
     {
-        gameObject.layer = LayerMask.NameToLayer(_layer);
+        Vector3 checkPosition = interactionCheck.position + gizmoDirection;
+        Vector2 checkPosition2D = new Vector2(checkPosition.x, checkPosition.y);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(checkPosition2D, interactionRadius, detectionEnemyLayers);
+
+        foreach(Collider2D collider in colliders)
+        {
+            if (collider.GetComponent<Enemy>())
+            {
+                isDaggerAttack = true;
+                EffectManager.Instance.PlayEffect(EffectType.SlashEffect, transform.position, 1f, rotation);
+                this.stats.DoMeleeDamage(collider.GetComponent<EnemyStats>()); // 적에게 대미지 적용
+            }
+        }
+    }
+
+    private void SetLayerRecursively(string _changeLayer, string _originLayer)
+    {
+        gameObject.layer = LayerMask.NameToLayer(_changeLayer);
         foreach (Transform child in gameObject.transform)
         {
-            child.gameObject.layer = LayerMask.NameToLayer(_layer); // child의 레이어 설정
-            child.GetComponent<Player>()?.SetLayerRecursively(_layer); // 재귀 호출
+            if (child.gameObject.layer != LayerMask.NameToLayer(_originLayer))
+                return;
+            child.gameObject.layer = LayerMask.NameToLayer(_changeLayer); // child의 레이어 설정
+            child.GetComponent<Player>()?.SetLayerRecursively(_changeLayer, _originLayer); // 재귀 호출
         }
     }
 
     public void Invisibility()
     {
-        SetLayerRecursively("InvisablePlayer");
+        SetLayerRecursively("InvisablePlayer","Player");
     }
     public void Visiblilty()
     {
-        SetLayerRecursively("Player");
+        SetLayerRecursively("Player", "InvisablePlayer");
     }
 
     public void SetupKnockbackDir(Transform _damageDirection)

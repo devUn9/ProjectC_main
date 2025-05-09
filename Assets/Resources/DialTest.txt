@@ -1,0 +1,5 @@
+ID,Character,Dialogue,IllustrationIndex,IllustrationIndex2
+1,데이비드,"안녕",1,9
+1,데이비드,"루시, 잘 지냈어?",1,9
+2,루시,"반가워",1,9
+2,아담스매셔,"널 끝내러왔다. 데이비드 마르티네즈.",1,0
