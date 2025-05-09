@@ -33,11 +33,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 0203bc3bf47efb84ca5cf01effeed7ba, type: 3}
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 3.29, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SecondaryTex:
-        m_Texture: {fileID: 2800000, guid: fd1ee13761d00874b8daee86fd08c26d, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 0.58, y: 0.28}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -48,8 +48,8 @@ Material:
     - _CircleMask: 0
     - _Contrast: 1
     - _Culling: 2
-    - _Cutoff: 0.438
-    - _CutoffSoftness: 0.242
+    - _Cutoff: 0
+    - _CutoffSoftness: 0.479
     - _DisplacementAmount: 0.9
     - _InnerRadius: 0.19
     - _IntersectionThresholdMax: 1
@@ -58,8 +58,8 @@ Material:
     - _Power: 1
     - _RectHeight: 0.69
     - _RectMask: 0
-    - _RectMaskCutoff: 0.861
-    - _RectSmoothness: 0.555
+    - _RectMaskCutoff: 0.41
+    - _RectSmoothness: 0.354
     - _RectWidth: 0.85
     - _SecondTex: 1
     - _Smoothness: 0.625
@@ -67,8 +67,8 @@ Material:
     - _VertexOffset: 0
     - _VertexOffsetAmount: 0
     m_Colors:
-    - _BurnCol: {r: 2.4798863, g: 6.604628, b: 12.226416, a: 1}
-    - _Color: {r: 0.4266643, g: 0.6415094, b: 0.63558567, a: 1}
+    - _BurnCol: {r: 4.1844273, g: 0.5811045, b: 4.927767, a: 1}
+    - _Color: {r: 0.5637387, g: 0.025854412, b: 0.7830189, a: 1}
     - _PanningSpeed: {r: 0, g: 0, b: 0, a: 0}
     - _SecondaryPanningSpeed: {r: 0.57, g: 0.51, b: 0, a: 0}
   m_BuildTextureStacks: []

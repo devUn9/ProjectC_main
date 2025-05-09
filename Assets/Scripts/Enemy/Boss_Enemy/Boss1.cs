@@ -64,7 +64,7 @@ public class Boss1 : MonoBehaviour
         speed = 5f;
         MeshTrailscript.StartTrail();
         yield return new WaitForSeconds(1f);
-        speed = 1f;
+        speed = 10f;
     }
 
     private void CheckDistance()

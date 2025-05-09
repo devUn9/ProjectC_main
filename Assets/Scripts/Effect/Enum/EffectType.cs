@@ -13,6 +13,9 @@ public enum EffectType
     BloodSplatterEffect,
     GrenadeEffect,
     empEffect,
-    SlashEffect
+    SlashEffect,
+    GravitonSurgeEffect,
+    GravitonSurgeExplodeEffect
+
 
 }

@@ -34,9 +34,8 @@ public class EffectTest : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePos.z = 0f; 
-
-                EffectManager.Instance.PlayEffect(EffectType.SmokeShellEffect, mousePos, 3.0f);
+                mousePos.z = 0f;
+                EffectManager.Instance.PlayEffect(EffectType.SmokeShellEffect, mousePos, 0.8f);
 
             }
 
@@ -46,6 +45,25 @@ public class EffectTest : MonoBehaviour
                 EffectManager.Instance.PlayEffect(EffectType.SlashEffect, position, 1f, rotation);
 
             }
+
+            if (Input.GetKeyDown(KeyCode.Y))
+            {
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePos.z = 0f;
+
+                EffectManager.Instance.PlayEffect(EffectType.GravitonSurgeEffect, mousePos, 0.2f);
+
+            }
+
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePos.z = 0f;
+                EffectManager.Instance.PlayEffect(EffectType.GravitonSurgeExplodeEffect, mousePos, 0.2f);
+
+            }
+
+
         }
         else
         {

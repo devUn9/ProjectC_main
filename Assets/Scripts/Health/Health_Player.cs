@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Health_Player : Health_Entity
 {
+    private Player player;
     private SpriteRenderer spriteRenderer;
 
     // hp 흔들림 효과
@@ -48,6 +49,7 @@ public class Health_Player : Health_Entity
     public override float HPRecovery => 10;
     public float MaxHPBasic => 100 + 1 * 30;
     public float MaxHPBonus => 10 * 10;
+
 
     public override void TakeDamage(float damage)
     {

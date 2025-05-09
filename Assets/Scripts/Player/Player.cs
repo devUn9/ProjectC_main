@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public Vector3 finalAttackInputVec;
     private Vector3 inputVector;
     private Vector2 knockbackDir;
+    public bool isKnocked;
 
     [Header("AttackState Info")]
     public GameObject bulletPrefab;
@@ -33,7 +34,7 @@ public class Player : MonoBehaviour
     public Vector2 lastDirection;                           // 마지막으로 이동한 방향 저장
     public Quaternion lastRotation;                         // 마지막으로 이동한 방향의 쿼터니언 저장(근접 공격관련)
     private Vector3 gizmoDirection;                         // 기즈모를 그릴 위치 계산용 변수
-    
+
 
     [Header("Melee Attack Info")]
     public bool isDaggerAttack = false;
@@ -127,6 +128,9 @@ public class Player : MonoBehaviour
 
     public void SetVelocity(float _velocityX, float _velocityY)
     {
+        if(isKnocked)
+            return;
+
         rb.linearVelocity = new Vector2(_velocityX, _velocityY);
     }
 
@@ -184,7 +188,7 @@ public class Player : MonoBehaviour
         return raycastDirection * 0.7f;
     }
 
-    
+
 
     //상호작용
     public void Interaction()
@@ -195,7 +199,7 @@ public class Player : MonoBehaviour
         Collider2D colliders = Physics2D.OverlapCircle(checkPosition2D, interactionRadius);
         if (colliders != null)
         {
-            Debug.Log("layerCheck:"+ colliders.gameObject.layer);
+            Debug.Log("layerCheck:" + colliders.gameObject.layer);
             if (colliders.GetComponent<Npc>())
                 Debug.Log("NPC상호작용");  // NPC와 상호작용
             else if (colliders.GetComponent<Obj>())
@@ -215,7 +219,7 @@ public class Player : MonoBehaviour
         Vector2 checkPosition2D = new Vector2(checkPosition.x, checkPosition.y);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(checkPosition2D, interactionRadius, detectionEnemyLayers);
 
-        foreach(Collider2D collider in colliders)
+        foreach (Collider2D collider in colliders)
         {
             if (collider.GetComponent<Enemy>())
             {
@@ -240,7 +244,7 @@ public class Player : MonoBehaviour
 
     public void Invisibility()
     {
-        SetLayerRecursively("InvisablePlayer","Player");
+        SetLayerRecursively("InvisablePlayer", "Player");
     }
     public void Visiblilty()
     {
@@ -249,6 +253,7 @@ public class Player : MonoBehaviour
 
     public void SetupKnockbackDir(Transform _damageDirection)
     {
+
         if (_damageDirection.position.x > transform.position.x && _damageDirection.position.y > transform.position.y)
             knockbackDir = new Vector2(-1, -1);
         else if (_damageDirection.position.x > transform.position.x && _damageDirection.position.y < transform.position.y)
@@ -257,12 +262,15 @@ public class Player : MonoBehaviour
             knockbackDir = new Vector2(1, -1);
         else if (_damageDirection.position.x < transform.position.x && _damageDirection.position.y < transform.position.y)
             knockbackDir = new Vector2(1, 1);
+
+        StartCoroutine(HitKnockback());
     }
 
     public IEnumerator HitKnockback()
     {
-        rb.linearVelocity = knockbackDir * 100f;
-        yield return new WaitForSeconds(1f);
+        isKnocked = true;
+        rb.AddForce(knockbackDir * 10f, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.2f);
+        isKnocked = false;
     }
-
 }
