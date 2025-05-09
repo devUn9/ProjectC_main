@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class EnemySightTest : MonoBehaviour
 {
-    [SerializeField] private float alertRange = 7f;
-    [SerializeField] private float detectRange = 3f;
+    [SerializeField] private float alertRange = 5f;
+    [SerializeField] private float detectRange = 2f;
     private GameObject _player;
     private EffectController sightEffect;
     private EnemySightState currentState = EnemySightState.Patrol;
@@ -58,18 +58,18 @@ public class EnemySightTest : MonoBehaviour
         switch (currentState)
         {
             case EnemySightState.Patrol:
-                sightEffect.SetSightEffect(3f, Quaternion.Euler(0, 0, -90f), 60f);
-                sightEffect.SetSightColor(Color.red);
-                break;
-
-            case EnemySightState.Alert:
                 sightEffect.SetSightEffect(5f, Quaternion.Euler(0, 0, -180f), 90f);
                 sightEffect.SetSightColor(Color.yellow);
                 break;
 
+            case EnemySightState.Alert:
+                sightEffect.SetSightEffect(7f, Quaternion.Euler(0, 0, -180f), 90f);
+                sightEffect.SetSightColor(Color.red);
+                break;
+
             case EnemySightState.Detected:
-                sightEffect.SetSightEffect(7f, Quaternion.Euler(0, 0, -270f), 120f);
-                sightEffect.SetSightColor(Color.green);
+                sightEffect.SetSightEffect(0f, Quaternion.Euler(0, 0, -180f), 0f);
+                sightEffect.SetSightColor(Color.yellow);
                 break;
 
         }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    // ÇÃ·¹ÀÌ¾î ÂüÁ¶¿ëÀ¸·Î ¸¸µç ÀÓ½Ã ½ºÅ©¸³Æ®ÀÔ´Ï´Ù. ¼öÁ¤ ÇÊ¿äÇÏ½Ã¸é ¸¶À½´ë·Î ¼öÁ¤ÇÏ¼Åµµ µË´Ï´Ù.
+    // í”Œë ˆì´ì–´ ì°¸ì¡°ìš©ìœ¼ë¡œ ë§Œë“  ì„ì‹œ ìŠ¤í¬ë¦½íŠ¸ì…ë‹ˆë‹¤. ìˆ˜ì • í•„ìš”í•˜ì‹œë©´ ë§ˆìŒëŒ€ë¡œ ìˆ˜ì •í•˜ì…”ë„ ë©ë‹ˆë‹¤.
 
     public static PlayerManager instance { get; private set; }
     public GameObject player;
