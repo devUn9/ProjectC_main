@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Health_PlayerUI : MonoBehaviour
+public class Health_EnemyUI : MonoBehaviour
 {
     [SerializeField] private CharacterStats characterstats;
     [SerializeField] private Slider sliderHP;
-    [SerializeField] private Health_UIHP hudUI; // 좌상단 UI 연결
 
-    private void Update()
+    
+    void Update()
     {
         float current = (float)characterstats.currentHealth;
         float max = (float)characterstats.maxHealth.GetValue();
@@ -16,11 +16,8 @@ public class Health_PlayerUI : MonoBehaviour
         if (sliderHP != null)
             sliderHP.value = Health_Utill.Percent(current, max);
 
-        // HUD UI도 같이 업데이트
-        if (hudUI != null)
-            hudUI.UpdateHP(current, max);
     }
-
+    
     public float Percent(float current, float max)
     {
         return current != 0 && max != 0 ? current / max : 0;

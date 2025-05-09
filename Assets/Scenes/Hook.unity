@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   finalAttackInputVec: {x: 0, y: 0, z: 0}
+  isKnocked: 0
   bulletPrefab: {fileID: 857579978013763025, guid: a3938c5afa0b40c4391e9220371ca284, type: 3}
   attackStateTimer: 0.5
   daggerAttackDir: {x: 0, y: 0}
@@ -167,7 +168,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   lastDirection: {x: 0, y: 0}
+  lastRotation: {x: 0, y: 0, z: 0, w: 0}
   isDaggerAttack: 0
+  rotation: {x: 0, y: 0, z: 0, w: 0}
   daggerAttackEffectPrefab: {fileID: 0}
   invisibility: 0
 --- !u!70 &7085347
@@ -263,10 +266,55 @@ MonoBehaviour:
   m_GameObject: {fileID: 7085345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b991fbdc8e8bc03429b47ba8f479a91f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4965669288c454047963b9e4a4d2f346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  level:
+    baseValue: 0
+    modifiers: 
+  exp:
+    baseValue: 0
+    modifiers: 
+  cyberPhycosis:
+    baseValue: 0
+    modifiers: 
+  damage:
+    baseValue: 0
+    modifiers: 
+  meleeDamage:
+    baseValue: 0
+    modifiers: 
+  bulletDamage:
+    baseValue: 0
+    modifiers: 
+  grenadeDamage:
+    baseValue: 0
+    modifiers: 
+  empGrenadeDamage:
+    baseValue: 0
+    modifiers: 
+  launcherDamage:
+    baseValue: 0
+    modifiers: 
+  gravitonSurgedDamage:
+    baseValue: 0
+    modifiers: 
+  maxHealth:
+    baseValue: 0
+    modifiers: 
+  armor:
+    baseValue: 0
+    modifiers: 
+  empResistance:
+    baseValue: 0
+    modifiers: 
+  empShock:
+    baseValue: 0
+    modifiers: 
+  stun:
+    baseValue: 0
+    modifiers: 
+  currentHealth: 0
   hpBarTransform: {fileID: 746174510}
 --- !u!1 &73785870
 GameObject:
@@ -1280,7 +1328,7 @@ GameObject:
   - component: {fileID: 412299924}
   - component: {fileID: 412299923}
   - component: {fileID: 412299922}
-  - component: {fileID: 412299921}
+  - component: {fileID: 412299926}
   m_Layer: 12
   m_Name: enemy1 (1)
   m_TagString: Enemy
@@ -1288,20 +1336,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &412299921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 412299920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9148cee000959d4f93607d1e8a73d3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 7085350}
-  hpBarTransform: {fileID: 1585334808}
 --- !u!61 &412299922
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1446,6 +1480,65 @@ Transform:
   - {fileID: 1585334808}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &412299926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412299920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb64c83f1541c94986da6d86d458c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level:
+    baseValue: 0
+    modifiers: 
+  exp:
+    baseValue: 0
+    modifiers: 
+  cyberPhycosis:
+    baseValue: 0
+    modifiers: 
+  damage:
+    baseValue: 0
+    modifiers: 
+  meleeDamage:
+    baseValue: 0
+    modifiers: 
+  bulletDamage:
+    baseValue: 0
+    modifiers: 
+  grenadeDamage:
+    baseValue: 0
+    modifiers: 
+  empGrenadeDamage:
+    baseValue: 0
+    modifiers: 
+  launcherDamage:
+    baseValue: 0
+    modifiers: 
+  gravitonSurgedDamage:
+    baseValue: 0
+    modifiers: 
+  maxHealth:
+    baseValue: 0
+    modifiers: 
+  armor:
+    baseValue: 0
+    modifiers: 
+  empResistance:
+    baseValue: 0
+    modifiers: 
+  empShock:
+    baseValue: 0
+    modifiers: 
+  stun:
+    baseValue: 0
+    modifiers: 
+  currentHealth: 0
+  hpBarTransform: {fileID: 1585334808}
 --- !u!1 &419035168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1662,7 +1755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6480672be9790e4baa1a153f1a2db71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthEntity: {fileID: 2009140070}
+  characterstats: {fileID: 2009140070}
   sliderHP: {fileID: 1482294852}
   hudUI: {fileID: 1250688642}
 --- !u!1 &469470673
@@ -33268,7 +33361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6480672be9790e4baa1a153f1a2db71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthEntity: {fileID: 7085350}
+  characterstats: {fileID: 7085350}
   sliderHP: {fileID: 1566735012}
   hudUI: {fileID: 1862425919}
 --- !u!1 &859632834
@@ -34020,8 +34113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7408e8b08e368214aa9078600fc297f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health_entity: {fileID: 2009140070}
-  sliderHP: {fileID: 367301767}
+  characterStats: {fileID: 0}
   textHP: {fileID: 637987720}
   currentHP: 0
   displayHP: 0
@@ -34644,7 +34736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6480672be9790e4baa1a153f1a2db71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthEntity: {fileID: 412299921}
+  characterstats: {fileID: 412299926}
   sliderHP: {fileID: 1502813156}
   hudUI: {fileID: 1250688642}
 --- !u!114 &1585334810
@@ -35153,8 +35245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7408e8b08e368214aa9078600fc297f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health_entity: {fileID: 7085350}
-  sliderHP: {fileID: 1977459558}
+  characterStats: {fileID: 7085350}
   textHP: {fileID: 372055357}
   currentHP: 0
   displayHP: 0
@@ -35607,10 +35698,55 @@ MonoBehaviour:
   m_GameObject: {fileID: 2009140065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9148cee000959d4f93607d1e8a73d3d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2eb64c83f1541c94986da6d86d458c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 7085350}
+  level:
+    baseValue: 0
+    modifiers: 
+  exp:
+    baseValue: 0
+    modifiers: 
+  cyberPhycosis:
+    baseValue: 0
+    modifiers: 
+  damage:
+    baseValue: 0
+    modifiers: 
+  meleeDamage:
+    baseValue: 0
+    modifiers: 
+  bulletDamage:
+    baseValue: 0
+    modifiers: 
+  grenadeDamage:
+    baseValue: 0
+    modifiers: 
+  empGrenadeDamage:
+    baseValue: 0
+    modifiers: 
+  launcherDamage:
+    baseValue: 0
+    modifiers: 
+  gravitonSurgedDamage:
+    baseValue: 0
+    modifiers: 
+  maxHealth:
+    baseValue: 0
+    modifiers: 
+  armor:
+    baseValue: 0
+    modifiers: 
+  empResistance:
+    baseValue: 0
+    modifiers: 
+  empShock:
+    baseValue: 0
+    modifiers: 
+  stun:
+    baseValue: 0
+    modifiers: 
+  currentHealth: 0
   hpBarTransform: {fileID: 430747068}
 --- !u!1 &2023873890
 GameObject:

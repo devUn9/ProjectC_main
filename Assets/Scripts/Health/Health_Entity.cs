@@ -13,48 +13,6 @@ public abstract class Health_Entity : MonoBehaviour
         set => stats.HP = Mathf.Clamp(value, 0, MaxHP);
         get => stats.HP;
     }
-
-    public float damage
-    {
-        set => stats.damage = 0f;
-        get => stats.damage;
-    }
-
-    public float meleeDamage
-    {
-        set => stats.meleeDamage = 55f;
-        get => stats.meleeDamage;
-    }
-    
-    public float bulletDamage
-    {
-        set => stats.bulletDamage = 15f;
-        get => stats.bulletDamage;
-    }
-
-    public float grenadeDamage
-    {
-        set => stats.grenadeDamage = 80f;
-        get => stats.grenadeDamage;
-    }
-
-    public float empGrenadeDamage
-    {
-        set => stats.empGrenadeDamage = 65f;
-        get => stats.empGrenadeDamage;
-    }
-
-    public float launcherDamage
-    {
-        set => stats.launcherDamage = 95f;
-        get => stats.launcherDamage;
-    }
-
-    public float gravitonSurgedDamage
-    {
-        set => stats.gravitonSurgedDamage = 15f;
-        get => stats.gravitonSurgedDamage;
-    }
     
 
     // 현재 프로퍼티에서 추상 선언하여서 실제 작동하는 내용은 플레이어, 적과 같은 파생 클래스에서 정의
@@ -78,34 +36,7 @@ public abstract class Health_Entity : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }
-
-    //stat합치는 작업중
-
-    public virtual void DoDamage(Health_Entity _targetStats)
-    {
-
-    }
-    public virtual void DoMeleeDamage(Health_Entity _targetStats)
-    {
-
-    }
-    public virtual void DoBulletDamage(Health_Entity _targetStats)
-    {
-
-    }
-    public virtual void DoGrenadeDamage(Health_Entity _targetStats)
-    {
-
-    }
-    public virtual void DoLauncherDamage(Health_Entity _targetStats)
-    {
-
-    }
-    public virtual void DoGravitonSurgeDamage(Health_Entity _targetStats)
-    {
-
-    }
-
+    
     // 상대방 공격 시 데미지 호출
     public abstract void TakeDamage(float damage);
 

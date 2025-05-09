@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class Health_UIHP : MonoBehaviour
 {
-    [SerializeField] private Health_Entity health_entity;
-    [SerializeField] private Slider sliderHP;
+    [SerializeField] private CharacterStats characterStats;
+    private Slider sliderHP;
     [SerializeField] private TextMeshProUGUI textHP;
 
     // 슬라이더 Lerp 효과 부분
@@ -17,7 +17,7 @@ public class Health_UIHP : MonoBehaviour
 
     private void Start()
     {
-        displayHP = currentHP = health_entity.HP;
+        displayHP = currentHP = (float)characterStats.currentHealth;
     }
 
     public void UpdateHP(float currentHP, float maxHP)
@@ -32,12 +32,17 @@ public class Health_UIHP : MonoBehaviour
     private void Update()
     {
         // 슬라이더 Lerp 효과
-        currentHP = health_entity.HP;
+        currentHP = (float)characterStats.currentHealth;
         displayHP = Mathf.Lerp(displayHP, currentHP, Time.deltaTime * 10f);
 
         if (sliderHP != null)
-            sliderHP.value = Health_Utill.Percent(health_entity.HP, health_entity.MaxHP);
+            sliderHP.value = Health_Utill.Percent((float)characterStats.currentHealth, (float)characterStats.currentHealth);
         if (textHP != null)
-            textHP.text = $"{health_entity.HP:F0} / {health_entity.MaxHP:F0}";
+            textHP.text = $"{(float)characterStats.currentHealth:F0} / {(float)characterStats.currentHealth:F0}";
+    }
+
+    public float Percent(float current, float max)
+    {
+        return current != 0 && max != 0 ? current / max : 0;
     }
 }
