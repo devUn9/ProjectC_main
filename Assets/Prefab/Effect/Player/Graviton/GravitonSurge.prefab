@@ -33,7 +33,8 @@ Transform:
   m_LocalPosition: {x: -2.424, y: 0.362, z: 0}
   m_LocalScale: {x: 0.73, y: 0.73, z: 0.73}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 7352715440840071437}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5463527395527149528
@@ -132,7 +133,7 @@ MonoBehaviour:
   explodeEffectPrefab: {fileID: 3510241120163830708, guid: 771f8f641cec7654da30c1e5bf01ecca, type: 3}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4096
   disappearDelay: 0
   throwSound: {fileID: 0}
   explosionSound: {fileID: 0}
@@ -199,3 +200,77 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.030545339, y: 0.09163602}
   m_Radius: 0.5845837
+--- !u!1001 &2555458576407977957
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8091831470203831090}
+    m_Modifications:
+    - target: {fileID: 5007096468562544360, guid: c399676b65766a246a715410bf43f286, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2739726
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007096468562544360, guid: c399676b65766a246a715410bf43f286, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2739726
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007096468562544360, guid: c399676b65766a246a715410bf43f286, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3698629
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007096468562544360, guid: c399676b65766a246a715410bf43f286, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007096468562544360, guid: c399676b65766a246a715410bf43f286, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007096468562544360, guid: c399676b65766a246a715410bf43f286, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007096468562544360, guid: c399676b65766a246a715410bf43f286, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007096468562544360, guid: c399676b65766a246a715410bf43f286, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007096468562544360, guid: c399676b65766a246a715410bf43f286, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007096468562544360, guid: c399676b65766a246a715410bf43f286, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007096468562544360, guid: c399676b65766a246a715410bf43f286, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007096468562544360, guid: c399676b65766a246a715410bf43f286, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5007096468562544360, guid: c399676b65766a246a715410bf43f286, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653803981557188543, guid: c399676b65766a246a715410bf43f286, type: 3}
+      propertyPath: m_Name
+      value: GravitonSurge_2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c399676b65766a246a715410bf43f286, type: 3}
+--- !u!4 &7352715440840071437 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5007096468562544360, guid: c399676b65766a246a715410bf43f286, type: 3}
+  m_PrefabInstance: {fileID: 2555458576407977957}
+  m_PrefabAsset: {fileID: 0}

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -17,25 +18,38 @@ public class Enemy : MonoBehaviour
     public float idleTimer;
     public float moveTimer;
     public float stateTimer;
+    public float loopSaveTimer;     //이동 및 대기 타이머를 저장하는 변수
 
 
     [Header("Attack Info")]
     public GameObject bulletPrefab;
+    public GameObject meleeAttackPrefab;
+
+    public Vector3 enemyDir;
+    public Quaternion meleeAttackAngle;
+    public float attackDelay;      // 근접공격 딜레이
+
     public bool isBattle;
     public float battleTime;
+    public float meleeAttackRadius;
     public bool isMelee;
     public bool isBullet;
 
     [Header("player recognition")]
     public LayerMask playerLayer;
+    public LayerMask enemyLayer;
+    public LayerMask wallLayer;
     public float BattleCheckRadius;
 
     public float gizmoRadius = 3f;    // 부채꼴의 반지름
     public float gizmoAngle = 90f;    // 부채꼴의 각도 (도 단위)
+    public float sightLightAngle;
     public Color gizmoColor = Color.red;
 
     private float startAngle;
     private float endAngle;
+
+    private EffectController sightEffect;
 
     public Rigidbody2D rb { get; private set; }
     public Animator anim { get; private set; }
@@ -66,12 +80,44 @@ public class Enemy : MonoBehaviour
 
     public virtual void Start()
     {
+        sightEffect = EffectManager.Instance.PlayEffectFollow(EffectType.EnemySightEffect, transform, Quaternion.Euler(0, 0, -180f));
         stateMachine.Initialize(idleState);
     }
 
     public virtual void Update()
     {
         stateMachine.currentState.Update();
+        SetSightEffectAngle();
+        
+        StartCoroutine("battleCheck");
+
+        if (isBattle)
+            sightEffect.SetSightColor(Color.red);
+        else
+            sightEffect.SetSightColor(Color.yellow);
+    }
+
+    public void healthCheck()
+    {
+        if (stats.maxHealth.Equals(stats.currentHealth))
+            return;
+        isBattle = true;
+    }
+
+    private IEnumerator battleCheck()
+    {
+        Collider2D[] Colliders = Physics2D.OverlapCircleAll(transform.position, BattleCheckRadius, enemyLayer);
+        foreach (Collider2D collider in Colliders)
+        {
+            if (collider != null)
+            {
+                if (collider.GetComponent<Enemy>().isBattle == true)
+                {
+                    yield return new WaitForSeconds(0.3f);
+                    isBattle = true;
+                }
+            }
+        }
     }
 
     public void SetVelocity(float _xVelocity, float _yVelocity)
@@ -84,17 +130,49 @@ public class Enemy : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
     }
 
-    private bool playerCheck() => Physics2D.Raycast(transform.position, Vector2.zero,3, playerLayer);
+    public void SetSightEffectAngle()
+    {
+        if (isBattle)
+        {
+            Vector3 EnemyToPlayerDirection = stateMachine.currentState.EnemyToPlayerDirection();
+
+            sightLightAngle = Mathf.Atan2(EnemyToPlayerDirection.y, EnemyToPlayerDirection.x) * Mathf.Rad2Deg;
+
+            sightEffect.SetSightEffect(gizmoRadius, Quaternion.Euler(0, 0, sightLightAngle - 90f), gizmoAngle);
+            return;
+        }
+
+        if (isMoveX)
+            switch (moveDirection)
+            {
+                case 1:
+                    // 시작과 끝 각도 계산
+                    sightLightAngle = -90f;
+                    break;
+                case -1:
+                    sightLightAngle = 90f;
+                    break;
+            }
+
+        if (isMoveY)
+            switch (moveDirection)
+            {
+                case 1:
+                    sightLightAngle = 0;
+                    break;
+                case -1:
+                    sightLightAngle = 180f;
+                    break;
+            }
+        //시야 이펙트 설정
+        sightEffect.SetSightEffect(gizmoRadius, Quaternion.Euler(0, 0, sightLightAngle), gizmoAngle);
+    }
+
+    private bool playerCheck() => Physics2D.Raycast(transform.position, Vector2.zero, 3, playerLayer);
 
     // 씬 뷰에서 부채꼴 기즈모 그리기
     private void OnDrawGizmos()
     {
-        if (isBattle)
-        {
-            Gizmos.DrawWireSphere(transform.position, BattleCheckRadius);
-            return;
-        }
-
         // 원래 색상 저장하고 기즈모 색상 설정
         Color originalColor = Gizmos.color;
         Gizmos.color = gizmoColor;
@@ -150,6 +228,9 @@ public class Enemy : MonoBehaviour
 
         // 원래 색상 복원
         Gizmos.color = originalColor;
+
+
+        Gizmos.DrawWireSphere(enemyDir * 2f + transform.position, meleeAttackRadius);
     }
 
     public bool CheckForPlayerInSight()
@@ -184,6 +265,8 @@ public class Enemy : MonoBehaviour
         // 조정된 기준 방향
         referenceDirection = Quaternion.Euler(0, 0, currentAngle) * Vector2.right;
 
+
+
         // 플레이어와 기준 방향 사이의 각도 계산
         float angleToPlayer = Vector2.Angle(referenceDirection, directionToPlayer);
 
@@ -195,7 +278,7 @@ public class Enemy : MonoBehaviour
                 transform.position,
                 directionToPlayer,
                 gizmoRadius,
-                playerLayer  // 장애물 레이어가 필요하면 추가: obstacleLayer | playerLayer
+                playerLayer|wallLayer  // 장애물 레이어가 필요하면 추가: obstacleLayer | playerLayer
             );
 
             // 레이캐스트 결과 디버깅
@@ -225,5 +308,12 @@ public class Enemy : MonoBehaviour
     {
         fx.StartCoroutine("FlashFX");
         //StartCoroutine("HitKnockBack");
+    }
+
+    public static event System.Action OnEnemyRemoved;
+    private void OnDestroy()
+    {
+        // 몬스터가 파괴되거나 비활성화될 때 이벤트 발생
+        OnEnemyRemoved?.Invoke();
     }
 }

@@ -176,7 +176,7 @@ public class GrenadeController : MonoBehaviour
         hasExploded = true;
 
         // 폭발 이펙트 재생
-        EffectManager.Instance.PlayEffect(explosionEffect, transform.position);
+        EffectManager.Instance.PlayEffect(explosionEffect, transform.position, explosionRadius);
 
         // 폭발 사운드 재생
         if (explosionSound != null && GetComponent<AudioSource>() != null)

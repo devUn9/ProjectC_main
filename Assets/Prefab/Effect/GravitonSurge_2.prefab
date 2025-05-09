@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 743029768946355959}
   - component: {fileID: 8408943604045127956}
   - component: {fileID: 3706891879938213673}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spinning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4844,7 +4844,7 @@ GameObject:
   - component: {fileID: 9028548333969055312}
   - component: {fileID: 7017850769227588089}
   - component: {fileID: 661353315190427453}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BlackBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9677,7 +9677,10 @@ GameObject:
   - component: {fileID: 5007096468562544360}
   - component: {fileID: 5231509056293386583}
   - component: {fileID: 8680984044485098207}
-  m_Layer: 0
+  - component: {fileID: 2775556350749135349}
+  - component: {fileID: -934798986351624033}
+  - component: {fileID: 5186065561197365695}
+  m_Layer: 9
   m_Name: GravitonSurge_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14501,3 +14504,89 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &2775556350749135349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7653803981557188543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f443f761aaaa243aee477ef84e8a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explodeRadius: 3
+  surgeDuration: 3
+  gravitonSurgeSpeed: 13
+  direction: {x: 0, y: 0}
+  explodeEffectPrefab: {fileID: 3510241120163830708, guid: 771f8f641cec7654da30c1e5bf01ecca, type: 3}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  disappearDelay: 0
+  throwSound: {fileID: 0}
+  explosionSound: {fileID: 0}
+--- !u!50 &-934798986351624033
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7653803981557188543}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &5186065561197365695
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7653803981557188543}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5

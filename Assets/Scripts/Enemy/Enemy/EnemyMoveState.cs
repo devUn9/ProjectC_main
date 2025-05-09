@@ -10,20 +10,23 @@ public class EnemyMoveState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        enemy.stateTimer = enemy.moveTimer;
+        enemy.loopSaveTimer = enemy.moveTimer;
     }
 
     public override void Update()
     {
         base.Update();
-        enemy.moveTimer -= Time.deltaTime;
+
+        enemy.SetVelocity(velocity.x, velocity.y);
 
         if (enemy.isBattle)
         {
-            if (EnemyToPlayerDistance() > enemy.gizmoRadius)
+            if (EnemyToPlayerDistance() > attackRange)
                 return;
             stateMachine.ChangeState(enemy.attackState);
         }
+
+        enemy.moveTimer -= Time.deltaTime;
 
         if (enemy.moveTimer < 0)
             stateMachine.ChangeState(enemy.idleState);
@@ -41,7 +44,7 @@ public class EnemyMoveState : EnemyState
     }
     public override void Exit()
     {
-        enemy.moveTimer = enemy.stateTimer;
+        enemy.moveTimer = enemy.loopSaveTimer;
         base.Exit();
     }
 }

@@ -88,7 +88,7 @@ public class LauncherMissileController : MonoBehaviour
         // 폭발 이펙트 생성
         if (explosionEffect != null)
         {
-            EffectManager.Instance.PlayEffect(EffectType.GrenadeEffect, transform.position);
+            EffectManager.Instance.PlayEffect(EffectType.GrenadeEffect, transform.position, explosionRadius*0.8f);
         }
         else
         {

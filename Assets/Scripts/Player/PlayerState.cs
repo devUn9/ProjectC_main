@@ -32,7 +32,7 @@ public class PlayerState
     {
         player.attackStateTimer -= Time.deltaTime;
         player.attackStatusRemainTime -= Time.deltaTime;
-        Debug.Log(animBoolName);
+        //Debug.Log(animBoolName);
         
         stateInputVec.x = Input.GetAxisRaw("Horizontal");
         stateInputVec.y = Input.GetAxisRaw("Vertical");
@@ -180,6 +180,6 @@ public class PlayerState
 
     public void SetZeroVelocity()
     {
-        rb.linearVelocity = Vector2.zero;
+        player.rb.linearVelocity = Vector2.zero;
     }
 }

@@ -23,6 +23,7 @@ public class EnemyStats : CharacterStats
     public override void TakeDamage(int _damage)
     {
         base.TakeDamage(_damage);
+        enemy.healthCheck();
         enemy.DamageEffect();
         StartCoroutine(ScaleHPBar());
         //데미지 받을 때 효과 추가
