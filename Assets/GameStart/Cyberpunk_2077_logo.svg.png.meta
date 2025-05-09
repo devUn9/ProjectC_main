@@ -1,10 +1,28 @@
 fileFormatVersion: 2
-guid: a6328f5b26963674b9911e1e5f841577
+guid: ca5ae01df7588a446913818eb360c847
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3445045679132717716
-    second: DavidHome_a_0
+      213: 2794525055804182457
+    second: Cyberpunk_2077_logo.svg_0
+  - first:
+      213: -2803682553690773811
+    second: Cyberpunk_2077_logo.svg_1
+  - first:
+      213: 3854401017018718610
+    second: Cyberpunk_2077_logo.svg_2
+  - first:
+      213: -960336691446069130
+    second: Cyberpunk_2077_logo.svg_3
+  - first:
+      213: 1224803802047210324
+    second: Cyberpunk_2077_logo.svg_4
+  - first:
+      213: 520339998260520427
+    second: Cyberpunk_2077_logo.svg_5
+  - first:
+      213: 775944849937914549
+    second: Cyberpunk_2077_logo.svg_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +55,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -139,23 +157,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DavidHome_a_0
+      name: Cyberpunk_2077_logo.svg_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 1023
-        height: 1024
+        width: 2560
+        height: 630
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c6dcc4c153db030d0800000000000000
-      internalID: -3445045679132717716
+      spriteID: 42e971befef93b044a0c100cdada7cd4
+      internalID: -1910798030
       vertices: []
       indices: 
       edges: []
@@ -164,7 +182,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 03dcf24141b082e4a844c8ac876cfb0d
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +192,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DavidHome_a_0: -3445045679132717716
+      Cyberpunk_2077_logo.svg_0: -1910798030
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

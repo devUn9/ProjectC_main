@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a6328f5b26963674b9911e1e5f841577
+guid: fbdc99994563520469893b177ff37d74
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3445045679132717716
-    second: DavidHome_a_0
+      213: 3951295730099503542
+    second: 204993_211433_2713_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DavidHome_a_0
+      name: 204993_211433_2713_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 1023
-        height: 1024
+        width: 600
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6dcc4c153db030d0800000000000000
-      internalID: -3445045679132717716
+      spriteID: 6b1491b1882d5d630800000000000000
+      internalID: 3951295730099503542
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      DavidHome_a_0: -3445045679132717716
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
