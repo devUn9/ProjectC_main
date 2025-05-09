@@ -8,6 +8,7 @@ public class Portal2 : MonoBehaviour
     [SerializeField] private CinemachineVirtualCameraBase virtualCamera; // Cinemachine 가상 카메라
     [SerializeField] private LayerMask mapLayerMask; // 맵이 속한 레이어만 필터링
 
+
     [Header("카메라 경계 자동 설정")]
     [SerializeField] private BoxCollider2D targetBoundingShape;
 
@@ -67,7 +68,7 @@ public class Portal2 : MonoBehaviour
 
     private void Update()
     {
-        if (playerIsInTrigger && isTriggerActivated && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             MovePlayer();
         }
