@@ -9,7 +9,7 @@ public class PlayerStats : CharacterStats
 
     private int damageCalculator;
 
-    private int RecoveryHealth;
+    private int RecoveryHealth = 10;
 
     private void Awake()
     {
@@ -43,7 +43,7 @@ public class PlayerStats : CharacterStats
     {
         while(true)
         {
-            if(currentHealth > maxHealth.GetValue())
+            if(currentHealth < maxHealth.GetValue())
                 currentHealth += RecoveryHealth;
             
             yield return new WaitForSeconds(1f);

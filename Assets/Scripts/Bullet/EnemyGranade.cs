@@ -7,6 +7,9 @@ public class EnemyGranade : MonoBehaviour
     public GameObject explorePrefab;
     private float speed = 1f;
     private float arcHeight = 5f;
+    private float AttackCheckRadius = 1f;
+    private int GranadeDamage = 50;
+    private float knockbackforce = 5f;
 
     private Vector2 startPoint;
     private Vector2 targetPoint;
@@ -50,6 +53,23 @@ public class EnemyGranade : MonoBehaviour
     {
         GameObject explore = Instantiate(explorePrefab, transform.position, Quaternion.identity);
         Destroy(explore, 0.3f);
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, AttackCheckRadius);
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.GetComponent<PlayerStats>() != null)
+            {
+                PlayerStats _target = collider.GetComponent<PlayerStats>();
+                Player player = collider.GetComponent<Player>();
+
+                if (_target != null)
+                {
+                    _target.TakeDamage(GranadeDamage);
+                    player.SetupKnockbackDir(gameObject.transform, knockbackforce);
+                }
+            }
+        }
         Destroy(gameObject);
     }
 }

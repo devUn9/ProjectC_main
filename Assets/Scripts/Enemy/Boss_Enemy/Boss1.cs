@@ -8,7 +8,7 @@ public class Boss1 : MonoBehaviour
 {
     private BossState currentState = BossState.Idle;
     private Boss1_AnimationTrigger anicontroller;
-    public CharacterStats stats {get; private set;}
+    public CharacterStats stats { get; private set; }
 
     public Transform player;
     private Animator ani;
@@ -64,7 +64,7 @@ public class Boss1 : MonoBehaviour
         speed = 5f;
         MeshTrailscript.StartTrail();
         yield return new WaitForSeconds(1f);
-        speed = 10f;
+        speed = 5f;
     }
 
     private void CheckDistance()
@@ -79,7 +79,7 @@ public class Boss1 : MonoBehaviour
         {
             StartCoroutine(ShotgunAttack());
         }
-        else if (playerToBossDistance > 12f && playerToBossDistance < 13f && !isCoroutineRunning)
+        else if (playerToBossDistance > 12f && playerToBossDistance < 15f && !isCoroutineRunning)
         {
             StartCoroutine(RocketAttack());
         }
@@ -189,6 +189,7 @@ public class Boss1 : MonoBehaviour
 
             clone.GetComponent<Santan_Bullet>().Move(new Vector2(x, y));
         }
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Santan_Bullet);
     }
 
     private void SantanOutUp()
@@ -344,5 +345,21 @@ public class Boss1 : MonoBehaviour
     }
     #endregion
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            if (collision.GetComponent<PlayerStats>() != null)
+            {
+                PlayerStats _target = collision.GetComponent<PlayerStats>();
+                Player player = collision.GetComponent<Player>();
 
+                if (_target != null)
+                {
+                    _target.TakeDamage(30);
+                    player.SetupKnockbackDir(gameObject.transform, 10f);
+                }
+            }
+        }
+    }
 }
