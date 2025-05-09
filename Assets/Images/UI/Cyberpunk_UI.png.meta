@@ -323,7 +323,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cyberpunk_UI_0: 9128174280404215580
+      Cyberpunk_UI_1: -7865891965721581143
+      Cyberpunk_UI_2: 7433381505573499214
+      Cyberpunk_UI_3: -5839814708051100266
+      Cyberpunk_UI_4: 2746033068766448315
+      Cyberpunk_UI_5: 566952266769720551
+      Cyberpunk_UI_6: 1174845897020095522
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
