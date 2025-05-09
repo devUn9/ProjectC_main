@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Health_Enemy : Health_Entity
 {
+    private Enemy enemy;
     private SpriteRenderer spriteRenderer;
 
     // hp 흔들림 효과

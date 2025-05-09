@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Health_Player : Health_Entity
 {
+    private Player player;
     private SpriteRenderer spriteRenderer;
 
     // hp 흔들림 효과
@@ -48,6 +49,43 @@ public class Health_Player : Health_Entity
     public override float HPRecovery => 10;
     public float MaxHPBasic => 100 + 1 * 30;
     public float MaxHPBonus => 10 * 10;
+
+    public override void DoDamage(Health_Entity _targetStats)
+    {
+        base.DoDamage(_targetStats);
+
+        target.TakeDamage(damage);
+    }
+    public override void DoMeleeDamage(Health_Entity _targetStats)
+    {
+        base.DoDamage(_targetStats);
+
+        target.TakeDamage(meleeDamage);
+    }
+    public override void DoBulletDamage(Health_Entity _targetStats)
+    {
+        base.DoDamage(_targetStats);
+
+        target.TakeDamage(bulletDamage);
+    }
+    public override void DoGrenadeDamage(Health_Entity _targetStats)
+    {
+        base.DoDamage(_targetStats);
+
+        target.TakeDamage(grenadeDamage);
+    }
+    public override void DoLauncherDamage(Health_Entity _targetStats)
+    {
+        base.DoDamage(_targetStats);
+
+        target.TakeDamage(launcherDamage);
+    }
+    public override void DoGravitonSurgeDamage(Health_Entity _targetStats)
+    {
+        base.DoDamage(_targetStats);
+
+        target.TakeDamage(gravitonSurgedDamage);
+    }
 
     public override void TakeDamage(float damage)
     {

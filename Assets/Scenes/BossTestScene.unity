@@ -686,7 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b991fbdc8e8bc03429b47ba8f479a91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1420356975}
   hpBarTransform: {fileID: 793851885}
 --- !u!114 &344116055
 MonoBehaviour:
@@ -702,6 +702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   finalAttackInputVec: {x: 0, y: 0, z: 0}
+  isKnocked: 0
   bulletPrefab: {fileID: 857579978013763025, guid: a3938c5afa0b40c4391e9220371ca284, type: 3}
   attackStateTimer: 0.5
   daggerAttackDir: {x: 0, y: 0}
@@ -716,7 +717,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   lastDirection: {x: 0, y: 0}
+  lastRotation: {x: 0, y: 0, z: 0, w: 0}
   isDaggerAttack: 0
+  rotation: {x: 0, y: 0, z: 0, w: 0}
   daggerAttackEffectPrefab: {fileID: 0}
   invisibility: 0
 --- !u!70 &344116056
@@ -3127,7 +3130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8fe888369050d46baecc5a634942e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 344116054}
 --- !u!1 &1486527290
 GameObject:
   m_ObjectHideFlags: 0
@@ -3214,6 +3217,8 @@ MonoBehaviour:
   isRetractingPlayer: 0
   isRetractingObject: 0
   isUpgrade: 0
+  speedBoostDuration: 2
+  speedMultiplier: 1.5
   crosshair: {fileID: 1077575098}
   animator: {fileID: 1759900876}
 --- !u!120 &1676966406
