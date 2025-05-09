@@ -23,8 +23,13 @@ public class GrappleHook5 : MonoBehaviour
     [HideInInspector] public bool isRetractingPlayer = false;  // 플레이어가 이동 중인지 여부
     [HideInInspector] public bool isRetractingObject = false;  // 오브젝트가 끌려오는 중인지 여부
 
+    // 업그레이드 시 속도 증가 부분 구현
     public bool isUpgrade = false;                // 속도 업그레이드 여부
-    public float SpeedMultiplier => isUpgrade ? 1.5f : 1f;   // 속도 배율 계산
+    private Player playerScript; // 플레이어 스크립트 받아와서 속도 체크
+    private float originalSpeed;
+    [SerializeField] private float speedBoostDuration = 2f;
+    [SerializeField] private float speedMultiplier = 1.5f;
+    private bool isSpeedBoosting = false;
 
     private bool isTargetLocked = false;   // 타겟이 고정되었는지 여부
     private RaycastHit2D lockedHit;        // 고정된 타겟 정보 저장
@@ -37,6 +42,7 @@ public class GrappleHook5 : MonoBehaviour
     private void Start()
     {
         line = GetComponent<LineRenderer>();  // LineRenderer 컴포넌트 초기화
+        playerScript = GetComponentInParent<Player>();
     }
 
     private void Update()
@@ -79,15 +85,6 @@ public class GrappleHook5 : MonoBehaviour
         // 오브젝트 끌어오기 처리
         if (isRetractingObject)
             HandleObjectRetract();
-
-        // 속도 업그레이드 처리
-        if (isUpgrade == true)
-            SpeedUpgrade();
-    }
-
-    private void SpeedUpgrade() 
-    {
-        // 속도 업그레이드 기능 예정
     }
 
     // 그래플링 훅 발사 메서드
@@ -144,7 +141,15 @@ public class GrappleHook5 : MonoBehaviour
 
         // 목표 지점 도착 시 종료
         if (Vector2.Distance(transform.parent.position, target) < 0.5f)
+        {
             ResetGrapple();
+
+            // 업그레이드 조건이 체크되면 속도가 증가하도록
+            if(isUpgrade && !isSpeedBoosting)
+            {
+                StartCoroutine(SpeedBoost());
+            }
+        }
     }
 
     // 오브젝트를 끌어오는 처리
@@ -174,6 +179,12 @@ public class GrappleHook5 : MonoBehaviour
             else if (targetObject.CompareTag("Enemy"))
             {
                 StartCoroutine(StunObject(targetObject));
+            }
+            else if (targetObject.CompareTag("Collectible"))
+            {
+                isUpgrade = true;
+                Destroy(targetObject.gameObject);
+                //StartCoroutine(SpeedBoost());
             }
             ResetGrapple();
         }
@@ -332,9 +343,26 @@ public class GrappleHook5 : MonoBehaviour
         animator.SetFloat("VelocityX", Mathf.Round(dir.x));
         animator.SetFloat("VelocityY", Mathf.Round(dir.y));
 
-        Debug.Log($"[DEBUG] Set VelocityX: {Mathf.Round(dir.x)}, VelocityY: {Mathf.Round(dir.y)}");
+        //Debug.Log($"[DEBUG] Set VelocityX: {Mathf.Round(dir.x)}, VelocityY: {Mathf.Round(dir.y)}");
     }
 
+    // 속도 증가 코루틴
+    IEnumerator SpeedBoost()
+    {
+        isSpeedBoosting = true;
 
+        if(playerScript != null)
+        {
+            originalSpeed = playerScript.moveSpeed;
+            playerScript.moveSpeed *= speedMultiplier;
 
+            Debug.Log($"[SpeedBoost] 속도 증가! {originalSpeed} → {playerScript.moveSpeed}");
+
+            yield return new WaitForSeconds(speedBoostDuration);
+
+            playerScript.moveSpeed = originalSpeed;
+            Debug.Log($"[SpeedBoost] 속도 복귀: {originalSpeed}");
+        }
+        isSpeedBoosting = false;
+    }
 }
