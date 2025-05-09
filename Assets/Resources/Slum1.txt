@@ -1,0 +1,2 @@
+ID,Character,Dialogue,IllustrationIndex,IllustrationIndex2
+1,데이비드,"오랜만에 몸 좀 풀어볼까.",2,-1

@@ -1,0 +1,6 @@
+ID,Character,Dialogue,IllustrationIndex,IllustrationIndex2
+1,데이비드,"안녕",1,9
+1,데이비드,"루시, 잘 지냈어?",1,9
+2,루시,"반가워",1,9
+2,루시,"슬픔",1,10
+2,루시,"웃음",1,11
