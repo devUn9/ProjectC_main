@@ -213,7 +213,7 @@ public class DialogueManagerTest : MonoBehaviour
             {
                 characterNameText2.color = new Color(0.33f, 0.95f, 0.15f); // 초록
             }
-            else if (current.character == "아담스매셔")
+            else if (current.character == "아담 스매셔")
             {
                 characterNameText2.color = new Color(1f, 0f, 0f); // 빨강
             }

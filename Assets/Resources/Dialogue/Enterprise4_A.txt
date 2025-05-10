@@ -1,0 +1,5 @@
+ID,Character,Dialogue,IllustrationIndex,IllustrationIndex2
+2,루시,"데이비드...",4,13
+2,루시,"...결국 여기까지 왔구나"",4,13
+1,데이비드,"루시... 너였구나.",4,13
+1,데이비드,"그래, 이제 기억났어.",4,13

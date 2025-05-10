@@ -1,0 +1,5 @@
+ID,Character,Dialogue,IllustrationIndex,IllustrationIndex2
+2,???,"데이비드!",1,11
+2,???,"약속시간 늦었잖아! 빨리와.",1,11
+1,데이비드,"으윽… 머리가…",1,11
+1,데이비드,"...이 목소리, 왜 이렇게 익숙하지?",1,11

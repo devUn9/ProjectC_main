@@ -1,14 +1,16 @@
 using UnityEngine;
 
-public class PortalActivationTrigger : MonoBehaviour
+public class EnemyCheckPortalTrigger : MonoBehaviour
 {
     [SerializeField] private Portal3 targetPortal; // 연결된 포털
     [SerializeField] private bool disableAfterTrigger = true; // true면 재사용 불가
     [SerializeField] private LayerMask enemyLayer; // 몬스터 레이어 마스크
     [SerializeField] private BoxCollider2D mapCollider; // 정사각형 맵의 BoxCollider2D
+    [SerializeField] private float checkInterval = 1f; // 몬스터 확인 간격 (초)
 
     private bool isTriggered = false; // 트리거가 이미 실행되었는지 확인
     private bool allEnemyCleared = false; // 몬스터가 모두 제거되었는지 여부
+    private float checkTimer = 0f; // 타이머
 
     private void Awake()
     {
@@ -23,17 +25,25 @@ public class PortalActivationTrigger : MonoBehaviour
         }
     }
 
-    //private void OnEnable()
-    //{
-    //    // 몬스터 제거 이벤트 구독
-    //    Enemy.OnEnemyRemoved += CheckMonstersCleared;
-    //}
+    private void Start()
+    {
+        // 초기 몬스터 상태 확인
+        CheckMonstersCleared();
+    }
 
-    //private void OnDisable()
-    //{
-    //    // 몬스터 제거 이벤트 구독 해제
-    //    Enemy.OnEnemyRemoved -= CheckMonstersCleared;
-    //}
+    private void Update()
+    {
+        // 주기적으로 몬스터 상태 확인
+        if (!isTriggered && !allEnemyCleared)
+        {
+            checkTimer += Time.deltaTime;
+            if (checkTimer >= checkInterval)
+            {
+                checkTimer = 0f;
+                CheckMonstersCleared();
+            }
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
