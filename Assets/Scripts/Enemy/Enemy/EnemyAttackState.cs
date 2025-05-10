@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class EnemyAttackState : EnemyState
 {
-    public EnemyAttackState(Enemy _enemy, EnemyStateMachine _stateMachine, string _animBoolName) 
+    public EnemyAttackState(Enemy _enemy, EnemyStateMachine _stateMachine, string _animBoolName)
         : base(_enemy, _stateMachine, _animBoolName)
     {
     }
@@ -10,6 +10,7 @@ public class EnemyAttackState : EnemyState
     public override void Enter()
     {
         base.Enter();
+        stateTimer = enemy.attackDelay;
     }
 
     public override void Update()
@@ -17,7 +18,7 @@ public class EnemyAttackState : EnemyState
         base.Update();
         enemy.SetZeroVelocity();
 
-        if (triggerCalled)
+        if (stateTimer < 0)
         {
             stateMachine.ChangeState(enemy.idleState);
         }

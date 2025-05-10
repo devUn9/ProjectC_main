@@ -5,13 +5,7 @@ public class GravitonSurgeSkill : Skill
     [Header("Graviton Surge Info")]
     [SerializeField] private GameObject GravitonSurgePrefab; // 중력파 프리팹
 
-
     public Transform launchPosition;         // 발사 위치 (플레이어)
-
-    public override bool CanUseSkill()
-    {
-        return base.CanUseSkill();
-    }
 
     protected override void Start()
     {
@@ -28,6 +22,7 @@ public class GravitonSurgeSkill : Skill
         {
             LaunchGravitonSurge();
             GetOutProcessCheck();
+            SkillCoolDownReset();
         }
     }
 

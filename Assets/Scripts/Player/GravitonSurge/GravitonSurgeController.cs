@@ -50,7 +50,7 @@ public class GravitonSurgeController : MonoBehaviour
 
     private void MoveSurge()
     {
-        rb.linearVelocity = direction.normalized * gravitonSurgeSpeed;
+        rb.linearVelocity = direction.normalized * gravitonSurgeSpeed* TimeManager.Instance.timeScale;
     }
 
     private void OnTriggerEnter2D()

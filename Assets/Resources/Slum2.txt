@@ -1,0 +1,2 @@
+ID,Character,Dialogue,IllustrationIndex,IllustrationIndex2
+1,데이비드,"S급 칩… 그리고 산데비스탄까지. 이걸로 고생값은 했겠지.",1,-1

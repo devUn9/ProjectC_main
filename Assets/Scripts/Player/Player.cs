@@ -43,6 +43,8 @@ public class Player : MonoBehaviour
 
     public bool invisibility = false;
 
+    private float KnockbackForce;
+
 
     public SkillManager skill { get; private set; }
 
@@ -106,9 +108,10 @@ public class Player : MonoBehaviour
             Interaction();
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && skill.isSandevistanUsable)
         {
             MeshTrailscript.StartTrail();
+            skill.sandevistan.StartCoroutine("TimeScaleModify");
         }
     }
 
@@ -189,7 +192,6 @@ public class Player : MonoBehaviour
     }
 
 
-
     //상호작용
     public void Interaction()
     {
@@ -251,7 +253,7 @@ public class Player : MonoBehaviour
         SetLayerRecursively("Player", "InvisablePlayer");
     }
 
-    public void SetupKnockbackDir(Transform _damageDirection)
+    public void SetupKnockbackDir(Transform _damageDirection, float _KnockbackForce)
     {
 
         if (_damageDirection.position.x > transform.position.x && _damageDirection.position.y > transform.position.y)
@@ -263,13 +265,14 @@ public class Player : MonoBehaviour
         else if (_damageDirection.position.x < transform.position.x && _damageDirection.position.y < transform.position.y)
             knockbackDir = new Vector2(1, 1);
 
+        KnockbackForce = _KnockbackForce;
         StartCoroutine(HitKnockback());
     }
 
     public IEnumerator HitKnockback()
     {
         isKnocked = true;
-        rb.AddForce(knockbackDir * 10f, ForceMode2D.Impulse);
+        rb.AddForce(knockbackDir * KnockbackForce, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.2f);
         isKnocked = false;
     }

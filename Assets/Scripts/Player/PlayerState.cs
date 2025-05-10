@@ -32,7 +32,7 @@ public class PlayerState
     {
         player.attackStateTimer -= Time.deltaTime;
         player.attackStatusRemainTime -= Time.deltaTime;
-        Debug.Log(animBoolName);
+        //Debug.Log(animBoolName);
         
         stateInputVec.x = Input.GetAxisRaw("Horizontal");
         stateInputVec.y = Input.GetAxisRaw("Vertical");
@@ -114,6 +114,9 @@ public class PlayerState
         // 런처암 스킬 사용
         if (Input.GetKeyDown(KeyCode.Q) && player.skill.launcherArm.CanUseBool())
         {
+            if (!player.skill.isLauncherArmUsable)
+                return;
+            player.skill.launcherArm.GetInProcessCheck();
             player.transform.position -= PlayerToMousePosVec().normalized * 0.4f;
             stateMachine.ChangeState(player.launcherArmSkill);
         }
@@ -121,6 +124,8 @@ public class PlayerState
         // 중력 자탄 스킬 사용
         if (Input.GetKeyDown(KeyCode.E) && player.skill.gravitonSurge.CanUseBool() && stateInputVec == Vector2.zero)
         {
+            if (!player.skill.isGravitonUsable)
+                return;
             player.skill.gravitonSurge.GetInProcessCheck();
             stateMachine.ChangeState(player.gravitonSurgeSkill);
         }
@@ -180,6 +185,6 @@ public class PlayerState
 
     public void SetZeroVelocity()
     {
-        rb.linearVelocity = Vector2.zero;
+        player.rb.linearVelocity = Vector2.zero;
     }
 }

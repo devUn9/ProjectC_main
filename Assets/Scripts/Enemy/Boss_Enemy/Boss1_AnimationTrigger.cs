@@ -10,6 +10,8 @@ public class Boss1_AnimationTrigger : MonoBehaviour
     public float AttackCheckRadius = 2f;
     public Rigidbody2D rb;
     public GameObject CloseAttackEffectPrefab;
+    private int CloseAttackDamage = 30;
+    private float closeattackknockbackforce = 20f;
 
 
     private bool lancing = false;
@@ -35,15 +37,15 @@ public class Boss1_AnimationTrigger : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(CloseAttackPoints[0].transform.position, AttackCheckRadius);
         foreach (Collider2D collider in colliders)
         {
-            if (collider.GetComponent<Health_Player>() != null)
+            if (collider.GetComponent<PlayerStats>() != null)
             {
-                Health_Player _target = collider.GetComponent<Health_Player>();
+                PlayerStats _target = collider.GetComponent<PlayerStats>();
                 Player player = collider.GetComponent<Player>();
 
                 if (_target != null)
                 {
-                    _target.TakeDamage(30f);
-                    player.SetupKnockbackDir(gameObject.transform);
+                    _target.TakeDamage(CloseAttackDamage);
+                    player.SetupKnockbackDir(gameObject.transform, closeattackknockbackforce);
                 }
             }
         }
@@ -58,15 +60,15 @@ public class Boss1_AnimationTrigger : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(CloseAttackPoints[1].transform.position, AttackCheckRadius);
         foreach (Collider2D collider in colliders)
         {
-            if (collider.GetComponent<Health_Player>() != null)
+            if (collider.GetComponent<PlayerStats>() != null)
             {
-                Health_Player _target = collider.GetComponent<Health_Player>();
+                PlayerStats _target = collider.GetComponent<PlayerStats>();
                 Player player = collider.GetComponent<Player>();
 
                 if (_target != null)
                 {
-                    _target.TakeDamage(30f);
-                    player.SetupKnockbackDir(gameObject.transform);
+                    _target.TakeDamage(CloseAttackDamage);
+                    player.SetupKnockbackDir(gameObject.transform, closeattackknockbackforce);
                 }
             }
         }
@@ -81,15 +83,15 @@ public class Boss1_AnimationTrigger : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(CloseAttackPoints[2].transform.position, AttackCheckRadius);
         foreach (Collider2D collider in colliders)
         {
-            if (collider.GetComponent<Health_Player>() != null)
+            if (collider.GetComponent<PlayerStats>() != null)
             {
-                Health_Player _target = collider.GetComponent<Health_Player>();
+                PlayerStats _target = collider.GetComponent<PlayerStats>();
                 Player player = collider.GetComponent<Player>();
 
                 if (_target != null)
                 {
-                    _target.TakeDamage(30f);
-                    player.SetupKnockbackDir(gameObject.transform);
+                    _target.TakeDamage(CloseAttackDamage);
+                    player.SetupKnockbackDir(gameObject.transform, closeattackknockbackforce);
                 }
             }
         }
@@ -104,15 +106,15 @@ public class Boss1_AnimationTrigger : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(CloseAttackPoints[3].transform.position, AttackCheckRadius);
         foreach (Collider2D collider in colliders)
         {
-            if (collider.GetComponent<Health_Player>() != null)
+            if (collider.GetComponent<PlayerStats>() != null)
             {
-                Health_Player _target = collider.GetComponent<Health_Player>();
+                PlayerStats _target = collider.GetComponent<PlayerStats>();
                 Player player = collider.GetComponent<Player>();
 
                 if (_target != null)
                 {
-                    _target.TakeDamage(30f);
-                    player.SetupKnockbackDir(gameObject.transform);
+                    _target.TakeDamage(CloseAttackDamage);
+                    player.SetupKnockbackDir(gameObject.transform, closeattackknockbackforce);
                 }
             }
         }

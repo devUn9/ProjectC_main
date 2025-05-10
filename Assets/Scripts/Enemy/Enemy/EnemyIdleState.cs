@@ -10,15 +10,23 @@ public class EnemyIdleState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        enemy.stateTimer = enemy.idleTimer;
+        enemy.loopSaveTimer = enemy.idleTimer;
 
     }
     public override void Update()
     {
         base.Update();
-        enemy.idleTimer -= Time.deltaTime;
+        enemy.idleTimer -= Time.deltaTime* TimeManager.Instance.timeScale;
 
         enemy.SetZeroVelocity();
+
+        if (enemy.isBattle)
+        {
+            if (EnemyToPlayerDistance() > attackRange)
+                stateMachine.ChangeState(enemy.moveState);
+            else
+                stateMachine.ChangeState(enemy.attackState);
+        }
 
         if (enemy.isMoveX)
         {
@@ -35,7 +43,7 @@ public class EnemyIdleState : EnemyState
 
     public override void Exit()
     {
-        enemy.idleTimer = enemy.stateTimer;
+        enemy.idleTimer = enemy.loopSaveTimer;
         enemy.moveDirection = -1 * enemy.moveDirection;
         base.Exit();
     }

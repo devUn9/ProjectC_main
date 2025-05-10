@@ -8,8 +8,8 @@ public class Portal3 : MonoBehaviour
     [SerializeField] private CinemachineVirtualCameraBase virtualCamera; // Cinemachine 가상 카메라
     [SerializeField] private LayerMask mapLayerMask; // 맵이 속한 레이어만 필터링
 
-    [Header("포털 활성화 상태")]
-    [SerializeField] private bool startActive = false; // 포털 초기 상태 (활성화/비활성화)
+    [Header("포털 상호작용 가능?, 활성화 상태")]
+    [SerializeField] private bool stateActive = false; // 포털 초기 상태 (활성화/비활성화)
 
     [Header("포털 메터리얼")]
     [SerializeField] private Material inactiveMaterial; // 비활성화 상태 메터리얼
@@ -24,6 +24,10 @@ public class Portal3 : MonoBehaviour
     private SpriteRenderer spriteRenderer; // 포털의 SpriteRenderer
     private GameObject inactiveMinimapGFX; // 비활성화 상태 미니맵 GFX
     private GameObject activeMinimapGFX; // 활성화 상태 미니맵 GFX
+    private float lastInputTime = 0f; // 마지막 입력 시간
+    [SerializeField] private float inputCooldown = 0.5f; // Spacebar 입력 쿨다운
+
+    public bool IsActive => stateActive;
 
     private void Awake()
     {
@@ -31,7 +35,7 @@ public class Portal3 : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
         {
-            Debug.LogError("SpriteRenderer 컴포넌트가 포털에 없습니다!");
+            Debug.LogError("SpriteRenderer 컴포넌트가 포털에 없습니다!", this);
         }
 
         // 자식 오브젝트에서 미니맵 GFX 찾기
@@ -48,79 +52,21 @@ public class Portal3 : MonoBehaviour
         }
 
         // 초기 상태 설정
-        isTriggerActivated = startActive;
-        if (startActive)
-        {
-            // 활성화 상태 초기화
-            if (spriteRenderer != null && activeMaterial != null)
-            {
-                spriteRenderer.material = activeMaterial;
-            }
-            else
-            {
-                Debug.LogWarning("Active Material이 지정되지 않았습니다.");
-            }
+        isTriggerActivated = stateActive;
+        UpdatePortalVisuals(stateActive);
 
-            if (inactiveMinimapGFX != null)
-            {
-                inactiveMinimapGFX.SetActive(false);
-            }
-            else
-            {
-                Debug.LogWarning("Minimap_Portal_Red_GFX 오브젝트를 자식에서 찾을 수 없습니다.");
-            }
-
-            if (activeMinimapGFX != null)
-            {
-                activeMinimapGFX.SetActive(true);
-            }
-            else
-            {
-                Debug.LogWarning("Minimap_Portal_Green_GFX 오브젝트를 자식에서 찾을 수 없습니다.");
-            }
-        }
-        else
-        {
-            // 비활성화 상태 초기화
-            if (spriteRenderer != null && inactiveMaterial != null)
-            {
-                spriteRenderer.material = inactiveMaterial;
-            }
-            else
-            {
-                Debug.LogWarning("Inactive Material이 지정되지 않았습니다.");
-            }
-
-            if (inactiveMinimapGFX != null)
-            {
-                inactiveMinimapGFX.SetActive(true);
-            }
-            else
-            {
-                Debug.LogWarning("Minimap_Portal_Red_GFX 오브젝트를 자식에서 찾을 수 없습니다.");
-            }
-
-            if (activeMinimapGFX != null)
-            {
-                activeMinimapGFX.SetActive(false);
-            }
-            else
-            {
-                Debug.LogWarning("Minimap_Portal_Green_GFX 오브젝트를 자식에서 찾을 수 없습니다.");
-            }
-        }
-
+        // Cinemachine 설정
         if (virtualCamera != null)
         {
             confiner = virtualCamera.GetComponent<CinemachineConfiner2D>();
             if (confiner == null)
-                Debug.LogError("CinemachineConfiner2D 컴포넌트가 가상 카메라에 없습니다!");
+                Debug.LogError("CinemachineConfiner2D 컴포넌트가 가상 카메라에 없습니다!", this);
 
             virtualCamera.Follow = player.transform;
         }
         else
         {
-            Debug.LogError("Virtual Camera가 지정되지 않았습니다!");
+            Debug.LogError("Virtual Camera가 지정되지 않았습니다!", this);
         }
     }
 
@@ -138,11 +84,11 @@ public class Portal3 : MonoBehaviour
         if (hit != null && hit is BoxCollider2D box)
         {
             targetBoundingShape = box;
-            Debug.Log("타겟 바운딩 셰이프 자동 할당: " + box.name);
+            Debug.Log($"타겟 바운딩 셰이프 자동 할당: {box.name}");
         }
         else
         {
-            Debug.LogWarning("outPoint 위치에서 BoxCollider2D를 찾을 수 없습니다.");
+            Debug.LogWarning("outPoint 위치에서 BoxCollider2D를 찾을 수 없습니다.", this);
         }
     }
 
@@ -160,8 +106,10 @@ public class Portal3 : MonoBehaviour
 
     private void Update()
     {
-        if (playerIsInTrigger && isTriggerActivated && Input.GetKeyDown(KeyCode.Space))
+        // Time.unscaledTime을 사용하여 Time.timeScale = 0에서도 입력 처리
+        if (playerIsInTrigger && isTriggerActivated && Input.GetKeyDown(KeyCode.Space) && Time.unscaledTime - lastInputTime >= inputCooldown)
         {
+            lastInputTime = Time.unscaledTime;
             MovePlayer();
         }
     }
@@ -171,28 +119,83 @@ public class Portal3 : MonoBehaviour
         if (isTriggerActivated) return; // 이미 활성화된 경우 무시
 
         isTriggerActivated = true;
+        stateActive = true; // 활성화 상태로 전환
+        UpdatePortalVisuals(true);
+        Debug.Log("포털이 활성화되었습니다.");
+    }
 
-        // 메터리얼 변경
-        if (spriteRenderer != null && activeMaterial != null)
+    public void DeactivatePortal()
+    {
+        if (!isTriggerActivated) return; // 이미 비활성화된 경우 무시
+
+        isTriggerActivated = false;
+        stateActive = false; // 비활성화 상태로 전환
+        UpdatePortalVisuals(false);
+        Debug.Log("포털이 비활성화되었습니다.");
+    }
+
+    private void UpdatePortalVisuals(bool active)
+    {
+        if (active)
         {
-            spriteRenderer.material = activeMaterial; // 활성화 메터리얼로 변경
+            // 활성화 상태로 전환
+            if (spriteRenderer != null && activeMaterial != null)
+            {
+                spriteRenderer.material = activeMaterial;
+            }
+            else
+            {
+                Debug.LogWarning("Active Material이 지정되지 않았습니다.", this);
+            }
+
+            if (inactiveMinimapGFX != null)
+            {
+                inactiveMinimapGFX.SetActive(false);
+            }
+            else
+            {
+                Debug.LogWarning("Minimap_Portal_Red_GFX 오브젝트를 자식에서 찾을 수 없습니다.", this);
+            }
+
+            if (activeMinimapGFX != null)
+            {
+                activeMinimapGFX.SetActive(true);
+            }
+            else
+            {
+                Debug.LogWarning("Minimap_Portal_Green_GFX 오브젝트를 자식에서 찾을 수 없습니다.", this);
+            }
         }
         else
         {
-            Debug.LogWarning("Active Material이 지정되지 않았습니다.");
-        }
+            // 비활성화 상태로 전환
+            if (spriteRenderer != null && inactiveMaterial != null)
+            {
+                spriteRenderer.material = inactiveMaterial;
+            }
+            else
+            {
+                Debug.LogWarning("Inactive Material이 지정되지 않았습니다.", this);
+            }
 
-        // 미니맵 GFX 상태 변경
-        if (inactiveMinimapGFX != null)
-        {
-            inactiveMinimapGFX.SetActive(false); // 비활성화 상태 GFX 비활성화
-        }
-        if (activeMinimapGFX != null)
-        {
-            activeMinimapGFX.SetActive(true); // 활성화 상태 GFX 활성화
-        }
+            if (inactiveMinimapGFX != null)
+            {
+                inactiveMinimapGFX.SetActive(true);
+            }
+            else
+            {
+                Debug.LogWarning("Minimap_Portal_Red_GFX 오브젝트를 자식에서 찾을 수 없습니다.", this);
+            }
 
-        Debug.Log("포털이 활성화되었습니다.");
+            if (activeMinimapGFX != null)
+            {
+                activeMinimapGFX.SetActive(false);
+            }
+            else
+            {
+                Debug.LogWarning("Minimap_Portal_Green_GFX 오브젝트를 자식에서 찾을 수 없습니다.", this);
+            }
+        }
     }
 
     private void MovePlayer()
@@ -209,8 +212,21 @@ public class Portal3 : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("Confiner 또는 Target Bounding Shape가 설정되지 않았습니다.");
+                Debug.LogWarning("Confiner 또는 Target Bounding Shape가 설정되지 않았습니다.", this);
             }
         }
+        else
+        {
+            Debug.LogWarning("OutPoint가 지정되지 않았습니다.", this);
+        }
+    }
+
+    private void OnValidate()
+    {
+        if (player == null) Debug.LogWarning("Player 오브젝트가 지정되지 않았습니다.", this);
+        if (outPoint == null) Debug.LogWarning("OutPoint가 지정되지 않았습니다.", this);
+        if (virtualCamera == null) Debug.LogWarning("Virtual Camera가 지정되지 않았습니다.", this);
+        if (inactiveMaterial == null) Debug.LogWarning("Inactive Material이 지정되지 않았습니다.", this);
+        if (activeMaterial == null) Debug.LogWarning("Active Material이 지정되지 않았습니다.", this);
     }
 }

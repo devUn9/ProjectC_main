@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class EnemyState
@@ -11,6 +12,10 @@ public class EnemyState
     protected float stateTimer;
     protected bool triggerCalled;
 
+    protected float attackRange;
+    protected Vector3 velocity;
+
+
     public EnemyState(Enemy _enemy, EnemyStateMachine _stateMachine, string _animBoolName)
     {
         this.enemy = _enemy;
@@ -21,22 +26,26 @@ public class EnemyState
     public virtual void Enter()
     {
         enemy.anim.SetBool(animBoolName, true);
+        if (enemy.isMelee)
+        {
+            attackRange = enemy.meleeAttackRadius;
+        }
+        else if (enemy.isBullet)
+            attackRange = enemy.gizmoRadius;
+        Debug.Log("상태 진입 : " + animBoolName);
+        enemy.anim.speed = TimeManager.Instance.timeScale;
     }
 
     public virtual void Update()
     {
+        stateTimer -= Time.deltaTime * TimeManager.Instance.timeScale;
+
         if (enemy.isBattle)
         {
-            Vector3 dir = EnemyToPlayerDirection();
-            Vector3 velocity = dir * enemy.runSpeed;
-            enemy.SetVelocity(velocity.x, velocity.y);
-            enemy.anim.SetFloat("VelocityX", dir.x);
-            enemy.anim.SetFloat("VelocityY", dir.y);
-
-            if (EnemyToPlayerDistance() > enemy.gizmoRadius)
-                stateMachine.ChangeState(enemy.moveState);
-            else
-                stateMachine.ChangeState(enemy.attackState);
+            enemy.enemyDir = EnemyToPlayerDirection();
+            velocity = enemy.enemyDir * enemy.runSpeed * TimeManager.Instance.timeScale;
+            enemy.anim.SetFloat("VelocityX", enemy.enemyDir.x);
+            enemy.anim.SetFloat("VelocityY", enemy.enemyDir.y);
         }
 
         if (enemy.CheckForPlayerInSight())
