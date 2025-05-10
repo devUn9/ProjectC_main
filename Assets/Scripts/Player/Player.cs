@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
 
     private float KnockbackForce;
 
+
     public SkillManager skill { get; private set; }
 
     public Animator anim { get; private set; }
@@ -107,7 +108,7 @@ public class Player : MonoBehaviour
             Interaction();
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && skill.isSandevistanUsable)
         {
             MeshTrailscript.StartTrail();
         }

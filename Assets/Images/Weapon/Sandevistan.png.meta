@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sandevistan_0: 8876981261541547693
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -16,11 +16,13 @@ public class LauncherArmSkill : Skill
     {
         base.Update();
         
-        if (Input.GetKeyUp(KeyCode.Q))
+        if (Input.GetKeyUp(KeyCode.Q)&& getInProcess)
         {
             if (!CanUseSkill())
                 return;
             LaunchMissile();
+            GetOutProcessCheck();
+            SkillCoolDownReset();
         }
     }
 

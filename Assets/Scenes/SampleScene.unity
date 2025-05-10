@@ -2952,7 +2952,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1521365122}
   - component: {fileID: 1521365121}
-  m_Layer: 0
+  - component: {fileID: 1521365123}
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3029,6 +3030,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1521365123
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521365120}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!4 &1634096896 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8114621167808831680, guid: 9a8fa99597586434a99fff722d69ae1d, type: 3}
@@ -3335,8 +3382,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1941670144}
-  - component: {fileID: 1941670145}
   - component: {fileID: 1941670146}
+  - component: {fileID: 1941670145}
   - component: {fileID: 1941670147}
   - component: {fileID: 1941670148}
   m_Layer: 0
@@ -3394,6 +3441,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a479da51921194bb97448f81150f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  islauncherArmUsable: 0
+  isGravitonUsable: 0
+  isSandevistanUsable: 0
   playerStats: {fileID: 0}
 --- !u!114 &1941670147
 MonoBehaviour:
@@ -3407,7 +3457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1344ac60fea8cdc418b68da2b0d35aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 1
+  cooldown: 3
   cooldownTimer: 0
   launcherMissilePrefab: {fileID: 6066672850729393213, guid: c4a9fea7128d6834a9b0e1a329efbca0, type: 3}
   launchStartPosition: {fileID: 79015959}
@@ -3424,7 +3474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4137af4229962cc4bb4a665031c1b416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
+  cooldown: 5
   cooldownTimer: 0
   GravitonSurgePrefab: {fileID: 7653803981557188543, guid: c399676b65766a246a715410bf43f286, type: 3}
   launchPosition: {fileID: 1078722124}

@@ -2,12 +2,16 @@ using UnityEngine;
 
 public class SkillManager : MonoBehaviour
 {
+    [Header("Skill Lock Controller")]
+    public bool islauncherArmUsable = false;    // 스킬 사용 잠금 상태
+    public bool isGravitonUsable = false;    // 스킬 사용 잠금 상태
+    public bool isSandevistanUsable = false;    // 스킬 사용 잠금 상태
+
     public static SkillManager instance;
     public PlayerStats playerStats;
     public GrenadeSkill grenade { get; private set; }
     public LauncherArmSkill launcherArm { get; private set; }
     public GravitonSurgeSkill gravitonSurge { get; private set; }
-
     public void Initialize(PlayerStats _playerStats)
     {
         playerStats = _playerStats;
