@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using TMPro;
 
 public class MouseHover : MonoBehaviour
@@ -11,6 +11,7 @@ public class MouseHover : MonoBehaviour
  
 
     private Enemy enemy;
+    private EnemyStats stat;
     private CanvasGroup textCanvasGroup;
     private Camera mainCamera;
     private bool isMouseOver;
@@ -18,6 +19,7 @@ public class MouseHover : MonoBehaviour
     private void Awake()
     {
         enemy = GetComponent<Enemy>();
+        stat = GetComponent<EnemyStats>();
         mainCamera = Camera.main;
 
         if (speedText == null || hoverImage == null || enemy == null || mainCamera == null || GetComponent<Collider2D>() == null)
@@ -53,7 +55,10 @@ public class MouseHover : MonoBehaviour
         {
             if (!wasMouseOver)
             {
-                speedText.text = $"이동속도 : {enemy.moveSpeed}";
+                string attackType = enemy.isMelee ? "근접" : "원거리";
+                speedText.text = $" 공격 타입 : {attackType}\n 공  격  력 : {stat.bulletDamage}\n 체        력 : {stat.currentHealth}";
+                //speedText.text = $"공격력 : {stat.bulletDamage}\n"; 
+                //speedText.text = $"체력 : {stat.currentHealth}"; 
                 textCanvasGroup.alpha = 1f;
                 hoverImage.color = new Color(1, 1, 1, 0.75f); // 이미지 표시
             }
