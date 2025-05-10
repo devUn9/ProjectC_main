@@ -77,11 +77,8 @@ public class SpriteTrail : MonoBehaviour
 
     IEnumerator SpawnSpriteTrail(float time)
     {
-
         while (time > 0)
         {
-            time -= refreshRate;
-
             GameObject trail = GetTrailFromPool();
             trail.transform.position = spawnPoint.position;
             trail.transform.rotation = spawnPoint.rotation;
@@ -100,9 +97,13 @@ public class SpriteTrail : MonoBehaviour
 
             StartCoroutine(DisableAfterDelay(trail, time));
             yield return new WaitForSeconds(refreshRate);
+
+            time -= refreshRate;
         }
 
         isTrailActive = false;
+
+        Debug.Log("Stop Trail");
     }
 
     IEnumerator DisableAfterDelay(GameObject obj, float delay)

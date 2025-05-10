@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PistolBullet : MonoBehaviour
@@ -28,7 +29,7 @@ public class PistolBullet : MonoBehaviour
 
         //normalized 단위벡터
         dirNo = new Vector3(dir.x, dir.y, 0).normalized;
-        Destroy(gameObject, 2f);
+        DestroyTimer();
     }
     private void Update()
     {
@@ -50,5 +51,18 @@ public class PistolBullet : MonoBehaviour
     internal void SetDamage(Stat damage)
     {
         this.damage = damage.GetValue();
+    }
+
+    private IEnumerator DestroyTimer()
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < 2f)
+        {
+            // 현재 시간 스케일에 따라 경과 시간 계산
+            elapsedTime += Time.deltaTime * TimeManager.Instance.timeScale;
+            yield return null; // 다음 프레임까지 대기
+        }
+        Destroy(gameObject);
     }
 }

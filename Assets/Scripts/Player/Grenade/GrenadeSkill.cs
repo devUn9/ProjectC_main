@@ -46,6 +46,7 @@ public class GrenadeSkill : Skill
             || Input.GetKeyUp(KeyCode.Alpha2)
             || Input.GetKeyUp(KeyCode.Alpha3))
         {
+            Debug.Log("setActive");
             range.SetActive(false);
         }
 

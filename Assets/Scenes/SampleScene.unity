@@ -2909,11 +2909,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3af520cd4c70164b8803c890bf47bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeTime: 2
+  activeTime: 3
   refreshRate: 0.1
   spawnPoint: {fileID: 1388193123}
   spriteMaterial: {fileID: 2100000, guid: 60f97aabe5c8f0c4886638a9ea770196, type: 2}
-  poolSize: 30
+  poolSize: 45
 --- !u!1 &1417724385
 GameObject:
   m_ObjectHideFlags: 0
@@ -3775,7 +3775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLauncherArmUsable: 0
   isGravitonUsable: 0
-  isSandevistanUsable: 0
+  isSandevistanUsable: 1
   playerStats: {fileID: 0}
 --- !u!114 &1941670147
 MonoBehaviour:

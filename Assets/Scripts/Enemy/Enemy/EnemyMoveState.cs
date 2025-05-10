@@ -34,12 +34,12 @@ public class EnemyMoveState : EnemyState
         if (enemy.isMoveX)
         {
             enemy.anim.SetFloat("VelocityX", enemy.moveDirection);
-            enemy.SetVelocity(enemy.moveSpeed * enemy.moveDirection, 0);
+            enemy.SetVelocity(enemy.moveSpeed * enemy.moveDirection * TimeManager.Instance.timeScale, 0);
         }
         else if (enemy.isMoveY)
         {
             enemy.anim.SetFloat("VelocityY", enemy.moveDirection);
-            enemy.SetVelocity(0, enemy.moveSpeed * enemy.moveDirection);
+            enemy.SetVelocity(0, enemy.moveSpeed * enemy.moveDirection * TimeManager.Instance.timeScale);
         }
     }
     public override void Exit()
