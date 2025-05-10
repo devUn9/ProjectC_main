@@ -46,16 +46,13 @@ public class LauncherMissileController : MonoBehaviour
         mainCamera = Camera.main;
         rb = GetComponent<Rigidbody2D>();
     }
-    private void Start()
-    {
-    }
 
     private void Update()
     {
         MoveMissile();
         if (explosionDelay > 0)
         {
-            explosionDelay -= Time.deltaTime;
+            explosionDelay -= Time.deltaTime * TimeManager.Instance.timeScale;
         }
         else
         {
@@ -71,7 +68,7 @@ public class LauncherMissileController : MonoBehaviour
             dir = MousePosition() - transform.position;
             beforeMissileDir = dir;
             mouseToMissileDistance = Vector2.Distance(MousePosition(), transform.position);
-            
+
             if (mouseToMissileDistance <= 1)
                 isControl = false;
         }
@@ -79,7 +76,7 @@ public class LauncherMissileController : MonoBehaviour
         {
             dir = beforeMissileDir;
         }
-        rb.linearVelocity = dir.normalized * maxSpeed;
+        rb.linearVelocity = dir.normalized * maxSpeed * TimeManager.Instance.timeScale;
         transform.right = dir.normalized; // 발사체가 바라보는 방향을 업데이트
     }
 
@@ -88,7 +85,7 @@ public class LauncherMissileController : MonoBehaviour
         // 폭발 이펙트 생성
         if (explosionEffect != null)
         {
-            EffectManager.Instance.PlayEffect(EffectType.GrenadeEffect, transform.position, explosionRadius*0.8f);
+            EffectManager.Instance.PlayEffect(EffectType.GrenadeEffect, transform.position, explosionRadius * 0.8f);
         }
         else
         {
@@ -140,7 +137,14 @@ public class LauncherMissileController : MonoBehaviour
 
     private IEnumerator ExplosionTimer()
     {
-        yield return new WaitForSeconds(explosionDelay);
+        float elapsedTime = 0f;
+
+        while (elapsedTime < explosionDelay)
+        {
+            // 현재 시간 스케일에 따라 경과 시간 계산
+            elapsedTime += Time.deltaTime * TimeManager.Instance.timeScale;
+            yield return null; // 다음 프레임까지 대기
+        }
         ExplodeMissile();
     }
 

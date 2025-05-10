@@ -111,6 +111,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && skill.isSandevistanUsable)
         {
             MeshTrailscript.StartTrail();
+            skill.sandevistan.StartCoroutine("TimeScaleModify");
         }
     }
 

@@ -11,6 +11,8 @@ public class GravitonExplodeController : MonoBehaviour
     private PlayerStats playerStats;    // 플레이어 스탯
     private float surgeDuration;
 
+    private Animator anim; // 애니메이터
+
     public void Initialize(PlayerStats _playerStats, float _radius, Vector3 _explosionPoint, float _surgeDuration)
     {
         playerStats = _playerStats;
@@ -22,12 +24,12 @@ public class GravitonExplodeController : MonoBehaviour
 
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
-        
+        anim.speed = TimeManager.Instance.timeScale;
 
     }
     private void AnimationAttackTrigger()

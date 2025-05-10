@@ -16,7 +16,7 @@ public class EnemyIdleState : EnemyState
     public override void Update()
     {
         base.Update();
-        enemy.idleTimer -= Time.deltaTime;
+        enemy.idleTimer -= Time.deltaTime* TimeManager.Instance.timeScale;
 
         enemy.SetZeroVelocity();
 

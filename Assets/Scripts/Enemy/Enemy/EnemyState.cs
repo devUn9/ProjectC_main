@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class EnemyState
@@ -13,6 +14,7 @@ public class EnemyState
 
     protected float attackRange;
     protected Vector3 velocity;
+
 
     public EnemyState(Enemy _enemy, EnemyStateMachine _stateMachine, string _animBoolName)
     {
@@ -31,16 +33,17 @@ public class EnemyState
         else if (enemy.isBullet)
             attackRange = enemy.gizmoRadius;
         Debug.Log("상태 진입 : " + animBoolName);
+        enemy.anim.speed = TimeManager.Instance.timeScale;
     }
 
     public virtual void Update()
     {
-        stateTimer -= Time.deltaTime;
+        stateTimer -= Time.deltaTime * TimeManager.Instance.timeScale;
 
         if (enemy.isBattle)
         {
             enemy.enemyDir = EnemyToPlayerDirection();
-            velocity = enemy.enemyDir * enemy.runSpeed;
+            velocity = enemy.enemyDir * enemy.runSpeed * TimeManager.Instance.timeScale;
             enemy.anim.SetFloat("VelocityX", enemy.enemyDir.x);
             enemy.anim.SetFloat("VelocityY", enemy.enemyDir.y);
         }

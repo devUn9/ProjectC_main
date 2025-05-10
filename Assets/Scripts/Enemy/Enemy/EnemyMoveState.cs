@@ -26,7 +26,7 @@ public class EnemyMoveState : EnemyState
             stateMachine.ChangeState(enemy.attackState);
         }
 
-        enemy.moveTimer -= Time.deltaTime;
+        enemy.moveTimer -= Time.deltaTime* TimeManager.Instance.timeScale;
 
         if (enemy.moveTimer < 0)
             stateMachine.ChangeState(enemy.idleState);

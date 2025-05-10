@@ -12,6 +12,8 @@ public class SkillManager : MonoBehaviour
     public GrenadeSkill grenade { get; private set; }
     public LauncherArmSkill launcherArm { get; private set; }
     public GravitonSurgeSkill gravitonSurge { get; private set; }
+    public SandevistanSkill sandevistan { get; private set; }
+
     public void Initialize(PlayerStats _playerStats)
     {
         playerStats = _playerStats;
@@ -30,5 +32,6 @@ public class SkillManager : MonoBehaviour
         grenade = GetComponent<GrenadeSkill>();
         launcherArm = GetComponent<LauncherArmSkill>();
         gravitonSurge = GetComponent<GravitonSurgeSkill>();
+        sandevistan = GetComponent<SandevistanSkill>();
     }
 }

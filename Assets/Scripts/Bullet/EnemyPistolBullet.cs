@@ -36,7 +36,7 @@ public class EnemyPistolBullet : MonoBehaviour
     private void Update()
     {
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
-        transform.position += dirNo * speed * Time.deltaTime;
+        transform.position += dirNo * speed * Time.deltaTime * TimeManager.Instance.timeScale;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

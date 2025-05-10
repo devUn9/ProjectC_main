@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public enum GrenadeType
 {
@@ -65,13 +64,14 @@ public class GrenadeController : MonoBehaviour
 
         // 폭발 타이머 시작
         StartCoroutine(ExplosionTimer());
+        //ExplosionTimer();
     }
     private void Start()
     {
         smokeTime = disappearTime;
         startPosition = transform.position;
 
-        switch(grenadeType)
+        switch (grenadeType)
         {
             case GrenadeType.SmokeGrenade:
                 explosionEffect = EffectType.SmokeShellEffect;
@@ -86,7 +86,7 @@ public class GrenadeController : MonoBehaviour
                 isShock = false;
                 break;
             case GrenadeType.EMPGrenade:
-                explosionEffect = EffectType.empEffect;  
+                explosionEffect = EffectType.empEffect;
                 isShock = false;
                 isFire = false;
                 isShock = true;
@@ -107,7 +107,7 @@ public class GrenadeController : MonoBehaviour
                 return;
 
             StartCoroutine(ExplosionSmokeTimer());
-            smokeTime -= Time.deltaTime;
+            smokeTime -= Time.deltaTime * TimeManager.Instance.timeScale;
             if (smokeTime > 0)
             {
                 Smoke();
@@ -121,7 +121,7 @@ public class GrenadeController : MonoBehaviour
 
     private void MoveInParabola()
     {
-        elapsedTime += Time.deltaTime;
+        elapsedTime += Time.deltaTime * TimeManager.Instance.timeScale;
         float normalizedTime = Mathf.Clamp01(elapsedTime / totalFlyTime);
 
         // 시작점과 끝점 사이의 직선 거리 계산
@@ -136,7 +136,7 @@ public class GrenadeController : MonoBehaviour
         Vector3 currentPosition = QuadraticBezier(startPosition, midPoint, targetPosition, normalizedTime);
 
         // 수류탄 회전 효과
-        transform.Rotate(Vector3.forward * 360f * Time.deltaTime, Space.Self);
+        transform.Rotate(Vector3.forward * 360f * Time.deltaTime * TimeManager.Instance.timeScale, Space.Self);
 
         // 위치 업데이트
         transform.position = currentPosition;
@@ -156,16 +156,30 @@ public class GrenadeController : MonoBehaviour
         return (oneMinusT * oneMinusT * p0) + (2f * oneMinusT * t * p1) + (t * t * p2);
     }
 
-    // 폭발 타이머
+    //폭발 타이머
     private IEnumerator ExplosionTimer()
     {
-        yield return new WaitForSeconds(explosionDelay);
+        float elapsedTime = 0f;
+
+        while (elapsedTime < explosionDelay)
+        {
+            // 현재 시간 스케일에 따라 경과 시간 계산
+            elapsedTime += Time.deltaTime *TimeManager.Instance.timeScale;
+            yield return null; // 다음 프레임까지 대기
+        }
         Explode();
     }
 
     private IEnumerator ExplosionSmokeTimer()
     {
-        yield return new WaitForSeconds(explosionDelay);
+        float elapsedTime = 0f;
+
+        while (elapsedTime < explosionDelay)
+        {
+            // 현재 시간 스케일에 따라 경과 시간 계산
+            elapsedTime += Time.deltaTime * TimeManager.Instance.timeScale;
+            yield return null; // 다음 프레임까지 대기
+        }
     }
 
 
@@ -175,6 +189,8 @@ public class GrenadeController : MonoBehaviour
         if (hasExploded) return;
         hasExploded = true;
 
+        if (isSmoke)
+            explosionRadius = explosionRadius * 0.3f;
         // 폭발 이펙트 재생
         EffectManager.Instance.PlayEffect(explosionEffect, transform.position, explosionRadius);
 

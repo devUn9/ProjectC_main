@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SpriteTrail : MonoBehaviour
 {
-    public float activeTime = 2f;         // 실행시간
+    public float activeTime = 3f;         // 실행시간
     public float refreshRate = 0.05f;     // 잔상 나오는 간격
     public Transform spawnPoint;          // 잔상 스폰위치
     public Material spriteMaterial;     
-    public int poolSize = 30;
+    public int poolSize = 45;
     int trailIndex = 0;
 
     SpriteRenderer spriteRenderer;
