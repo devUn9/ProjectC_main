@@ -3943,6 +3943,10 @@ PrefabInstance:
       propertyPath: meleeAttackDelay
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5236827631654657476, guid: 9a8fa99597586434a99fff722d69ae1d, type: 3}
+      propertyPath: invisablePlayerLayer.m_Bits
+      value: 16384
+      objectReference: {fileID: 0}
     - target: {fileID: 5316540297509871079, guid: 9a8fa99597586434a99fff722d69ae1d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4286,6 +4290,10 @@ PrefabInstance:
     - target: {fileID: 8197657382714764412, guid: 4ac0c7e360b78c040987d2f26fe989b4, type: 3}
       propertyPath: meleeAttackRadius
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197657382714764412, guid: 4ac0c7e360b78c040987d2f26fe989b4, type: 3}
+      propertyPath: invisablePlayerLayer.m_Bits
+      value: 16384
       objectReference: {fileID: 0}
     - target: {fileID: 9192316570014959470, guid: 4ac0c7e360b78c040987d2f26fe989b4, type: 3}
       propertyPath: m_Name

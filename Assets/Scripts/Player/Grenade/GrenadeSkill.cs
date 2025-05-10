@@ -46,7 +46,7 @@ public class GrenadeSkill : Skill
             || Input.GetKeyUp(KeyCode.Alpha2)
             || Input.GetKeyUp(KeyCode.Alpha3))
         {
-            RangeActive(false);
+            range.SetActive(false);
         }
 
         if (Input.GetKeyUp(KeyCode.Alpha1))

@@ -4,7 +4,7 @@ using UnityEngine;
 public class SandevistanSkill : Skill
 {
     [Header("Sandevistan Info")]
-    public float sandevistanDuration = 5f; // 지속 시간
+    public float sandevistanDuration = 3f; // 지속 시간
     
     private void Awake()
     {

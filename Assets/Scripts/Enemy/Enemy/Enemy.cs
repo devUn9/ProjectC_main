@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
 
     [Header("player recognition")]
     public LayerMask playerLayer;
+    public LayerMask invisablePlayerLayer; // 투명화된 플레이어 레이어
     public LayerMask enemyLayer;
     public LayerMask wallLayer;
     public float BattleCheckRadius;
@@ -238,10 +239,18 @@ public class Enemy : MonoBehaviour
     public bool CheckForPlayerInSight()
     {
         // 먼저 원형 영역 내에 플레이어가 있는지 확인
-        Collider2D playerCollider = Physics2D.OverlapCircle(transform.position, gizmoRadius, playerLayer);
-
+        Collider2D playerCollider = Physics2D.OverlapCircle(transform.position, gizmoRadius, playerLayer|invisablePlayerLayer);
+        
         if (playerCollider == null)
             return false;
+
+        if (playerCollider.gameObject.layer == LayerMask.NameToLayer("InvisablePlayer"))
+        {
+            isBattle = false;
+            return false;
+        }
+
+        
 
         // 플레이어 방향 벡터 계산
         Vector2 directionToPlayer = (playerCollider.transform.position - transform.position).normalized;

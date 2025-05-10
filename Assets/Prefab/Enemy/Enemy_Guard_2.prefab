@@ -110,6 +110,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  invisablePlayerLayer:
+    serializedVersion: 2
+    m_Bits: 16384
   enemyLayer:
     serializedVersion: 2
     m_Bits: 4096

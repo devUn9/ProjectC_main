@@ -16,6 +16,7 @@ public class GrenadeController : MonoBehaviour
     public float explosionRadius;       // 폭발 범위
     public float explosionForce;        // 폭발 힘
     public float throwHeight;           // 수류탄이 날아가는 최대 높이
+    private float explosionEffectRadius; // 폭발 이펙트 범위
 
     private EffectType explosionEffect;     // 폭발 이펙트
     public GrenadeType grenadeType;         // 수류탄 종류
@@ -164,7 +165,7 @@ public class GrenadeController : MonoBehaviour
         while (elapsedTime < explosionDelay)
         {
             // 현재 시간 스케일에 따라 경과 시간 계산
-            elapsedTime += Time.deltaTime *TimeManager.Instance.timeScale;
+            elapsedTime += Time.deltaTime * TimeManager.Instance.timeScale;
             yield return null; // 다음 프레임까지 대기
         }
         Explode();
@@ -189,10 +190,11 @@ public class GrenadeController : MonoBehaviour
         if (hasExploded) return;
         hasExploded = true;
 
-        if (isSmoke)
-            explosionRadius = explosionRadius * 0.3f;
+        if (isSmoke) explosionEffectRadius = explosionRadius * 0.3f;
+        else explosionEffectRadius = explosionRadius;
+
         // 폭발 이펙트 재생
-        EffectManager.Instance.PlayEffect(explosionEffect, transform.position, explosionRadius);
+        EffectManager.Instance.PlayEffect(explosionEffect, transform.position, explosionEffectRadius);
 
         // 폭발 사운드 재생
         if (explosionSound != null && GetComponent<AudioSource>() != null)
