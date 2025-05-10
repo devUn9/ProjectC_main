@@ -8,13 +8,17 @@ public class SoundManager : MonoBehaviour
 
     public enum EBgm
     {
+        Bgm_StageBattle,
         Bgm_BossBattle
     }
 
     public enum ESfx
     {
+        SFX_SandeVistan,
         SFX_Santan_Bullet,
-        SFX_CloseAttack
+        SFX_CloseAttack,
+        SFX_GrenadeExplosion,
+        SFX_HurtSound
     }
 
     [SerializeField] AudioClip[] bgms;
@@ -22,9 +26,6 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] AudioSource audioBgm;
     [SerializeField] AudioSource audioSfx;
-
-    public AudioSource bgmSource;
-    public AudioSource sfxSource;
 
     private void Awake()
     {
@@ -39,42 +40,20 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        PlayBGM(bgmSource.clip);
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(bgmSource.isPlaying)
+            if(audioBgm.isPlaying)
             {
-                bgmSource.Pause();
+                audioBgm.Pause();
             }
             else
             {
-                bgmSource.UnPause();
+                audioBgm.UnPause();
             }
         }
 
-    }
-
-    public void PlaySFX(AudioClip clip)
-    {
-        sfxSource.PlayOneShot(clip);
-    }
-    
-    public void PlayBGM(AudioClip clip)
-    {
-        bgmSource.clip = clip;
-        bgmSource.loop = true;
-        bgmSource.Play();
-    }
-
-    public void StopBGM()
-    {
-        bgmSource.Stop();
     }
 
     // EBgm 열거형을 매개변수로 받아 해당하는 배경 음악 클립을 재생

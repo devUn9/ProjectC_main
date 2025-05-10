@@ -9,4 +9,12 @@ public class Boss1Stats : CharacterStats
         base.Start();
         
     }
+
+    public bool Engaging()
+    {
+        if(currentHealth < maxHealth.GetValue()/2)
+            return true;
+        
+        return false;
+    }
 }

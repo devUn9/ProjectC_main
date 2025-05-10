@@ -130,9 +130,10 @@ GameObject:
   - component: {fileID: 87721854}
   - component: {fileID: 87721856}
   - component: {fileID: 87721855}
+  - component: {fileID: 87721857}
   m_Layer: 3
   m_Name: Wall (4)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -253,6 +254,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &87721857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87721853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b7fc6c4cc54e34589f2bd2cd1ca1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnTime: 5
 --- !u!1 &93305558
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,9 +981,10 @@ GameObject:
   - component: {fileID: 356056800}
   - component: {fileID: 356056802}
   - component: {fileID: 356056801}
+  - component: {fileID: 356056803}
   m_Layer: 3
   m_Name: Wall (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1090,6 +1105,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &356056803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356056799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b7fc6c4cc54e34589f2bd2cd1ca1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnTime: 5
 --- !u!1 &374522100
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,9 +1382,10 @@ GameObject:
   - component: {fileID: 586842044}
   - component: {fileID: 586842045}
   - component: {fileID: 586842046}
+  - component: {fileID: 586842047}
   m_Layer: 3
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1477,6 +1506,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &586842047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586842043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b7fc6c4cc54e34589f2bd2cd1ca1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnTime: 5
 --- !u!1 &644335189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,9 +1824,10 @@ GameObject:
   - component: {fileID: 723620348}
   - component: {fileID: 723620350}
   - component: {fileID: 723620349}
+  - component: {fileID: 723620351}
   m_Layer: 3
   m_Name: Wall (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1905,6 +1948,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &723620351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723620347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b7fc6c4cc54e34589f2bd2cd1ca1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnTime: 5
 --- !u!1 &793851884
 GameObject:
   m_ObjectHideFlags: 0
@@ -2539,9 +2595,10 @@ GameObject:
   - component: {fileID: 997343290}
   - component: {fileID: 997343292}
   - component: {fileID: 997343291}
+  - component: {fileID: 997343293}
   m_Layer: 3
   m_Name: Wall (5)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2662,6 +2719,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &997343293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997343289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b7fc6c4cc54e34589f2bd2cd1ca1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnTime: 5
 --- !u!1 &1063497662
 GameObject:
   m_ObjectHideFlags: 0
@@ -3324,7 +3394,7 @@ GameObject:
   - component: {fileID: 1420356975}
   m_Layer: 0
   m_Name: Boss1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3744,13 +3814,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7250e956af90a0646aa9b8c2e8d0b354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgms: []
+  bgms:
+  - {fileID: 8300000, guid: 09c1b3ac209ab03458db714c3f1de6af, type: 3}
+  - {fileID: 8300000, guid: d18c5020d7bb69e419d16e0f6b0bcdc7, type: 3}
   sfxs:
+  - {fileID: 8300000, guid: aab61be5f633c4d499987f45ae3f469c, type: 3}
   - {fileID: 8300000, guid: fc75ff3c5102b9a43bf3ceacc73a7297, type: 3}
-  audioBgm: {fileID: 0}
+  - {fileID: 8300000, guid: 365f0d725e2b51043849ea4b530e5f96, type: 3}
+  - {fileID: 8300000, guid: 146938e38b9897a439bbc312b71880b4, type: 3}
+  - {fileID: 8300000, guid: d25f9ab0b469f6549a5c1cf985acea2e, type: 3}
+  audioBgm: {fileID: 1505236470}
   audioSfx: {fileID: 1505236470}
-  bgmSource: {fileID: 1505236470}
-  sfxSource: {fileID: 0}
 --- !u!82 &1505236470
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3761,10 +3835,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 561225afa5cd43e438a8110fb17f5c21, type: 3}
-  m_Resource: {fileID: 8300000, guid: 561225afa5cd43e438a8110fb17f5c21, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 09c1b3ac209ab03458db714c3f1de6af, type: 3}
+  m_Resource: {fileID: 8300000, guid: 09c1b3ac209ab03458db714c3f1de6af, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.04
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4061,6 +4135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a479da51921194bb97448f81150f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLauncherArmUsable: 0
+  isGravitonUsable: 0
+  isSandevistanUsable: 0
   playerStats: {fileID: 0}
 --- !u!1 &1699699022
 GameObject:
@@ -4387,9 +4464,10 @@ GameObject:
   - component: {fileID: 1989431922}
   - component: {fileID: 1989431924}
   - component: {fileID: 1989431923}
+  - component: {fileID: 1989431925}
   m_Layer: 3
   m_Name: Wall (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4510,6 +4588,64 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1989431925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989431921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b7fc6c4cc54e34589f2bd2cd1ca1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnTime: 5
+--- !u!1 &2014735916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2014735918}
+  - component: {fileID: 2014735917}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2014735917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014735916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd402f5dbbd4f6458f13f79530da5df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeScale: 1
+--- !u!4 &2014735918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014735916}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.1166124, y: 0.5920218, z: -0.13257454}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2146084759
 GameObject:
   m_ObjectHideFlags: 0
@@ -4548,6 +4684,7 @@ SceneRoots:
   - {fileID: 169182214}
   - {fileID: 307156160}
   - {fileID: 844459248}
+  - {fileID: 2014735918}
   - {fileID: 1505236468}
   - {fileID: 815907205}
   - {fileID: 1691657708}
