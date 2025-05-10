@@ -32,7 +32,7 @@ public class Boss1_AnimationTrigger : MonoBehaviour
     {
         GameObject effect = Instantiate(CloseAttackEffectPrefab, CloseAttackPoints[0].transform.position, Quaternion.identity);
         Destroy(effect, 1f);
-        //SoundManager.instance.PlaySFX(2, null);
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_CloseAttack);
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(CloseAttackPoints[0].transform.position, AttackCheckRadius);
         foreach (Collider2D collider in colliders)
@@ -44,6 +44,7 @@ public class Boss1_AnimationTrigger : MonoBehaviour
 
                 if (_target != null)
                 {
+                    SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_HurtSound);
                     _target.TakeDamage(CloseAttackDamage);
                     player.SetupKnockbackDir(gameObject.transform, closeattackknockbackforce);
                 }
@@ -55,7 +56,7 @@ public class Boss1_AnimationTrigger : MonoBehaviour
     {
         GameObject effect = Instantiate(CloseAttackEffectPrefab, CloseAttackPoints[1].transform.position, Quaternion.identity);
         Destroy(effect, 1f);
-        //SoundManager.instance.PlaySFX(2, null);
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_CloseAttack);
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(CloseAttackPoints[1].transform.position, AttackCheckRadius);
         foreach (Collider2D collider in colliders)
@@ -67,6 +68,7 @@ public class Boss1_AnimationTrigger : MonoBehaviour
 
                 if (_target != null)
                 {
+                    SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_HurtSound);
                     _target.TakeDamage(CloseAttackDamage);
                     player.SetupKnockbackDir(gameObject.transform, closeattackknockbackforce);
                 }
@@ -78,7 +80,7 @@ public class Boss1_AnimationTrigger : MonoBehaviour
     {
         GameObject effect = Instantiate(CloseAttackEffectPrefab, CloseAttackPoints[2].transform.position, Quaternion.identity);
         Destroy(effect, 1f);
-        //SoundManager.instance.PlaySFX(2, null);
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_CloseAttack);
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(CloseAttackPoints[2].transform.position, AttackCheckRadius);
         foreach (Collider2D collider in colliders)
@@ -90,6 +92,7 @@ public class Boss1_AnimationTrigger : MonoBehaviour
 
                 if (_target != null)
                 {
+                    SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_HurtSound);
                     _target.TakeDamage(CloseAttackDamage);
                     player.SetupKnockbackDir(gameObject.transform, closeattackknockbackforce);
                 }
@@ -101,7 +104,7 @@ public class Boss1_AnimationTrigger : MonoBehaviour
     {
         GameObject effect = Instantiate(CloseAttackEffectPrefab, CloseAttackPoints[3].transform.position, Quaternion.identity);
         Destroy(effect, 1f);
-        //SoundManager.instance.PlaySFX(2, null);
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_CloseAttack);
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(CloseAttackPoints[3].transform.position, AttackCheckRadius);
         foreach (Collider2D collider in colliders)
@@ -113,6 +116,7 @@ public class Boss1_AnimationTrigger : MonoBehaviour
 
                 if (_target != null)
                 {
+                    SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_HurtSound);
                     _target.TakeDamage(CloseAttackDamage);
                     player.SetupKnockbackDir(gameObject.transform, closeattackknockbackforce);
                 }
@@ -194,6 +198,7 @@ public class Boss1_AnimationTrigger : MonoBehaviour
 
     private IEnumerator Lancing()
     {
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_SandeVistan);
         while (lancing)
         {
             Vector2 direction = (player.position - transform.position).normalized;

@@ -1,5 +1,6 @@
 using Unity.Cinemachine;
 using UnityEngine;
+using System.Collections;
 
 public class Portal3 : MonoBehaviour
 {
@@ -7,16 +8,13 @@ public class Portal3 : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private CinemachineVirtualCameraBase virtualCamera; // Cinemachine 가상 카메라
     [SerializeField] private LayerMask mapLayerMask; // 맵이 속한 레이어만 필터링
-
-    [Header("포털 상호작용 가능?, 활성화 상태")]
     [SerializeField] private bool stateActive = false; // 포털 초기 상태 (활성화/비활성화)
-
-    [Header("포털 메터리얼")]
     [SerializeField] private Material inactiveMaterial; // 비활성화 상태 메터리얼
     [SerializeField] private Material activeMaterial; // 활성화 상태 메터리얼
-
-    [Header("카메라 경계는 자동 설정됨")]
     [SerializeField] private BoxCollider2D targetBoundingShape;
+    [SerializeField] private float inputCooldown = 0.5f; // Spacebar 입력 쿨다운
+    [SerializeField] private DialogueManagerTest dialogueManager; // DialogueManagerTest 직접 참조
+    [SerializeField] private float postDialogueDelay = 1f; // 대화 종료 후 포털 활성화 지연 시간
 
     private CinemachineConfiner2D confiner; // Cinemachine Confiner 2D 컴포넌트
     private bool playerIsInTrigger = false;
@@ -25,7 +23,8 @@ public class Portal3 : MonoBehaviour
     private GameObject inactiveMinimapGFX; // 비활성화 상태 미니맵 GFX
     private GameObject activeMinimapGFX; // 활성화 상태 미니맵 GFX
     private float lastInputTime = 0f; // 마지막 입력 시간
-    [SerializeField] private float inputCooldown = 0.5f; // Spacebar 입력 쿨다운
+    private bool wasActiveBeforeDialogue = false; // 대화 시작 전 포털 활성화 상태 저장
+    private float dialogueEndTime = -1f; // 대화가 끝난 시간 (unscaledTime)
 
     public bool IsActive => stateActive;
 
@@ -60,13 +59,18 @@ public class Portal3 : MonoBehaviour
         {
             confiner = virtualCamera.GetComponent<CinemachineConfiner2D>();
             if (confiner == null)
-                Debug.LogError("CinemachineConfiner2D 컴포넌트가 가상 카메라에 없습니다!", this);
-
+                Debug.LogError("CinemachineConfiner2D 컴포넌트가 가상 카메라에 없습니다!", virtualCamera);
             virtualCamera.Follow = player.transform;
         }
         else
         {
             Debug.LogError("Virtual Camera가 지정되지 않았습니다!", this);
+        }
+
+        // DialogueManagerTest가 할당되었는지 확인
+        if (dialogueManager == null)
+        {
+            Debug.LogError("DialogueManagerTest가 인스펙터에서 지정되지 않았습니다!", this);
         }
     }
 
@@ -78,17 +82,33 @@ public class Portal3 : MonoBehaviour
         }
     }
 
-    private void AssignBoundingShapeFromOutPoint()
+    private void Update()
     {
-        Collider2D hit = Physics2D.OverlapPoint(outPoint.position, mapLayerMask);
-        if (hit != null && hit is BoxCollider2D box)
+        // 대화 상태에 따라 포털 활성화/비활성화 관리
+        if (dialogueManager != null)
         {
-            targetBoundingShape = box;
-            Debug.Log($"타겟 바운딩 셰이프 자동 할당: {box.name}");
+            if (dialogueManager.isDialogueActive && isTriggerActivated)
+            {
+                // 대화 중: 포털 비활성화
+                wasActiveBeforeDialogue = isTriggerActivated;
+                DeactivatePortal();
+            }
+            else if (!dialogueManager.isDialogueActive && !isTriggerActivated && wasActiveBeforeDialogue && dialogueEndTime < 0f)
+            {
+                // 대화 종료: 지연 후 포털 재활성화 시작
+                dialogueEndTime = Time.unscaledTime;
+                StartCoroutine(DelayedPortalActivation());
+            }
         }
-        else
+
+        // 대화가 활성화된 경우 또는 대화 종료 후 지연 시간 내에는 포털 상호작용 무시
+        if (playerIsInTrigger && isTriggerActivated && Input.GetKeyDown(KeyCode.Space)
+            && Time.unscaledTime - lastInputTime >= inputCooldown
+            && (dialogueManager == null || !dialogueManager.isDialogueActive)
+            && (dialogueEndTime < 0f || Time.unscaledTime >= dialogueEndTime + postDialogueDelay))
         {
-            Debug.LogWarning("outPoint 위치에서 BoxCollider2D를 찾을 수 없습니다.", this);
+            lastInputTime = Time.unscaledTime;
+            MovePlayer();
         }
     }
 
@@ -102,16 +122,6 @@ public class Portal3 : MonoBehaviour
     {
         if (other.gameObject == player)
             playerIsInTrigger = false;
-    }
-
-    private void Update()
-    {
-        // Time.unscaledTime을 사용하여 Time.timeScale = 0에서도 입력 처리
-        if (playerIsInTrigger && isTriggerActivated && Input.GetKeyDown(KeyCode.Space) && Time.unscaledTime - lastInputTime >= inputCooldown)
-        {
-            lastInputTime = Time.unscaledTime;
-            MovePlayer();
-        }
     }
 
     public void ActivatePortal()
@@ -221,6 +231,30 @@ public class Portal3 : MonoBehaviour
         }
     }
 
+    private void AssignBoundingShapeFromOutPoint()
+    {
+        Collider2D hit = Physics2D.OverlapPoint(outPoint.position, mapLayerMask);
+        if (hit != null && hit is BoxCollider2D box)
+        {
+            targetBoundingShape = box;
+            Debug.Log($"타겟 바운딩 셰이프 자동 할당: {box.name}");
+        }
+        else
+        {
+            Debug.LogWarning("outPoint 위치에서 BoxCollider2D를 찾을 수 없습니다.", this);
+        }
+    }
+
+    private IEnumerator DelayedPortalActivation()
+    {
+        yield return new WaitForSecondsRealtime(postDialogueDelay); // 1초 대기 (unscaled 시간)
+        if (!dialogueManager.isDialogueActive && wasActiveBeforeDialogue)
+        {
+            ActivatePortal();
+        }
+        dialogueEndTime = -1f; // 대기 완료 후 초기화
+    }
+
     private void OnValidate()
     {
         if (player == null) Debug.LogWarning("Player 오브젝트가 지정되지 않았습니다.", this);
@@ -228,5 +262,6 @@ public class Portal3 : MonoBehaviour
         if (virtualCamera == null) Debug.LogWarning("Virtual Camera가 지정되지 않았습니다.", this);
         if (inactiveMaterial == null) Debug.LogWarning("Inactive Material이 지정되지 않았습니다.", this);
         if (activeMaterial == null) Debug.LogWarning("Active Material이 지정되지 않았습니다.", this);
+        if (dialogueManager == null) Debug.LogWarning("DialogueManagerTest가 인스펙터에서 지정되지 않았습니다.", this);
     }
 }

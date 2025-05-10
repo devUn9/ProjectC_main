@@ -53,6 +53,7 @@ public class EnemyGranade : MonoBehaviour
     {
         GameObject explore = Instantiate(explorePrefab, transform.position, Quaternion.identity);
         Destroy(explore, 0.3f);
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_GrenadeExplosion);
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, AttackCheckRadius);
 
@@ -67,6 +68,7 @@ public class EnemyGranade : MonoBehaviour
                 {
                     _target.TakeDamage(GranadeDamage);
                     player.SetupKnockbackDir(gameObject.transform, knockbackforce);
+                    SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_HurtSound);
                 }
             }
         }

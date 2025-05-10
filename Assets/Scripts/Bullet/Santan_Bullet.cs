@@ -28,6 +28,7 @@ public class Santan_Bullet : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_HurtSound);
             PlayerStats _target = collision.GetComponent<PlayerStats>();
             GameObject hitEffect = Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
             Destroy(hitEffect, 0.3f);
@@ -35,6 +36,7 @@ public class Santan_Bullet : MonoBehaviour
             if (_target != null)
             {
                 _target.TakeDamage(bulletDamage);
+                
             }
 
             Destroy(gameObject);

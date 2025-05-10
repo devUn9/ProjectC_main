@@ -1,0 +1,2 @@
+ID,Character,Dialogue,IllustrationIndex,IllustrationIndex2
+1,데이비드,"드디어 기업 내부에 들어왔어.",1,-1

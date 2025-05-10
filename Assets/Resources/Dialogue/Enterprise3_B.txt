@@ -1,0 +1,3 @@
+ID,Character,Dialogue,IllustrationIndex,IllustrationIndex2
+1,데이비드,"사이버웨어? 지금도 충분해.",1,-1
+1,데이비드,"싸우다 사이버 사이코가 될 바엔 이식 안 해.",1,-1

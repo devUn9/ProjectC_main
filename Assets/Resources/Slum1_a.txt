@@ -1,2 +1,0 @@
-ID,Character,Dialogue,IllustrationIndex,IllustrationIndex2
-1,데이비드,"빈손으로 돌아갈 순 없지.",2,-1

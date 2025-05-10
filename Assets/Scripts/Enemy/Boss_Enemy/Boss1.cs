@@ -13,6 +13,8 @@ public class Boss1 : MonoBehaviour
     public Transform player;
     private Animator ani;
 
+    private Boss1Stats boss1stats => GetComponent<Boss1Stats>();
+
     public SpriteTrail MeshTrailscript { get; private set; }
 
     [Header("움직임 관련 변수들")]
@@ -215,6 +217,7 @@ public class Boss1 : MonoBehaviour
 
             clone.GetComponent<Santan_Bullet>().Move(new Vector2(x, y));
         }
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Santan_Bullet);
     }
 
     private void SantanOutDown()
@@ -240,6 +243,7 @@ public class Boss1 : MonoBehaviour
 
             clone.GetComponent<Santan_Bullet>().Move(new Vector2(x, y));
         }
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Santan_Bullet);
     }
 
     private void SantanOutLeft()
@@ -265,6 +269,7 @@ public class Boss1 : MonoBehaviour
 
             clone.GetComponent<Santan_Bullet>().Move(new Vector2(x, y));
         }
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Santan_Bullet);
     }
 
     private void SantanOutRight()
@@ -361,5 +366,11 @@ public class Boss1 : MonoBehaviour
                 }
             }
         }
+
+        if(collision.CompareTag("Wall"))
+        {
+            collision.gameObject.GetComponent<GenerateWall>()?.BreakWall();
+        }
+    
     }
 }
