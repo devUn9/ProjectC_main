@@ -15,7 +15,7 @@ MonoBehaviour:
   effectType: 11
   effectEndType: 0
   prefab: {fileID: 1925452867827809123, guid: 0be16c1ce7d18b64eb01589b0f2b2284, type: 3}
-  duration: 4
+  duration: 5
   useRepeat: 0
   RepeatCount: 0
   RepeatInterval: 0
