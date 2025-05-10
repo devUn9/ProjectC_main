@@ -114,7 +114,7 @@ public class PlayerState
         // 런처암 스킬 사용
         if (Input.GetKeyDown(KeyCode.Q) && player.skill.launcherArm.CanUseBool())
         {
-            if (!player.skill.islauncherArmUsable)
+            if (!player.skill.isLauncherArmUsable)
                 return;
             player.skill.launcherArm.GetInProcessCheck();
             player.transform.position -= PlayerToMousePosVec().normalized * 0.4f;

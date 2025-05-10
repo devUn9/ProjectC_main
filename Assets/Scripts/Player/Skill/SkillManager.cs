@@ -3,7 +3,7 @@ using UnityEngine;
 public class SkillManager : MonoBehaviour
 {
     [Header("Skill Lock Controller")]
-    public bool islauncherArmUsable = false;    // 스킬 사용 잠금 상태
+    public bool isLauncherArmUsable = false;    // 스킬 사용 잠금 상태
     public bool isGravitonUsable = false;    // 스킬 사용 잠금 상태
     public bool isSandevistanUsable = false;    // 스킬 사용 잠금 상태
 
