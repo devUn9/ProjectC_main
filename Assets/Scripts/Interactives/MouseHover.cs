@@ -56,7 +56,8 @@ public class MouseHover : MonoBehaviour
             if (!wasMouseOver)
             {
                 string attackType = enemy.isMelee ? "근접" : "원거리";
-                speedText.text = $" 공격 타입 : {attackType}\n 공  격  력 : {stat.bulletDamage}\n 체        력 : {stat.currentHealth}";
+                Stat attackDamage = enemy.isMelee ? stat.meleeDamage : stat.bulletDamage;
+                speedText.text = $" 공격 타입 : {attackType}\n 공  격  력 : {attackDamage.GetValue()}\n 체        력 : {stat.currentHealth}";
                 //speedText.text = $"공격력 : {stat.bulletDamage}\n"; 
                 //speedText.text = $"체력 : {stat.currentHealth}"; 
                 textCanvasGroup.alpha = 1f;
