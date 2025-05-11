@@ -3484,6 +3484,9 @@ MonoBehaviour:
   bgms:
   - {fileID: 8300000, guid: 09c1b3ac209ab03458db714c3f1de6af, type: 3}
   - {fileID: 8300000, guid: d18c5020d7bb69e419d16e0f6b0bcdc7, type: 3}
+  - {fileID: 8300000, guid: d18c5020d7bb69e419d16e0f6b0bcdc7, type: 3}
+  - {fileID: 8300000, guid: d18c5020d7bb69e419d16e0f6b0bcdc7, type: 3}
+  - {fileID: 8300000, guid: d18c5020d7bb69e419d16e0f6b0bcdc7, type: 3}
   sfxs:
   - {fileID: 8300000, guid: aab61be5f633c4d499987f45ae3f469c, type: 3}
   - {fileID: 8300000, guid: fc75ff3c5102b9a43bf3ceacc73a7297, type: 3}
@@ -3491,6 +3494,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 146938e38b9897a439bbc312b71880b4, type: 3}
   - {fileID: 8300000, guid: d25f9ab0b469f6549a5c1cf985acea2e, type: 3}
   - {fileID: 8300000, guid: 4b33b4afd8c09864981ac1339253c814, type: 3}
+  - {fileID: 8300000, guid: ac268722f8f2e2f4eba1b775d050e1ad, type: 3}
+  - {fileID: 8300000, guid: ac268722f8f2e2f4eba1b775d050e1ad, type: 3}
+  - {fileID: 8300000, guid: ac268722f8f2e2f4eba1b775d050e1ad, type: 3}
   - {fileID: 8300000, guid: ac268722f8f2e2f4eba1b775d050e1ad, type: 3}
   audioBgm: {fileID: 974083703}
   audioSfx: {fileID: 974083703}
