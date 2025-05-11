@@ -4,13 +4,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get; private set; }
-    public GameObject optionMenu;
 
-    private bool isGamePaused = false;
+    public bool IsPaused { get; private set; }
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -18,44 +17,30 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
     }
 
-    
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isGamePaused)
-            {
+            if (IsPaused)
                 ResumeGame();
-            }
             else
-            {
                 PauseGame();
-            }
         }
     }
 
     public void PauseGame()
     {
-        isGamePaused = true;
+        IsPaused = true;
         Time.timeScale = 0f;
-
-        if(optionMenu != null)
-        {
-            optionMenu.SetActive(true);
-        }
     }
 
     public void ResumeGame()
     {
-        isGamePaused = false;
+        IsPaused = false;
         Time.timeScale = 1f;
-
-        if (optionMenu != null)
-        {
-            optionMenu.SetActive(false);
-        }
     }
 }
