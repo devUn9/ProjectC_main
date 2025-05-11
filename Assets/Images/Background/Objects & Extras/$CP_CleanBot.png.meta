@@ -164,9 +164,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 95
-        width: 17
-        height: 21
+        y: 96
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,9 +186,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 95
-        width: 17
-        height: 22
+        y: 96
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,9 +208,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 95
+        y: 96
         width: 16
-        height: 21
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,8 +231,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 48
-        height: 18
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,10 +251,10 @@ TextureImporter:
       name: $CP_CleanBot_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 48
-        height: 18
+        x: 16
+        y: 64
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,10 +273,10 @@ TextureImporter:
       name: $CP_CleanBot_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 17
-        height: 19
+        x: 32
+        y: 64
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -295,10 +295,10 @@ TextureImporter:
       name: $CP_CleanBot_6
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
-        width: 17
-        height: 20
+        x: 0
+        y: 32
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -317,10 +317,10 @@ TextureImporter:
       name: $CP_CleanBot_7
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 16
+        y: 32
         width: 16
-        height: 19
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -335,11 +335,99 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: $CP_CleanBot_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa6404cbd9474f499768c2e6a67b6d0
+      internalID: -1542460569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $CP_CleanBot_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f01333af2c10c4c4f8ad847a99a3507b
+      internalID: -1331508733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $CP_CleanBot_10
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d4bb9a5fda6cfc45b0f0e35f442f249
+      internalID: -1335045738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $CP_CleanBot_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d349ea7ced881594a81af86d9a3c90ff
+      internalID: -122888588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4a39654926e067d419d1c78e328b7db9
     internalID: 0
     vertices: []
     indices: 
@@ -351,12 +439,16 @@ TextureImporter:
     nameFileIdTable:
       $CP_CleanBot_0: -3087563899926420276
       $CP_CleanBot_1: -8833151484636867145
+      $CP_CleanBot_10: -1335045738
+      $CP_CleanBot_11: -122888588
       $CP_CleanBot_2: 8417281278337488769
       $CP_CleanBot_3: 8909712257506565632
       $CP_CleanBot_4: 7611672100136460021
       $CP_CleanBot_5: -7639485442241403220
       $CP_CleanBot_6: -7424187526025139658
       $CP_CleanBot_7: -3616336788660244164
+      $CP_CleanBot_8: -1542460569
+      $CP_CleanBot_9: -1331508733
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

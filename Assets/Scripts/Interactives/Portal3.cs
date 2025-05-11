@@ -237,11 +237,11 @@ public class Portal3 : MonoBehaviour
         if (hit != null && hit is BoxCollider2D box)
         {
             targetBoundingShape = box;
-            Debug.Log($"타겟 바운딩 셰이프 자동 할당: {box.name}");
+            //Debug.Log($"타겟 바운딩 셰이프 자동 할당: {box.name}");
         }
         else
         {
-            Debug.LogWarning("outPoint 위치에서 BoxCollider2D를 찾을 수 없습니다.", this);
+            //Debug.LogWarning("outPoint 위치에서 BoxCollider2D를 찾을 수 없습니다.", this);
         }
     }
 

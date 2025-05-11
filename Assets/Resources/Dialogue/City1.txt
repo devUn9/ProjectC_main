@@ -1,2 +1,3 @@
 ID,Character,Dialogue,IllustrationIndex,IllustrationIndex2
-1,데이비드,"감시 드론이 많아서 조심해야겠어.",1,-1
+1,데이비드,"도심지에 오니까 감시 드론이 많아.",1,-1
+1,데이비드,"산데비스탄으로 적보다 빨리 움직여야겠어.",1,-1

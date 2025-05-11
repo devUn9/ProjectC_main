@@ -4,8 +4,16 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+public enum EnemyType
+{
+    Human,
+    Robot
+}
 public class Enemy : MonoBehaviour
 {
+    [Header("Enemy Type")]
+    public EnemyType enemyType;
+
     [Header("Move Info")]
     public float moveSpeed;
     public float runSpeed;
@@ -326,5 +334,22 @@ public class Enemy : MonoBehaviour
     {
         // 몬스터가 파괴되거나 비활성화될 때 이벤트 발생
         OnEnemyRemoved?.Invoke();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(enemyType == EnemyType.Robot)
+        {
+            if (!collision.GetComponent<Player>())
+                return;
+            Player player = collision.GetComponent<Player>();
+            PlayerStats playerStats = collision.GetComponent<PlayerStats>();
+            if (isMelee)
+            {
+                EffectManager.Instance.PlayEffect(EffectType.GrenadeEffect, transform.position, 2f);
+                stats.DoMeleeDamage(playerStats);
+                Destroy(gameObject);
+            }
+        }
     }
 }

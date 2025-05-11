@@ -10,6 +10,13 @@ public class Boss1Stats : CharacterStats
         
     }
 
+    protected override void Update()
+    {
+        base.Update();
+
+
+    }
+
     public bool Engaging()
     {
         if(currentHealth < maxHealth.GetValue()/2)
@@ -17,4 +24,6 @@ public class Boss1Stats : CharacterStats
         
         return false;
     }
+
+    
 }
