@@ -25,6 +25,9 @@ public class EnemyStats : CharacterStats
         base.TakeDamage(_damage);
         enemy.healthCheck();    //공격 받을 시 Battle상태 돌입
         enemy.DamageEffect();
+        if (enemy.enemyType == EnemyType.Human)
+            EffectManager.Instance.PlayEffect(EffectType.BloodSplatterEffect, transform.position, 1f);
+        
         StartCoroutine(ScaleHPBar());
         //데미지 받을 때 효과 추가
     }

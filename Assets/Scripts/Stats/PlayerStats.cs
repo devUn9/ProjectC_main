@@ -28,6 +28,7 @@ public class PlayerStats : CharacterStats
     {
         base.TakeDamage(_damage);
         player.DamageEffect();
+        EffectManager.Instance.PlayEffect(EffectType.BloodSplatterEffect, transform.position, 1f);
         StartCoroutine(ScaleHPBar());
         //추가 데미지 받을 때 효과 추가
     }
