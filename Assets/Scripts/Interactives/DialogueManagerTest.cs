@@ -438,7 +438,7 @@ public class DialogueManagerTest : MonoBehaviour
                 }
             }
 
-            else if (currentCsvIndex == 24)
+            else if (currentCsvIndex == 23 || currentCsvIndex == 24) // 23 또는 24인 경우 엔딩크레딧 메서드 실행
             {
                 endingCredit.StartScrolling();
                 if (player != null && player.skill != null)

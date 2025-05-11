@@ -1,48 +1,64 @@
-using System;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Diagnostics;
 using UnityEngine.UI;
+using TMPro;
 
 public class Health_UIHP : MonoBehaviour
 {
     [SerializeField] private CharacterStats characterStats;
-    private Slider sliderHP;
+    [SerializeField] private Slider sliderHP;
     [SerializeField] private TextMeshProUGUI textHP;
 
-    // 슬라이더 Lerp 효과 부분
-    [SerializeField] private float currentHP;
-    [SerializeField] private float displayHP;
+    // Lerp 효과용 변수
+    private float currentHP;
+    private float displayHP;
+
+    private void Awake()
+    {
+        // 슬라이더 컴포넌트 자동 할당 (필요한 경우)
+        if (sliderHP == null)
+        {
+            sliderHP = GetComponent<Slider>();
+            if (sliderHP == null)
+            {
+                Debug.LogError("Slider component not found on " + gameObject.name);
+            }
+        }
+    }
 
     private void Start()
     {
-        displayHP = currentHP = (float)characterStats.currentHealth;
+        if (characterStats != null)
+        {
+            currentHP = displayHP = (float)characterStats.currentHealth;
+            UpdateHP(currentHP, (float)characterStats.maxHealth.GetValue());
+        }
     }
 
     public void UpdateHP(float currentHP, float maxHP)
     {
-        if (sliderHP != null)
-            sliderHP.value = Health_Utill.Percent(currentHP, maxHP);
-
+        this.currentHP = currentHP;
+        // 즉시 텍스트 업데이트
         if (textHP != null)
+        {
             textHP.text = $"{currentHP:F0} / {maxHP:F0}";
+        }
     }
 
     private void Update()
     {
-        // 슬라이더 Lerp 효과
-        currentHP = (float)characterStats.currentHealth;
+        if (characterStats == null || sliderHP == null) return;
+
+        // Lerp 효과로 displayHP 업데이트
         displayHP = Mathf.Lerp(displayHP, currentHP, Time.deltaTime * 10f);
 
-        if (sliderHP != null)
-            sliderHP.value = Health_Utill.Percent((float)characterStats.currentHealth, (float)characterStats.currentHealth);
-        if (textHP != null)
-            textHP.text = $"{(float)characterStats.currentHealth:F0} / {(float)characterStats.currentHealth:F0}";
-    }
+        // 슬라이더 업데이트
+        float maxHP = (float)characterStats.maxHealth.GetValue();
+        sliderHP.value = Health_Utill.Percent(displayHP, maxHP);
 
-    public float Percent(float current, float max)
-    {
-        return current != 0 && max != 0 ? current / max : 0;
+        // 텍스트에 Lerp된 값 반영 (선택 사항)
+        if (textHP != null)
+        {
+            textHP.text = $"{displayHP:F0} / {maxHP:F0}";
+        }
     }
 }
