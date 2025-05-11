@@ -58,7 +58,9 @@ public class Enemy : MonoBehaviour
     private float startAngle;
     private float endAngle;
 
+    [Header("Sight Effect")]
     private EffectController sightEffect;
+    private bool isSightEffectActive = true; // 시야 이펙트 활성화 여부
 
     public Rigidbody2D rb { get; private set; }
     public Animator anim { get; private set; }
@@ -89,7 +91,8 @@ public class Enemy : MonoBehaviour
 
     public virtual void Start()
     {
-        sightEffect = EffectManager.Instance.PlayEffectFollow(EffectType.EnemySightEffect, transform, Quaternion.Euler(0, 0, -180f));
+        if (isSightEffectActive)
+            sightEffect = EffectManager.Instance.PlayEffectFollow(EffectType.EnemySightEffect, transform, Quaternion.Euler(0, 0, -180f));
         stateMachine.Initialize(idleState);
     }
 
@@ -99,7 +102,7 @@ public class Enemy : MonoBehaviour
         Debug.Log(anim.speed);
         stateMachine.currentState.Update();
         SetSightEffectAngle();
-        
+
         StartCoroutine("battleCheck");
 
         if (isBattle)
@@ -247,8 +250,8 @@ public class Enemy : MonoBehaviour
     public bool CheckForPlayerInSight()
     {
         // 먼저 원형 영역 내에 플레이어가 있는지 확인
-        Collider2D playerCollider = Physics2D.OverlapCircle(transform.position, gizmoRadius, playerLayer|invisablePlayerLayer);
-        
+        Collider2D playerCollider = Physics2D.OverlapCircle(transform.position, gizmoRadius, playerLayer | invisablePlayerLayer);
+
         if (playerCollider == null)
             return false;
 
@@ -258,7 +261,7 @@ public class Enemy : MonoBehaviour
             return false;
         }
 
-        
+
 
         // 플레이어 방향 벡터 계산
         Vector2 directionToPlayer = (playerCollider.transform.position - transform.position).normalized;
@@ -297,7 +300,7 @@ public class Enemy : MonoBehaviour
                 transform.position,
                 directionToPlayer,
                 gizmoRadius,
-                playerLayer|wallLayer  // 장애물 레이어가 필요하면 추가: obstacleLayer | playerLayer
+                playerLayer | wallLayer  // 장애물 레이어가 필요하면 추가: obstacleLayer | playerLayer
             );
 
             // 레이캐스트 결과 디버깅
@@ -338,7 +341,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(enemyType == EnemyType.Robot)
+        if (enemyType == EnemyType.Robot)
         {
             if (!collision.GetComponent<Player>())
                 return;
