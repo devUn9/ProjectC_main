@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using Unity.Cinemachine;
 
 public class CameraZoom : MonoBehaviour
@@ -16,10 +16,17 @@ public class CameraZoom : MonoBehaviour
     [SerializeField] private float correctionSpeed = 3f; // 보정 속도
     [SerializeField] private bool enableMouse = true; // 마우스 보정 활성화 여부
 
+    [Header("Y값 기반 줌 설정")]
+    [SerializeField] private float yThreshold = 300f; // Y값 기준점
+    [SerializeField] private float defaultSizeIncrease = 10f; // Y값 300 이상일 때 defaultSize 증가량
+    [SerializeField] private float zoomedSizeIncrease = 10f; // Y값 300 이상일 때 zoomedSize 증가량
+
     private float currentSize;
     private float defaultPlayerSpeed; // 원래 Player의 moveSpeed 저장
     private Vector3 cameraOffset = Vector3.zero; // 카메라 오프셋
     private GameObject cameraTarget; // 카메라가 따라갈 별도의 타겟 오브젝트
+    private float adjustedDefaultSize; // 조정된 defaultSize
+    private float adjustedZoomedSize; // 조정된 zoomedSize
 
     private void Start()
     {
@@ -50,6 +57,10 @@ public class CameraZoom : MonoBehaviour
             lens.OrthographicSize = currentSize;
             virtualCamera.Lens = lens;
         }
+
+        // 초기 조정된 사이즈 설정
+        adjustedDefaultSize = defaultSize;
+        adjustedZoomedSize = zoomedSize;
     }
 
     private void SetupCameraTarget()
@@ -77,13 +88,17 @@ public class CameraZoom : MonoBehaviour
         if (virtualCamera != null && virtualCamera.Lens.Orthographic)
         {
             var lens = virtualCamera.Lens;
+
+            // 플레이어 Y값에 따라 사이즈 조정
+            AdjustSizesBasedOnPlayerY();
+
             float targetSize;
 
             // Ctrl 키가 눌렸는지 확인
             if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
             {
                 // 키를 누르고 있으면 줌 아웃 시도 (크기 증가)
-                targetSize = zoomedSize;
+                targetSize = adjustedZoomedSize;
 
                 if (player != null)
                 {
@@ -99,7 +114,7 @@ public class CameraZoom : MonoBehaviour
             else
             {
                 // 키를 떼면 원래 크기와 속도로 복귀
-                targetSize = defaultSize;
+                targetSize = adjustedDefaultSize;
 
                 if (player != null)
                 {
@@ -120,6 +135,28 @@ public class CameraZoom : MonoBehaviour
             currentSize = nextSize;
             lens.OrthographicSize = currentSize;
             virtualCamera.Lens = lens;
+        }
+    }
+
+    private void AdjustSizesBasedOnPlayerY()
+    {
+        if (player != null)
+        {
+            // 플레이어의 Y값 확인
+            float playerY = player.transform.position.y;
+
+            if (playerY >= yThreshold)
+            {
+                // Y값이 300 이상이면 사이즈 증가
+                adjustedDefaultSize = defaultSize + defaultSizeIncrease;
+                adjustedZoomedSize = zoomedSize + zoomedSizeIncrease;
+            }
+            else
+            {
+                // Y값이 300 미만이면 원래 사이즈로 복귀
+                adjustedDefaultSize = defaultSize;
+                adjustedZoomedSize = zoomedSize;
+            }
         }
     }
 

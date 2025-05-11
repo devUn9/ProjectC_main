@@ -12,19 +12,30 @@ public class DialogueManagerTest : MonoBehaviour
     [SerializeField] private Image characterIllustration;
     [SerializeField] private Image characterIllustration2;
     [SerializeField] private GameObject dialogueUI;
-    [SerializeField] private TextAsset[] csvFiles; // 여러 CSV 파일을 지원하기 위해 배열로 변경
+    [SerializeField] public TextAsset[] csvFiles; // 여러 CSV 파일을 지원하기 위해 배열로 변경
     [SerializeField] private Image blinkImageUI;
-    [SerializeField] private GameObject player; // 플레이어 오브젝트 (Inspector에서 지정)
+    [SerializeField] private Player player; // 플레이어 오브젝트 (Inspector에서 지정, Player 타입)
+    [SerializeField] private Image dialogueBackground; // 대화 UI 배경 이미지 (Inspector에서 지정)
+    [SerializeField] private TextMeshProUGUI pastText; // "과거" 텍스트 UI (Inspector에서 지정)
+    [SerializeField] private Image happyEndingImage; // Happy Ending UI 이미지
+    [SerializeField] private Image sadEndingImage;   // Sad Ending UI 이미지
+    [SerializeField] private EndingCredit endingCredit; // EndingCredit 컴포넌트 참조
+
+    [SerializeField] private float typingSpeed = 0.3f; // 글자당 표시 간격 (초)
+    private string fullText = "과거 . . ."; // 표시할 전체 텍스트
 
     private List<DialogueTest> dialogues = new List<DialogueTest>();
     private List<Sprite> illustrations = new List<Sprite>();
     private int currentDialogueIndex = 0;
+    private int currentCsvIndex = -1; // 현재 CSV 인덱스 추적
     public bool isDialogueActive = false;
     private float lastInputTime = 0f;
+    private Color originalBackgroundColor; // 원래 배경 색상 저장
 
     [Header("반응 시작 시간 / 깜빡임 시작 시간")]
     [SerializeField] private float inputCooldown = 1f;
     [SerializeField] private float noInputThreshold = 5f;
+    [SerializeField] private float backgroundTransitionDuration = 1f; // 배경 전환 시간 (Inspector에서 조정 가능)
     private bool isBlinking = false;
     private Animator playerAnimator; // 플레이어의 Animator 컴포넌트
 
@@ -35,6 +46,33 @@ public class DialogueManagerTest : MonoBehaviour
             LoadIllustrations();
             dialogueUI.SetActive(false);
             if (blinkImageUI != null) blinkImageUI.gameObject.SetActive(false);
+
+            // Happy Ending과 Sad Ending 이미지 초기 비활성화
+            if (happyEndingImage != null) happyEndingImage.gameObject.SetActive(false);
+            else Debug.LogWarning("DialogueManagerTest에 happyEndingImage가 지정되지 않았습니다.", this);
+
+            if (sadEndingImage != null) sadEndingImage.gameObject.SetActive(false);
+            else Debug.LogWarning("DialogueManagerTest에 sadEndingImage가 지정되지 않았습니다.", this);
+
+            // 대화 UI 배경 색상 저장
+            if (dialogueBackground != null)
+            {
+                originalBackgroundColor = dialogueBackground.color;
+            }
+            else
+            {
+                Debug.LogWarning("DialogueManagerTest에 dialogueBackground가 지정되지 않았습니다.", this);
+            }
+
+            // "과거" 텍스트 초기 비활성화
+            if (pastText != null)
+            {
+                pastText.enabled = false;
+            }
+            else
+            {
+                Debug.LogWarning("DialogueManagerTest에 pastText가 지정되지 않았습니다.", this);
+            }
 
             // 플레이어의 Animator 컴포넌트 가져오기
             if (player != null)
@@ -66,7 +104,7 @@ public class DialogueManagerTest : MonoBehaviour
                 StartBlinking();
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) && Time.unscaledTime - lastInputTime >= inputCooldown)
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Space) && Time.unscaledTime - lastInputTime >= inputCooldown)
             {
                 lastInputTime = Time.unscaledTime;
                 StopBlinking();
@@ -278,10 +316,23 @@ public class DialogueManagerTest : MonoBehaviour
         }
     }
 
+    IEnumerator PastText()
+    {
+        pastText.text = ""; // 텍스트 초기화
+
+        // 문자열을 한 글자씩 처리
+        foreach (char letter in fullText)
+        {
+            pastText.text += letter; // 글자 추가
+            yield return new WaitForSecondsRealtime(typingSpeed); // 지정된 시간 대기
+        }
+    }
+
     public void StartDialogue(int csvIndex)
     {
         try
         {
+            currentCsvIndex = csvIndex; // 현재 CSV 인덱스 저장
             LoadCSV(csvIndex); // 지정된 CSV 파일 로드
             if (dialogues.Count == 0)
             {
@@ -294,6 +345,22 @@ public class DialogueManagerTest : MonoBehaviour
                 Debug.LogWarning("dialogueUI가 지정되지 않았습니다.");
                 return;
             }
+
+            // csvIndex가 18인 경우 배경을 검은색으로 천천히 전환하고 "과거" 텍스트 표시
+            if (csvIndex == 18)
+            {
+                if (dialogueBackground != null)
+                {
+                    StartCoroutine(TransitionBackgroundColor(Color.black));
+                }
+                if (pastText != null)
+                {
+                    StartCoroutine(PastText());
+                    pastText.enabled = true;
+                }
+            }
+            // csvIndex가 24인 경우 player.skill.isGravity에 따라 Happy/Sad Ending 처리
+            
 
             // 게임 일시정지 및 플레이어 애니메이션 비활성화
             Time.timeScale = 0f;
@@ -349,6 +416,62 @@ public class DialogueManagerTest : MonoBehaviour
             dialogueUI.SetActive(false);
             StopBlinking();
 
+            
+
+            // csvIndex가 16 또는 17인 경우, csvIndex 18을 자동 재생
+            if (currentCsvIndex == 16 || currentCsvIndex == 17)
+            {
+                StartDialogue(18);
+                return; // StartDialogue에서 나머지 처리가 이루어지므로 HERE서 종료
+            }
+
+            // csvIndex가 18인 경우, 배경 색상을 원래대로 복구하고 "과거" 텍스트 비활성화
+            if (currentCsvIndex == 18)
+            {
+                if (dialogueBackground != null)
+                {
+                    StartCoroutine(TransitionBackgroundColor(originalBackgroundColor));
+                }
+                if (pastText != null)
+                {
+                    pastText.enabled = false;
+                }
+            }
+
+            else if (currentCsvIndex == 24)
+            {
+                endingCredit.StartScrolling();
+                if (player != null && player.skill != null)
+                {
+                    if (!player.skill.isGravitonUsable)
+                    {
+                        if (happyEndingImage != null)
+                        {
+                            happyEndingImage.gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            Debug.LogWarning("happyEndingImage가 지정되지 않았습니다.");
+                        }
+                    }
+                    else
+                    {
+                        if (sadEndingImage != null)
+                        {
+                            sadEndingImage.gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            Debug.LogWarning("sadEndingImage가 지정되지 않았습니다.");
+                        }
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("플레이어 또는 Skill이 지정되지 않았습니다.", player);
+                }
+            }
+
             // 게임 재개 및 플레이어 애니메이션 활성화
             Time.timeScale = 1f;
             if (playerAnimator != null)
@@ -387,16 +510,21 @@ public class DialogueManagerTest : MonoBehaviour
         }
     }
 
-    void OnValidate()
+    IEnumerator TransitionBackgroundColor(Color targetColor)
     {
-        if (dialogueUI == null) Debug.LogWarning("DialogueManagerTest에 dialogueUI가 지정되지 않았습니다.", this);
-        if (dialogueText == null) Debug.LogWarning("DialogueManagerTest에 dialogueText가 지정되지 않았습니다.", this);
-        if (characterNameText == null) Debug.LogWarning("DialogueManagerTest에 characterNameText가 지정되지 않았습니다.", this);
-        if (characterNameText2 == null) Debug.LogWarning("DialogueManagerTest에 characterNameText2가 지정되지 않았습니다.", this);
-        if (characterIllustration == null) Debug.LogWarning("DialogueManagerTest에 characterIllustration이 지정되지 않았습니다.", this);
-        if (characterIllustration2 == null) Debug.LogWarning("DialogueManagerTest에 characterIllustration2가 지정되지 않았습니다.", this);
-        if (csvFiles == null || csvFiles.Length == 0) Debug.LogWarning("DialogueManagerTest에 csvFiles 배열이 비어 있거나 지정되지 않았습니다.", this);
-        if (blinkImageUI == null) Debug.LogWarning("DialogueManagerTest에 blinkImageUI가 지정되지 않았습니다.", this);
-        if (player == null) Debug.LogWarning("DialogueManagerTest에 player 오브젝트가 지정되지 않았습니다.", this);
+        if (dialogueBackground == null) yield break;
+
+        Color startColor = dialogueBackground.color;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < backgroundTransitionDuration)
+        {
+            elapsedTime += Time.unscaledDeltaTime;
+            float t = elapsedTime / backgroundTransitionDuration;
+            dialogueBackground.color = Color.Lerp(startColor, targetColor, t);
+            yield return null;
+        }
+
+        dialogueBackground.color = targetColor; // 최종 색상 설정
     }
 }

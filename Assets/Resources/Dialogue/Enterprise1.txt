@@ -1,2 +1,3 @@
 ID,Character,Dialogue,IllustrationIndex,IllustrationIndex2
 1,데이비드,"드디어 기업 내부에 들어왔어.",1,-1
+1,데이비드,"아라사카의 보안 시스템, 이제부터가 진짜 싸움이야.",1,-1
