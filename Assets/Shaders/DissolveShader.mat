@@ -86,7 +86,7 @@ Material:
     - _EdgeWidth: 0
     - _GlowSize: 0.05
     - _NoiseScale: 150
-    - _SplitValue: 0.6
+    - _SplitValue: 0.67
     m_Colors:
     - _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
     - _GlowColor: {r: 0, g: 1.09434, b: 0.6279246, a: 1}
