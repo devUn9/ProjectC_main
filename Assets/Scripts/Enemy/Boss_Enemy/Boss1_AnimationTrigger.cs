@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boss1_AnimationTrigger : MonoBehaviour
 {
-    private Boss1 boss1 => GetComponent<Boss1>();
+    private Boss1Stats boss1stats => GetComponent<Boss1Stats>();
     public Transform player;
     public GameObject[] CloseAttackPoints;
     public float AttackCheckRadius = 2f;
@@ -198,6 +198,11 @@ public class Boss1_AnimationTrigger : MonoBehaviour
 
     private IEnumerator Lancing()
     {
+        if(boss1stats.Engaging())
+        {
+            LancingPower = 0.1f;
+        }
+
         SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_SandeVistan);
         while (lancing)
         {

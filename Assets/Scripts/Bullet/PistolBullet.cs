@@ -41,9 +41,14 @@ public class PistolBullet : MonoBehaviour
     {
         int layer = collision.gameObject.layer;
         EnemyStats _target = collision.GetComponent<EnemyStats>();
+        Boss1Stats _targetboss = collision.GetComponent<Boss1Stats>();
         if (layer == LayerMask.NameToLayer("Enemy"))
         {
             player.stats.DoBulletDamage(_target);
+        }
+        if (collision.CompareTag("Boss1"))
+        {
+            player.stats.DoBulletDamage(_targetboss);
         }
         Destroy(gameObject);
     }

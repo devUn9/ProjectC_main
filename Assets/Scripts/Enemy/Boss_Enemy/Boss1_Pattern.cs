@@ -9,9 +9,6 @@ public enum BossState
     Rocket,
     CloseAttack,
     Lancer,
-    Pattern1,
-    Pattern2,
-    Enraged,
     PowerOff
 }
 

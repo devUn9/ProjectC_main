@@ -925,7 +925,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   bulletDamage:
-    baseValue: 0
+    baseValue: 100
     modifiers: 
   grenadeDamage:
     baseValue: 0
@@ -3392,9 +3392,9 @@ GameObject:
   - component: {fileID: 1420356971}
   - component: {fileID: 1420356974}
   - component: {fileID: 1420356975}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Boss1
-  m_TagString: Enemy
+  m_TagString: Boss1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3553,6 +3553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 344116058}
+  speed: 5
   FirePoints:
   - {fileID: 1486527290}
   - {fileID: 902469544}
@@ -3823,6 +3824,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 365f0d725e2b51043849ea4b530e5f96, type: 3}
   - {fileID: 8300000, guid: 146938e38b9897a439bbc312b71880b4, type: 3}
   - {fileID: 8300000, guid: d25f9ab0b469f6549a5c1cf985acea2e, type: 3}
+  - {fileID: 8300000, guid: 4b33b4afd8c09864981ac1339253c814, type: 3}
   audioBgm: {fileID: 1505236470}
   audioSfx: {fileID: 1505236470}
 --- !u!82 &1505236470

@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Item
   - Wall
+  - Boss1
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Minimap
   - 
   - 
-  - 
+  - Boss1
   - SightEffect
   - 
   - 

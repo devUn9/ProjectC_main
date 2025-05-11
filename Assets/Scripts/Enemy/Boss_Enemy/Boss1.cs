@@ -18,7 +18,7 @@ public class Boss1 : MonoBehaviour
     public SpriteTrail MeshTrailscript { get; private set; }
 
     [Header("움직임 관련 변수들")]
-    private float speed = 5f;
+    [SerializeField] private float speed = 5f;
     private float angle;
     private Vector3 dir;
 
@@ -35,6 +35,8 @@ public class Boss1 : MonoBehaviour
     private float playerToBossDistance;
     private bool isCoroutineRunning = false;
 
+    // PowerOff 실행 여부를 확인하는 플래그
+    private bool hasPowerOffExecuted = false;
 
     private void Start()
     {
@@ -49,8 +51,16 @@ public class Boss1 : MonoBehaviour
     private void Update()
     {
         CheckInput();
-        CheckDistance();
+        if (!boss1stats.Engaging())
+        {
+            CheckDistance();
+        }
+        else
+        {
+            Engaging();
+        }
         AngleAnimation();
+
     }
 
     private void CheckInput()
@@ -63,10 +73,8 @@ public class Boss1 : MonoBehaviour
 
     private IEnumerator SandeVistan()
     {
-        speed = 5f;
         MeshTrailscript.StartTrail();
         yield return new WaitForSeconds(1f);
-        speed = 5f;
     }
 
     private void CheckDistance()
@@ -87,6 +95,32 @@ public class Boss1 : MonoBehaviour
         }
     }
 
+    private void Engaging()
+    {
+        if (!hasPowerOffExecuted && boss1stats.Engaging() && !isCoroutineRunning)
+        {
+            hasPowerOffExecuted = true; // PowerOff가 한 번만 실행되도록 설정
+            StartCoroutine(PowerOff());
+        }
+
+        speed = 10f;
+        playerToBossDistance = Vector3.Distance(transform.position, player.position);
+        Debug.Log(isCoroutineRunning);
+
+        if (playerToBossDistance < 5f && !isCoroutineRunning)
+        {
+            StartCoroutine(CloseAttack());
+        }
+        else if (playerToBossDistance > 5f && playerToBossDistance < 7f && !isCoroutineRunning)
+        {
+            StartCoroutine(ShotgunAttack());
+        }
+        else if (playerToBossDistance > 7f && !isCoroutineRunning)
+        {
+            StartCoroutine(LanceAttack());
+        }
+    }
+
     private IEnumerator CloseAttack()
     {
         isCoroutineRunning = true;
@@ -101,8 +135,8 @@ public class Boss1 : MonoBehaviour
         isCoroutineRunning = true;
         ChangeState(BossState.Fire);
         yield return new WaitForSeconds(2f);
-        isCoroutineRunning = false;
         ChangeState(BossState.Walk);
+        isCoroutineRunning = false;
     }
 
     private IEnumerator RocketAttack()
@@ -110,8 +144,26 @@ public class Boss1 : MonoBehaviour
         isCoroutineRunning = true;
         ChangeState(BossState.Rocket);
         yield return new WaitForSeconds(2.5f);
-        isCoroutineRunning = false;
         ChangeState(BossState.Walk);
+        isCoroutineRunning = false;
+    }
+
+    private IEnumerator LanceAttack()
+    {
+        isCoroutineRunning = true;
+        ChangeState(BossState.Lancer);
+        yield return new WaitForSeconds(3.5f);
+        ChangeState(BossState.Walk);
+        isCoroutineRunning = false;
+    }
+
+    public IEnumerator PowerOff()
+    {
+        isCoroutineRunning = true;
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Boss1PowerOff);
+        ChangeState(BossState.PowerOff);
+        yield return new WaitForSeconds(5f);
+        isCoroutineRunning = false;
     }
 
     #region Movement
@@ -147,7 +199,8 @@ public class Boss1 : MonoBehaviour
 
                 case BossState.PowerOff:
                     ActivateLayer(LayerName.PowerOffLayer);
-                    yield break;
+                    anicontroller.SetZeroVelocity();
+                    break;
             }
 
             yield return null;
@@ -367,10 +420,10 @@ public class Boss1 : MonoBehaviour
             }
         }
 
-        if(collision.CompareTag("Wall"))
+        if (collision.CompareTag("Wall"))
         {
             collision.gameObject.GetComponent<GenerateWall>()?.BreakWall();
         }
-    
+
     }
 }
