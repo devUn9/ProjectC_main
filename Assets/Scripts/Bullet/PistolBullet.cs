@@ -4,6 +4,7 @@ using UnityEngine;
 public class PistolBullet : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private GameObject bulletDestroyEffect;
     private Player player;
     public int damage;
     Vector2 MousePos;
@@ -50,6 +51,8 @@ public class PistolBullet : MonoBehaviour
         {
             player.stats.DoBulletDamage(_targetboss);
         }
+        Debug.Log("총알 파괴");
+        EffectManager.Instance.PlayEffect(EffectType.BulletHitEffect, transform.position, 0.15f);
         Destroy(gameObject);
     }
 

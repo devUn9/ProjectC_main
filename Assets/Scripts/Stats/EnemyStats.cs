@@ -51,8 +51,15 @@ public class EnemyStats : CharacterStats
     {
         base.Die();
 
-        enemy.DieShader();
-
+        if(enemy.enemyType == EnemyType.Robot) {
+            EffectManager.Instance.PlayEffect(EffectType.GrenadeEffect, transform.position, 0.5f);
+            Destroy(gameObject);
+        }
+        else if (enemy.enemyType == EnemyType.Human)
+        {
+            enemy.DieShader();
+            enemy.stats.StatusSpeed = 0f;
+        }
         Destroy(gameObject,1f); //적 죽을 때 오브젝트 삭제
         //적 죽을 때 효과 추가
     }
