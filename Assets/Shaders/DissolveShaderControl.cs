@@ -2,13 +2,26 @@ using UnityEngine;
 
 public class DissolveShaderControl : MonoBehaviour
 {
-    [SerializeField] private Material material;
-
+    private Material material;
     private bool isRunning = false;
+
+    void Start()
+    {
+        // 플레이어의 SpriteRenderer에서 머티리얼을 가져옴
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            material = sr.material;
+        }
+        else
+        {
+            Debug.LogError("SpriteRenderer가 없습니다.");
+        }
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P) && !isRunning)
+        if (Input.GetKeyDown(KeyCode.P) && !isRunning && material != null)
         {
             StartCoroutine(DissolveSequence());
         }
@@ -18,10 +31,10 @@ public class DissolveShaderControl : MonoBehaviour
     {
         isRunning = true;
 
-        // 1초간 1 → -1로 선형 감소
         float duration = 1f;
         float timer = 0f;
 
+        // 1초 동안 1 → -1로 선형 감소
         while (timer < duration)
         {
             float t = timer / duration; // 0 → 1
@@ -33,10 +46,8 @@ public class DissolveShaderControl : MonoBehaviour
 
         material.SetFloat("_SplitValue", -1f);
 
-        // 2초 대기
-        yield return new WaitForSeconds(2f);
-
-        // 다시 1로 복구
+        // 1초 대기 후 복구
+        yield return new WaitForSeconds(1f);
         material.SetFloat("_SplitValue", 1f);
 
         isRunning = false;
