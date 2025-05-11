@@ -124,7 +124,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -162,7 +162,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -229,10 +229,10 @@ TextureImporter:
       name: crosshair shooting sprite_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 69
-        width: 73
-        height: 103
+        x: 16
+        y: 70
+        width: 71
+        height: 101
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,10 +251,10 @@ TextureImporter:
       name: crosshair shooting sprite_1
       rect:
         serializedVersion: 2
-        x: 15
-        y: 142
-        width: 9
-        height: 27
+        x: 16
+        y: 143
+        width: 7
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,10 +273,10 @@ TextureImporter:
       name: crosshair shooting sprite_2
       rect:
         serializedVersion: 2
-        x: 78
-        y: 142
-        width: 9
-        height: 9
+        x: 79
+        y: 143
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -295,10 +295,10 @@ TextureImporter:
       name: crosshair shooting sprite_3
       rect:
         serializedVersion: 2
-        x: 116
-        y: 69
-        width: 73
-        height: 103
+        x: 117
+        y: 70
+        width: 71
+        height: 101
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -317,10 +317,10 @@ TextureImporter:
       name: crosshair shooting sprite_4
       rect:
         serializedVersion: 2
-        x: 116
-        y: 142
-        width: 9
-        height: 27
+        x: 117
+        y: 143
+        width: 7
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,10 +339,10 @@ TextureImporter:
       name: crosshair shooting sprite_5
       rect:
         serializedVersion: 2
-        x: 179
-        y: 142
-        width: 9
-        height: 9
+        x: 180
+        y: 143
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -361,10 +361,10 @@ TextureImporter:
       name: crosshair shooting sprite_6
       rect:
         serializedVersion: 2
-        x: 217
-        y: 69
-        width: 73
-        height: 103
+        x: 218
+        y: 70
+        width: 71
+        height: 101
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -383,10 +383,10 @@ TextureImporter:
       name: crosshair shooting sprite_7
       rect:
         serializedVersion: 2
-        x: 217
-        y: 142
-        width: 9
-        height: 27
+        x: 218
+        y: 143
+        width: 7
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -405,10 +405,10 @@ TextureImporter:
       name: crosshair shooting sprite_8
       rect:
         serializedVersion: 2
-        x: 280
-        y: 142
-        width: 9
-        height: 9
+        x: 281
+        y: 143
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -427,10 +427,10 @@ TextureImporter:
       name: crosshair shooting sprite_9
       rect:
         serializedVersion: 2
-        x: 33
-        y: 13
-        width: 15
-        height: 69
+        x: 34
+        y: 14
+        width: 13
+        height: 67
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -449,10 +449,10 @@ TextureImporter:
       name: crosshair shooting sprite_10
       rect:
         serializedVersion: 2
-        x: 55
-        y: 15
-        width: 13
-        height: 61
+        x: 56
+        y: 16
+        width: 11
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -471,10 +471,10 @@ TextureImporter:
       name: crosshair shooting sprite_11
       rect:
         serializedVersion: 2
-        x: 56
-        y: 74
-        width: 7
-        height: 8
+        x: 57
+        y: 75
+        width: 5
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -493,10 +493,10 @@ TextureImporter:
       name: crosshair shooting sprite_12
       rect:
         serializedVersion: 2
-        x: 61
-        y: 74
-        width: 6
-        height: 6
+        x: 62
+        y: 75
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -515,10 +515,10 @@ TextureImporter:
       name: crosshair shooting sprite_13
       rect:
         serializedVersion: 2
-        x: 61
-        y: 69
-        width: 6
-        height: 6
+        x: 135
+        y: 14
+        width: 13
+        height: 67
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -537,10 +537,10 @@ TextureImporter:
       name: crosshair shooting sprite_14
       rect:
         serializedVersion: 2
-        x: 134
-        y: 13
-        width: 15
-        height: 69
+        x: 157
+        y: 16
+        width: 11
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -559,10 +559,10 @@ TextureImporter:
       name: crosshair shooting sprite_15
       rect:
         serializedVersion: 2
-        x: 156
-        y: 15
-        width: 13
-        height: 61
+        x: 158
+        y: 75
+        width: 5
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -581,10 +581,10 @@ TextureImporter:
       name: crosshair shooting sprite_16
       rect:
         serializedVersion: 2
-        x: 157
-        y: 74
-        width: 7
-        height: 8
+        x: 163
+        y: 75
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -603,10 +603,10 @@ TextureImporter:
       name: crosshair shooting sprite_17
       rect:
         serializedVersion: 2
-        x: 162
-        y: 74
-        width: 6
-        height: 6
+        x: 236
+        y: 14
+        width: 13
+        height: 67
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -625,10 +625,10 @@ TextureImporter:
       name: crosshair shooting sprite_18
       rect:
         serializedVersion: 2
-        x: 162
-        y: 69
-        width: 6
-        height: 6
+        x: 258
+        y: 16
+        width: 11
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -647,10 +647,10 @@ TextureImporter:
       name: crosshair shooting sprite_19
       rect:
         serializedVersion: 2
-        x: 235
-        y: 13
-        width: 15
-        height: 69
+        x: 259
+        y: 75
+        width: 5
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -669,10 +669,10 @@ TextureImporter:
       name: crosshair shooting sprite_20
       rect:
         serializedVersion: 2
-        x: 257
-        y: 15
-        width: 13
-        height: 61
+        x: 264
+        y: 75
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -691,10 +691,10 @@ TextureImporter:
       name: crosshair shooting sprite_21
       rect:
         serializedVersion: 2
-        x: 258
-        y: 74
-        width: 7
-        height: 8
+        x: 62
+        y: 70
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -713,10 +713,10 @@ TextureImporter:
       name: crosshair shooting sprite_22
       rect:
         serializedVersion: 2
-        x: 263
-        y: 74
-        width: 6
-        height: 6
+        x: 163
+        y: 70
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -735,10 +735,10 @@ TextureImporter:
       name: crosshair shooting sprite_23
       rect:
         serializedVersion: 2
-        x: 263
-        y: 69
-        width: 6
-        height: 6
+        x: 264
+        y: 70
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -757,10 +757,10 @@ TextureImporter:
       name: crosshair shooting sprite_24
       rect:
         serializedVersion: 2
-        x: 15
-        y: 16
-        width: 9
-        height: 45
+        x: 16
+        y: 17
+        width: 7
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -779,10 +779,10 @@ TextureImporter:
       name: crosshair shooting sprite_25
       rect:
         serializedVersion: 2
-        x: 78
-        y: 16
-        width: 9
-        height: 45
+        x: 79
+        y: 17
+        width: 7
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -801,10 +801,10 @@ TextureImporter:
       name: crosshair shooting sprite_26
       rect:
         serializedVersion: 2
-        x: 116
-        y: 16
-        width: 9
-        height: 45
+        x: 117
+        y: 17
+        width: 7
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -823,10 +823,10 @@ TextureImporter:
       name: crosshair shooting sprite_27
       rect:
         serializedVersion: 2
-        x: 179
-        y: 16
-        width: 9
-        height: 45
+        x: 180
+        y: 17
+        width: 7
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -845,10 +845,10 @@ TextureImporter:
       name: crosshair shooting sprite_28
       rect:
         serializedVersion: 2
-        x: 217
-        y: 16
-        width: 9
-        height: 45
+        x: 218
+        y: 17
+        width: 7
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -867,10 +867,10 @@ TextureImporter:
       name: crosshair shooting sprite_29
       rect:
         serializedVersion: 2
-        x: 280
-        y: 16
-        width: 9
-        height: 45
+        x: 281
+        y: 17
+        width: 7
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -889,7 +889,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2314e827a4826874ead9a2727a6b6c3d
     internalID: 0
     vertices: []
     indices: 
