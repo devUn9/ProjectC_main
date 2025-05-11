@@ -107,7 +107,7 @@ MonoBehaviour:
   grenadeType: 0
   explosionLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4096
   playerLayers:
     serializedVersion: 2
     m_Bits: 64
@@ -115,6 +115,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   disappearTime: 5
+  empShockDuration: 2
+  stunDuration: 2
+  empEffect: {fileID: 6407756152839174129, guid: a803b6ea2a3fde345bcbf4d8ca3199e1, type: 3}
+  stunEffect: {fileID: 3494847482070717206, guid: c232d4eaa0a78eb4dabdf144f1933b2b, type: 3}
   throwSound: {fileID: 0}
   explosionSound: {fileID: 0}
   isSmoke: 1

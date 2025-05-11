@@ -23,10 +23,28 @@ public class EnemyStats : CharacterStats
     public override void TakeDamage(int _damage)
     {
         base.TakeDamage(_damage);
-        enemy.healthCheck();
+        enemy.healthCheck();    //공격 받을 시 Battle상태 돌입
         enemy.DamageEffect();
         StartCoroutine(ScaleHPBar());
         //데미지 받을 때 효과 추가
+    }
+
+    public override void DoEmpGrenadeDamage(CharacterStats _targetStats, float _Duration)
+    {
+        base.DoEmpGrenadeDamage(_targetStats, _Duration);
+        enemy.EmpEffect(_Duration);
+    }
+
+    public override void DoStun(CharacterStats _targetStats)
+    {
+        base.DoStun(_targetStats);
+        enemy.StunEffect();
+    }
+
+    public override void DoStunRecovery(CharacterStats _targetStats)
+    {
+        base.DoStunRecovery(_targetStats);
+        //enemy.StunEffectOff();
     }
 
     protected override void Die()

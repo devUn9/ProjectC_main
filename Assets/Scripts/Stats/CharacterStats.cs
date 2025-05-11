@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
@@ -25,9 +26,9 @@ public class CharacterStats : MonoBehaviour
     public Stat empResistance;  // EMP 저항 퍼센트 단위 1~100
 
     [Header("상태 이상")]
-    public Stat empShock;   // EMP 쇼크상태
-    public Stat stun;       // 스턴
-
+    public bool empShock = false;    // EMP 쇼크상태
+    public bool stun = false;        // 스턴
+    public float StatusSpeed = 1f;  // 시간정지 상태
 
     public int currentHealth; //현재 체력
 
@@ -36,6 +37,7 @@ public class CharacterStats : MonoBehaviour
     protected virtual void Start()
     {
         currentHealth = GetMaxHealth(); //현재 체력을 최대 체력으로 초기화; 
+
     }
 
     protected virtual void Update()
@@ -67,6 +69,14 @@ public class CharacterStats : MonoBehaviour
         _targetStats.TakeDamage(damage);
 
     }
+
+    public virtual void DoEmpGrenadeDamage(CharacterStats _targetStats, float _Duration)
+    {
+        int damage = empGrenadeDamage.GetValue();
+
+        StartCoroutine(DoEmpStatus(_targetStats, _Duration)); // EMP 상태 이상 효과
+        _targetStats.TakeDamage(damage);
+    }
     public virtual void DoLauncherDamage(CharacterStats _targetStats)
     {
         int damage = launcherDamage.GetValue();
@@ -77,6 +87,35 @@ public class CharacterStats : MonoBehaviour
     {
         int damage = gravitonSurgedDamage.GetValue();
         _targetStats.TakeDamage(damage);
+    }
+
+    // smoke grenade 효과 : EnemyType.Human에게만 기절
+    public virtual void DoStun(CharacterStats _targetStats)
+    {
+        stun = true; // 스턴 상태로 변경
+        _targetStats.StatusSpeed = 0f;
+    }
+    // smoke grenade 효과 : EnemyType.Human에게만 기절 회복
+    public virtual void DoStunRecovery(CharacterStats _targetStats)
+    {
+        stun = false; // 스턴 상태로 변경
+        _targetStats.StatusSpeed = 1f;
+    }
+
+    // EMP grenade 효과 : EnemyType.Robot에게만 기절
+    public virtual IEnumerator DoEmpStatus(CharacterStats _targetStats, float _Duration)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < _Duration)
+        {
+            elapsedTime += Time.deltaTime * TimeManager.Instance.timeScale;
+            empShock = true;
+            _targetStats.StatusSpeed = 0f;
+            yield return null;
+        }
+        empShock = false;
+        _targetStats.StatusSpeed = 1f;
+        Debug.Log("StatRecovery : " + _targetStats.StatusSpeed);
     }
 
     public virtual void TakeDamage(int _damage)

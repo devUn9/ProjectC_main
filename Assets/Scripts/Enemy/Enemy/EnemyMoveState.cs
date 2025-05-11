@@ -26,7 +26,7 @@ public class EnemyMoveState : EnemyState
             stateMachine.ChangeState(enemy.attackState);
         }
 
-        enemy.moveTimer -= Time.deltaTime* TimeManager.Instance.timeScale;
+        enemy.moveTimer -= Time.deltaTime* TimeManager.Instance.timeScale * enemy.stats.StatusSpeed;
 
         if (enemy.moveTimer < 0)
             stateMachine.ChangeState(enemy.idleState);
@@ -34,12 +34,14 @@ public class EnemyMoveState : EnemyState
         if (enemy.isMoveX)
         {
             enemy.anim.SetFloat("VelocityX", enemy.moveDirection);
-            enemy.SetVelocity(enemy.moveSpeed * enemy.moveDirection * TimeManager.Instance.timeScale, 0);
+            //순찰 속도 조절
+            enemy.SetVelocity(enemy.moveSpeed * enemy.moveDirection * TimeManager.Instance.timeScale * enemy.stats.StatusSpeed, 0);
         }
         else if (enemy.isMoveY)
         {
             enemy.anim.SetFloat("VelocityY", enemy.moveDirection);
-            enemy.SetVelocity(0, enemy.moveSpeed * enemy.moveDirection * TimeManager.Instance.timeScale);
+            //순찰 속도 조절
+            enemy.SetVelocity(0, enemy.moveSpeed * enemy.moveDirection * TimeManager.Instance.timeScale * enemy.stats.StatusSpeed);
         }
     }
     public override void Exit()

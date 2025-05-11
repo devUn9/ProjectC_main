@@ -25,6 +25,14 @@ public class GrenadeController : MonoBehaviour
     public LayerMask playerLayers;          // 플레이어 레이어(연막탄용)
     public LayerMask invisablePlayerLayers; // 연막탄 효과를 받는 레이어(투명화된 플레이어)
     public float disappearTime = 0.1f;      // 수류탄이 사라지는 시간
+    
+    [Header("StatusConditionControl")]
+    public float empShockDuration = 2f;     // EMP Shock 지속 시간
+    public float stunDuration = 2f;     // EMP Shock 지속 시간
+
+    [Header("StatusCondition Effect")]
+    [SerializeField] private GameObject empEffect; // EMP 이펙트
+    [SerializeField] private GameObject stunEffect; // EMP 이펙트
 
     [Header("Sound")]
     public AudioClip throwSound;        // 던지는 소리
@@ -35,7 +43,7 @@ public class GrenadeController : MonoBehaviour
     private float totalFlyTime;
     private float elapsedTime = 0f;
     private Vector3 startPosition;
-
+    
     //Grenade 분류
     [SerializeField] private bool isSmoke;
     [SerializeField] private bool isFire;
@@ -88,7 +96,7 @@ public class GrenadeController : MonoBehaviour
                 break;
             case GrenadeType.EMPGrenade:
                 explosionEffect = EffectType.empEffect;
-                isShock = false;
+                isSmoke = false;
                 isFire = false;
                 isShock = true;
                 break;
@@ -216,7 +224,15 @@ public class GrenadeController : MonoBehaviour
                 //float distance = Vector2.Distance(transform.position, collision.transform.position);
                 //float damagePercent = 1f - Mathf.Clamp01(distance / explosionRadius);
                 //int damage = Mathf.RoundToInt(damagePercent * 100f); // 최대 100 데미지
-                playerStats.DoGrenadeDamage(_target);
+                if (isShock && enemy.enemyType == EnemyType.Robot)
+                {
+                    Instantiate(empEffect, enemy.transform.position, Quaternion.identity);
+                    playerStats.DoEmpGrenadeDamage(_target, empShockDuration);
+                }
+                else if(!isSmoke)
+                {
+                    playerStats.DoGrenadeDamage(_target);
+                }
             }
             //// 물리 효과가 있는 오브젝트 밀어내기
             //Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
@@ -229,12 +245,24 @@ public class GrenadeController : MonoBehaviour
             //    rb.AddForce(direction.normalized * explosionForce * forceFactor, ForceMode2D.Impulse);
             //}
         }
-
         Destroy(gameObject, disappearTime);
     }
 
     private void Smoke()
     {
+        Collider2D[] enemys = Physics2D.OverlapCircleAll(transform.position, explosionRadius, explosionLayers);
+        foreach (Collider2D enemy in enemys)
+        {
+            Enemy enemyComponent = enemy.GetComponent<Enemy>();
+            EnemyStats enemyStats = enemy.GetComponent<EnemyStats>();
+            if (enemyComponent != null && enemyComponent.enemyType == EnemyType.Human)
+            {
+                //Instantiate(stunEffect, enemy.transform.position + new Vector3(0,0.8f), Quaternion.identity);
+                playerStats.DoStun(enemyStats);
+            }
+        }
+
+
         // 연막탄 효과 구현
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, playerLayers);
         foreach (Collider2D player in colliders)
@@ -283,6 +311,18 @@ public class GrenadeController : MonoBehaviour
 
     private void disappearSmoke()
     {
+        Collider2D[] enemys = Physics2D.OverlapCircleAll(transform.position, explosionRadius, explosionLayers);
+        foreach (Collider2D enemy in enemys)
+        {
+            Enemy enemyComponent = enemy.GetComponent<Enemy>();
+            EnemyStats enemyStats = enemy.GetComponent<EnemyStats>();
+            if (enemyComponent != null && enemyComponent.enemyType == EnemyType.Human)
+            {
+                Instantiate(stunEffect, enemy.transform.position + new Vector3(0, 0.8f), Quaternion.identity);
+                playerStats.DoStunRecovery(enemyStats);
+            }
+        }
+
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, invisablePlayerLayers);
         foreach (Collider2D player in colliders)
         {

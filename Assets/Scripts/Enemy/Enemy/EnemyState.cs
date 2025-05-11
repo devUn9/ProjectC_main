@@ -14,7 +14,7 @@ public class EnemyState
 
     protected float attackRange;
     protected Vector3 velocity;
-
+    //protected float statusSpeed;    //EMP 및 스턴 적용 시 Time 조절을 위한 변수
 
     public EnemyState(Enemy _enemy, EnemyStateMachine _stateMachine, string _animBoolName)
     {
@@ -26,24 +26,32 @@ public class EnemyState
     public virtual void Enter()
     {
         enemy.anim.SetBool(animBoolName, true);
+        //애니메이션 속도 조절
+        enemy.anim.speed = TimeManager.Instance.timeScale * enemy.stats.StatusSpeed;
+
         if (enemy.isMelee)
         {
             attackRange = enemy.meleeAttackRadius;
         }
         else if (enemy.isBullet)
             attackRange = enemy.gizmoRadius;
+        if (enemy.enemyType == EnemyType.Robot)
+            attackRange = attackRange + 3f;
+
         Debug.Log("상태 진입 : " + animBoolName);
-        enemy.anim.speed = TimeManager.Instance.timeScale;
     }
 
     public virtual void Update()
     {
-        stateTimer -= Time.deltaTime * TimeManager.Instance.timeScale;
-
+        stateTimer -= Time.deltaTime * TimeManager.Instance.timeScale * enemy.stats.StatusSpeed;
+        enemy.anim.speed = TimeManager.Instance.timeScale * enemy.stats.StatusSpeed;
         if (enemy.isBattle)
         {
             enemy.enemyDir = EnemyToPlayerDirection();
-            velocity = enemy.enemyDir * enemy.runSpeed * TimeManager.Instance.timeScale;
+
+            //이동 속도 조절
+            velocity = enemy.enemyDir * enemy.runSpeed * TimeManager.Instance.timeScale * enemy.stats.StatusSpeed;
+
             enemy.anim.SetFloat("VelocityX", enemy.enemyDir.x);
             enemy.anim.SetFloat("VelocityY", enemy.enemyDir.y);
         }

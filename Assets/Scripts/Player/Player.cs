@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
             Interaction();
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && skill.isSandevistanUsable)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && skill.isSandevistanUsable && skill.sandevistan.SandevistanCanUseSkill())
         {
             Debug.Log("Start Trail");
             MeshTrailscript.StartTrail();

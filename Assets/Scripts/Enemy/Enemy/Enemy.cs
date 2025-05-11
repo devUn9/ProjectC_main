@@ -93,6 +93,7 @@ public class Enemy : MonoBehaviour
     {
         if (isSightEffectActive)
             sightEffect = EffectManager.Instance.PlayEffectFollow(EffectType.EnemySightEffect, transform, Quaternion.Euler(0, 0, -180f));
+        stats.StatusSpeed = 1f;
         stateMachine.Initialize(idleState);
     }
 
@@ -330,6 +331,17 @@ public class Enemy : MonoBehaviour
     {
         fx.StartCoroutine("FlashFX");
         //StartCoroutine("HitKnockBack");
+    }
+
+    public virtual void StunEffect()
+    {
+        fx.StartCoroutine("StunFX");
+    }
+
+    public virtual void EmpEffect(float _duration)
+    {
+        // EMP 이펙트
+        StartCoroutine(fx.EmpShockFX(_duration));
     }
 
     public static event System.Action OnEnemyRemoved;

@@ -1,0 +1,5142 @@
+fileFormatVersion: 2
+guid: b88c066ff1507c343ae2ec7015d9045e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5404451540213296622
+    second: 675_0
+  - first:
+      213: 8481896846697978684
+    second: 675_1
+  - first:
+      213: -2810999295087483804
+    second: 675_2
+  - first:
+      213: -9100485334227631229
+    second: 675_3
+  - first:
+      213: -5316248115928572690
+    second: 675_4
+  - first:
+      213: 3659988242500859987
+    second: 675_5
+  - first:
+      213: 9167758527106756544
+    second: 675_6
+  - first:
+      213: 2104283372460351612
+    second: 675_7
+  - first:
+      213: 3041076226044323182
+    second: 675_8
+  - first:
+      213: 1131450551680262474
+    second: 675_9
+  - first:
+      213: -493573999813139893
+    second: 675_10
+  - first:
+      213: 4476131194451140192
+    second: 675_11
+  - first:
+      213: -5810071916978087005
+    second: 675_12
+  - first:
+      213: -2966458531906491884
+    second: 675_13
+  - first:
+      213: -6189739928682368299
+    second: 675_14
+  - first:
+      213: -3638349018334481161
+    second: 675_15
+  - first:
+      213: 8519061675249924039
+    second: 675_16
+  - first:
+      213: -6962235585934122598
+    second: 675_17
+  - first:
+      213: 4856866557076376628
+    second: 675_18
+  - first:
+      213: 8471721278538815015
+    second: 675_19
+  - first:
+      213: -6272297573540794979
+    second: 675_20
+  - first:
+      213: 4878824324760641808
+    second: 675_21
+  - first:
+      213: -7060754975758205988
+    second: 675_22
+  - first:
+      213: 4012810921207886315
+    second: 675_23
+  - first:
+      213: -6236671708641251857
+    second: 675_24
+  - first:
+      213: 2832846432847176429
+    second: 675_25
+  - first:
+      213: 8619149214644771211
+    second: 675_26
+  - first:
+      213: 7440534237466861641
+    second: 675_27
+  - first:
+      213: -9142954778141171899
+    second: 675_28
+  - first:
+      213: -3873472492562084513
+    second: 675_29
+  - first:
+      213: -3108513348411529428
+    second: 675_30
+  - first:
+      213: 823513631850778163
+    second: 675_31
+  - first:
+      213: 2176769530502411901
+    second: 675_32
+  - first:
+      213: 7170077208350697170
+    second: 675_33
+  - first:
+      213: 5763534708998543053
+    second: 675_34
+  - first:
+      213: -2650381332833990884
+    second: 675_35
+  - first:
+      213: 83903559508809479
+    second: 675_36
+  - first:
+      213: 3571630657843085685
+    second: 675_37
+  - first:
+      213: -5920018843588351546
+    second: 675_38
+  - first:
+      213: 5290743978446815792
+    second: 675_39
+  - first:
+      213: 4990465549928462763
+    second: 675_40
+  - first:
+      213: -6011106422188219585
+    second: 675_41
+  - first:
+      213: -4215280846026809094
+    second: 675_42
+  - first:
+      213: -2601248913392422670
+    second: 675_43
+  - first:
+      213: -41702208696507913
+    second: 675_44
+  - first:
+      213: 5825587987760379624
+    second: 675_45
+  - first:
+      213: 4104878561475429471
+    second: 675_46
+  - first:
+      213: -6034036440311272799
+    second: 675_47
+  - first:
+      213: 6261195030537614975
+    second: 675_48
+  - first:
+      213: -7644761040342163811
+    second: 675_49
+  - first:
+      213: -7673870078927470413
+    second: 675_50
+  - first:
+      213: -5877496896669561285
+    second: 675_51
+  - first:
+      213: 4590294552688231974
+    second: 675_52
+  - first:
+      213: 8523450991236652736
+    second: 675_53
+  - first:
+      213: 766438908007571684
+    second: 675_54
+  - first:
+      213: 7274996246856601070
+    second: 675_55
+  - first:
+      213: -2076622886855135349
+    second: 675_56
+  - first:
+      213: -560538398276376204
+    second: 675_57
+  - first:
+      213: -5961630232836716305
+    second: 675_58
+  - first:
+      213: -1379761213222128698
+    second: 675_59
+  - first:
+      213: 7927087186629603861
+    second: 675_60
+  - first:
+      213: -7293619451687375492
+    second: 675_61
+  - first:
+      213: 1645415610647761524
+    second: 675_62
+  - first:
+      213: 3278284906535978335
+    second: 675_63
+  - first:
+      213: 8085204877080919433
+    second: 675_64
+  - first:
+      213: 916463353687462487
+    second: 675_65
+  - first:
+      213: 1212584957309907364
+    second: 675_66
+  - first:
+      213: 402926202773219778
+    second: 675_67
+  - first:
+      213: -3491909236335918493
+    second: 675_68
+  - first:
+      213: 9001539931288737350
+    second: 675_69
+  - first:
+      213: -286708844352938503
+    second: 675_70
+  - first:
+      213: 3210551786902417446
+    second: 675_71
+  - first:
+      213: 4607688642421952566
+    second: 675_72
+  - first:
+      213: -4665441725644115822
+    second: 675_73
+  - first:
+      213: 8759177703600985908
+    second: 675_74
+  - first:
+      213: -2259819469834837377
+    second: 675_75
+  - first:
+      213: 783232994543621853
+    second: 675_76
+  - first:
+      213: 7088167051169167116
+    second: 675_77
+  - first:
+      213: -2743756412483010381
+    second: 675_78
+  - first:
+      213: -5571895516522744470
+    second: 675_79
+  - first:
+      213: -6706398482805404484
+    second: 675_80
+  - first:
+      213: -3942334059318832338
+    second: 675_81
+  - first:
+      213: -3467279245427868014
+    second: 675_82
+  - first:
+      213: 8269581057037078437
+    second: 675_83
+  - first:
+      213: -4229449358209707897
+    second: 675_84
+  - first:
+      213: -8611421902849914778
+    second: 675_85
+  - first:
+      213: 7789519562893638497
+    second: 675_86
+  - first:
+      213: 240044716863053586
+    second: 675_87
+  - first:
+      213: -501788836698360210
+    second: 675_88
+  - first:
+      213: 440234231999673157
+    second: 675_89
+  - first:
+      213: 2475010673401268220
+    second: 675_90
+  - first:
+      213: -2704391632301337384
+    second: 675_91
+  - first:
+      213: -3942850553511269474
+    second: 675_92
+  - first:
+      213: -625403642412573386
+    second: 675_93
+  - first:
+      213: 5056315824187795806
+    second: 675_94
+  - first:
+      213: -3683811364321891788
+    second: 675_95
+  - first:
+      213: -7900806187442606143
+    second: 675_96
+  - first:
+      213: -5045811103635745121
+    second: 675_97
+  - first:
+      213: 563864353361504368
+    second: 675_98
+  - first:
+      213: -6347014511034359794
+    second: 675_99
+  - first:
+      213: -1054617850671040080
+    second: 675_100
+  - first:
+      213: 2643530119952793803
+    second: 675_101
+  - first:
+      213: -6395005236190222069
+    second: 675_102
+  - first:
+      213: 6884555346786402568
+    second: 675_103
+  - first:
+      213: -1238645655406858795
+    second: 675_104
+  - first:
+      213: -6475701474434786095
+    second: 675_105
+  - first:
+      213: 8623421588076170423
+    second: 675_106
+  - first:
+      213: 551700278900618780
+    second: 675_107
+  - first:
+      213: -1479560035324559402
+    second: 675_108
+  - first:
+      213: 6540332644321426756
+    second: 675_109
+  - first:
+      213: 4712467162709431227
+    second: 675_110
+  - first:
+      213: 1485213511005916044
+    second: 675_111
+  - first:
+      213: 992624086289594698
+    second: 675_112
+  - first:
+      213: 7473360665758927915
+    second: 675_113
+  - first:
+      213: -766102384780863132
+    second: 675_114
+  - first:
+      213: -4875838932289814512
+    second: 675_115
+  - first:
+      213: -1155733339093784222
+    second: 675_116
+  - first:
+      213: 1292773234394072912
+    second: 675_117
+  - first:
+      213: -4419706113100994971
+    second: 675_118
+  - first:
+      213: -4508900033000905831
+    second: 675_119
+  - first:
+      213: -9031543906676696036
+    second: 675_120
+  - first:
+      213: -6954463016922995584
+    second: 675_121
+  - first:
+      213: -2119464144282995852
+    second: 675_122
+  - first:
+      213: -5612421943979971562
+    second: 675_123
+  - first:
+      213: 2258793086008332442
+    second: 675_124
+  - first:
+      213: 2222477210853521795
+    second: 675_125
+  - first:
+      213: -143372450828087309
+    second: 675_126
+  - first:
+      213: 3349650029231435446
+    second: 675_127
+  - first:
+      213: 7117132770555358841
+    second: 675_128
+  - first:
+      213: 2470153744233684123
+    second: 675_129
+  - first:
+      213: -1570874468261616015
+    second: 675_130
+  - first:
+      213: 6352462262239798557
+    second: 675_131
+  - first:
+      213: 6075614287910467039
+    second: 675_132
+  - first:
+      213: 6242602358954629181
+    second: 675_133
+  - first:
+      213: 24128496268049065
+    second: 675_134
+  - first:
+      213: -6560945112104708315
+    second: 675_135
+  - first:
+      213: -7722213547440949322
+    second: 675_136
+  - first:
+      213: 8517226663688115212
+    second: 675_137
+  - first:
+      213: -9009872961385491867
+    second: 675_138
+  - first:
+      213: -5318170514108392742
+    second: 675_139
+  - first:
+      213: -1117253263480934233
+    second: 675_140
+  - first:
+      213: -3888750826736864033
+    second: 675_141
+  - first:
+      213: 2564774201965506052
+    second: 675_142
+  - first:
+      213: -3966443751908099416
+    second: 675_143
+  - first:
+      213: 4084667387314706267
+    second: 675_144
+  - first:
+      213: 6506501405721765537
+    second: 675_145
+  - first:
+      213: 8323475444883755948
+    second: 675_146
+  - first:
+      213: -3271985141210502776
+    second: 675_147
+  - first:
+      213: 1747642008938297833
+    second: 675_148
+  - first:
+      213: -6849988594500565354
+    second: 675_149
+  - first:
+      213: -3527479492579103337
+    second: 675_150
+  - first:
+      213: 9160399672897671465
+    second: 675_151
+  - first:
+      213: -2834131642852211105
+    second: 675_152
+  - first:
+      213: -2208359031406295156
+    second: 675_153
+  - first:
+      213: 6880540989172865552
+    second: 675_154
+  - first:
+      213: -7813234766662738134
+    second: 675_155
+  - first:
+      213: 7737413262078241193
+    second: 675_156
+  - first:
+      213: 7194933903537033107
+    second: 675_157
+  - first:
+      213: 2658015758822673918
+    second: 675_158
+  - first:
+      213: -5706613677428332448
+    second: 675_159
+  - first:
+      213: 1030312563946060852
+    second: 675_160
+  - first:
+      213: -6312960252504206724
+    second: 675_161
+  - first:
+      213: 5755214904775366924
+    second: 675_162
+  - first:
+      213: 8610235051327954246
+    second: 675_163
+  - first:
+      213: 3708104370351489093
+    second: 675_164
+  - first:
+      213: 219674869039712417
+    second: 675_165
+  - first:
+      213: -3352295940894151476
+    second: 675_166
+  - first:
+      213: -1026853239807671080
+    second: 675_167
+  - first:
+      213: 3980143118356334251
+    second: 675_168
+  - first:
+      213: -756275597817389057
+    second: 675_169
+  - first:
+      213: 1749932694701362244
+    second: 675_170
+  - first:
+      213: 2062729674641114109
+    second: 675_171
+  - first:
+      213: -7820020501123794846
+    second: 675_172
+  - first:
+      213: 2861543322530280881
+    second: 675_173
+  - first:
+      213: -8452473112401049642
+    second: 675_174
+  - first:
+      213: 7414102127801120842
+    second: 675_175
+  - first:
+      213: -3957267299067415507
+    second: 675_176
+  - first:
+      213: 5706590903381225309
+    second: 675_177
+  - first:
+      213: -6756819048005177382
+    second: 675_178
+  - first:
+      213: -7361567228268944810
+    second: 675_179
+  - first:
+      213: -3572495934700658717
+    second: 675_180
+  - first:
+      213: 4488411506573535824
+    second: 675_181
+  - first:
+      213: 4208586129802167537
+    second: 675_182
+  - first:
+      213: -278847931199876728
+    second: 675_183
+  - first:
+      213: 3455568998806656636
+    second: 675_184
+  - first:
+      213: -2001694940492588010
+    second: 675_185
+  - first:
+      213: 385832585101469586
+    second: 675_186
+  - first:
+      213: -6428500026662996916
+    second: 675_187
+  - first:
+      213: 3119652582560213998
+    second: 675_188
+  - first:
+      213: -2597332404074439116
+    second: 675_189
+  - first:
+      213: 1004951730919029614
+    second: 675_190
+  - first:
+      213: 7719685271326548203
+    second: 675_191
+  - first:
+      213: -5071293549060997748
+    second: 675_192
+  - first:
+      213: -7335931571576950459
+    second: 675_193
+  - first:
+      213: -1741525722036454731
+    second: 675_194
+  - first:
+      213: 8694482922972597386
+    second: 675_195
+  - first:
+      213: 3244759649077614883
+    second: 675_196
+  - first:
+      213: 3992189022859153809
+    second: 675_197
+  - first:
+      213: -2407751379422837009
+    second: 675_198
+  - first:
+      213: 2821090305701415879
+    second: 675_199
+  - first:
+      213: -2987729403404574851
+    second: 675_200
+  - first:
+      213: -6170284266341832420
+    second: 675_201
+  - first:
+      213: -7873878149566475119
+    second: 675_202
+  - first:
+      213: -1867638610659052212
+    second: 675_203
+  - first:
+      213: 1773811098786345284
+    second: 675_204
+  - first:
+      213: -7313634159170720903
+    second: 675_205
+  - first:
+      213: 1489399077388012527
+    second: 675_206
+  - first:
+      213: 5525480752261945382
+    second: 675_207
+  - first:
+      213: 7356334225097344684
+    second: 675_208
+  - first:
+      213: 8369265462510558522
+    second: 675_209
+  - first:
+      213: 2050964963591783217
+    second: 675_210
+  - first:
+      213: 8353340373308504531
+    second: 675_211
+  - first:
+      213: -3031575232584576285
+    second: 675_212
+  - first:
+      213: -7746161837114155430
+    second: 675_213
+  - first:
+      213: 233997409733580699
+    second: 675_214
+  - first:
+      213: 5634358647920983312
+    second: 675_215
+  - first:
+      213: -5092824356737145735
+    second: 675_216
+  - first:
+      213: 1378018406241851488
+    second: 675_217
+  - first:
+      213: -4924992204694009127
+    second: 675_218
+  - first:
+      213: -6126143551608086459
+    second: 675_219
+  - first:
+      213: 1047022502836987179
+    second: 675_220
+  - first:
+      213: 3130210661598055955
+    second: 675_221
+  - first:
+      213: 2312613925979654900
+    second: 675_222
+  - first:
+      213: 1646186590862965211
+    second: 675_223
+  - first:
+      213: 6909585693464474035
+    second: 675_224
+  - first:
+      213: -5221931526328376759
+    second: 675_225
+  - first:
+      213: -7942997338408654778
+    second: 675_226
+  - first:
+      213: 6263570040264618188
+    second: 675_227
+  - first:
+      213: 1759009249394276438
+    second: 675_228
+  - first:
+      213: 5673871844387463340
+    second: 675_229
+  - first:
+      213: 3576287378011289522
+    second: 675_230
+  - first:
+      213: 7911970664911541584
+    second: 675_231
+  - first:
+      213: -4694941184057350540
+    second: 675_232
+  - first:
+      213: 3396543555258962780
+    second: 675_233
+  - first:
+      213: 3888182775991565434
+    second: 675_234
+  - first:
+      213: 1150744220871151481
+    second: 675_235
+  - first:
+      213: -528060225791945520
+    second: 675_236
+  - first:
+      213: -8101216220039510318
+    second: 675_237
+  - first:
+      213: -118419322005050550
+    second: 675_238
+  - first:
+      213: -1107155666004807693
+    second: 675_239
+  - first:
+      213: 5042506389502309673
+    second: 675_240
+  - first:
+      213: -7801473689769327174
+    second: 675_241
+  - first:
+      213: 5461005390340174214
+    second: 675_242
+  - first:
+      213: -3895435177724758370
+    second: 675_243
+  - first:
+      213: 2180284213088589154
+    second: 675_244
+  - first:
+      213: -1836473549935593370
+    second: 675_245
+  - first:
+      213: 5595211088012483587
+    second: 675_246
+  - first:
+      213: 739863252190000761
+    second: 675_247
+  - first:
+      213: 7666865628552997435
+    second: 675_248
+  - first:
+      213: 1468631229975013350
+    second: 675_249
+  - first:
+      213: 4699900699575456383
+    second: 675_250
+  - first:
+      213: 7054556452254447140
+    second: 675_251
+  - first:
+      213: 3755780366804572521
+    second: 675_252
+  - first:
+      213: -4922504350155930074
+    second: 675_253
+  - first:
+      213: -6809924455273393483
+    second: 675_254
+  - first:
+      213: 4170461745275202982
+    second: 675_255
+  - first:
+      213: -6348132059747480918
+    second: 675_256
+  - first:
+      213: -5843444668901608588
+    second: 675_257
+  - first:
+      213: -3729953132457694734
+    second: 675_258
+  - first:
+      213: -7845204112991074683
+    second: 675_259
+  - first:
+      213: -5427181684462153971
+    second: 675_260
+  - first:
+      213: -6723143887111770314
+    second: 675_261
+  - first:
+      213: -5788745846414626332
+    second: 675_262
+  - first:
+      213: 309131758938113571
+    second: 675_263
+  - first:
+      213: -568419594771103707
+    second: 675_264
+  - first:
+      213: -7068857539979870709
+    second: 675_265
+  - first:
+      213: -2089486270521413198
+    second: 675_266
+  - first:
+      213: 9189832942773088742
+    second: 675_267
+  - first:
+      213: -6090967875407846391
+    second: 675_268
+  - first:
+      213: -16321464992550087
+    second: 675_269
+  - first:
+      213: -6954902511607084855
+    second: 675_270
+  - first:
+      213: 2382473126879144279
+    second: 675_271
+  - first:
+      213: 3055816293211933892
+    second: 675_272
+  - first:
+      213: -2797011390225510203
+    second: 675_273
+  - first:
+      213: -2660583469195944114
+    second: 675_274
+  - first:
+      213: 2833565349913705610
+    second: 675_275
+  - first:
+      213: -7801958809072295475
+    second: 675_276
+  - first:
+      213: -4795294863017310780
+    second: 675_277
+  - first:
+      213: -8004496127180035618
+    second: 675_278
+  - first:
+      213: 2586021238816756744
+    second: 675_279
+  - first:
+      213: 8690969915167330003
+    second: 675_280
+  - first:
+      213: 488490882055838245
+    second: 675_281
+  - first:
+      213: -4439312054000986379
+    second: 675_282
+  - first:
+      213: -3440224031970337938
+    second: 675_283
+  - first:
+      213: 4768690646878454914
+    second: 675_284
+  - first:
+      213: 671422747972573482
+    second: 675_285
+  - first:
+      213: -8524119723617698352
+    second: 675_286
+  - first:
+      213: 921273644007255883
+    second: 675_287
+  - first:
+      213: -1557270103084560640
+    second: 675_288
+  - first:
+      213: 8328040188292622922
+    second: 675_289
+  - first:
+      213: 5779646034664454083
+    second: 675_290
+  - first:
+      213: 956684096052630479
+    second: 675_291
+  - first:
+      213: -2080531558472588036
+    second: 675_292
+  - first:
+      213: 8340594965816843658
+    second: 675_293
+  - first:
+      213: 2648367474110056482
+    second: 675_294
+  - first:
+      213: -4891322108012429433
+    second: 675_295
+  - first:
+      213: 2411216396056313998
+    second: 675_296
+  - first:
+      213: -6173401059350443509
+    second: 675_297
+  - first:
+      213: -2760087999298615744
+    second: 675_298
+  - first:
+      213: -7776207649973823930
+    second: 675_299
+  - first:
+      213: 4780328093828328570
+    second: 675_300
+  - first:
+      213: -8215066997279339529
+    second: 675_301
+  - first:
+      213: 830259188195484593
+    second: 675_302
+  - first:
+      213: 4615628245905215102
+    second: 675_303
+  - first:
+      213: 5562852724669986197
+    second: 675_304
+  - first:
+      213: 6106420005977058558
+    second: 675_305
+  - first:
+      213: 4995634280295357424
+    second: 675_306
+  - first:
+      213: 1084377249346138605
+    second: 675_307
+  - first:
+      213: 8912041530787713745
+    second: 675_308
+  - first:
+      213: -1588606144261610955
+    second: 675_309
+  - first:
+      213: -1198627530212425664
+    second: 675_310
+  - first:
+      213: 7602396056860636196
+    second: 675_311
+  - first:
+      213: -6552753743736937733
+    second: 675_312
+  - first:
+      213: -3475492181646076044
+    second: 675_313
+  - first:
+      213: 6466485145715079628
+    second: 675_314
+  - first:
+      213: 7354511043354175939
+    second: 675_315
+  - first:
+      213: 3797641265193191130
+    second: 675_316
+  - first:
+      213: 2827516432646113614
+    second: 675_317
+  - first:
+      213: 3823375471283989418
+    second: 675_318
+  - first:
+      213: 6113831048995983029
+    second: 675_319
+  - first:
+      213: -4827613207358920542
+    second: 675_320
+  - first:
+      213: -6847441126663363050
+    second: 675_321
+  - first:
+      213: 7389831370831091348
+    second: 675_322
+  - first:
+      213: 4839619442375120829
+    second: 675_323
+  - first:
+      213: 2950859357078735225
+    second: 675_324
+  - first:
+      213: -2812256830940198087
+    second: 675_325
+  - first:
+      213: 793436267157909787
+    second: 675_326
+  - first:
+      213: -7133653131671594978
+    second: 675_327
+  - first:
+      213: -6292690408867068203
+    second: 675_328
+  - first:
+      213: 7144369851875438501
+    second: 675_329
+  - first:
+      213: 1125590144018658737
+    second: 675_330
+  - first:
+      213: 3161346338044269512
+    second: 675_331
+  - first:
+      213: -559786947240522906
+    second: 675_332
+  - first:
+      213: 746192081612564109
+    second: 675_333
+  - first:
+      213: 6565903196626317932
+    second: 675_334
+  - first:
+      213: -207316885507915238
+    second: 675_335
+  - first:
+      213: -3056564368098705595
+    second: 675_336
+  - first:
+      213: -8626415815406116288
+    second: 675_337
+  - first:
+      213: 6588433326878253409
+    second: 675_338
+  - first:
+      213: -6553002686061581407
+    second: 675_339
+  - first:
+      213: -7934554324562758285
+    second: 675_340
+  - first:
+      213: 7901102843103064210
+    second: 675_341
+  - first:
+      213: -3475760951922878878
+    second: 675_342
+  - first:
+      213: 4420401123651785693
+    second: 675_343
+  - first:
+      213: 5297174655106344548
+    second: 675_344
+  - first:
+      213: -4563713919166599119
+    second: 675_345
+  - first:
+      213: 632853210949986393
+    second: 675_346
+  - first:
+      213: -9119422602757724491
+    second: 675_347
+  - first:
+      213: -570015289226421388
+    second: 675_348
+  - first:
+      213: 2959910980114145748
+    second: 675_349
+  - first:
+      213: 6336603816610866983
+    second: 675_350
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: EmpShock_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c18a01ebb0f06a48b578acb2edef2c2
+      internalID: -1725686700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbbc4d4957b379d4e8167870c3ed9c0f
+      internalID: -2026137482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab265d14cd823fb4da865038d619a21d
+      internalID: -494886702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e30b6f6057ece44596caab9f210be87
+      internalID: -790825500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0c6f29dd1f51c14f88f26c2ff441c16
+      internalID: -535006882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7c5b8dd6b8dc8f44bfcc7912dfa63bd
+      internalID: 565313180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 159f4d95bdbee7944b89320208ab098e
+      internalID: 220857458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5908c6d284a49dc47b3392900037c302
+      internalID: 2041480970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 901682e37e7d1d44e82c6423312c95a0
+      internalID: -940651769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd4113ee4e93c14f81c13425bc15070
+      internalID: 1345637214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c64cddb2092f1d547893295ed22495b6
+      internalID: 2072788882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_11
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53265af35b9c7934193b315e102dd249
+      internalID: 1720257888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d78659e13dc1aac44a5905d8845ae4bf
+      internalID: -1538404698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_13
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0875d6822ef09334a948d80519d505f6
+      internalID: -808704911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_14
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b0c379e1590e034896b7519981668d5
+      internalID: -975720739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c391d9e0abc3d04caa086be7a9946b3
+      internalID: -733516433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_16
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4835b2a56d9b88d46abae34cae61e306
+      internalID: 1450139206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_17
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27471bd9436c4ac479cce403023e5627
+      internalID: -134397667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_18
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 030537885c13f484097beb5e8fe33836
+      internalID: -2007425579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43859a17d9304ce4585e171f425ed217
+      internalID: 1057411140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_20
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ade416c709ab034a8fa2ac0ffa88cde
+      internalID: 1546955692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_21
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8e618a596bcd104595bd001375a0098
+      internalID: 1119269644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_22
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1794e45a6fadfa49bf2cd5488a4a247
+      internalID: 710821507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_23
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 706b566fd4e5cdb4b94bdc8cc63136a6
+      internalID: -1276640595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_24
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be083f8ad7d81ee41b72f4505575e01c
+      internalID: 1544791882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_25
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 319c58a2d015703449f0a969c337a448
+      internalID: -1173683374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_26
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 966898ea5cbf56d4bbde49ff50c7653a
+      internalID: -802415638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_27
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 222f219fe2da8ed49890ab6ebaa27255
+      internalID: -1512271998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_28
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d413f0b586c7ad14195f7dac1aaaa08f
+      internalID: -58802739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_29
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0478f330cf96d7341b274acc1bbaae5e
+      internalID: 639140136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_30
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62360418e701a8949af39c567a618db2
+      internalID: 1583480706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_31
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8810bcd3ced413408c6d2dfcd80f5f9
+      internalID: 1103002736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_32
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 432c41055341f6f46b2e2b7bf444727e
+      internalID: -1789624928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_33
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e66e356473a4dd47bf86823e569953b
+      internalID: -1983205776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_34
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79538dae98d3bb342b5b778ebb77370e
+      internalID: -376960685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_35
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ba610a0376c7940907857f78f9953b
+      internalID: -445318056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_36
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40c63954cf976e14fa8aff73f67f40d6
+      internalID: 46169396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_37
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1a07ca16509ff546b85d203b7c6fe43
+      internalID: -78495958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c76c998de86f76f45bd5649391e61b51
+      internalID: -2015174854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_39
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc62f2af3c5c72f48b7c05e4759c413f
+      internalID: 1563241091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_40
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dc40d2435fd069468d28000ea48a735
+      internalID: 1196368068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_41
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a111ae2e58852c843a82714a58be06ad
+      internalID: 1383950253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_42
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e1ba2976129498418f1752b5d1f2711
+      internalID: 1222509683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_43
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e39f9a50d94b774aa3c938f8ec63aac
+      internalID: -816738176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_44
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a43ece274ab9f5747a6ec567dac88d3b
+      internalID: 1824798424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_45
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4160d1317b391bf4e84eec27fcf44534
+      internalID: -1786284534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_46
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d71b04331f02b134d8f7438322bedf03
+      internalID: 1650533987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_47
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f60d85a07ffef404082e7a9e0b0fedc9
+      internalID: -975433020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_48
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eb8a87ceb2bafc44a31130f36ce112e
+      internalID: 923753389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_49
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c062cf66378db514ab54e117abe25135
+      internalID: -1412028545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_50
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9804b2f5d9f0cb4448c943e6ce6463d9
+      internalID: 301121840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_51
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83d1979652165964e8862095c99ae01c
+      internalID: -377085193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_52
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 697f144bc9cd1b147bb3840be43cdc1f
+      internalID: 1415644679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_53
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddc2c72f0719efb428120c11b938aa90
+      internalID: -1191621680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_54
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fb215b36612bf24a9249ed054aa5a69
+      internalID: -1205136462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_55
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aca3eaf71cbfd58429b31f1e2a3367e4
+      internalID: -872559853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_56
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a965eab75d61c945aa168e1e6260c2c
+      internalID: -1314827491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_57
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a62f49f243740946bdbc3be5fa05bd0
+      internalID: 86905410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_58
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99a3c682b7aa57244af9b501a3ea6506
+      internalID: -1163783776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_59
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bffbb94d4da9da9438ecd69c8b3c5fcd
+      internalID: 1039070788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_60
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9521757c36cde142997cf7995cf6528
+      internalID: -973416263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_61
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 013c7d09402af28429fe4339c792e802
+      internalID: 2116399650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_62
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99b04dae40cb256479ec1e545651f9bc
+      internalID: 812185847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_63
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0759adce5213a54eb390323c2f73591
+      internalID: -99712227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_64
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f5c3be25f0a51f49a4991699fede6d2
+      internalID: -1440873743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_65
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e76212994d4059439812aac5d305655
+      internalID: -1230254125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_66
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79ee2dce5cb6741488740917f70e2334
+      internalID: 547983481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_67
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8d6a02640361654c8813f28c701fb2a
+      internalID: 1029187928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_68
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9310f6f3c6a3b8c438a051d6d45cc806
+      internalID: -1995678285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_69
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e554d8f8cbfb37844a97479a5b15e083
+      internalID: 435358251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_70
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd230d9895eb4154d92c0220a8980086
+      internalID: -58297731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_71
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0da94e45e08bd2749846078e74d0c7d5
+      internalID: -1272503420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_72
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f86f9f3814a8bc4285f8a5874406c18
+      internalID: -2070612741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_73
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb40db971a5b87645b0de492d0fa4fbd
+      internalID: -732401574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_74
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e909c01059644354188b66a12c8dbd39
+      internalID: -1362716612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_75
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93963fe2405faef4babcab1c182257f4
+      internalID: -1447553393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_76
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a6aae913723b0d4981754ea278fbe10
+      internalID: 719268981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_77
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46185c6daa61b03428c9e8eb0037c50b
+      internalID: -2015152940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_78
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e81aedfb9996d5943acc0d27a1446670
+      internalID: -1890011942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_79
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded17c1cd48fe2340a793b764430246a
+      internalID: 1437747456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_80
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c067ffba95281f48ac4d46a776d88e2
+      internalID: -815996214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_81
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53d022b90fdd64b418c00e1f08929d96
+      internalID: 1806918876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_82
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a0d674bfcdb6e6458a84d643ec33f8e
+      internalID: 111003633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_83
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11f6f264013c9c44f98ebd160835eda8
+      internalID: -379617794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_84
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a96f992e6c764a143bdcdce5a435b031
+      internalID: 2011525505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_85
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d21d7dbe0ccaa8f459ce6ac220399b1e
+      internalID: 1883448546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_86
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73fd14138fed9de47b33e19b98538f3b
+      internalID: -187538391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_87
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed18cae3983c16c4d8bb84271927b87b
+      internalID: 988713639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_88
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e523afbb7c184f4e9c1f2f11a08e8ca
+      internalID: 473960020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_89
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50e63774de9ff07409f4c87568c9f206
+      internalID: -487446214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_90
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b59a83fb6d0e79e41aa8a8b3a3fa3e3c
+      internalID: 732188990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_91
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 595d89d0850f05c4abca4e579e5fc407
+      internalID: 1275394858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_92
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2ab7bde1167afb4bbab6ffd55189d3e
+      internalID: 1532642933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_93
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a56da64be98d0884d914ff1465ec0f2d
+      internalID: 1033550299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_94
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5012e8b8a075e3149b39feaebf9585bf
+      internalID: 1891219717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_95
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76dfcbcafa6e5cc4a93fed9a38c0b61a
+      internalID: 452747141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_96
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65ac8c792bcb99e4d9cffdb6c079fceb
+      internalID: 240234849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_97
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b80cfe2165a8dd43849f3e42fd8079e
+      internalID: -793078936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_98
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6089218583eeef845902ac853892def9
+      internalID: -1824218260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_99
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9906a2e9208f31847998662867536ea4
+      internalID: -637222294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_100
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cc3bda6158d6174f856e9fd019de73c
+      internalID: -1189537543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_101
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 237139be613933f4e8508243db561106
+      internalID: -1228153529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_102
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8122858205e43c49945e052e4853ca2
+      internalID: -979182224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_103
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3245349d1762d2045baa6a58082e77a2
+      internalID: -1767898993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_104
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74b712b133efe6d4488f4b604ac1f60d
+      internalID: -1279025480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_105
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8103367baaee9145a54eace086448f6
+      internalID: 9301676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_106
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd83ff342118dcd458bb1b209c22b464
+      internalID: -524660629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_107
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7d1ddd1a41f6d64bb1ee1ba746e5f3f
+      internalID: 1558043781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_108
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc234e6d89d511f4eb1e208a6e6f6add
+      internalID: -417232629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_109
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c152293db2adac4ea28d12bb1a13f0b
+      internalID: 608248605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_110
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7749557ec98dce4b824243acf607374
+      internalID: 409394663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_111
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a0374e7cf708c9478d1c79d12f63613
+      internalID: 1959449485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_112
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e95a72039d627ee4b9fecc53a3addae4
+      internalID: 1095387026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_113
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7f96cb43d0d43847a4b6aa8366b2ff8
+      internalID: 211614333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_114
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d915904235bb8f4596f90e49fdcfd7a
+      internalID: -633799767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_115
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d1ca378ddf460845a0340e958b39679
+      internalID: -1513525857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_116
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e9129fa8846fe40993d610e7e1def8
+      internalID: -1104940004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_117
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56d237a0e51bafe4ebc9330b2bdcfdea
+      internalID: 1926871387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_118
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 415b2ae0551eb3745a886aee078e60c8
+      internalID: -1999353688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_119
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f81968eece60ce04f911aa8fc9cadcc3
+      internalID: -526389808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_120
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58387cb2d22d38e4996a900b1ff1ef32
+      internalID: 457640144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_121
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 020894bb48f8f1c45a35f816e8a8a259
+      internalID: -805310541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_122
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63e95d95eaa2c8143ac97114ee9e83e2
+      internalID: -491233095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_123
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfe8a172dd06db14c862cd6084f9c19e
+      internalID: 1560394581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_124
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4313ed6e84c8a644d9fc7f829e99e6b6
+      internalID: 1302568580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_125
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 689d2fcd9af42ff4fbcfe34d86e4df8a
+      internalID: 99348060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_126
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dd2c03d795f21b46bf6ed85512830e0
+      internalID: 1328112779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_127
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f616fd568a388f14b974342e52b7be6a
+      internalID: 1378373153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_128
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84fc0b8d47673e247b436bc2926a1172
+      internalID: 2115022710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_129
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b70fe18df1111748a00be180e21508e
+      internalID: -544888875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_130
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18e7ed54b98cf2b499ad51c89325833a
+      internalID: -2053851934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_131
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5b2dd71a1f056d4ba53f1301862b655
+      internalID: 2002666109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_132
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82269d9eb54aa7f4e90848296145c219
+      internalID: 1831825283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_133
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a38feb214ca793b41970b73c88ab0eaf
+      internalID: -1700736149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_134
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f59f2fef87d54d4d8aed4e72e72c08e
+      internalID: -1774420468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_135
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d43c5a0a198cc9d45a44eae39e13d712
+      internalID: -16039568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_136
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6998cef29d4eb143b345380e2f61847
+      internalID: -957974452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_137
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5a40443dd6f8a843bf1b203f3376353
+      internalID: -870766210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_138
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fdd1bee97b5af7499b450651e2b604f
+      internalID: -915802879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_139
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94bc9627453a9f54989e7158a321965c
+      internalID: 579229614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_140
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 297289d9232bd534e9d98cc9a247c809
+      internalID: 750704260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_141
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91ecdbee901b2b34c9435ee796366e37
+      internalID: -1353759319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_142
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e42155ab64a2784b85fe54382284ed6
+      internalID: 655433628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_143
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb01df79f9dfbbc488e5d3d079425944
+      internalID: 856232927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_144
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c56b5b7fe1221ba4cbf9e0fca5fa0ac3
+      internalID: 1528521828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_145
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97bbf71181db9c14c8d51a28c8740267
+      internalID: -1594464355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_146
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3f7f00fc29b61541b23e063cf47e660
+      internalID: 860068530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_147
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa91aa68a50b66044a620fc6b937d49b
+      internalID: 174214295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_148
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfb339886906a1b498f36071c5e66895
+      internalID: 396938883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_149
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 783f5ac92b1ba17468536640852b42eb
+      internalID: 482710639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_150
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d62c7505be52e5847b26010438fde511
+      internalID: -237908886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_151
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbd5a863a638a0d4d8362eed3914dbfb
+      internalID: -1278280831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_152
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc5c9d6efc41d24094025f897824cd1
+      internalID: 1282928455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_153
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8151ee3dceb27ec44a9616a90742895d
+      internalID: 1076705424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_154
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14508d5dbf24997458980a46a24bba51
+      internalID: 1383662165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_155
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32b7c65992a3c1a4ba52daba1b229c69
+      internalID: -1264294872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_156
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95530c1f88fac694a8795db42194daa1
+      internalID: 1009525333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_157
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d47a34e35516644e89121031f499e90
+      internalID: 879001057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_158
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 609a2ff7599ccb84eac202fbf935f659
+      internalID: 254535266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_159
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 471634b70b18c0a4bb53b50b9ef3dbc1
+      internalID: 1677845146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_160
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d69c20cbd9367fe4e84e1829ca84bf18
+      internalID: 1908451630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_161
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4cd5eefce2f99544b3ed88c3019cbcd
+      internalID: 1181839225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_162
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4e4ee14b5104bf4fb1d1839e8a5c51d
+      internalID: 1377599770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_163
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e19f8b2bdf38aa4ba53664b28ed6715
+      internalID: -492055737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_164
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c35ba1a909ebec24ea1a8c49d0ac379d
+      internalID: 1311140951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_165
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b6a7c50b7dd47241b570a245f50ee95
+      internalID: -419872763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_166
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 050dfe00ac47fa4418b66236693aca65
+      internalID: 1212994401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_167
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e14552f9f2263d641bf4dd72697d1ab4
+      internalID: 965973186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_168
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86e2b19c5d702d34b94540cea95aebc5
+      internalID: -1161016096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_169
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 623aef13ca27ea9458d64e0938d587d3
+      internalID: -808537008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EmpShock_170
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 481c411043b840d439a4124be87b3c63
+      internalID: -169281287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: acd2ff6f574feb045a40731c999d357f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      EmpShock_0: -1725686700
+      EmpShock_1: -2026137482
+      EmpShock_10: 2072788882
+      EmpShock_100: -1189537543
+      EmpShock_101: -1228153529
+      EmpShock_102: -979182224
+      EmpShock_103: -1767898993
+      EmpShock_104: -1279025480
+      EmpShock_105: 9301676
+      EmpShock_106: -524660629
+      EmpShock_107: 1558043781
+      EmpShock_108: -417232629
+      EmpShock_109: 608248605
+      EmpShock_11: 1720257888
+      EmpShock_110: 409394663
+      EmpShock_111: 1959449485
+      EmpShock_112: 1095387026
+      EmpShock_113: 211614333
+      EmpShock_114: -633799767
+      EmpShock_115: -1513525857
+      EmpShock_116: -1104940004
+      EmpShock_117: 1926871387
+      EmpShock_118: -1999353688
+      EmpShock_119: -526389808
+      EmpShock_12: -1538404698
+      EmpShock_120: 457640144
+      EmpShock_121: -805310541
+      EmpShock_122: -491233095
+      EmpShock_123: 1560394581
+      EmpShock_124: 1302568580
+      EmpShock_125: 99348060
+      EmpShock_126: 1328112779
+      EmpShock_127: 1378373153
+      EmpShock_128: 2115022710
+      EmpShock_129: -544888875
+      EmpShock_13: -808704911
+      EmpShock_130: -2053851934
+      EmpShock_131: 2002666109
+      EmpShock_132: 1831825283
+      EmpShock_133: -1700736149
+      EmpShock_134: -1774420468
+      EmpShock_135: -16039568
+      EmpShock_136: -957974452
+      EmpShock_137: -870766210
+      EmpShock_138: -915802879
+      EmpShock_139: 579229614
+      EmpShock_14: -975720739
+      EmpShock_140: 750704260
+      EmpShock_141: -1353759319
+      EmpShock_142: 655433628
+      EmpShock_143: 856232927
+      EmpShock_144: 1528521828
+      EmpShock_145: -1594464355
+      EmpShock_146: 860068530
+      EmpShock_147: 174214295
+      EmpShock_148: 396938883
+      EmpShock_149: 482710639
+      EmpShock_15: -733516433
+      EmpShock_150: -237908886
+      EmpShock_151: -1278280831
+      EmpShock_152: 1282928455
+      EmpShock_153: 1076705424
+      EmpShock_154: 1383662165
+      EmpShock_155: -1264294872
+      EmpShock_156: 1009525333
+      EmpShock_157: 879001057
+      EmpShock_158: 254535266
+      EmpShock_159: 1677845146
+      EmpShock_16: 1450139206
+      EmpShock_160: 1908451630
+      EmpShock_161: 1181839225
+      EmpShock_162: 1377599770
+      EmpShock_163: -492055737
+      EmpShock_164: 1311140951
+      EmpShock_165: -419872763
+      EmpShock_166: 1212994401
+      EmpShock_167: 965973186
+      EmpShock_168: -1161016096
+      EmpShock_169: -808537008
+      EmpShock_17: -134397667
+      EmpShock_170: -169281287
+      EmpShock_18: -2007425579
+      EmpShock_19: 1057411140
+      EmpShock_2: -494886702
+      EmpShock_20: 1546955692
+      EmpShock_21: 1119269644
+      EmpShock_22: 710821507
+      EmpShock_23: -1276640595
+      EmpShock_24: 1544791882
+      EmpShock_25: -1173683374
+      EmpShock_26: -802415638
+      EmpShock_27: -1512271998
+      EmpShock_28: -58802739
+      EmpShock_29: 639140136
+      EmpShock_3: -790825500
+      EmpShock_30: 1583480706
+      EmpShock_31: 1103002736
+      EmpShock_32: -1789624928
+      EmpShock_33: -1983205776
+      EmpShock_34: -376960685
+      EmpShock_35: -445318056
+      EmpShock_36: 46169396
+      EmpShock_37: -78495958
+      EmpShock_38: -2015174854
+      EmpShock_39: 1563241091
+      EmpShock_4: -535006882
+      EmpShock_40: 1196368068
+      EmpShock_41: 1383950253
+      EmpShock_42: 1222509683
+      EmpShock_43: -816738176
+      EmpShock_44: 1824798424
+      EmpShock_45: -1786284534
+      EmpShock_46: 1650533987
+      EmpShock_47: -975433020
+      EmpShock_48: 923753389
+      EmpShock_49: -1412028545
+      EmpShock_5: 565313180
+      EmpShock_50: 301121840
+      EmpShock_51: -377085193
+      EmpShock_52: 1415644679
+      EmpShock_53: -1191621680
+      EmpShock_54: -1205136462
+      EmpShock_55: -872559853
+      EmpShock_56: -1314827491
+      EmpShock_57: 86905410
+      EmpShock_58: -1163783776
+      EmpShock_59: 1039070788
+      EmpShock_6: 220857458
+      EmpShock_60: -973416263
+      EmpShock_61: 2116399650
+      EmpShock_62: 812185847
+      EmpShock_63: -99712227
+      EmpShock_64: -1440873743
+      EmpShock_65: -1230254125
+      EmpShock_66: 547983481
+      EmpShock_67: 1029187928
+      EmpShock_68: -1995678285
+      EmpShock_69: 435358251
+      EmpShock_7: 2041480970
+      EmpShock_70: -58297731
+      EmpShock_71: -1272503420
+      EmpShock_72: -2070612741
+      EmpShock_73: -732401574
+      EmpShock_74: -1362716612
+      EmpShock_75: -1447553393
+      EmpShock_76: 719268981
+      EmpShock_77: -2015152940
+      EmpShock_78: -1890011942
+      EmpShock_79: 1437747456
+      EmpShock_8: -940651769
+      EmpShock_80: -815996214
+      EmpShock_81: 1806918876
+      EmpShock_82: 111003633
+      EmpShock_83: -379617794
+      EmpShock_84: 2011525505
+      EmpShock_85: 1883448546
+      EmpShock_86: -187538391
+      EmpShock_87: 988713639
+      EmpShock_88: 473960020
+      EmpShock_89: -487446214
+      EmpShock_9: 1345637214
+      EmpShock_90: 732188990
+      EmpShock_91: 1275394858
+      EmpShock_92: 1532642933
+      EmpShock_93: 1033550299
+      EmpShock_94: 1891219717
+      EmpShock_95: 452747141
+      EmpShock_96: 240234849
+      EmpShock_97: -793078936
+      EmpShock_98: -1824218260
+      EmpShock_99: -637222294
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

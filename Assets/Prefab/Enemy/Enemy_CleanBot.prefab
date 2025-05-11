@@ -944,7 +944,7 @@ GameObject:
   - component: {fileID: 746036141966986485}
   - component: {fileID: 4130654903348724620}
   m_Layer: 12
-  m_Name: CleanBot
+  m_Name: Enemy_CleanBot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

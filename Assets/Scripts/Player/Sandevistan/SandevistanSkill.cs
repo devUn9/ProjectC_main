@@ -5,7 +5,7 @@ public class SandevistanSkill : Skill
 {
     [Header("Sandevistan Info")]
     public float sandevistanDuration = 3f; // 지속 시간
-    
+
     private void Awake()
     {
     }
@@ -25,5 +25,15 @@ public class SandevistanSkill : Skill
     public void ReturnTimeScale()
     {
         TimeManager.Instance.timeScale = 1f;
+    }
+
+    public virtual bool SandevistanCanUseSkill()
+    {
+        if (cooldownTimer < 0)
+        {
+            cooldownTimer = cooldown + sandevistanDuration;
+            return true;
+        }
+        return false;
     }
 }
