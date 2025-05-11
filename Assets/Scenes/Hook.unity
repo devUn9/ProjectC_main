@@ -308,12 +308,9 @@ MonoBehaviour:
   empResistance:
     baseValue: 0
     modifiers: 
-  empShock:
-    baseValue: 0
-    modifiers: 
-  stun:
-    baseValue: 0
-    modifiers: 
+  empShock: 0
+  stun: 0
+  StatusSpeed: 1
   currentHealth: 0
   hpBarTransform: {fileID: 746174510}
 --- !u!1 &73785870
@@ -1588,12 +1585,9 @@ MonoBehaviour:
   empResistance:
     baseValue: 0
     modifiers: 
-  empShock:
-    baseValue: 0
-    modifiers: 
-  stun:
-    baseValue: 0
-    modifiers: 
+  empShock: 0
+  stun: 0
+  StatusSpeed: 1
   currentHealth: 0
   hpBarTransform: {fileID: 1585334808}
 --- !u!1 &419035168
@@ -35348,8 +35342,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterStats: {fileID: 7085350}
   textHP: {fileID: 372055357}
-  currentHP: 0
-  displayHP: 0
+  currentHP: 200
+  displayHP: 20
 --- !u!1 &1873615079
 GameObject:
   m_ObjectHideFlags: 0
@@ -35841,12 +35835,9 @@ MonoBehaviour:
   empResistance:
     baseValue: 0
     modifiers: 
-  empShock:
-    baseValue: 0
-    modifiers: 
-  stun:
-    baseValue: 0
-    modifiers: 
+  empShock: 0
+  stun: 0
+  StatusSpeed: 1
   currentHealth: 0
   hpBarTransform: {fileID: 430747068}
 --- !u!1 &2023873890

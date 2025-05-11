@@ -6180,8 +6180,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgms:
   - {fileID: 8300000, guid: b5cc58a1ae25db24fa7b748d644c26e8, type: 3}
-  - {fileID: 8300000, guid: 7219865128ee787458b139dd889cc379, type: 3}
-  sfxs: []
+  - {fileID: 8300000, guid: 09c1b3ac209ab03458db714c3f1de6af, type: 3}
+  - {fileID: 8300000, guid: 7d64de8d2d3f0c84795a35cf8875df98, type: 3}
+  sfxs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   audioBgm: {fileID: 1309934699}
   audioSfx: {fileID: 898106411}
 --- !u!4 &2040139331
