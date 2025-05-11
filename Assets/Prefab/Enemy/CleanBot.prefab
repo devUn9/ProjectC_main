@@ -942,6 +942,7 @@ GameObject:
   - component: {fileID: 4632141380260680447}
   - component: {fileID: 987072145898581738}
   - component: {fileID: 746036141966986485}
+  - component: {fileID: 4130654903348724620}
   m_Layer: 12
   m_Name: CleanBot
   m_TagString: Untagged
@@ -957,7 +958,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9208487342649825529}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.6907015, y: -1.1840453, z: 0.047554225}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1166,6 +1167,20 @@ MonoBehaviour:
   hoverImage: {fileID: 6607756494402715376}
   textOffset: {x: 0, y: 2, z: 0}
   imageOffset: {x: 0, y: 1, z: 0}
+--- !u!114 &4130654903348724620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9208487342649825529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc32f5f38bdbb94478839cae7e005ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitMat: {fileID: 2100000, guid: 0051e34bd4ce1a84591e73cdbad8e55d, type: 2}
+  GravitonCharge: {fileID: 0}
 --- !u!1 &9214318312080387352
 GameObject:
   m_ObjectHideFlags: 0
