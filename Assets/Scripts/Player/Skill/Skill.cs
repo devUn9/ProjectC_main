@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
-    [SerializeField] protected float cooldown;
-    [SerializeField] protected float cooldownTimer;
+    [SerializeField] public float cooldown;
+    [SerializeField] public float cooldownTimer;
 
     protected Camera mainCamera;
 
