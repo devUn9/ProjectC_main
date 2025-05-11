@@ -10,6 +10,7 @@ TagManager:
   - Item
   - Wall
   - Boss1
+  - StopWall
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Map
   - Minimap
   - 
-  - 
+  - StopWall
   - Boss1
   - SightEffect
   - 

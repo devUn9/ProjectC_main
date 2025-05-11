@@ -7,12 +7,11 @@ public class Boss1_AnimationTrigger : MonoBehaviour
     private Boss1Stats boss1stats => GetComponent<Boss1Stats>();
     public Transform player;
     public GameObject[] CloseAttackPoints;
-    public float AttackCheckRadius = 2f;
+    public float AttackCheckRadius = 1f;
     public Rigidbody2D rb;
     public GameObject CloseAttackEffectPrefab;
     private int CloseAttackDamage = 30;
     private float closeattackknockbackforce = 20f;
-
 
     private bool lancing = false;
     private float LancingPower = 0.05f;
@@ -198,9 +197,14 @@ public class Boss1_AnimationTrigger : MonoBehaviour
 
     private IEnumerator Lancing()
     {
-        if(boss1stats.Engaging())
+        if (boss1stats.Engaging())
         {
             LancingPower = 0.1f;
+        }
+
+        if(boss1stats.EmptyHealth())
+        {
+            yield return null;
         }
 
         SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_SandeVistan);
@@ -224,5 +228,4 @@ public class Boss1_AnimationTrigger : MonoBehaviour
             Gizmos.DrawWireSphere(point.transform.position, AttackCheckRadius);
         }
     }
-
 }

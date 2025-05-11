@@ -8,6 +8,8 @@ public class GenerateWall : MonoBehaviour
     private Vector3 initialPosition;
     private Quaternion initialRotation;
 
+    [SerializeField] private GameObject BreakablePrefab;
+
     void Start()
     {
         // 벽의 초기 위치와 회전 저장
@@ -18,6 +20,9 @@ public class GenerateWall : MonoBehaviour
     // 외부에서 이 함수를 호출해서 벽을 부숨
     public void BreakWall()
     {
+        GameObject dust = Instantiate(BreakablePrefab, transform.position, Quaternion.identity);
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_WallBreak);
+        Destroy(dust, 0.5f);
         // 벽 비활성화
         gameObject.SetActive(false);
         // 일정 시간 후 재생성

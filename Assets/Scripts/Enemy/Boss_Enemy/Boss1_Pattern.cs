@@ -9,7 +9,8 @@ public enum BossState
     Rocket,
     CloseAttack,
     Lancer,
-    PowerOff
+    PowerOff,
+    EmptyHealth
 }
 
 public enum LayerName

@@ -41,5 +41,11 @@ public class Santan_Bullet : MonoBehaviour
 
             Destroy(gameObject);
         }
+
+        if(collision.CompareTag("Wall") || collision.CompareTag("StopWall"))
+        {
+            SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_WallBreak);
+            Destroy(gameObject);
+        }
     }
 }

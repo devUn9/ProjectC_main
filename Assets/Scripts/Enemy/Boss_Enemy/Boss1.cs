@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
@@ -12,6 +13,7 @@ public class Boss1 : MonoBehaviour
 
     public Transform player;
     private Animator ani;
+    public EntityFX fx { get; private set; }
 
     private Boss1Stats boss1stats => GetComponent<Boss1Stats>();
 
@@ -37,12 +39,14 @@ public class Boss1 : MonoBehaviour
 
     // PowerOff 실행 여부를 확인하는 플래그
     private bool hasPowerOffExecuted = false;
+    private bool Boss1Die = false;
 
     private void Start()
     {
         ani = GetComponent<Animator>();
         MeshTrailscript = ani.GetComponent<SpriteTrail>();
         anicontroller = GetComponent<Boss1_AnimationTrigger>();
+        fx = GetComponent<EntityFX>();
         StartCoroutine(HandleLayers());
         StartCoroutine(MeetPattern());
     }
@@ -50,17 +54,17 @@ public class Boss1 : MonoBehaviour
 
     private void Update()
     {
+        
         CheckInput();
-        if (!boss1stats.Engaging())
+        if (!boss1stats.Engaging() && !boss1stats.EmptyHealth())
         {
             CheckDistance();
         }
-        else
+        else if (boss1stats.Engaging())
         {
             Engaging();
         }
         AngleAnimation();
-
     }
 
     private void CheckInput()
@@ -81,17 +85,25 @@ public class Boss1 : MonoBehaviour
     {
         playerToBossDistance = Vector3.Distance(transform.position, player.position);
 
-        if (playerToBossDistance < 5f && !isCoroutineRunning)
+        if (playerToBossDistance < 3.5f && !isCoroutineRunning)
         {
             StartCoroutine(CloseAttack());
         }
-        else if (playerToBossDistance > 5f && playerToBossDistance < 10f && !isCoroutineRunning)
+        else if (playerToBossDistance > 3.5f && playerToBossDistance < 6f && !isCoroutineRunning)
         {
             StartCoroutine(ShotgunAttack());
         }
-        else if (playerToBossDistance > 12f && playerToBossDistance < 15f && !isCoroutineRunning)
+        else if (playerToBossDistance > 6f && playerToBossDistance < 8f && !isCoroutineRunning)
         {
             StartCoroutine(RocketAttack());
+        }
+        else if (playerToBossDistance > 12f && playerToBossDistance < 30f && !isCoroutineRunning)
+        {
+            ChangeState(BossState.Walk);
+        }
+        else if (playerToBossDistance > 30f)
+        {
+            ChangeState(BossState.Idle);
         }
     }
 
@@ -103,19 +115,31 @@ public class Boss1 : MonoBehaviour
             StartCoroutine(PowerOff());
         }
 
-        speed = 10f;
-        playerToBossDistance = Vector3.Distance(transform.position, player.position);
-        Debug.Log(isCoroutineRunning);
+        if (boss1stats.EmptyHealth() && !Boss1Die)
+        {
+            StartCoroutine(Boss1EmptyHealth());
+        }
 
-        if (playerToBossDistance < 5f && !isCoroutineRunning)
+        if (Boss1Die)
+        {
+            speed = 0f;
+        }
+        else
+        {
+            speed = 10f;
+        }
+
+        playerToBossDistance = Vector3.Distance(transform.position, player.position);
+
+        if (playerToBossDistance < 3.5f && !isCoroutineRunning)
         {
             StartCoroutine(CloseAttack());
         }
-        else if (playerToBossDistance > 5f && playerToBossDistance < 7f && !isCoroutineRunning)
+        else if (playerToBossDistance > 3.5f && playerToBossDistance < 6f && !isCoroutineRunning)
         {
             StartCoroutine(ShotgunAttack());
         }
-        else if (playerToBossDistance > 7f && !isCoroutineRunning)
+        else if (playerToBossDistance > 6f && !isCoroutineRunning)
         {
             StartCoroutine(LanceAttack());
         }
@@ -166,6 +190,15 @@ public class Boss1 : MonoBehaviour
         isCoroutineRunning = false;
     }
 
+    private IEnumerator Boss1EmptyHealth()
+    {
+        isCoroutineRunning = true;
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Boss1PowerOff);
+        ChangeState(BossState.PowerOff);
+        Boss1Die = true;
+        yield return new WaitForSeconds(99f);
+    }
+
     #region Movement
     private IEnumerator HandleLayers()
     {
@@ -178,6 +211,11 @@ public class Boss1 : MonoBehaviour
                     anicontroller.SetZeroVelocity();
                     break;
                 case BossState.Walk:
+                    if(boss1stats.EmptyHealth())
+                    {
+                        StartCoroutine(Boss1EmptyHealth());
+                        break;
+                    }
                     transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
                     ActivateLayer(LayerName.WalkLayer);
                     break;
@@ -201,6 +239,10 @@ public class Boss1 : MonoBehaviour
                     ActivateLayer(LayerName.PowerOffLayer);
                     anicontroller.SetZeroVelocity();
                     break;
+                case BossState.EmptyHealth:
+                    ActivateLayer(LayerName.PowerOffLayer);
+                    anicontroller.SetZeroVelocity();
+                    break;
             }
 
             yield return null;
@@ -209,6 +251,12 @@ public class Boss1 : MonoBehaviour
 
     public void ChangeState(BossState newState)
     {
+        if (Boss1Die)
+        {
+            currentState = BossState.PowerOff;
+            return;
+        }
+
         currentState = newState;
     }
 
@@ -371,7 +419,7 @@ public class Boss1 : MonoBehaviour
         ani.SetLayerWeight((int)layerName, 1);
     }
 
-    void AngleAnimation()
+    public void AngleAnimation()
     {
         dir = player.position - transform.position;
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -403,6 +451,11 @@ public class Boss1 : MonoBehaviour
     }
     #endregion
 
+    public void DamageEffect()
+    {
+        fx.StartCoroutine("FlashFX");
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -416,6 +469,7 @@ public class Boss1 : MonoBehaviour
                 {
                     _target.TakeDamage(30);
                     player.SetupKnockbackDir(gameObject.transform, 10f);
+                    SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_HurtSound);
                 }
             }
         }
@@ -425,5 +479,9 @@ public class Boss1 : MonoBehaviour
             collision.gameObject.GetComponent<GenerateWall>()?.BreakWall();
         }
 
+        if (collision.CompareTag("StopWall") || collision.gameObject.layer == LayerMask.NameToLayer("StopWall"))
+        {
+            anicontroller.SetZeroVelocity();
+        }
     }
 }

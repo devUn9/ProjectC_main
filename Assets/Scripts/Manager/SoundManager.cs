@@ -19,7 +19,9 @@ public class SoundManager : MonoBehaviour
         SFX_CloseAttack,
         SFX_GrenadeExplosion,
         SFX_HurtSound,
-        SFX_Boss1PowerOff
+        SFX_Boss1PowerOff,
+        SFX_WallBreak
+
     }
 
     [SerializeField] AudioClip[] bgms;
