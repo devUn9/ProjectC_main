@@ -727,6 +727,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitMat: {fileID: 2100000, guid: 0051e34bd4ce1a84591e73cdbad8e55d, type: 2}
   GravitonCharge: {fileID: 0}
+  Stun: {fileID: 2100000, guid: 0051e34bd4ce1a84591e73cdbad8e55d, type: 2}
+  EmpShock1: {fileID: 2100000, guid: 91ff24e8c485396429ee3282a4551cb1, type: 2}
+  EmpShock2: {fileID: 2100000, guid: e4337f771577b424493652cedb922f19, type: 2}
 --- !u!114 &3901746914862608064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,6 +779,7 @@ MonoBehaviour:
   gizmoAngle: 90
   sightLightAngle: 0
   gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  isSightEffectActive: 1
 --- !u!114 &8915436489679369915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,7 +823,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   maxHealth:
-    baseValue: 80
+    baseValue: 110
     modifiers: 
   armor:
     baseValue: 5
@@ -827,12 +831,9 @@ MonoBehaviour:
   empResistance:
     baseValue: 0
     modifiers: 
-  empShock:
-    baseValue: 0
-    modifiers: 
-  stun:
-    baseValue: 0
-    modifiers: 
+  empShock: 0
+  stun: 0
+  StatusSpeed: 1
   currentHealth: 0
   hpBarTransform: {fileID: 8559201496931360450}
 --- !u!114 &4614055881167369999

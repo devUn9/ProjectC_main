@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164801cb0391a85479bbca13904a30e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 0
   moveSpeed: 2
   runSpeed: 5
   isMoveX: 0
@@ -127,6 +128,7 @@ MonoBehaviour:
   gizmoAngle: 60
   sightLightAngle: 0
   gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  isSightEffectActive: 1
 --- !u!70 &8094237155955891157
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -242,12 +244,9 @@ MonoBehaviour:
   empResistance:
     baseValue: 0
     modifiers: 
-  empShock:
-    baseValue: 0
-    modifiers: 
-  stun:
-    baseValue: 0
-    modifiers: 
+  empShock: 0
+  stun: 0
+  StatusSpeed: 1
   currentHealth: 0
   hpBarTransform: {fileID: 3203565869082767483}
 --- !u!114 &3890588053624722844
@@ -262,8 +261,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc32f5f38bdbb94478839cae7e005ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitMat: {fileID: 2100000, guid: 0051e34bd4ce1a84591e73cdbad8e55d, type: 2}
+  hitMat: {fileID: 2100000, guid: 56239011cc8c2324d97d94e1a0f7d2c8, type: 2}
   GravitonCharge: {fileID: 0}
+  Stun: {fileID: 2100000, guid: 0051e34bd4ce1a84591e73cdbad8e55d, type: 2}
+  EmpShock1: {fileID: 2100000, guid: 91ff24e8c485396429ee3282a4551cb1, type: 2}
+  EmpShock2: {fileID: 2100000, guid: e4337f771577b424493652cedb922f19, type: 2}
 --- !u!114 &3097484382109891789
 MonoBehaviour:
   m_ObjectHideFlags: 0

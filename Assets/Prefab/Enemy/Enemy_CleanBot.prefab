@@ -1092,6 +1092,7 @@ MonoBehaviour:
   gizmoAngle: 90
   sightLightAngle: 0
   gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  isSightEffectActive: 1
 --- !u!114 &987072145898581738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1143,12 +1144,9 @@ MonoBehaviour:
   empResistance:
     baseValue: 0
     modifiers: 
-  empShock:
-    baseValue: 0
-    modifiers: 
-  stun:
-    baseValue: 0
-    modifiers: 
+  empShock: 0
+  stun: 0
+  StatusSpeed: 1
   currentHealth: 0
   hpBarTransform: {fileID: 3700461514401981317}
 --- !u!114 &746036141966986485
@@ -1179,8 +1177,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc32f5f38bdbb94478839cae7e005ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitMat: {fileID: 2100000, guid: 0051e34bd4ce1a84591e73cdbad8e55d, type: 2}
+  hitMat: {fileID: 2100000, guid: 56239011cc8c2324d97d94e1a0f7d2c8, type: 2}
   GravitonCharge: {fileID: 0}
+  Stun: {fileID: 2100000, guid: 0051e34bd4ce1a84591e73cdbad8e55d, type: 2}
+  EmpShock1: {fileID: 2100000, guid: 91ff24e8c485396429ee3282a4551cb1, type: 2}
+  EmpShock2: {fileID: 2100000, guid: e4337f771577b424493652cedb922f19, type: 2}
 --- !u!1 &9214318312080387352
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,7 +1207,7 @@ Transform:
   m_GameObject: {fileID: 9214318312080387352}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4200001, y: 8.22, z: -0.047554225}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
