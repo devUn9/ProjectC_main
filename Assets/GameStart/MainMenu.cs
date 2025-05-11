@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
     private IEnumerator DelayedStartGame(float delay)
     {
         yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene("Hook");
+        SceneManager.LoadScene("AITest");
     }
 
     public void OnClickBack()

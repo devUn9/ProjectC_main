@@ -28,7 +28,15 @@ public class EffectController : MonoBehaviour
 
     public void Play(Vector3 position, Quaternion rotation, float duration)
     {
-        transform.position = position;
+        Vector3 spawnPosition = position;
+
+        if (effectData.effectType == EffectType.BloodSplatterEffect)
+        {
+            Vector2 randomOffset = Random.insideUnitCircle * 0.15f;
+            spawnPosition += new Vector3(randomOffset.x, randomOffset.y, 0f);
+        }
+
+        transform.position = spawnPosition;
         transform.rotation = rotation;
 
         if (particle != null)
@@ -36,9 +44,9 @@ public class EffectController : MonoBehaviour
             particle.Play();
         }
 
-        if(spriteRenderer != null)
+        if (spriteRenderer != null)
         {
-
+          
         }
 
         gameObject.SetActive(true);
@@ -47,8 +55,6 @@ public class EffectController : MonoBehaviour
         {
             Invoke(nameof(DestroyEffect), duration);
         }
-
-
     }
 
 

@@ -16,30 +16,72 @@ public class OptionsManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        optionsPanel.SetActive(false); // 처음엔 비활성화
+
+        if (optionsPanel == null)
+        {
+            Debug.LogError("OptionsPanel is not assigned in " + gameObject.name, this);
+        }
+        else
+        {
+            optionsPanel.SetActive(false); // 처음엔 비활성화
+        }
+    }
+
+    private void Update()
+    {
+        // ESC 키로 옵션 패널 토글
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleOption();
+        }
     }
 
     public void ToggleOption()
     {
+        if (optionsPanel == null)
+        {
+            Debug.LogError("OptionsPanel is not assigned", this);
+            return;
+        }
+
         bool isOpen = !optionsPanel.activeSelf;
         optionsPanel.SetActive(isOpen);
 
         if (isOpen)
         {
-            Manager.Instance.PauseGame();
+            if (Manager.Instance != null)
+            {
+                Manager.Instance.PauseGame();
+            }
+            else
+            {
+                Debug.LogWarning("Manager.Instance is null, cannot pause game", this);
+            }
         }
         else
         {
-            Manager.Instance.ResumeGame();
+            if (Manager.Instance != null)
+            {
+                Manager.Instance.ResumeGame();
+            }
+            else
+            {
+                Debug.LogWarning("Manager.Instance is null, cannot resume game", this);
+            }
         }
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
 
-
     public void CloseOption()
     {
+        if (optionsPanel == null)
+        {
+            Debug.LogError("OptionsPanel is not assigned", this);
+            return;
+        }
+
         optionsPanel.SetActive(false);
         Time.timeScale = 1f;
         Cursor.visible = true;
