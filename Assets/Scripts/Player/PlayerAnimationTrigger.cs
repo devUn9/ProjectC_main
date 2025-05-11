@@ -20,6 +20,7 @@ public class PlayerAnimationTrigger : MonoBehaviour
 
         if (bullet != null)
         {
+            SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_LazerBullet);
             bullet.Initialize(player);
         }
         // 일정 시간 후 다시 호출 가능하도록 초기화

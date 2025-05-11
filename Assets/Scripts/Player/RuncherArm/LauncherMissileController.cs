@@ -85,6 +85,7 @@ public class LauncherMissileController : MonoBehaviour
         // 폭발 이펙트 생성
         if (explosionEffect != null)
         {
+            SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_GrenadeExplosion);
             EffectManager.Instance.PlayEffect(EffectType.GrenadeEffect, transform.position, explosionRadius * 0.8f);
         }
         else

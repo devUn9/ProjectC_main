@@ -29,6 +29,9 @@ public class LauncherArmSkill : Skill
     private void LaunchMissile()
     {
         Vector3 launchPosition = launchStartPosition.position;
+
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_LauncherArmExplosion);
+
         GameObject missile = Instantiate(launcherMissilePrefab, launchPosition, Quaternion.identity);
         LauncherMissileController missileController = missile.GetComponent<LauncherMissileController>();
         if (missileController != null)

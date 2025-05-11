@@ -71,9 +71,21 @@ public class GrenadeController : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(throwSound);
         }
 
-        // 폭발 타이머 시작
+        //// 폭발 타이머 시작
         StartCoroutine(ExplosionTimer());
-        //ExplosionTimer();
+        ////ExplosionTimer();
+        //StartCoroutine(ExplosionSmokeTimer());
+        //if (grenadeType == GrenadeType.SmokeGrenade)
+        //{
+        //    // 연막탄의 경우, 폭발 후 연막 효과 시작
+        //    StartCoroutine(ExplosionSmokeTimer());
+        //}
+        //else if (grenadeType == GrenadeType.handGrenade || grenadeType == GrenadeType.EMPGrenade)
+        //{
+        //    // EMP 수류탄의 경우, 폭발 후 EMP 효과 시작
+        //    StartCoroutine(ExplosionTimer());
+        //}
+        
     }
     private void Start()
     {
@@ -115,7 +127,8 @@ public class GrenadeController : MonoBehaviour
             if (!isSmoke)
                 return;
 
-            StartCoroutine(ExplosionSmokeTimer());
+            
+            
             smokeTime -= Time.deltaTime * TimeManager.Instance.timeScale;
             if (smokeTime > 0)
             {
@@ -176,6 +189,12 @@ public class GrenadeController : MonoBehaviour
             elapsedTime += Time.deltaTime * TimeManager.Instance.timeScale;
             yield return null; // 다음 프레임까지 대기
         }
+
+        if(grenadeType == GrenadeType.handGrenade)
+            SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_GrenadeExplosion);
+        else if (grenadeType == GrenadeType.EMPGrenade)
+            SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_EMPGrenadeExplosion);
+
         Explode();
     }
 
@@ -198,7 +217,9 @@ public class GrenadeController : MonoBehaviour
         if (hasExploded) return;
         hasExploded = true;
 
-        if (isSmoke) explosionEffectRadius = explosionRadius * 0.3f;
+        if (isSmoke) { 
+            explosionEffectRadius = explosionRadius * 0.3f;
+        }
         else explosionEffectRadius = explosionRadius;
 
         // 폭발 이펙트 재생
@@ -250,6 +271,7 @@ public class GrenadeController : MonoBehaviour
 
     private void Smoke()
     {
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_SmokeShellExplosion);
         Collider2D[] enemys = Physics2D.OverlapCircleAll(transform.position, explosionRadius, explosionLayers);
         foreach (Collider2D enemy in enemys)
         {
@@ -307,6 +329,8 @@ public class GrenadeController : MonoBehaviour
                 }
             }
         }
+
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_SmokeShellExplosion);
     }
 
     private void disappearSmoke()

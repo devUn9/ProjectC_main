@@ -111,6 +111,8 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && skill.isSandevistanUsable && skill.sandevistan.SandevistanCanUseSkill())
         {
             Debug.Log("Start Trail");
+
+            SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_SandeVistan);
             MeshTrailscript.StartTrail();
             skill.sandevistan.StartCoroutine("TimeScaleModify");
         }

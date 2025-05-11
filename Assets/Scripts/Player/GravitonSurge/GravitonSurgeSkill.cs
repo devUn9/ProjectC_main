@@ -32,6 +32,7 @@ public class GravitonSurgeSkill : Skill
         Vector3 mousePosition = Input.mousePosition;
         mousePosition.z = 2f; // 카메라와의 거리
         Vector3 targetPosition = mainCamera.ScreenToWorldPoint(mousePosition);
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_GravitonSurgeExplosion);
 
         GameObject gravitonSurge = Instantiate(GravitonSurgePrefab, launchPosition.transform.position, Quaternion.identity);
         GravitonSurgeController gravitonSurgeController = gravitonSurge.GetComponent<GravitonSurgeController>();
