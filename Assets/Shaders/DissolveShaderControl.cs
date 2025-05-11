@@ -23,11 +23,12 @@ public class DissolveShaderControl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P) && !isRunning && material != null)
         {
+            Debug.Log("Dissolve effect triggered");
             StartCoroutine(DissolveSequence());
         }
     }
 
-    private System.Collections.IEnumerator DissolveSequence()
+    public System.Collections.IEnumerator DissolveSequence()
     {
         isRunning = true;
 
@@ -38,7 +39,7 @@ public class DissolveShaderControl : MonoBehaviour
         while (timer < duration)
         {
             float t = timer / duration; // 0 → 1
-            float value = Mathf.Lerp(1f, -1f, t);
+            float value = Mathf.Lerp(1f, -0.1f, t);
             material.SetFloat("_SplitValue", value);
             timer += Time.deltaTime;
             yield return null;
@@ -51,5 +52,6 @@ public class DissolveShaderControl : MonoBehaviour
         material.SetFloat("_SplitValue", 1f);
 
         isRunning = false;
+        Debug.Log("Dissolve effect triggered End");
     }
 }

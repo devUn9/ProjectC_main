@@ -66,6 +66,8 @@ public class Enemy : MonoBehaviour
     public Animator anim { get; private set; }
     public EntityFX fx { get; private set; }
 
+    public DissolveShaderControl dissolveShader; //디졸브 쉐이더 컨트롤러
+
     public EnemyStats stats { get; private set; }
 
     public EnemyStateMachine stateMachine { get; private set; }
@@ -80,6 +82,7 @@ public class Enemy : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         fx = GetComponentInChildren<EntityFX>();
         stats = GetComponent<EnemyStats>();
+        dissolveShader = GetComponentInChildren<DissolveShaderControl>();
 
         stateMachine = new EnemyStateMachine();
         idleState = new EnemyIdleState(this, stateMachine, "Idle");
@@ -342,6 +345,11 @@ public class Enemy : MonoBehaviour
     {
         // EMP 이펙트
         StartCoroutine(fx.EmpShockFX(_duration));
+    }
+
+    public void DieShader()
+    {
+        StartCoroutine(dissolveShader.DissolveSequence());
     }
 
     public static event System.Action OnEnemyRemoved;

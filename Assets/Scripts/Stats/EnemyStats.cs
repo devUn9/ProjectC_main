@@ -50,7 +50,10 @@ public class EnemyStats : CharacterStats
     protected override void Die()
     {
         base.Die();
-        Destroy(gameObject); //적 죽을 때 오브젝트 삭제
+
+        enemy.DieShader();
+
+        Destroy(gameObject,1f); //적 죽을 때 오브젝트 삭제
         //적 죽을 때 효과 추가
     }
 

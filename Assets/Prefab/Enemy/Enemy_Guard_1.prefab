@@ -168,6 +168,7 @@ MonoBehaviour:
   sightLightAngle: 0
   gizmoColor: {r: 1, g: 0, b: 0, a: 1}
   isSightEffectActive: 1
+  dissolveShader: {fileID: 0}
 --- !u!70 &8681426177200655209
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -333,6 +334,7 @@ GameObject:
   - component: {fileID: 4876284130585357477}
   - component: {fileID: 1411427791909141326}
   - component: {fileID: 8554129280884171955}
+  - component: {fileID: 769468561574929459}
   m_Layer: 12
   m_Name: Animator
   m_TagString: Untagged
@@ -400,7 +402,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: f4c02e38c073cdc4f925808a7e245c05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -442,6 +444,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7923b3020edb01148a59c7ca886eefe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &769468561574929459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554314873220565036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a506ef7032a124aabb213156e442ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &783839858693896062

@@ -35,7 +35,7 @@ public class EnemyState
         }
         else if (enemy.isBullet)
             attackRange = enemy.gizmoRadius;
-        if (enemy.enemyType == EnemyType.Robot)
+        if (enemy.enemyType == EnemyType.Robot&&enemy.isBullet)
             attackRange = attackRange + 3f;
 
         Debug.Log("상태 진입 : " + animBoolName);
