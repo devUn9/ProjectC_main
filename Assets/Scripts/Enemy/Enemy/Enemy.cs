@@ -59,8 +59,8 @@ public class Enemy : MonoBehaviour
     private float endAngle;
 
     [Header("Sight Effect")]
+    [SerializeField] private bool isSightEffectActive = true; // 시야 이펙트 활성화 여부
     private EffectController sightEffect;
-    private bool isSightEffectActive = true; // 시야 이펙트 활성화 여부
 
     public Rigidbody2D rb { get; private set; }
     public Animator anim { get; private set; }
