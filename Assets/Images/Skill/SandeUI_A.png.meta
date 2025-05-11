@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SandeUI_A_0: -4852510561059116332
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
