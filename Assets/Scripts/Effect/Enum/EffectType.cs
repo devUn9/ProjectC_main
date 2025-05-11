@@ -16,6 +16,7 @@ public enum EffectType
     SlashEffect,
     GravitonSurgeEffect,
     GravitonSurgeExplodeEffect
+  
 
 
 }

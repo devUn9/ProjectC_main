@@ -84,7 +84,7 @@ Material:
     m_Floats:
     - _Dissolve_Amount: 0
     - _EdgeWidth: 0
-    - _GlowSize: 0.05
+    - _GlowSize: 0.1
     - _NoiseScale: 150
     - _SplitValue: 1
     m_Colors:

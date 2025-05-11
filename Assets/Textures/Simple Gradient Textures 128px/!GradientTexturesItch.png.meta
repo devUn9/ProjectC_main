@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      '!GradientTexturesItch_0': 3136705467354677692
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

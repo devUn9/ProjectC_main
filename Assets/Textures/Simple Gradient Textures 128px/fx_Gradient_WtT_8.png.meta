@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fx_Gradient_WtT_8_0: 1003709992071024781
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

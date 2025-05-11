@@ -59,7 +59,7 @@ public class EffectTest : MonoBehaviour
             {
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 mousePos.z = 0f;
-                EffectManager.Instance.PlayEffect(EffectType.GravitonSurgeExplodeEffect, mousePos, 0.2f);
+                EffectManager.Instance.PlayEffect(EffectType.BulletHitEffect, mousePos, 1f);
 
             }
 
