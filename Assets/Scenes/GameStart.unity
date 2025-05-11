@@ -3479,7 +3479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 81849747}
-  fadeDuration: 1.5
+  fadeDuration: 3
 --- !u!1 &1031663557
 GameObject:
   m_ObjectHideFlags: 0
@@ -4662,10 +4662,22 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 299136200}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1476422687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6009,7 +6021,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 1968404047}
   m_HandleRect: {fileID: 658274190}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.2
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
@@ -6168,7 +6180,7 @@ MonoBehaviour:
   - {fileID: 938776775}
   - {fileID: 582282974}
   - {fileID: 378362586}
-  fadeDuration: 0.5
+  fadeDuration: 1
   delayBetween: 0.3
 --- !u!4 &2125684570
 Transform:
