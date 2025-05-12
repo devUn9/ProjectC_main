@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
+//using static UnityEditor.PlayerSettings;
 
 public class EnemyPistolBullet : MonoBehaviour
 {

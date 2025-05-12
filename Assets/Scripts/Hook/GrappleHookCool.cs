@@ -136,7 +136,7 @@ public class GrappleHookCool : MonoBehaviour
                 StartCoroutine(Grapple(targetObject.position, false));
             }
             // 벽 그래플링 처리
-            else if (targetLayer == LayerMask.NameToLayer("Wall"))
+            else if (targetLayer == LayerMask.NameToLayer("Wall") || targetLayer == LayerMask.NameToLayer("Grappleable") )
             {
                 target = hit.point; // 벽 위치로 설정
                 StartCoroutine(Grapple(target, true));
@@ -316,7 +316,7 @@ public class GrappleHookCool : MonoBehaviour
             pullStopPosition = (Vector2)transform.position + dirToPlayer * -1f;
             StartCoroutine(Grapple(targetObject.position, false));
         }
-        else if (targetLayer == LayerMask.NameToLayer("Wall"))
+        else if (targetLayer == LayerMask.NameToLayer("Wall") || targetLayer == LayerMask.NameToLayer("Grappleable"))
         {
             target = lockedHit.point;
             StartCoroutine(Grapple(target, true));
