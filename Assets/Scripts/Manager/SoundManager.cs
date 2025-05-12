@@ -9,7 +9,10 @@ public class SoundManager : MonoBehaviour
     public enum EBgm
     {
         Bgm_StageBattle,
-        Bgm_BossBattle
+        Bgm_BossBattle,
+        Bgm_EndingCredit,
+        Bgm_City,
+        Bgm_Enterprise
     }
 
     public enum ESfx

@@ -24,14 +24,14 @@ public class Boss1 : MonoBehaviour
     private float angle;
     private Vector3 dir;
 
-
     [Header("공격관련 컴포넌트")]
     public GameObject[] FirePoints;
     public GameObject bulletPrefab;
     public GameObject[] ExplorePoints;
     public GameObject explorePrefab;
 
-
+    [Header("인스펙터 오브젝트")]
+    [SerializeField] private GameObject inspectorObject;
 
     //몬스터 패턴 관련 변수들
     private float playerToBossDistance;
@@ -51,10 +51,8 @@ public class Boss1 : MonoBehaviour
         StartCoroutine(MeetPattern());
     }
 
-
     private void Update()
     {
-        
         CheckInput();
         if (!boss1stats.Engaging() && !boss1stats.EmptyHealth())
         {
@@ -111,7 +109,7 @@ public class Boss1 : MonoBehaviour
     {
         if (!hasPowerOffExecuted && boss1stats.Engaging() && !isCoroutineRunning)
         {
-            hasPowerOffExecuted = true; // PowerOff가 한 번만 실행되도록 설정
+            hasPowerOffExecuted = true;
             StartCoroutine(PowerOff());
         }
 
@@ -196,6 +194,10 @@ public class Boss1 : MonoBehaviour
         SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Boss1PowerOff);
         ChangeState(BossState.PowerOff);
         Boss1Die = true;
+        if (inspectorObject != null)
+        {
+            inspectorObject.SetActive(true);
+        }
         yield return new WaitForSeconds(99f);
     }
 
@@ -211,7 +213,7 @@ public class Boss1 : MonoBehaviour
                     anicontroller.SetZeroVelocity();
                     break;
                 case BossState.Walk:
-                    if(boss1stats.EmptyHealth())
+                    if (boss1stats.EmptyHealth())
                     {
                         StartCoroutine(Boss1EmptyHealth());
                         break;
@@ -222,19 +224,15 @@ public class Boss1 : MonoBehaviour
                 case BossState.Fire:
                     ActivateLayer(LayerName.FireLayer);
                     break;
-
                 case BossState.Rocket:
                     ActivateLayer(LayerName.RocketLayer);
                     break;
-
                 case BossState.CloseAttack:
                     ActivateLayer(LayerName.CloseAttackLayer);
                     break;
-
                 case BossState.Lancer:
                     ActivateLayer(LayerName.LancerLayer);
                     break;
-
                 case BossState.PowerOff:
                     ActivateLayer(LayerName.PowerOffLayer);
                     anicontroller.SetZeroVelocity();
@@ -244,7 +242,6 @@ public class Boss1 : MonoBehaviour
                     anicontroller.SetZeroVelocity();
                     break;
             }
-
             yield return null;
         }
     }
@@ -256,7 +253,6 @@ public class Boss1 : MonoBehaviour
             currentState = BossState.PowerOff;
             return;
         }
-
         currentState = newState;
     }
 
@@ -271,25 +267,20 @@ public class Boss1 : MonoBehaviour
         ChangeState(BossState.Walk);
         isCoroutineRunning = false;
     }
-
     #endregion
 
     #region Attack
     private void SantanInUp()
     {
         FirePoints[0].SetActive(true);
-
-        int count = 20; // 총알 개수
-        float intervalAngle = 90f / (count - 1); // 90도(0~90도)를 총알 개수로 나눔
+        int count = 20;
+        float intervalAngle = 90f / (count - 1);
         for (int i = 0; i < count; i++)
         {
             GameObject clone = Instantiate(bulletPrefab, FirePoints[0].transform.position, Quaternion.identity);
-
-            // 90도 ~ 180도 사이의 각도 계산
             float angle = 45f + (i * intervalAngle);
             float x = Mathf.Cos(angle * Mathf.Deg2Rad);
             float y = Mathf.Sin(angle * Mathf.Deg2Rad);
-
             clone.GetComponent<Santan_Bullet>().Move(new Vector2(x, y));
         }
         SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Santan_Bullet);
@@ -303,19 +294,14 @@ public class Boss1 : MonoBehaviour
     private void SantanInDown()
     {
         FirePoints[1].SetActive(true);
-
-        int count = 20; // 총알 개수
-        float intervalAngle = 90f / (count - 1); // 90도(-90~-180도)를 총알 개수로 나눔
-
+        int count = 20;
+        float intervalAngle = 90f / (count - 1);
         for (int i = 0; i < count; i++)
         {
             GameObject clone = Instantiate(bulletPrefab, FirePoints[1].transform.position, Quaternion.identity);
-
-            // -90도 ~ -180도 사이의 각도 계산
             float angle = -45f - (i * intervalAngle);
             float x = Mathf.Cos(angle * Mathf.Deg2Rad);
             float y = Mathf.Sin(angle * Mathf.Deg2Rad);
-
             clone.GetComponent<Santan_Bullet>().Move(new Vector2(x, y));
         }
         SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Santan_Bullet);
@@ -329,19 +315,14 @@ public class Boss1 : MonoBehaviour
     private void SantanInLeft()
     {
         FirePoints[2].SetActive(true);
-
-        int count = 20; // 총알 개수
-        float intervalAngle = 90f / (count - 1); // 90도(135~225도)를 총알 개수로 나눔
-
+        int count = 20;
+        float intervalAngle = 90f / (count - 1);
         for (int i = 0; i < count; i++)
         {
             GameObject clone = Instantiate(bulletPrefab, FirePoints[2].transform.position, Quaternion.identity);
-
-            // 135도 ~ 225도 사이의 각도 계산
             float angle = 135f + (i * intervalAngle);
             float x = Mathf.Cos(angle * Mathf.Deg2Rad);
             float y = Mathf.Sin(angle * Mathf.Deg2Rad);
-
             clone.GetComponent<Santan_Bullet>().Move(new Vector2(x, y));
         }
         SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Santan_Bullet);
@@ -355,19 +336,14 @@ public class Boss1 : MonoBehaviour
     private void SantanInRight()
     {
         FirePoints[3].SetActive(true);
-
-        int count = 20; // 총알 개수
-        float intervalAngle = 90f / (count - 1); // 90도(45~135도)를 총알 개수로 나눔
-
+        int count = 20;
+        float intervalAngle = 90f / (count - 1);
         for (int i = 0; i < count; i++)
         {
             GameObject clone = Instantiate(bulletPrefab, FirePoints[3].transform.position, Quaternion.identity);
-
-            // 45도 ~ 135도 사이의 각도 계산
             float angle = -45f + (i * intervalAngle);
             float x = Mathf.Cos(angle * Mathf.Deg2Rad);
             float y = Mathf.Sin(angle * Mathf.Deg2Rad);
-
             clone.GetComponent<Santan_Bullet>().Move(new Vector2(x, y));
         }
         SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Santan_Bullet);
@@ -392,7 +368,6 @@ public class Boss1 : MonoBehaviour
         ExplorePoints[1].SetActive(false);
     }
 
-
     private void RocketInLeft()
     {
         ExplorePoints[2].SetActive(true);
@@ -406,7 +381,6 @@ public class Boss1 : MonoBehaviour
         Instantiate(explorePrefab, ExplorePoints[3].transform.position, Quaternion.identity);
         ExplorePoints[3].SetActive(false);
     }
-
     #endregion
 
     #region Animation
@@ -426,25 +400,21 @@ public class Boss1 : MonoBehaviour
 
         if (angle > -45 && angle <= 45)
         {
-            //x
             ani.SetFloat("x", 1);
             ani.SetFloat("y", 0);
         }
         else if (angle > 45 && angle <= 135)
         {
-            //y
             ani.SetFloat("x", 0);
             ani.SetFloat("y", 1);
         }
         else if (angle > 135 && angle <= 180 || angle <= -135)
         {
-            //-x
             ani.SetFloat("x", -1);
             ani.SetFloat("y", 0);
         }
         else if (angle > -135 && angle <= -45)
         {
-            //-y
             ani.SetFloat("x", 0);
             ani.SetFloat("y", -1);
         }
@@ -464,7 +434,6 @@ public class Boss1 : MonoBehaviour
             {
                 PlayerStats _target = collision.GetComponent<PlayerStats>();
                 Player player = collision.GetComponent<Player>();
-
                 if (_target != null)
                 {
                     _target.TakeDamage(30);

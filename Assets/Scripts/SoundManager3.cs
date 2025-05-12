@@ -9,8 +9,9 @@ public class SoundManager3 : MonoBehaviour
     {
         Bgm_StageBattle,
         Bgm_BossBattle,
-        Bgm_Third,
-        Bgm_Fourth
+        Bgm_City,
+        Bgm_Enterprise,
+        Bgm_Ending
     }
 
     public enum ESfx
@@ -50,7 +51,7 @@ public class SoundManager3 : MonoBehaviour
         {
             Debug.LogError("AudioBgm or AudioSfx is not assigned", this);
         }
-        if (bgms == null || bgms.Length < (int)EBgm.Bgm_Fourth + 1)
+        if (bgms == null || bgms.Length < (int)EBgm.Bgm_Ending + 1)
         {
             Debug.LogError("bgms array is not properly assigned or has insufficient clips", this);
         }
