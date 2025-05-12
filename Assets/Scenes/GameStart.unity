@@ -494,7 +494,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160613521}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -777,8 +777,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 433366131}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1102,23 +1102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7250e956af90a0646aa9b8c2e8d0b354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgms:
-  - {fileID: 8300000, guid: 09c1b3ac209ab03458db714c3f1de6af, type: 3}
-  - {fileID: 8300000, guid: d18c5020d7bb69e419d16e0f6b0bcdc7, type: 3}
-  - {fileID: 8300000, guid: d18c5020d7bb69e419d16e0f6b0bcdc7, type: 3}
-  - {fileID: 8300000, guid: d18c5020d7bb69e419d16e0f6b0bcdc7, type: 3}
-  - {fileID: 8300000, guid: d18c5020d7bb69e419d16e0f6b0bcdc7, type: 3}
-  sfxs:
-  - {fileID: 8300000, guid: aab61be5f633c4d499987f45ae3f469c, type: 3}
-  - {fileID: 8300000, guid: fc75ff3c5102b9a43bf3ceacc73a7297, type: 3}
-  - {fileID: 8300000, guid: 365f0d725e2b51043849ea4b530e5f96, type: 3}
-  - {fileID: 8300000, guid: 146938e38b9897a439bbc312b71880b4, type: 3}
-  - {fileID: 8300000, guid: d25f9ab0b469f6549a5c1cf985acea2e, type: 3}
-  - {fileID: 8300000, guid: 4b33b4afd8c09864981ac1339253c814, type: 3}
-  - {fileID: 8300000, guid: ac268722f8f2e2f4eba1b775d050e1ad, type: 3}
-  - {fileID: 8300000, guid: ac268722f8f2e2f4eba1b775d050e1ad, type: 3}
-  - {fileID: 8300000, guid: ac268722f8f2e2f4eba1b775d050e1ad, type: 3}
-  - {fileID: 8300000, guid: ac268722f8f2e2f4eba1b775d050e1ad, type: 3}
+  bgmClips: []
+  sfxClips: []
   audioBgm: {fileID: 361880064}
   audioSfx: {fileID: 361880064}
 --- !u!4 &361880066
@@ -3293,7 +3278,7 @@ RectTransform:
   m_Father: {fileID: 588070743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3642,23 +3627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7250e956af90a0646aa9b8c2e8d0b354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgms:
-  - {fileID: 8300000, guid: 09c1b3ac209ab03458db714c3f1de6af, type: 3}
-  - {fileID: 8300000, guid: d18c5020d7bb69e419d16e0f6b0bcdc7, type: 3}
-  - {fileID: 8300000, guid: d18c5020d7bb69e419d16e0f6b0bcdc7, type: 3}
-  - {fileID: 8300000, guid: d18c5020d7bb69e419d16e0f6b0bcdc7, type: 3}
-  - {fileID: 8300000, guid: d18c5020d7bb69e419d16e0f6b0bcdc7, type: 3}
-  sfxs:
-  - {fileID: 8300000, guid: aab61be5f633c4d499987f45ae3f469c, type: 3}
-  - {fileID: 8300000, guid: fc75ff3c5102b9a43bf3ceacc73a7297, type: 3}
-  - {fileID: 8300000, guid: 365f0d725e2b51043849ea4b530e5f96, type: 3}
-  - {fileID: 8300000, guid: 146938e38b9897a439bbc312b71880b4, type: 3}
-  - {fileID: 8300000, guid: d25f9ab0b469f6549a5c1cf985acea2e, type: 3}
-  - {fileID: 8300000, guid: 4b33b4afd8c09864981ac1339253c814, type: 3}
-  - {fileID: 8300000, guid: ac268722f8f2e2f4eba1b775d050e1ad, type: 3}
-  - {fileID: 8300000, guid: ac268722f8f2e2f4eba1b775d050e1ad, type: 3}
-  - {fileID: 8300000, guid: ac268722f8f2e2f4eba1b775d050e1ad, type: 3}
-  - {fileID: 8300000, guid: ac268722f8f2e2f4eba1b775d050e1ad, type: 3}
+  bgmClips: []
+  sfxClips: []
   audioBgm: {fileID: 974083703}
   audioSfx: {fileID: 974083703}
 --- !u!4 &974083705

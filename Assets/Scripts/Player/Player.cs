@@ -217,12 +217,13 @@ public class Player : MonoBehaviour
             Debug.Log("근처에 오브젝트가 없습니다.");  // 감지된 오브젝트가 없음
         }
     }
-
     public void MeleeAttack()
     {
         Vector3 checkPosition = interactionCheck.position + gizmoDirection;
         Vector2 checkPosition2D = new Vector2(checkPosition.x, checkPosition.y);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(checkPosition2D, interactionRadius, detectionEnemyLayers);
+
+        bool hitEnemy = false;
 
         foreach (Collider2D collider in colliders)
         {
@@ -231,7 +232,12 @@ public class Player : MonoBehaviour
                 isDaggerAttack = true;
                 EffectManager.Instance.PlayEffect(EffectType.SlashEffect, transform.position, 1f, rotation);
                 this.stats.DoMeleeDamage(collider.GetComponent<EnemyStats>()); // 적에게 대미지 적용
+                hitEnemy = true;
             }
+        }
+        if (hitEnemy)
+        {
+            SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_SwordAttack);
         }
     }
 

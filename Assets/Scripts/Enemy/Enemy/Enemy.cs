@@ -105,14 +105,18 @@ public class Enemy : MonoBehaviour
         anim.speed = TimeManager.Instance.timeScale;
         Debug.Log(anim.speed);
         stateMachine.currentState.Update();
+       if (isSightEffectActive && sightEffect != null)
+    {
         SetSightEffectAngle();
-
-        StartCoroutine("battleCheck");
-
         if (isBattle)
             sightEffect.SetSightColor(Color.red);
         else
             sightEffect.SetSightColor(Color.yellow);
+    }
+
+        StartCoroutine("battleCheck");
+
+       
     }
 
     public void healthCheck()

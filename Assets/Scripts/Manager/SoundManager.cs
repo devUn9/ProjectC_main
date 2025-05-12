@@ -1,6 +1,6 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Audio;
+using System;
+using System.Collections.Generic;
 
 public class SoundManager : MonoBehaviour
 {
@@ -28,21 +28,58 @@ public class SoundManager : MonoBehaviour
         SFX_EMPGrenadeExplosion,
         SFX_SmokeShellExplosion,
         SFX_LauncherArmExplosion,
-        SFX_GravitonSurgeExplosion
+        SFX_GravitonSurgeExplosion,
+        SFX_SwordAttack,
+        SFX_PlayerWalking
     }
 
-    [SerializeField] AudioClip[] bgms;
-    [SerializeField] AudioClip[] sfxs;
+    [Serializable]
+    public class BgmClip
+    {
+        public EBgm bgmType;
+        public AudioClip clip;
+        [Range(0f, 1f)] public float volume = 1f;
+    }
 
-    [SerializeField] AudioSource audioBgm;
-    [SerializeField] AudioSource audioSfx;
+    [Serializable]
+    public class SfxClip
+    {
+        public ESfx sfxType;
+        public AudioClip clip;
+        [Range(0f, 1f)] public float volume = 1f;
+    }
+
+    [Header("BGM 설정")]
+    [SerializeField] private List<BgmClip> bgmClips;
+
+    [Header("SFX 설정")]
+    [SerializeField] private List<SfxClip> sfxClips;
+
+    [SerializeField] private AudioSource audioBgm;
+    [SerializeField] private AudioSource audioSfx;
+
+    private Dictionary<EBgm, BgmClip> bgmDict;
+    private Dictionary<ESfx, SfxClip> sfxDict;
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+
+            // 초기화
+            bgmDict = new Dictionary<EBgm, BgmClip>();
+            foreach (var bgm in bgmClips)
+            {
+                bgmDict[bgm.bgmType] = bgm;
+            }
+
+            sfxDict = new Dictionary<ESfx, SfxClip>();
+            foreach (var sfx in sfxClips)
+            {
+                sfxDict[sfx.sfxType] = sfx;
+            }
         }
         else
         {
@@ -54,35 +91,33 @@ public class SoundManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(audioBgm.isPlaying)
-            {
+            if (audioBgm.isPlaying)
                 audioBgm.Pause();
-            }
             else
-            {
                 audioBgm.UnPause();
-            }
         }
-
     }
 
-    // EBgm 열거형을 매개변수로 받아 해당하는 배경 음악 클립을 재생
-    public void PlayBGM(EBgm bgmIdx)
+    public void PlayBGM(EBgm bgmType)
     {
-      	//enum int형으로 형변환 가능
-        audioBgm.clip = bgms[(int)bgmIdx];
-        audioBgm.Play();
+        if (bgmDict.TryGetValue(bgmType, out BgmClip bgm))
+        {
+            audioBgm.clip = bgm.clip;
+            // audioBgm.volume = bgm.volume; // 소리 덮어씌워서 커져버림
+            audioBgm.Play();
+        }
     }
 
-    // 현재 재생 중인 배경 음악 정지
     public void StopEBGM()
     {
         audioBgm.Stop();
     }
 
-    // ESfx 열거형을 매개변수로 받아 해당하는 효과음 클립을 재생
-    public void PlayESFX(ESfx esfx)
+    public void PlayESFX(ESfx sfxType)
     {
-        audioSfx.PlayOneShot(sfxs[(int)esfx]);
+        if (sfxDict.TryGetValue(sfxType, out SfxClip sfx))
+        {
+            audioSfx.PlayOneShot(sfx.clip, sfx.volume);
+        }
     }
 }

@@ -446,6 +446,10 @@ public class DialogueManagerTest : MonoBehaviour
             {
                 SoundManager.instance.PlayBGM(SoundManager.EBgm.Bgm_Enterprise);
             }
+            else if (currentCsvIndex == 21 || currentCsvIndex == 22)
+            {
+                SoundManager.instance.PlayBGM(SoundManager.EBgm.Bgm_BossBattle);
+            }
             else if (currentCsvIndex == 23 || currentCsvIndex == 24) // 23 또는 24인 경우 엔딩크레딧 메서드 실행
             {
                 SoundManager.instance.PlayBGM(SoundManager.EBgm.Bgm_EndingCredit);

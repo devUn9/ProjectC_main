@@ -196,7 +196,7 @@ public class GrenadeController : MonoBehaviour
         else if (grenadeType == GrenadeType.EMPGrenade)
             SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_EMPGrenadeExplosion);
         else if (grenadeType == GrenadeType.SmokeGrenade)
-            SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_GrenadeExplosion);
+            SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_SmokeShellExplosion);
 
         Explode();
     }
