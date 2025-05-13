@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
+using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.InputSystem.XR.Haptics;
 
 public class Boss1 : MonoBehaviour
 {
+    private CapsuleCollider2D cd;
     private BossState currentState = BossState.Idle;
     private Boss1_AnimationTrigger anicontroller;
     public CharacterStats stats { get; private set; }
@@ -24,6 +26,10 @@ public class Boss1 : MonoBehaviour
     private float angle;
     private Vector3 dir;
 
+    private int checkClosenum = 0;
+    private int checkFirenum = 0;
+    private int checkRocketnum = 0;
+
     [Header("공격관련 컴포넌트")]
     public GameObject[] FirePoints;
     public GameObject bulletPrefab;
@@ -40,6 +46,7 @@ public class Boss1 : MonoBehaviour
     // PowerOff 실행 여부를 확인하는 플래그
     private bool hasPowerOffExecuted = false;
     private bool Boss1Die = false;
+    private bool BasicImplant = false;
 
     private void Start()
     {
@@ -47,6 +54,7 @@ public class Boss1 : MonoBehaviour
         MeshTrailscript = ani.GetComponent<SpriteTrail>();
         anicontroller = GetComponent<Boss1_AnimationTrigger>();
         fx = GetComponent<EntityFX>();
+        cd = GetComponent<CapsuleCollider2D>();
         StartCoroutine(HandleLayers());
         StartCoroutine(MeetPattern());
     }
@@ -75,8 +83,30 @@ public class Boss1 : MonoBehaviour
 
     private IEnumerator SandeVistan()
     {
+        isCoroutineRunning = true;
+        ChangeState(BossState.Walk);
         MeshTrailscript.StartTrail();
-        yield return new WaitForSeconds(1f);
+        BasicImplant = true;
+        Vector2 movement;
+        Invoke("BasicImplantKids", 2f);
+        ani.speed = 3f;
+
+        while (BasicImplant)
+        {
+            movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            if (Input.GetKey("Horizontal") || Input.GetKey("Vertical"))
+            {
+                anicontroller.rb.linearVelocity = movement * 5f;
+            }
+        }
+        yield return null;
+    }
+
+    private void BasicImplantKids()
+    {
+        BasicImplant = false;
+        isCoroutineRunning = false;
+        ani.speed = 1f;
     }
 
     private void CheckDistance()
@@ -87,15 +117,15 @@ public class Boss1 : MonoBehaviour
         {
             StartCoroutine(CloseAttack());
         }
-        else if (playerToBossDistance > 3.5f && playerToBossDistance < 6f && !isCoroutineRunning)
+        else if (playerToBossDistance > 3.5f && playerToBossDistance < 6f && !isCoroutineRunning && checkFirenum != 2)
         {
             StartCoroutine(ShotgunAttack());
         }
-        else if (playerToBossDistance > 6f && playerToBossDistance < 8f && !isCoroutineRunning)
+        else if (playerToBossDistance > 6f && playerToBossDistance < 8f && !isCoroutineRunning && checkRocketnum != 2)
         {
             StartCoroutine(RocketAttack());
         }
-        else if (playerToBossDistance > 12f && playerToBossDistance < 30f && !isCoroutineRunning)
+        else if (playerToBossDistance > 12f && playerToBossDistance < 30f && !isCoroutineRunning && checkClosenum == 0)
         {
             ChangeState(BossState.Walk);
         }
@@ -147,6 +177,9 @@ public class Boss1 : MonoBehaviour
     {
         isCoroutineRunning = true;
         ChangeState(BossState.CloseAttack);
+        checkFirenum = 0;
+        checkRocketnum = 0;
+        checkClosenum++;
         yield return new WaitForSeconds(1.2f);
         isCoroutineRunning = false;
         ChangeState(BossState.Walk);
@@ -156,6 +189,7 @@ public class Boss1 : MonoBehaviour
     {
         isCoroutineRunning = true;
         ChangeState(BossState.Fire);
+        checkFirenum++;
         yield return new WaitForSeconds(2f);
         ChangeState(BossState.Walk);
         isCoroutineRunning = false;
@@ -165,6 +199,7 @@ public class Boss1 : MonoBehaviour
     {
         isCoroutineRunning = true;
         ChangeState(BossState.Rocket);
+        checkRocketnum++;
         yield return new WaitForSeconds(2.5f);
         ChangeState(BossState.Walk);
         isCoroutineRunning = false;
@@ -182,10 +217,12 @@ public class Boss1 : MonoBehaviour
     public IEnumerator PowerOff()
     {
         isCoroutineRunning = true;
+        cd.enabled = false;
         SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Boss1PowerOff);
         ChangeState(BossState.PowerOff);
         yield return new WaitForSeconds(5f);
         isCoroutineRunning = false;
+        cd.enabled = true;
     }
 
     private IEnumerator Boss1EmptyHealth()
@@ -194,11 +231,11 @@ public class Boss1 : MonoBehaviour
         SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Boss1PowerOff);
         ChangeState(BossState.PowerOff);
         Boss1Die = true;
+        yield return new WaitForSeconds(6f);
         if (inspectorObject != null)
         {
             inspectorObject.SetActive(true);
         }
-        yield return new WaitForSeconds(99f);
     }
 
     #region Movement
@@ -222,15 +259,30 @@ public class Boss1 : MonoBehaviour
                     ActivateLayer(LayerName.WalkLayer);
                     break;
                 case BossState.Fire:
+                    if (boss1stats.EmptyHealth())
+                    {
+                        StartCoroutine(Boss1EmptyHealth());
+                        break;
+                    }
                     ActivateLayer(LayerName.FireLayer);
                     break;
                 case BossState.Rocket:
                     ActivateLayer(LayerName.RocketLayer);
                     break;
                 case BossState.CloseAttack:
+                    if (boss1stats.EmptyHealth())
+                    {
+                        StartCoroutine(Boss1EmptyHealth());
+                        break;
+                    }
                     ActivateLayer(LayerName.CloseAttackLayer);
                     break;
                 case BossState.Lancer:
+                    if (boss1stats.EmptyHealth())
+                    {
+                        StartCoroutine(Boss1EmptyHealth());
+                        break;
+                    }
                     ActivateLayer(LayerName.LancerLayer);
                     break;
                 case BossState.PowerOff:
@@ -248,11 +300,6 @@ public class Boss1 : MonoBehaviour
 
     public void ChangeState(BossState newState)
     {
-        if (Boss1Die)
-        {
-            currentState = BossState.PowerOff;
-            return;
-        }
         currentState = newState;
     }
 
@@ -437,8 +484,7 @@ public class Boss1 : MonoBehaviour
                 if (_target != null)
                 {
                     _target.TakeDamage(30);
-                    player.SetupKnockbackDir(gameObject.transform, 10f);
-                    SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_HurtSound);
+                    player.SetupKnockbackDir(gameObject.transform, 5f);
                 }
             }
         }

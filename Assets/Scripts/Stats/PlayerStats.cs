@@ -17,7 +17,7 @@ public class PlayerStats : CharacterStats
         hpBarOriginalScale = hpBarTransform.localScale;
     }
 
-    
+
     protected override void Start()
     {
         base.Start();
@@ -29,6 +29,7 @@ public class PlayerStats : CharacterStats
         base.TakeDamage(_damage);
         player.DamageEffect();
         EffectManager.Instance.PlayEffect(EffectType.BloodSplatterEffect, transform.position, 1f);
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_HurtSound);
         StartCoroutine(ScaleHPBar());
         //추가 데미지 받을 때 효과 추가
     }
@@ -42,10 +43,14 @@ public class PlayerStats : CharacterStats
 
     private IEnumerator Recovery()
     {
-        while(true)
+        while (true)
         {
-            if(currentHealth < maxHealth.GetValue())
+            if (currentHealth < maxHealth.GetValue())
+            {
                 currentHealth += RecoveryHealth;
+                if(currentHealth > maxHealth.GetValue())
+                    currentHealth = maxHealth.GetValue();
+            }
             
             yield return new WaitForSeconds(1f);
         }

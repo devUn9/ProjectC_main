@@ -43,7 +43,6 @@ public class Boss1_AnimationTrigger : MonoBehaviour
 
                 if (_target != null)
                 {
-                    SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_HurtSound);
                     _target.TakeDamage(CloseAttackDamage);
                     player.SetupKnockbackDir(gameObject.transform, closeattackknockbackforce);
                 }
@@ -67,7 +66,6 @@ public class Boss1_AnimationTrigger : MonoBehaviour
 
                 if (_target != null)
                 {
-                    SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_HurtSound);
                     _target.TakeDamage(CloseAttackDamage);
                     player.SetupKnockbackDir(gameObject.transform, closeattackknockbackforce);
                 }
@@ -91,7 +89,6 @@ public class Boss1_AnimationTrigger : MonoBehaviour
 
                 if (_target != null)
                 {
-                    SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_HurtSound);
                     _target.TakeDamage(CloseAttackDamage);
                     player.SetupKnockbackDir(gameObject.transform, closeattackknockbackforce);
                 }
@@ -115,7 +112,6 @@ public class Boss1_AnimationTrigger : MonoBehaviour
 
                 if (_target != null)
                 {
-                    SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_HurtSound);
                     _target.TakeDamage(CloseAttackDamage);
                     player.SetupKnockbackDir(gameObject.transform, closeattackknockbackforce);
                 }
@@ -199,7 +195,7 @@ public class Boss1_AnimationTrigger : MonoBehaviour
     {
         if (boss1stats.Engaging())
         {
-            LancingPower = 0.1f;
+            LancingPower = 0.3f;
         }
 
         if(boss1stats.EmptyHealth())
