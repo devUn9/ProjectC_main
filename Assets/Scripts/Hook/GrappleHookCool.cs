@@ -101,48 +101,50 @@ public class GrappleHookCool : MonoBehaviour
     }
 
     // 그래플링 훅 발사 메서드
-    private void StartGrapple()
-    {
-        Vector2 origin = transform.position;
-        Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = (mouseWorldPos - origin).normalized;
+    //private void StartGrapple()
+    //{
+    //    Vector2 origin = transform.position;
+    //    Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    //    Vector2 direction = (mouseWorldPos - origin).normalized;
 
-        RaycastHit2D hit = Physics2D.Raycast(origin, direction, maxDistance, grapplableMask);
+    //    RaycastHit2D hit = Physics2D.Raycast(origin, direction, maxDistance, grapplableMask);
 
-        if (hit.collider != null)
-        {
-            isGrappling = true;
-            line.enabled = true;
-            line.positionCount = 2;
+    //    if (hit.collider != null)
+    //    {
+    //        isGrappling = true;
+    //        line.enabled = true;
+    //        line.positionCount = 2;
 
-            int targetLayer = hit.collider.gameObject.layer;
+    //        int targetLayer = hit.collider.gameObject.layer;
 
-            // 오브젝트 그래플링 처리
-            if (targetLayer == LayerMask.NameToLayer("Obj") || targetLayer == LayerMask.NameToLayer("Enemy"))
-            {
-                targetObject = hit.collider.transform;
+    //        // 오브젝트 그래플링 처리
+    //        if (targetLayer == LayerMask.NameToLayer("Obj") || targetLayer == LayerMask.NameToLayer("Enemy"))
+    //        {
+    //            if (hit.collider.gameObject.CompareTag("Wall"))
+    //                return;
+    //            targetObject = hit.collider.transform;
 
-                // 플레이어와 오브젝트 충돌 무시 설정
-                Collider2D playerCol = GetComponentInParent<Collider2D>();
-                Collider2D targetCol = targetObject.GetComponent<Collider2D>();
+    //            // 플레이어와 오브젝트 충돌 무시 설정
+    //            Collider2D playerCol = GetComponentInParent<Collider2D>();
+    //            Collider2D targetCol = targetObject.GetComponent<Collider2D>();
 
-                if (playerCol && targetCol)
-                    Physics2D.IgnoreCollision(playerCol, targetCol, true);
+    //            if (playerCol && targetCol)
+    //                Physics2D.IgnoreCollision(playerCol, targetCol, true);
 
-                // 플레이어 앞 1f 지점으로 끌어올 위치 계산
-                Vector2 dirToPlayer = ((Vector2)transform.position - (Vector2)targetObject.position).normalized;
-                pullStopPosition = (Vector2)transform.position + dirToPlayer * -1f;
+    //            // 플레이어 앞 1f 지점으로 끌어올 위치 계산
+    //            Vector2 dirToPlayer = ((Vector2)transform.position - (Vector2)targetObject.position).normalized;
+    //            pullStopPosition = (Vector2)transform.position + dirToPlayer * -1f;
 
-                StartCoroutine(Grapple(targetObject.position, false));
-            }
-            // 벽 그래플링 처리
-            else if (targetLayer == LayerMask.NameToLayer("Wall") || targetLayer == LayerMask.NameToLayer("Grappleable") )
-            {
-                target = hit.point; // 벽 위치로 설정
-                StartCoroutine(Grapple(target, true));
-            }
-        }
-    }
+    //            StartCoroutine(Grapple(targetObject.position, false));
+    //        }
+    //        // 벽 그래플링 처리
+    //        else if (targetLayer == LayerMask.NameToLayer("Wall") || targetLayer == LayerMask.NameToLayer("Grappleable") || targetLayer == LayerMask.NameToLayer("SightEffect"))
+    //        {
+    //            target = hit.point; // 벽 위치로 설정
+    //            StartCoroutine(Grapple(target, true));
+    //        }
+    //    }
+    //}
 
     // 플레이어가 벽으로 끌려가는 처리
     private void HandlePlayerRetract()
@@ -316,7 +318,7 @@ public class GrappleHookCool : MonoBehaviour
             pullStopPosition = (Vector2)transform.position + dirToPlayer * -1f;
             StartCoroutine(Grapple(targetObject.position, false));
         }
-        else if (targetLayer == LayerMask.NameToLayer("Wall") || targetLayer == LayerMask.NameToLayer("Grappleable"))
+        else if (targetLayer == LayerMask.NameToLayer("Wall") || targetLayer == LayerMask.NameToLayer("Grappleable") || targetLayer == LayerMask.NameToLayer("SightEffect")) // 임시 벽낑기기 막기
         {
             target = lockedHit.point;
             StartCoroutine(Grapple(target, true));

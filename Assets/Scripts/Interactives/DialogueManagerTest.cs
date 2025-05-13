@@ -21,8 +21,12 @@ public class DialogueManagerTest : MonoBehaviour
     [SerializeField] private Image sadEndingImage;   // Sad Ending UI 이미지
     [SerializeField] private EndingCredit endingCredit; // EndingCredit 컴포넌트 참조
 
-    [SerializeField] private float typingSpeed = 0.3f; // 글자당 표시 간격 (초)
+    [SerializeField] private float typingSpeed = 0.1f; // 글자당 표시 간격 (초)
     private string fullText = "과거 . . ."; // 표시할 전체 텍스트
+
+    // 디졸브 효과 관련 변수
+    private Material illustrationMaterial2;
+    private bool isDissolving = false;
 
     private List<DialogueTest> dialogues = new List<DialogueTest>();
     private List<Sprite> illustrations = new List<Sprite>();
@@ -36,6 +40,7 @@ public class DialogueManagerTest : MonoBehaviour
     [SerializeField] private float inputCooldown = 1f;
     [SerializeField] private float noInputThreshold = 5f;
     [SerializeField] private float backgroundTransitionDuration = 1f; // 배경 전환 시간 (Inspector에서 조정 가능)
+    [SerializeField] private float dissolveSpeed = 1f; // 디졸브 효과 속도 (Inspector에서 조정 가능)
     private bool isBlinking = false;
     private Animator playerAnimator; // 플레이어의 Animator 컴포넌트
 
@@ -87,6 +92,21 @@ public class DialogueManagerTest : MonoBehaviour
             {
                 Debug.LogWarning("DialogueManagerTest에 플레이어 오브젝트가 지정되지 않았습니다.", this);
             }
+
+            // 캐릭터 일러스트레이션2의 머티리얼 설정
+            if (characterIllustration2 != null)
+            {
+                // 일러스트레이션의 머티리얼 복제하여 사용
+                illustrationMaterial2 = new Material(characterIllustration2.material);
+                characterIllustration2.material = illustrationMaterial2;
+
+                // 초기 _SplitValue 설정
+                illustrationMaterial2.SetFloat("_SplitValue", 1f);
+            }
+            else
+            {
+                Debug.LogWarning("characterIllustration2가 지정되지 않았습니다.", this);
+            }
         }
         catch (System.Exception ex)
         {
@@ -108,6 +128,21 @@ public class DialogueManagerTest : MonoBehaviour
             {
                 lastInputTime = Time.unscaledTime;
                 StopBlinking();
+
+                // 마지막 대화이고, 특정 일러스트(10, 11, 12)를 사용 중인 경우 디졸브 효과 적용
+                if (currentDialogueIndex == dialogues.Count - 1)
+                {
+                    DialogueTest current = dialogues[currentDialogueIndex];
+                    if (current.illustrationIndex2 == 10 || current.illustrationIndex2 == 11 || current.illustrationIndex2 == 12)
+                    {
+                        if (!isDissolving)
+                        {
+                            StartCoroutine(DissolveEffect());
+                            return; // 디졸브 효과가 진행되는 동안은 대화 넘기기를 중단
+                        }
+                    }
+                }
+
                 NextDialogue();
             }
         }
@@ -277,6 +312,12 @@ public class DialogueManagerTest : MonoBehaviour
             {
                 characterIllustration2.sprite = illustrations[current.illustrationIndex2];
                 characterIllustration2.enabled = true;
+
+                // 디졸브 초기화 (새 대화마다)
+                if (illustrationMaterial2 != null)
+                {
+                    illustrationMaterial2.SetFloat("_SplitValue", 1f);
+                }
             }
             else
             {
@@ -359,8 +400,6 @@ public class DialogueManagerTest : MonoBehaviour
                     pastText.enabled = true;
                 }
             }
-            // csvIndex가 24인 경우 player.skill.isGravity에 따라 Happy/Sad Ending 처리
-            
 
             // 게임 일시정지 및 플레이어 애니메이션 비활성화
             Time.timeScale = 0f;
@@ -416,73 +455,58 @@ public class DialogueManagerTest : MonoBehaviour
             dialogueUI.SetActive(false);
             StopBlinking();
 
-            
+            switch (currentCsvIndex)
+            {
+                case 16:
+                case 17:
+                    StartDialogue(18);
+                    return;
 
-            // csvIndex가 16 또는 17인 경우, csvIndex 18을 자동 재생
-            if (currentCsvIndex == 16 || currentCsvIndex == 17)
-            {
-                StartDialogue(18);
-                return; // StartDialogue에서 나머지 처리가 이루어지므로 HERE서 종료
-            }
-
-            // csvIndex가 18인 경우, 배경 색상을 원래대로 복구하고 "과거" 텍스트 비활성화
-            if (currentCsvIndex == 18)
-            {
-                if (dialogueBackground != null)
-                {
-                    StartCoroutine(TransitionBackgroundColor(originalBackgroundColor));
-                }
-                if (pastText != null)
-                {
-                    pastText.enabled = false;
-                }
-            }
-            else if(currentCsvIndex == 6)
-            {
-                SoundManager.instance.PlayBGM(SoundManager.EBgm.Bgm_City);
-            }
-
-            else if (currentCsvIndex == 10)
-            {
-                SoundManager.instance.PlayBGM(SoundManager.EBgm.Bgm_Enterprise);
-            }
-            else if (currentCsvIndex == 21 || currentCsvIndex == 22)
-            {
-                SoundManager.instance.PlayBGM(SoundManager.EBgm.Bgm_BossBattle);
-            }
-            else if (currentCsvIndex == 23 || currentCsvIndex == 24) // 23 또는 24인 경우 엔딩크레딧 메서드 실행
-            {
-                SoundManager.instance.PlayBGM(SoundManager.EBgm.Bgm_EndingCredit);
-                endingCredit.StartScrolling();
-                if (player != null && player.skill != null)
-                {
-                    if (!player.skill.isGravitonUsable)
+                case 18:
+                    if (dialogueBackground != null)
                     {
-                        if (happyEndingImage != null)
+                        StartCoroutine(TransitionBackgroundColor(originalBackgroundColor));
+                    }
+                    if (pastText != null)
+                    {
+                        pastText.enabled = false;
+                    }
+                    break;
+
+                case 0:
+                    SoundManager.instance.PlayBGM(SoundManager.EBgm.Bgm_StageBattle);
+                    break;
+
+                case 6:
+                    SoundManager.instance.PlayBGM(SoundManager.EBgm.Bgm_City);
+                    break;
+
+                case 10:
+                    SoundManager.instance.PlayBGM(SoundManager.EBgm.Bgm_Enterprise);
+                    break;
+
+                case 21:
+                case 22:
+                    SoundManager.instance.PlayBGM(SoundManager.EBgm.Bgm_BossBattle);
+                    break;
+
+                case 23:
+                case 24:
+                    SoundManager.instance.PlayBGM(SoundManager.EBgm.Bgm_EndingCredit);
+                    endingCredit.StartScrolling();
+
+                    if (player != null && player.skill != null)
+                    {
+                        if (!player.skill.isGravitonUsable)
                         {
                             happyEndingImage.gameObject.SetActive(true);
                         }
                         else
                         {
-                            Debug.LogWarning("happyEndingImage가 지정되지 않았습니다.");
-                        }
-                    }
-                    else
-                    {
-                        if (sadEndingImage != null)
-                        {
                             sadEndingImage.gameObject.SetActive(true);
                         }
-                        else
-                        {
-                            Debug.LogWarning("sadEndingImage가 지정되지 않았습니다.");
-                        }
                     }
-                }
-                else
-                {
-                    Debug.LogWarning("플레이어 또는 Skill이 지정되지 않았습니다.", player);
-                }
+                    break;
             }
 
             // 게임 재개 및 플레이어 애니메이션 활성화
@@ -496,6 +520,43 @@ public class DialogueManagerTest : MonoBehaviour
         {
             Debug.LogError($"EndDialogue 오류: {ex.Message}");
         }
+    }
+
+    // 디졸브 효과 코루틴
+    IEnumerator DissolveEffect()
+    {
+        if (illustrationMaterial2 == null)
+        {
+            Debug.LogWarning("일러스트레이션 머티리얼이 없습니다.");
+            NextDialogue();
+            yield break;
+        }
+
+        Debug.Log("디졸브 효과 시작");
+        isDissolving = true;
+
+        float duration = dissolveSpeed;
+        float timer = 0f;
+
+        // 1초 동안 1 → -0.1로 선형 감소
+        while (timer < duration)
+        {
+            float t = timer / duration; // 0 → 1
+            float value = Mathf.Lerp(1f, -0.1f, t);
+            illustrationMaterial2.SetFloat("_SplitValue", value);
+            timer += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        illustrationMaterial2.SetFloat("_SplitValue", -0.1f);
+
+        //// 잠시 대기 후 효과 종료
+        //yield return new WaitForSecondsRealtime(1f);
+
+        // 다음 대화로 이동
+        isDissolving = false;
+        Debug.Log("디졸브 효과 종료");
+        NextDialogue();
     }
 
     void StartBlinking()

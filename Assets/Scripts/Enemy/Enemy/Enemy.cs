@@ -356,12 +356,12 @@ public class Enemy : MonoBehaviour
         StartCoroutine(dissolveShader.DissolveSequence());
     }
 
-    public static event System.Action OnEnemyRemoved;
-    private void OnDestroy()
-    {
-        // 몬스터가 파괴되거나 비활성화될 때 이벤트 발생
-        OnEnemyRemoved?.Invoke();
-    }
+    //public static event System.Action OnEnemyRemoved;
+    //private void OnDestroy()
+    //{
+    //    // 몬스터가 파괴되거나 비활성화될 때 이벤트 발생
+    //    OnEnemyRemoved?.Invoke();
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

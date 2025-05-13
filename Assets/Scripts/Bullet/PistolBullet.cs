@@ -43,6 +43,7 @@ public class PistolBullet : MonoBehaviour
         int layer = collision.gameObject.layer;
         EnemyStats _target = collision.GetComponent<EnemyStats>();
         Boss1Stats _targetboss = collision.GetComponent<Boss1Stats>();
+        TreasureStats _targetTreasure = collision.GetComponent<TreasureStats>();
         if (layer == LayerMask.NameToLayer("Enemy"))
         {
             player.stats.DoBulletDamage(_target);
@@ -50,6 +51,10 @@ public class PistolBullet : MonoBehaviour
         if (collision.CompareTag("Boss1"))
         {
             player.stats.DoBulletDamage(_targetboss);
+        }
+        if (layer == LayerMask.NameToLayer("Treasure"))
+        {
+            player.stats.DoBulletDamage(_targetTreasure);
         }
         Debug.Log("총알 파괴");
         EffectManager.Instance.PlayEffect(EffectType.BulletHitEffect, transform.position, 0.15f);

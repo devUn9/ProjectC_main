@@ -162,19 +162,13 @@ public class Portal3 : MonoBehaviour
             {
                 inactiveMinimapGFX.SetActive(false);
             }
-            else
-            {
-                Debug.LogWarning("Minimap_Portal_Red_GFX 오브젝트를 자식에서 찾을 수 없습니다.", this);
-            }
+            
 
             if (activeMinimapGFX != null)
             {
                 activeMinimapGFX.SetActive(true);
             }
-            else
-            {
-                Debug.LogWarning("Minimap_Portal_Green_GFX 오브젝트를 자식에서 찾을 수 없습니다.", this);
-            }
+           
         }
         else
         {
@@ -183,28 +177,17 @@ public class Portal3 : MonoBehaviour
             {
                 spriteRenderer.material = inactiveMaterial;
             }
-            else
-            {
-                Debug.LogWarning("Inactive Material이 지정되지 않았습니다.", this);
-            }
 
             if (inactiveMinimapGFX != null)
             {
                 inactiveMinimapGFX.SetActive(true);
             }
-            else
-            {
-                Debug.LogWarning("Minimap_Portal_Red_GFX 오브젝트를 자식에서 찾을 수 없습니다.", this);
-            }
-
+           
             if (activeMinimapGFX != null)
             {
                 activeMinimapGFX.SetActive(false);
             }
-            else
-            {
-                Debug.LogWarning("Minimap_Portal_Green_GFX 오브젝트를 자식에서 찾을 수 없습니다.", this);
-            }
+            
         }
     }
 
