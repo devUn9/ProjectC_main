@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerMoveState : PlayerState
+public class PlayerMoveState : PlayerGroundState
 {
     public PlayerMoveState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) 
         : base(_player, _stateMachine, _animBoolName)
@@ -11,6 +11,7 @@ public class PlayerMoveState : PlayerState
     public override void Enter()
     {
         base.Enter();
+
         if (stateInputVec.x != 0 || stateInputVec.y != 0)
             player.daggerAttackDir = stateInputVec.normalized;
     }

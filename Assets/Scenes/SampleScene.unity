@@ -712,22 +712,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7250e956af90a0646aa9b8c2e8d0b354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgms:
-  - {fileID: 8300000, guid: 09c1b3ac209ab03458db714c3f1de6af, type: 3}
-  - {fileID: 8300000, guid: d18c5020d7bb69e419d16e0f6b0bcdc7, type: 3}
-  sfxs:
-  - {fileID: 8300000, guid: aab61be5f633c4d499987f45ae3f469c, type: 3}
-  - {fileID: 8300000, guid: fc75ff3c5102b9a43bf3ceacc73a7297, type: 3}
-  - {fileID: 8300000, guid: 365f0d725e2b51043849ea4b530e5f96, type: 3}
-  - {fileID: 8300000, guid: 86c9d38aaf63e7e44b99a79acfaf7348, type: 3}
-  - {fileID: 8300000, guid: d25f9ab0b469f6549a5c1cf985acea2e, type: 3}
-  - {fileID: 8300000, guid: 4b33b4afd8c09864981ac1339253c814, type: 3}
-  - {fileID: 8300000, guid: ac268722f8f2e2f4eba1b775d050e1ad, type: 3}
-  - {fileID: 8300000, guid: 83aa4aa275834ba4ea73ec46bcc1855a, type: 3}
-  - {fileID: 8300000, guid: 301cef3deefd12a4e8d3a4da3a3f7a4d, type: 3}
-  - {fileID: 8300000, guid: 0ff6a56f8d54e1e47afbdb8c3ea168ea, type: 3}
-  - {fileID: 8300000, guid: e78f3a41fee1daa4c84d3726b61646fb, type: 3}
-  - {fileID: 8300000, guid: 1daf6d66fba3c3e4c964624b87f11af3, type: 3}
+  bgmClips: []
+  sfxClips: []
   audioBgm: {fileID: 199089338}
   audioSfx: {fileID: 199089338}
 --- !u!4 &259065651 stripped
@@ -2237,6 +2223,7 @@ MonoBehaviour:
   rotation: {x: 0, y: 0, z: 0, w: 0}
   daggerAttackEffectPrefab: {fileID: 4733931811651730748, guid: 1502907c5165b2b46b0fe9cf06bdb1f5, type: 3}
   invisibility: 0
+  remainingSkillAnimation: 0
 --- !u!114 &1153940920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3972,8 +3959,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a479da51921194bb97448f81150f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLauncherArmUsable: 0
-  isGravitonUsable: 0
+  isLauncherArmUsable: 1
+  isGravitonUsable: 1
   isSandevistanUsable: 1
   playerStats: {fileID: 0}
 --- !u!114 &1941670147
@@ -4005,7 +3992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4137af4229962cc4bb4a665031c1b416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 5
+  cooldown: 2
   cooldownTimer: 0
   GravitonSurgePrefab: {fileID: 7653803981557188543, guid: c399676b65766a246a715410bf43f286, type: 3}
   launchPosition: {fileID: 1078722124}
@@ -4021,7 +4008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca0448b2dd73c244f90dca3ebf0e3426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 5
+  cooldown: 2
   cooldownTimer: 0
   sandevistanDuration: 3
 --- !u!1 &1968330476

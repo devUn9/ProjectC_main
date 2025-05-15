@@ -103,7 +103,7 @@ public class Enemy : MonoBehaviour
     public virtual void Update()
     {
         anim.speed = TimeManager.Instance.timeScale;
-        Debug.Log(anim.speed);
+        //Debug.Log(anim.speed);
         stateMachine.currentState.Update();
        if (isSightEffectActive && sightEffect != null)
     {

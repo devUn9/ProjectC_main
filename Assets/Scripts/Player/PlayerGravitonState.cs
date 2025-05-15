@@ -9,15 +9,18 @@ public class PlayerGravitonState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        //player.skill.gravitonSurge.RangeActive(true);
     }
     public override void Update()
     {
-        player.ChargeEffect();
         base.Update();
+        player.ChargeEffect();
+        player.SetVelocity(0, 0);
+        player.remainingSkillAnimation = 0.34f;
+
         if (Input.GetKeyUp(KeyCode.E))
         {
             player.transform.position -= PlayerToMousePosVec().normalized * 0.4f;
+
             stateMachine.ChangeState(player.idleState);
         }
 
@@ -27,6 +30,5 @@ public class PlayerGravitonState : PlayerState
     public override void Exit()
     {
         base.Exit();
-        //player.skill.gravitonSurge.RangeActive(false);
     }
 }

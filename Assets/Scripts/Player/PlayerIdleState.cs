@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 
-public class PlayerIdleState : PlayerState
+public class PlayerIdleState : PlayerGroundState
 {
     public PlayerIdleState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName)
         : base(_player, _stateMachine, _animBoolName)
@@ -11,13 +11,11 @@ public class PlayerIdleState : PlayerState
     public override void Enter()
     {
         base.Enter();
-
         if (player.attackStatusRemainTime > 0)
             SetAnimDirection(player.finalAttackInputVec);
-        else if (player.beforeState == "daggerAttack")
+        else if (player.beforeState.Equals("daggerAttack"))
         {
             Debug.Log("beforeState : " + player.beforeState);
-            //SetAnimDirection(player.daggerAttackDir);
             SetAnimDirection(player.lastDirection);
         }
         else
@@ -25,22 +23,27 @@ public class PlayerIdleState : PlayerState
             Debug.Log("move:lastDirection : " + lastDirection);
             SetAnimDirection(lastDirection);
         }
-
+        
     }
 
     public override void Update()
     {
         base.Update();
-        if(player.beforeState == "daggerAttack")
-            //SetAnimDirection(player.daggerAttackDir);
+        if (player.beforeState.Equals("daggerAttack"))
             SetAnimDirection(player.lastDirection);
-        player.SetVelocity(0,0);
+
+        // 이동
+        if (stateInputVec.x != 0 || stateInputVec.y != 0)
+        {
+            lastDirection = stateInputVec.normalized;
+            stateMachine.ChangeState(player.moveState);
+        }
     }
 
     public override void Exit()
     {
         base.Exit();
-        if (player.beforeState == "daggerAttack")
+        if (player.beforeState.Equals("daggerAttack"))
             player.beforeState = "Idle";
     }
 }

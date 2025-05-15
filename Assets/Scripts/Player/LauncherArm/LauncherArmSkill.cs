@@ -16,7 +16,8 @@ public class LauncherArmSkill : Skill
     {
         base.Update();
         
-        if (Input.GetKeyUp(KeyCode.Q)&& getInProcess)
+        //if (Input.GetKeyUp(KeyCode.Q) && getInProcess)
+        if (getInProcess)
         {
             if (!CanUseSkill())
                 return;

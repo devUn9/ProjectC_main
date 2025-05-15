@@ -11,8 +11,8 @@ public class Player : MonoBehaviour
     [Header("Move Info")]
     public float moveSpeed = 5f;
 
-    public Vector3 finalAttackInputVec;
-    private Vector3 inputVector;
+    public Vector3 finalAttackInputVec;     //공격의 입력방향 저장
+    private Vector3 inputVector;            //이동 입력값
     private Vector2 knockbackDir;
     public bool isKnocked;
 
@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     [Header("Interaction Info")]
     [SerializeField] protected Transform interactionCheck;   // 상호작용 체크 위치의 기준점
     [SerializeField] private Vector3 interactionDistance;    // 상호작용 거리 설정값
-    public float interactionRadius;        // 상호작용 감지 반경
+    public float interactionRadius;                          // 상호작용 감지 반경
     [SerializeField] private Vector2 raycastDirection;       // 레이캐스트 방향
     [SerializeField] private LayerMask detectionEnemyLayers; // Enemy 레이어 설정
     public Vector2 lastDirection;                           // 마지막으로 이동한 방향 저장
@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
     public bool invisibility = false;
 
     private float KnockbackForce;
+
+    public float remainingSkillAnimation;   //스킬 애니매이션 동작 시간
 
 
     public SkillManager skill { get; private set; }

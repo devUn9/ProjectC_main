@@ -15,14 +15,19 @@ public class PlayerLauncherArmState : PlayerState
     public override void Update()
     {
         base.Update();
+        player.SetVelocity(0, 0);
 
-        player.attackStateTimer = 0.4f;
-        player.attackStatusRemainTime = 0.5f;
+        Vector3 dir = PlayerToMousePosVec();
+        SetAnimDirection(dir);
+        player.remainingSkillAnimation = 0.625f;
+
         if (triggerCalled)
         {
             SetFinalAttkInputVec();
             stateMachine.ChangeState(player.idleState);
         }
+        
+        
     }
     public override void Exit()
     {
