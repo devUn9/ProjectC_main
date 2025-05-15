@@ -27,7 +27,7 @@ public class EnemyStats : CharacterStats
         enemy.DamageEffect();
         if (enemy.enemyType == EnemyType.Human)
             EffectManager.Instance.PlayEffect(EffectType.BloodSplatterEffect, transform.position, 1f);
-        
+
         StartCoroutine(ScaleHPBar());
         //데미지 받을 때 효과 추가
     }
@@ -54,16 +54,19 @@ public class EnemyStats : CharacterStats
     {
         base.Die();
 
-        if(enemy.enemyType == EnemyType.Robot) {
+        if (enemy.enemyType == EnemyType.Robot)
+        {
             EffectManager.Instance.PlayEffect(EffectType.GrenadeEffect, transform.position, 0.5f);
+            SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_GrenadeExplosion);
             Destroy(gameObject);
         }
         else if (enemy.enemyType == EnemyType.Human)
         {
+            SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_MonsterDie);
             enemy.DieShader();
             enemy.stats.StatusSpeed = 0f;
         }
-        Destroy(gameObject,1f); //적 죽을 때 오브젝트 삭제
+        Destroy(gameObject, 1f); //적 죽을 때 오브젝트 삭제
         //적 죽을 때 효과 추가
     }
 

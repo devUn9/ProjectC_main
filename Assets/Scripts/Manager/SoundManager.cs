@@ -30,7 +30,8 @@ public class SoundManager : MonoBehaviour
         SFX_LauncherArmExplosion,
         SFX_GravitonSurgeExplosion,
         SFX_SwordAttack,
-        SFX_PlayerWalking
+        SFX_PlayerWalking,
+        SFX_MonsterDie
     }
 
     [Serializable]
