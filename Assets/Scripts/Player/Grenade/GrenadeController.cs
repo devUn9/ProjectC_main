@@ -71,22 +71,8 @@ public class GrenadeController : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(throwSound);
         }
 
-
-        //// 폭발 타이머 시작
+        // 폭발 타이머 시작
         StartCoroutine(ExplosionTimer());
-        ////ExplosionTimer();
-        //StartCoroutine(ExplosionSmokeTimer());
-        //if (grenadeType == GrenadeType.SmokeGrenade)
-        //{
-        //    // 연막탄의 경우, 폭발 후 연막 효과 시작
-        //    StartCoroutine(ExplosionSmokeTimer());
-        //}
-        //else if (grenadeType == GrenadeType.handGrenade || grenadeType == GrenadeType.EMPGrenade)
-        //{
-        //    // EMP 수류탄의 경우, 폭발 후 EMP 효과 시작
-        //    StartCoroutine(ExplosionTimer());
-        //}
-        
     }
     private void Start()
     {
@@ -127,8 +113,6 @@ public class GrenadeController : MonoBehaviour
         {
             if (!isSmoke)
                 return;
-
-            
             
             smokeTime -= Time.deltaTime * TimeManager.Instance.timeScale;
             if (smokeTime > 0)
@@ -168,6 +152,8 @@ public class GrenadeController : MonoBehaviour
         if (normalizedTime >= 1f)
         {
             transform.position = targetPosition;
+            if (grenadeType == GrenadeType.SmokeGrenade)
+                SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_SmokeShellExplosion);
         }
     }
 
@@ -184,6 +170,11 @@ public class GrenadeController : MonoBehaviour
     {
         float elapsedTime = 0f;
 
+        if (grenadeType == GrenadeType.SmokeGrenade)
+        {
+            explosionDelay += 1f;
+        }
+
         while (elapsedTime < explosionDelay)
         {
             // 현재 시간 스케일에 따라 경과 시간 계산
@@ -195,24 +186,9 @@ public class GrenadeController : MonoBehaviour
             SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_GrenadeExplosion);
         else if (grenadeType == GrenadeType.EMPGrenade)
             SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_EMPGrenadeExplosion);
-        else if (grenadeType == GrenadeType.SmokeGrenade)
-            SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_SmokeShellExplosion);
 
         Explode();
     }
-
-    private IEnumerator ExplosionSmokeTimer()
-    {
-        float elapsedTime = 0f;
-
-        while (elapsedTime < explosionDelay)
-        {
-            // 현재 시간 스케일에 따라 경과 시간 계산
-            elapsedTime += Time.deltaTime * TimeManager.Instance.timeScale;
-            yield return null; // 다음 프레임까지 대기
-        }
-    }
-
 
     // 폭발 함수
     private void Explode()
@@ -220,7 +196,8 @@ public class GrenadeController : MonoBehaviour
         if (hasExploded) return;
         hasExploded = true;
 
-        if (isSmoke) { 
+        if (isSmoke)
+        {
             explosionEffectRadius = explosionRadius * 0.3f;
         }
         else explosionEffectRadius = explosionRadius;
@@ -239,37 +216,60 @@ public class GrenadeController : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
-            // 데미지를 줄 수 있는 컴포넌트가 있는지 확인
-            Enemy enemy = collider.GetComponent<Enemy>();
-            EnemyStats _target = enemy.GetComponent<EnemyStats>();
-            if (_target != null)
+            if (collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
-                // 거리에 따른 데미지 계산
-                //float distance = Vector2.Distance(transform.position, collision.transform.position);
-                //float damagePercent = 1f - Mathf.Clamp01(distance / explosionRadius);
-                //int damage = Mathf.RoundToInt(damagePercent * 100f); // 최대 100 데미지
-                if (isShock && enemy.enemyType == EnemyType.Robot)
+                // 데미지를 줄 수 있는 컴포넌트가 있는지 확인
+                Enemy enemy = collider.GetComponent<Enemy>();
+                EnemyStats _target = enemy.GetComponent<EnemyStats>();
+                if (_target != null)
                 {
-                    Instantiate(empEffect, enemy.transform.position, Quaternion.identity);
-                    playerStats.DoEmpGrenadeDamage(_target, empShockDuration);
+                    // 거리에 따른 데미지 계산
+                    //float distance = Vector2.Distance(transform.position, collision.transform.position);
+                    //float damagePercent = 1f - Mathf.Clamp01(distance / explosionRadius);
+                    //int damage = Mathf.RoundToInt(damagePercent * 100f); // 최대 100 데미지
+                    if (isShock && enemy.enemyType == EnemyType.Robot)
+                    {
+                        Instantiate(empEffect, enemy.transform.position, Quaternion.identity);
+                        playerStats.DoEmpGrenadeDamage(_target, empShockDuration);
+                    }
+                    else if (!isSmoke)
+                    {
+                        playerStats.DoGrenadeDamage(_target);
+                    }
                 }
-                else if(!isSmoke)
-                {
-                    playerStats.DoGrenadeDamage(_target);
-                }
-            }
-            //// 물리 효과가 있는 오브젝트 밀어내기
-            //Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
-            //if (rb != null)
-            //{
-            //    Vector2 direction = enemy.transform.position - transform.position;
-            //    float distance = Mathf.Max(0.1f, direction.magnitude);
-            //    float forceFactor = 1f - Mathf.Clamp01(distance / explosionRadius);
+                //// 물리 효과가 있는 오브젝트 밀어내기
+                //Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
+                //if (rb != null)
+                //{
+                //    Vector2 direction = enemy.transform.position - transform.position;
+                //    float distance = Mathf.Max(0.1f, direction.magnitude);
+                //    float forceFactor = 1f - Mathf.Clamp01(distance / explosionRadius);
 
-            //    rb.AddForce(direction.normalized * explosionForce * forceFactor, ForceMode2D.Impulse);
-            //}
+                //    rb.AddForce(direction.normalized * explosionForce * forceFactor, ForceMode2D.Impulse);
+                //}
+            }
+            else if (collider.gameObject.layer == LayerMask.NameToLayer("Boss1"))
+            {
+                // 데미지를 줄 수 있는 컴포넌트가 있는지 확인
+                Boss1 boss = collider.GetComponent<Boss1>();
+                Boss1Stats _target = boss.GetComponent<Boss1Stats>();
+                if (_target != null)
+                {
+                    if (isShock)
+                    {
+                        Instantiate(empEffect, boss.transform.position, Quaternion.identity);
+                        playerStats.DoEmpGrenadeDamage(_target, empShockDuration);
+                    }
+                    else if (!isSmoke)
+                    {
+                        playerStats.DoGrenadeDamage(_target);
+                    }
+                }
+
+
+            }
+            Destroy(gameObject, disappearTime);
         }
-        Destroy(gameObject, disappearTime);
     }
 
     private void Smoke()
@@ -365,7 +365,6 @@ public class GrenadeController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
-        //Gizmos.DrawWireSphere(transform.position, explosionRadius + 0.5f);
     }
 
 }

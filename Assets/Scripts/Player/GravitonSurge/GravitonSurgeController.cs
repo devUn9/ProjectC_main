@@ -8,8 +8,7 @@ public class GravitonSurgeController : MonoBehaviour
     public float gravitonSurgeSpeed;    // 중력파의 속도
     public Vector2 direction;           // 중력파의 방향
     [SerializeField] private GameObject explodeEffectPrefab; // 중력파 이펙트 프리팹
-                                                           // 
-    public LayerMask enemyLayer;    // 적 레이어
+                                                          
     public float disappearDelay;    // 중력파가 사라지기까지의 시간
 
     [Header("Sound")]

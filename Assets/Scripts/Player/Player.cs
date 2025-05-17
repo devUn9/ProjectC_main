@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
     [Header("Melee Attack Info")]
     public bool isDaggerAttack = false;
     public Quaternion rotation;
+    public Transform playerCenter;
     [SerializeField] private GameObject daggerAttackEffectPrefab;
 
     public bool invisibility = false;
@@ -90,6 +91,7 @@ public class Player : MonoBehaviour
         skill = SkillManager.instance;
         skill.Initialize(stats);
         stateMachine.Initialize(idleState);
+        playerCenter = transform;
     }
 
     protected void Update()
@@ -221,16 +223,45 @@ public class Player : MonoBehaviour
     }
     public void MeleeAttack()
     {
-        Vector3 checkPosition = interactionCheck.position + gizmoDirection;
+        Vector3 checkPosition = transform.position + gizmoDirection;
         Vector2 checkPosition2D = new Vector2(checkPosition.x, checkPosition.y);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(checkPosition2D, interactionRadius, detectionEnemyLayers);
-
         bool hitEnemy = false;
+
+        // Wall layer
+        int wallLayer = LayerMask.NameToLayer("Wall");
 
         foreach (Collider2D collider in colliders)
         {
-            if (collider.GetComponent<Enemy>())
+            Enemy enemy = collider.GetComponent<Enemy>();
+            if (enemy)
             {
+                Vector2 enemyCenter = collider.bounds.center;
+
+                // 플레이어에서 적까지 경로상의 모든 콜라이더 검출
+                RaycastHit2D[] hits = Physics2D.LinecastAll(playerCenter.position, enemyCenter);
+
+                // 디버그용
+                Debug.DrawLine(checkPosition, enemyCenter, Color.black, 0.5f);
+
+                bool wallBlocking = false;
+
+                // 플레이어와 적 사이에 벽이 있는지 확인
+                foreach (RaycastHit2D hit in hits)
+                {
+                    if (hit.collider.gameObject.layer == wallLayer)
+                    {
+                        wallBlocking = true;
+                        break;
+                    }
+                }
+
+                if (wallBlocking)
+                {
+                    continue;
+                }
+
+                // 벽에 막히지 않은 경우 공격 진행
                 isDaggerAttack = true;
                 EffectManager.Instance.PlayEffect(EffectType.SlashEffect, transform.position, 1f, rotation);
                 this.stats.DoMeleeDamage(collider.GetComponent<EnemyStats>()); // 적에게 대미지 적용
