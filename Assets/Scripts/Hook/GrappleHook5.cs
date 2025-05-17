@@ -10,7 +10,7 @@ public class GrappleHook5 : MonoBehaviour
     [SerializeField] LayerMask grapplableMask;   // 그래플링 가능한 오브젝트의 레이어 마스크
     [SerializeField] float maxDistance = 10f;     // 그래플링 최대 거리
     [SerializeField] float grappleSpeed = 10f;    // 끌려오는 속도 (플레이어나 오브젝트)
-    [SerializeField] float grappleShootSpeed = 20f; // 훅 발사 속도 (현재 미사용)
+    //[SerializeField] float grappleShootSpeed = 20f; // 훅 발사 속도 (현재 미사용)
 
     private bool isGrappling = false;             // 그래플링 중인지 여부
 
@@ -38,6 +38,16 @@ public class GrappleHook5 : MonoBehaviour
 
     private enum LookDirection { Up, Down, Left, Right }
     [SerializeField] private Animator animator;  // Hooke에서 Animator를 연결
+
+    // 파티클 관련 부분
+    public GameObject EndVFX;
+    public GameObject StartVFX;
+    private Vector2 grapplePoint; // 정확한 충돌 위치
+
+    // 사인 파형 로프 액션 부분
+    [SerializeField][Range(0.01f, 4)] private float startWaveSize = 2f; // 파형 크기 조정 변수
+    [SerializeField][Range(1, 50)] private float ropeProgressionSpeed = 5f; // 로프가 뻗는 속도
+    [SerializeField][Range(2, 100)] private int ropeResolution = 20; // LineRenderer 점 수
 
     private void Start()
     {
@@ -136,8 +146,9 @@ public class GrappleHook5 : MonoBehaviour
     {
         // 로프 시각화 갱신
         transform.parent.position = Vector2.MoveTowards(transform.parent.position, target, grappleSpeed * Time.deltaTime);
-        line.SetPosition(0, transform.position);
-        line.SetPosition(1, target);
+        //line.SetPosition(0, transform.position);
+        //line.SetPosition(1, target);
+        DrawStraightRope(transform.position, target); // 사인파 제거 후 직선 로프 유지
 
         // 목표 지점 도착 시 종료
         if (Vector2.Distance(transform.parent.position, target) < 0.5f)
@@ -165,8 +176,10 @@ public class GrappleHook5 : MonoBehaviour
         targetObject.position = Vector2.MoveTowards(targetObject.position, pullStopPosition, grappleSpeed * Time.deltaTime);
 
         // 로프 시각화 갱신
-        line.SetPosition(0, transform.position);
-        line.SetPosition(1, targetObject.position);
+        //line.SetPosition(0, transform.position);
+        //line.SetPosition(1, targetObject.position);
+
+        DrawStraightRope(transform.position, targetObject.position); // 직선 라인 유지
 
         // 도착 시 판정 처리
         if (Vector2.Distance(targetObject.position, pullStopPosition) < 0.1f || retractTimer > 3f)
@@ -208,6 +221,8 @@ public class GrappleHook5 : MonoBehaviour
         line.enabled = false;
         targetObject = null;
         retractTimer = 0f;
+        StopAllParticles(StartVFX);
+        //StopAllParticles(EndVFX);
     }
 
     // 훅 발사 애니메이션 코루틴
@@ -215,30 +230,57 @@ public class GrappleHook5 : MonoBehaviour
     {
         FaceDirection(targetPosition);
 
-        float t = 0f;
-        float time = 0.2f;
+        PlayAllParticles(StartVFX);
 
         line.enabled = true;
-        line.positionCount = 2;
+        line.positionCount = ropeResolution;
 
-        line.SetPosition(0, transform.position);
-        line.SetPosition(1, transform.position);
+        float time = 0f;
+        Vector2 startPoint = transform.position;
+        Vector2 direction = (targetPosition - startPoint).normalized;
+        float totalDistance = Vector2.Distance(startPoint, targetPosition);
 
-        while (t < time)
+        while (time < 1f)
         {
-            t += grappleShootSpeed * Time.deltaTime;
-            Vector2 newPos = Vector2.Lerp(transform.position, targetPosition, t / time);
-            line.SetPosition(1, newPos);
+            time += Time.deltaTime * ropeProgressionSpeed;
+            float progress = Mathf.Clamp01(time);
+
+            for (int i = 0; i < ropeResolution; i++)
+            {
+                float delta = (float)i / (ropeResolution - 1);
+                Vector2 pointOnRope = Vector2.Lerp(startPoint, targetPosition, delta * progress);
+
+                // 사인파 offset 계산 (오른쪽 수직 방향으로 물결)
+                Vector2 normal = new Vector2(-direction.y, direction.x);
+                float wave = Mathf.Sin(delta * Mathf.PI * 2f * 2f) * startWaveSize * (1f - progress); // 점점 작아지게
+
+                line.SetPosition(i, pointOnRope + normal * wave);
+            }
+
             yield return null;
         }
 
-        line.SetPosition(1, targetPosition);
+        // 도착 후 직선으로 고정
+        for (int i = 0; i < ropeResolution; i++)
+        {
+            float delta = (float)i / (ropeResolution - 1);
+            Vector2 pos = Vector2.Lerp(startPoint, targetPosition, delta);
+            line.SetPosition(i, pos);
+        }
+
+        if (EndVFX != null)
+        {
+            EndVFX.transform.position = grapplePoint;
+            PlayAllParticles(EndVFX);
+        }
 
         if (isPlayerMoving)
             isRetractingPlayer = true;
         else
             isRetractingObject = true;
     }
+
+
 
     // 적 오브젝트 기절 효과 코루틴
     IEnumerator StunObject(Transform obj)
@@ -295,12 +337,14 @@ public class GrappleHook5 : MonoBehaviour
         if (targetLayer == LayerMask.NameToLayer("Obj") || targetLayer == LayerMask.NameToLayer("Enemy"))
         {
             targetObject = lockedHit.collider.transform;
+            grapplePoint = targetObject.position;
             Vector2 dirToPlayer = ((Vector2)transform.position - (Vector2)targetObject.position).normalized;
             pullStopPosition = (Vector2)transform.position + dirToPlayer * -1f;
             StartCoroutine(Grapple(targetObject.position, false));
         }
         else if (targetLayer == LayerMask.NameToLayer("Wall"))
         {
+            grapplePoint = lockedHit.point;
             target = lockedHit.point;
             StartCoroutine(Grapple(target, true));
         }
@@ -365,4 +409,40 @@ public class GrappleHook5 : MonoBehaviour
         }
         isSpeedBoosting = false;
     }
+
+    // 이펙트 재생 함수
+    private void PlayAllParticles(GameObject vfxRoot)
+    {
+        if (vfxRoot == null) return;
+
+        ParticleSystem[] particles = vfxRoot.GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem ps in particles)
+        {
+            ps.Play();
+        }
+    }
+
+    // 도착 시 이펙트 재생 정지
+    private void StopAllParticles(GameObject vfxRoot)
+    {
+        if (vfxRoot == null) return;
+
+        ParticleSystem[] particles = vfxRoot.GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem ps in particles)
+        {
+            ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        }
+    }
+
+    // 사인 파형 로프 그리기 
+    private void DrawStraightRope(Vector2 from, Vector2 to)
+    {
+        for (int i = 0; i < ropeResolution; i++)
+        {
+            float delta = (float)i / (ropeResolution - 1);
+            Vector2 pos = Vector2.Lerp(from, to, delta);
+            line.SetPosition(i, pos);
+        }
+    }
+
 }
