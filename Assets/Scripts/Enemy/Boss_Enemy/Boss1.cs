@@ -1,52 +1,34 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using NUnit.Framework;
-using UnityEditor.Callbacks;
 using UnityEngine;
-using UnityEngine.InputSystem.XR.Haptics;
 
 public class Boss1 : MonoBehaviour
 {
     private CapsuleCollider2D cd;
-    private BossState currentState = BossState.Idle;
     private Boss1_AnimationTrigger anicontroller;
-    public CharacterStats stats { get; private set; }
-
-    public Transform player;
     private Animator ani;
     public EntityFX fx { get; private set; }
-
-    private Boss1Stats boss1stats => GetComponent<Boss1Stats>();
-
     public SpriteTrail MeshTrailscript { get; private set; }
 
     [Header("움직임 관련 변수들")]
     [SerializeField] private float speed = 5f;
     private float angle;
     private Vector3 dir;
-
     private int checkClosenum = 0;
     private int checkFirenum = 0;
     private int checkRocketnum = 0;
-
-    [Header("공격관련 컴포넌트")]
-    public GameObject[] FirePoints;
-    public GameObject bulletPrefab;
-    public GameObject[] ExplorePoints;
-    public GameObject explorePrefab;
-
-    [Header("인스펙터 오브젝트")]
-    [SerializeField] private GameObject inspectorObject;
-
-    //몬스터 패턴 관련 변수들
     private float playerToBossDistance;
     private bool isCoroutineRunning = false;
-
-    // PowerOff 실행 여부를 확인하는 플래그
     private bool hasPowerOffExecuted = false;
     private bool Boss1Die = false;
     private bool BasicImplant = false;
+
+    //상태 변환 관련
+    private BossState currentState = BossState.Idle;
+    private Boss1Stats boss1stats => GetComponent<Boss1Stats>();
+
+    [Header("인스펙터 오브젝트")]
+    [SerializeField] private GameObject inspectorObject;
 
     private void Start()
     {
@@ -56,7 +38,6 @@ public class Boss1 : MonoBehaviour
         fx = GetComponent<EntityFX>();
         cd = GetComponent<CapsuleCollider2D>();
         StartCoroutine(HandleLayers());
-        StartCoroutine(MeetPattern());
     }
 
     private void Update()
@@ -111,7 +92,7 @@ public class Boss1 : MonoBehaviour
 
     private void CheckDistance()
     {
-        playerToBossDistance = Vector3.Distance(transform.position, player.position);
+        playerToBossDistance = Vector3.Distance(transform.position, anicontroller.player.position);
 
         if (playerToBossDistance < 3.5f && !isCoroutineRunning)
         {
@@ -157,7 +138,7 @@ public class Boss1 : MonoBehaviour
             speed = 10f;
         }
 
-        playerToBossDistance = Vector3.Distance(transform.position, player.position);
+        playerToBossDistance = Vector3.Distance(transform.position, anicontroller.player.position);
 
         if (playerToBossDistance < 3.5f && !isCoroutineRunning)
         {
@@ -255,7 +236,7 @@ public class Boss1 : MonoBehaviour
                         StartCoroutine(Boss1EmptyHealth());
                         break;
                     }
-                    transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, anicontroller.player.position, speed * Time.deltaTime);
                     ActivateLayer(LayerName.WalkLayer);
                     break;
                 case BossState.Fire:
@@ -302,132 +283,6 @@ public class Boss1 : MonoBehaviour
     {
         currentState = newState;
     }
-
-    public IEnumerator MeetPattern()
-    {
-        isCoroutineRunning = true;
-        ChangeState(BossState.Lancer);
-        yield return new WaitForSeconds(3.5f);
-        ChangeState(BossState.Idle);
-        anicontroller.LancerOutRight();
-        yield return new WaitForSeconds(0.1f);
-        ChangeState(BossState.Walk);
-        isCoroutineRunning = false;
-    }
-    #endregion
-
-    #region Attack
-    private void SantanInUp()
-    {
-        FirePoints[0].SetActive(true);
-        int count = 20;
-        float intervalAngle = 90f / (count - 1);
-        for (int i = 0; i < count; i++)
-        {
-            GameObject clone = Instantiate(bulletPrefab, FirePoints[0].transform.position, Quaternion.identity);
-            float angle = 45f + (i * intervalAngle);
-            float x = Mathf.Cos(angle * Mathf.Deg2Rad);
-            float y = Mathf.Sin(angle * Mathf.Deg2Rad);
-            clone.GetComponent<Santan_Bullet>().Move(new Vector2(x, y));
-        }
-        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Santan_Bullet);
-    }
-
-    private void SantanOutUp()
-    {
-        FirePoints[0].SetActive(false);
-    }
-
-    private void SantanInDown()
-    {
-        FirePoints[1].SetActive(true);
-        int count = 20;
-        float intervalAngle = 90f / (count - 1);
-        for (int i = 0; i < count; i++)
-        {
-            GameObject clone = Instantiate(bulletPrefab, FirePoints[1].transform.position, Quaternion.identity);
-            float angle = -45f - (i * intervalAngle);
-            float x = Mathf.Cos(angle * Mathf.Deg2Rad);
-            float y = Mathf.Sin(angle * Mathf.Deg2Rad);
-            clone.GetComponent<Santan_Bullet>().Move(new Vector2(x, y));
-        }
-        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Santan_Bullet);
-    }
-
-    private void SantanOutDown()
-    {
-        FirePoints[1].SetActive(false);
-    }
-
-    private void SantanInLeft()
-    {
-        FirePoints[2].SetActive(true);
-        int count = 20;
-        float intervalAngle = 90f / (count - 1);
-        for (int i = 0; i < count; i++)
-        {
-            GameObject clone = Instantiate(bulletPrefab, FirePoints[2].transform.position, Quaternion.identity);
-            float angle = 135f + (i * intervalAngle);
-            float x = Mathf.Cos(angle * Mathf.Deg2Rad);
-            float y = Mathf.Sin(angle * Mathf.Deg2Rad);
-            clone.GetComponent<Santan_Bullet>().Move(new Vector2(x, y));
-        }
-        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Santan_Bullet);
-    }
-
-    private void SantanOutLeft()
-    {
-        FirePoints[2].SetActive(false);
-    }
-
-    private void SantanInRight()
-    {
-        FirePoints[3].SetActive(true);
-        int count = 20;
-        float intervalAngle = 90f / (count - 1);
-        for (int i = 0; i < count; i++)
-        {
-            GameObject clone = Instantiate(bulletPrefab, FirePoints[3].transform.position, Quaternion.identity);
-            float angle = -45f + (i * intervalAngle);
-            float x = Mathf.Cos(angle * Mathf.Deg2Rad);
-            float y = Mathf.Sin(angle * Mathf.Deg2Rad);
-            clone.GetComponent<Santan_Bullet>().Move(new Vector2(x, y));
-        }
-        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Santan_Bullet);
-    }
-
-    private void SantanOutRight()
-    {
-        FirePoints[3].SetActive(false);
-    }
-
-    private void RocketInUp()
-    {
-        ExplorePoints[0].SetActive(true);
-        Instantiate(explorePrefab, ExplorePoints[0].transform.position, Quaternion.identity);
-        ExplorePoints[0].SetActive(false);
-    }
-
-    private void RocketInDown()
-    {
-        ExplorePoints[1].SetActive(true);
-        Instantiate(explorePrefab, ExplorePoints[1].transform.position, Quaternion.identity);
-        ExplorePoints[1].SetActive(false);
-    }
-
-    private void RocketInLeft()
-    {
-        ExplorePoints[2].SetActive(true);
-        Instantiate(explorePrefab, ExplorePoints[2].transform.position, Quaternion.identity);
-        ExplorePoints[2].SetActive(false);
-    }
-
-    private void RocketInRight()
-    {
-        ExplorePoints[3].SetActive(true);
-        Instantiate(explorePrefab, ExplorePoints[3].transform.position, Quaternion.identity);
-        ExplorePoints[3].SetActive(false);
-    }
     #endregion
 
     #region Animation
@@ -442,7 +297,7 @@ public class Boss1 : MonoBehaviour
 
     public void AngleAnimation()
     {
-        dir = player.position - transform.position;
+        dir = anicontroller.player.position - transform.position;
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
         if (angle > -45 && angle <= 45)
