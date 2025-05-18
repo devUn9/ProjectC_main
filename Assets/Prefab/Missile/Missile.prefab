@@ -109,7 +109,7 @@ MonoBehaviour:
   explosionDelay: 2
   explosionLayers:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 1052672
   explosionEffect: {fileID: 6192724089161036641, guid: dcd25752d8e4ddb49a57ef2721919f74, type: 3}
   launchSound: {fileID: 0}
   explosionSound: {fileID: 0}

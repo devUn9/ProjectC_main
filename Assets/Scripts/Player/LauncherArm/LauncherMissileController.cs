@@ -103,13 +103,25 @@ public class LauncherMissileController : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, explosionLayers);
         foreach (Collider2D collider in colliders)
         {
-            // 적에게 대미지 적용
-            Enemy enemy = collider.GetComponent<Enemy>();
-            EnemyStats _target = enemy.GetComponent<EnemyStats>();
-            if (enemy != null)
+            if(collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
-                playerStats.DoLauncherDamage(_target); // 대미지 값 설정
+                // 적에게 대미지 적용
+                Enemy enemy = collider.GetComponent<Enemy>();
+                EnemyStats _target = enemy.GetComponent<EnemyStats>();
+                if (enemy != null)
+                {
+                    playerStats.DoLauncherDamage(_target); // 대미지 값 설정
+                }
+            }else if(collider.gameObject.layer == LayerMask.NameToLayer("Boss1"))
+            {
+                Boss1 boss = collider.GetComponent<Boss1>();
+                Boss1Stats _target = boss.GetComponent<Boss1Stats>();
+                if (boss != null)
+                {
+                    playerStats.DoLauncherDamage(_target); // 대미지 값 설정
+                }
             }
+            
         }
 
         Destroy(gameObject);
@@ -120,12 +132,7 @@ public class LauncherMissileController : MonoBehaviour
         if (collision == null)
             return;
 
-        int layer = collision.gameObject.layer;
-
-        if (layer == LayerMask.NameToLayer("Enemy"))
-        {
-            ExplodeMissile();
-        }
+        ExplodeMissile();
     }
 
     public Vector3 MousePosition()

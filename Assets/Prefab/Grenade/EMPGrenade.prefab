@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   grenadeType: 2
   explosionLayers:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 1052672
   playerLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -115,6 +115,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   disappearTime: 0.1
+  empShockDuration: 2
+  stunDuration: 2
   empEffect: {fileID: 6407756152839174129, guid: a803b6ea2a3fde345bcbf4d8ca3199e1, type: 3}
   stunEffect: {fileID: 3494847482070717206, guid: c232d4eaa0a78eb4dabdf144f1933b2b, type: 3}
   throwSound: {fileID: 0}

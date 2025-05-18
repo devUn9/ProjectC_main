@@ -38,7 +38,7 @@ public class GravitonExplodeController : MonoBehaviour
 
         foreach (Collider2D collision in collisions)
         {
-            if (collision.GetComponent<Enemy>())
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
                 Enemy enemy = collision.GetComponent<Enemy>();
                 EnemyStats enemyStats = enemy.GetComponent<EnemyStats>();
@@ -46,6 +46,16 @@ public class GravitonExplodeController : MonoBehaviour
                 {
                     playerStats.DoGravitonSurgeDamage(enemyStats);
                     // 적에게 데미지 적용
+                }
+            }
+            else if (collision.gameObject.layer == LayerMask.NameToLayer("Boss1"))
+            {
+                Boss1 boss = collision.GetComponent<Boss1>();
+                Boss1Stats bossStats = boss.GetComponent<Boss1Stats>();
+                if (bossStats != null)
+                {
+                    playerStats.DoGravitonSurgeDamage(bossStats);
+                    // 보스에게 데미지 적용
                 }
             }
         }
