@@ -104,7 +104,8 @@ public class SoundManager : MonoBehaviour
         if (bgmDict.TryGetValue(bgmType, out BgmClip bgm))
         {
             audioBgm.clip = bgm.clip;
-            // audioBgm.volume = bgm.volume; // 소리 덮어씌워서 커져버림
+            audioBgm.volume = bgm.volume; // 소리 덮어씌워서 커져버림
+            audioBgm.loop = true; // 루프 설정
             audioBgm.Play();
         }
     }

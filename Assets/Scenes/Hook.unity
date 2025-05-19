@@ -38342,8 +38342,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.009616852
-        value: 1
+        time: 0
+        value: 0.99264705
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -38411,7 +38411,6 @@ MonoBehaviour:
     m_Bits: 4360
   maxDistance: 10
   grappleSpeed: 20
-  grappleShootSpeed: 30
   itemCount: 0
   isRetractingPlayer: 0
   isRetractingObject: 0
