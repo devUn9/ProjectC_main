@@ -8,7 +8,6 @@ public class SkillUIManager : MonoBehaviour
     [SerializeField] private Image[] skillIcons;
     [SerializeField] private Image[] cooldownFills;
     [SerializeField] private TMP_Text[] cooldownTexts;
-    // 추가: 스킬 아이콘 캔버스 배열
     [SerializeField] private Canvas[] skillIconCanvases;
 
     [Header("Debug")]
@@ -16,6 +15,7 @@ public class SkillUIManager : MonoBehaviour
 
     private Skill[] skills;
     private float[] previousCooldownTimers;
+    private int[] skillIndexMap; // UI 인덱스를 스킬 인덱스에 매핑: [0, 0, 0, 1, 2, 3]
 
     void Start()
     {
@@ -43,6 +43,7 @@ public class SkillUIManager : MonoBehaviour
     {
         Debug.Log("[SkillUIManager] Initializing skills...");
 
+        // 실제 스킬 배열 (4개)
         skills = new Skill[]
         {
             skillManager.grenade,
@@ -51,28 +52,24 @@ public class SkillUIManager : MonoBehaviour
             skillManager.sandevistan
         };
 
-        for (int i = 0; i < skills.Length; i++)
-        {
-            string skillName = (skills[i] != null) ? skills[i].GetType().Name : "NULL";
-            Debug.Log($"[SkillUIManager] Skill {i}: {skillName}");
-        }
+        // UI 슬롯과 스킬 인덱스 매핑 (6개 UI 슬롯)
+        skillIndexMap = new int[] { 0, 0, 0, 1, 2, 3 }; // 첫 3개는 grenade (인덱스 0)
 
-        // 배열 길이 검증에 skillIconCanvases 추가
-        if (skills.Length != skillIcons.Length || skills.Length != cooldownFills.Length ||
-            skills.Length != cooldownTexts.Length || skills.Length != skillIconCanvases.Length)
+        // 배열 길이 검증
+        if (skillIcons.Length != 6 || cooldownFills.Length != 6 || cooldownTexts.Length != 6 || skillIconCanvases.Length != 6)
         {
-            Debug.LogError($"[SkillUIManager] CRITICAL ERROR: UI arrays and skill array lengths do not match! Skills: {skills.Length}, Icons: {skillIcons.Length}, Fills: {cooldownFills.Length}, Texts: {cooldownTexts.Length}, Canvases: {skillIconCanvases.Length}");
+            Debug.LogError($"[SkillUIManager] CRITICAL ERROR: UI arrays must have length 6! Icons: {skillIcons.Length}, Fills: {cooldownFills.Length}, Texts: {cooldownTexts.Length}, Canvases: {skillIconCanvases.Length}");
             return;
         }
 
         SetupCooldownVisuals();
-        // 추가: 초기 캔버스 상태 설정
         UpdateSkillCanvasVisibility();
 
-        previousCooldownTimers = new float[skills.Length];
-        for (int i = 0; i < skills.Length; i++)
+        previousCooldownTimers = new float[skillIcons.Length]; // UI 슬롯 수(6)에 맞춤
+        for (int i = 0; i < skillIcons.Length; i++)
         {
-            if (skills[i] != null)
+            int skillIndex = skillIndexMap[i];
+            if (skills[skillIndex] != null)
             {
                 if (cooldownFills[i] != null)
                 {
@@ -85,8 +82,8 @@ public class SkillUIManager : MonoBehaviour
                     Debug.LogError($"[SkillUIManager] Cooldown fill {i} is NULL!");
                 }
 
-                previousCooldownTimers[i] = skills[i].cooldownTimer;
-                Debug.Log($"[SkillUIManager] Skill {i} initial cooldown timer: {previousCooldownTimers[i]}");
+                previousCooldownTimers[i] = skills[skillIndex].cooldownTimer;
+                Debug.Log($"[SkillUIManager] Skill {i} (mapped to skill {skillIndex}) initial cooldown timer: {previousCooldownTimers[i]}");
             }
         }
 
@@ -115,35 +112,35 @@ public class SkillUIManager : MonoBehaviour
         }
     }
 
-    // 추가: 스킬 캔버스 가시성 업데이트 메서드
     private void UpdateSkillCanvasVisibility()
     {
-        if (skillIconCanvases == null || skillIconCanvases.Length < skills.Length)
+        if (skillIconCanvases == null || skillIconCanvases.Length != 6)
         {
-            Debug.LogError("[SkillUIManager] skillIconCanvases array is null or too short!");
+            Debug.LogError("[SkillUIManager] skillIconCanvases array is null or not length 6!");
             return;
         }
 
-        // 각 스킬의 잠금 상태에 따라 캔버스 활성화/비활성화
+        // 스킬 사용 가능 여부
         bool[] skillUsableStates = new bool[]
         {
-            true, // grenade는 잠금 변수 없으므로 항상 활성화
+            true, // grenade는 항상 활성화
             skillManager.isLauncherArmUsable,
             skillManager.isGravitonUsable,
             skillManager.isSandevistanUsable
         };
 
-        for (int i = 0; i < skills.Length; i++)
+        for (int i = 0; i < skillIconCanvases.Length; i++) // UI 슬롯 수(6)에 맞게 루프
         {
+            int skillIndex = skillIndexMap[i];
             if (skillIconCanvases[i] != null)
             {
-                bool isActive = skillUsableStates[i];
+                bool isActive = skillUsableStates[skillIndex];
                 if (skillIconCanvases[i].enabled != isActive)
                 {
                     skillIconCanvases[i].enabled = isActive;
                     if (showDebugLogs)
                     {
-                        Debug.Log($"[SkillUIManager] Skill canvas {i} ({skills[i]?.GetType().Name ?? "NULL"}) set to {(isActive ? "active" : "inactive")}");
+                        Debug.Log($"[SkillUIManager] Skill canvas {i} (mapped to skill {skillIndex}: {skills[skillIndex]?.GetType().Name ?? "NULL"}) set to {(isActive ? "active" : "inactive")}");
                     }
                 }
             }
@@ -165,15 +162,15 @@ public class SkillUIManager : MonoBehaviour
             return;
         }
 
-        // 추가: 매 프레임 캔버스 가시성 업데이트
         UpdateSkillCanvasVisibility();
 
-        for (int i = 0; i < skills.Length; i++)
+        for (int i = 0; i < skillIcons.Length; i++) // UI 슬롯 수(6)에 맞게 루프
         {
-            var skill = skills[i];
+            int skillIndex = skillIndexMap[i];
+            var skill = skills[skillIndex];
             if (skill == null)
             {
-                if (logThisFrame) Debug.LogWarning($"[SkillUIManager] Skill {i} is NULL!");
+                if (logThisFrame) Debug.LogWarning($"[SkillUIManager] Skill {skillIndex} is NULL!");
                 continue;
             }
 
@@ -183,7 +180,7 @@ public class SkillUIManager : MonoBehaviour
             if (cooldownDuration <= 0)
             {
                 cooldownDuration = 1f;
-                if (logThisFrame) Debug.LogWarning($"[SkillUIManager] Skill {i} has 0 or negative cooldown duration! Using 1f instead.");
+                if (logThisFrame) Debug.LogWarning($"[SkillUIManager] Skill {skillIndex} has 0 or negative cooldown duration! Using 1f instead.");
             }
 
             float fillAmount = Mathf.Clamp01(timer / cooldownDuration);
@@ -191,7 +188,7 @@ public class SkillUIManager : MonoBehaviour
 
             if (logThisFrame)
             {
-                Debug.Log($"[SkillUIManager] Skill {i}: timer={timer:F2}, cooldown={cooldownDuration:F2}, ratio={fillAmount:F2}, cooling={isCoolingDown}");
+                Debug.Log($"[SkillUIManager] Skill {i} (mapped to {skillIndex}): timer={timer:F2}, cooldown={cooldownDuration:F2}, ratio={fillAmount:F2}, cooling={isCoolingDown}");
             }
 
             if (cooldownFills[i] != null)
@@ -257,5 +254,4 @@ public class SkillUIManager : MonoBehaviour
             previousCooldownTimers[i] = timer;
         }
     }
-
 }
