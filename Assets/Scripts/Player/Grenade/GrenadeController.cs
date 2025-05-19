@@ -265,11 +265,10 @@ public class GrenadeController : MonoBehaviour
                         playerStats.DoGrenadeDamage(_target);
                     }
                 }
-
-
             }
-            Destroy(gameObject, disappearTime);
         }
+
+        Destroy(gameObject, disappearTime);
     }
 
     private void Smoke()
