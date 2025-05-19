@@ -22,7 +22,7 @@ public class Boss1_AnimationTrigger : MonoBehaviour
     private bool lancing = false;
     private float LancingPower = 0.05f;
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();

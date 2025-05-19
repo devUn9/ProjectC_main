@@ -30,13 +30,17 @@ public class Boss1 : MonoBehaviour
     [Header("인스펙터 오브젝트")]
     [SerializeField] private GameObject inspectorObject;
 
-    private void Start()
+    private void Awake()
     {
         ani = GetComponent<Animator>();
         MeshTrailscript = ani.GetComponent<SpriteTrail>();
         anicontroller = GetComponent<Boss1_AnimationTrigger>();
         fx = GetComponent<EntityFX>();
         cd = GetComponent<CapsuleCollider2D>();
+    }
+
+    private void Start()
+    {
         StartCoroutine(HandleLayers());
     }
 
