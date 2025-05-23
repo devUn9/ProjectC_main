@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GrappleHook5 : MonoBehaviour
 {
@@ -49,10 +50,14 @@ public class GrappleHook5 : MonoBehaviour
     [SerializeField][Range(1, 50)] private float ropeProgressionSpeed = 5f; // 로프가 뻗는 속도
     [SerializeField][Range(2, 100)] private int ropeResolution = 20; // LineRenderer 점 수
 
+    // 타일 맵 끼임 현상 처리 부분
+    private TilemapCollider2D tilemapCollider;
+
     private void Start()
     {
         line = GetComponent<LineRenderer>();  // LineRenderer 컴포넌트 초기화
         playerScript = GetComponentInParent<Player>();
+        tilemapCollider = GameObject.FindAnyObjectByType<TilemapCollider2D>();
     }
 
     private void Update()
@@ -126,12 +131,26 @@ public class GrappleHook5 : MonoBehaviour
     // 플레이어가 벽으로 끌려가는 처리
     private void HandlePlayerRetract()
     {
+        // 타일맵과 충돌 무시 시작
+        if (tilemapCollider)
+        {
+            Collider2D playerCol = playerScript.GetComponent<Collider2D>();
+            Physics2D.IgnoreCollision(playerCol, tilemapCollider, true);
+        }
+
         playerScript.transform.position = Vector2.MoveTowards(playerScript.transform.position, target, grappleSpeed * Time.deltaTime);
 
         DrawStraightRope(transform.position, target);
 
         if (Vector2.Distance(playerScript.transform.position, target) < 0.5f)
         {
+            // 충돌 다시 켜기
+            if (tilemapCollider)
+            {
+                Collider2D playerCol = playerScript.GetComponent<Collider2D>();
+                Physics2D.IgnoreCollision(playerCol, tilemapCollider, false);
+            }
+
             ResetGrapple();
 
             if (isUpgrade && !isSpeedBoosting)
