@@ -1080,6 +1080,7 @@ MonoBehaviour:
   gizmoColor: {r: 1, g: 0, b: 0, a: 1}
   isSightEffectActive: 1
   navAgent: {fileID: 0}
+  isNavi: 1
   dissolveShader: {fileID: 0}
 --- !u!70 &409758486943887424
 CapsuleCollider2D:
@@ -1191,7 +1192,7 @@ MonoBehaviour:
     baseValue: 80
     modifiers: 
   armor:
-    baseValue: 3
+    baseValue: 0
     modifiers: 
   empResistance:
     baseValue: 0
@@ -1234,6 +1235,9 @@ MonoBehaviour:
   hoverImage: {fileID: 6165451710017235195}
   textOffset: {x: 0, y: 2, z: 0}
   imageOffset: {x: 0, y: 1, z: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!195 &3889383673760391009
 NavMeshAgent:
   m_ObjectHideFlags: 0

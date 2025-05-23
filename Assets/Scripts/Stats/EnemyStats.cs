@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyStats : CharacterStats
 {
     private Enemy enemy;
+    private bool isDead = false; // 사망 상태 플래그 추가
 
     // hp 흔들림 효과
     [SerializeField] private Transform hpBarTransform;
@@ -52,6 +53,9 @@ public class EnemyStats : CharacterStats
 
     protected override void Die()
     {
+        if (isDead) return; // 이미 사망 처리된 경우 중복 실행 방지
+        isDead = true; // 사망 상태로 설정
+
         base.Die();
 
         if (enemy.enemyType == EnemyType.Robot)

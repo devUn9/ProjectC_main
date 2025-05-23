@@ -7,8 +7,7 @@ public class MouseHover : MonoBehaviour
     [SerializeField] private SpriteRenderer hoverImage; // 2D 스프라이트
     [SerializeField] private Vector3 textOffset = new Vector3(0, 2f, 0); // 텍스트 오프셋 (World)
     [SerializeField] private Vector3 imageOffset = new Vector3(0, 1f, 0); // 이미지 오프셋 (World)
-   
- 
+    [SerializeField] private LayerMask enemyLayer; // 감지할 레이어 (Enemy 레이어로 설정)
 
     private Enemy enemy;
     private EnemyStats stat;
@@ -32,10 +31,6 @@ public class MouseHover : MonoBehaviour
         if (textCanvasGroup == null)
             textCanvasGroup = speedText.gameObject.AddComponent<CanvasGroup>();
 
-        //// speedText와 hoverImage를 적의 자식으로 설정
-        //speedText.transform.SetParent(transform);
-        //hoverImage.transform.SetParent(transform);
-
         textCanvasGroup.alpha = 0f;
         hoverImage.color = new Color(1, 1, 1, 0); // 이미지 초기 투명
     }
@@ -46,7 +41,8 @@ public class MouseHover : MonoBehaviour
             return;
 
         Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+        // enemyLayer를 사용하여 Enemy 레이어만 감지
+        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, Mathf.Infinity, enemyLayer);
 
         bool wasMouseOver = isMouseOver;
         isMouseOver = hit.collider != null && hit.collider.gameObject == gameObject;
@@ -58,8 +54,6 @@ public class MouseHover : MonoBehaviour
                 string attackType = enemy.isMelee ? "근접" : "원거리";
                 Stat attackDamage = enemy.isMelee ? stat.meleeDamage : stat.bulletDamage;
                 speedText.text = $" 공격 타입 : {attackType}\n 공  격  력 : {attackDamage.GetValue()}\n 체        력 : {stat.currentHealth}";
-                //speedText.text = $"공격력 : {stat.bulletDamage}\n"; 
-                //speedText.text = $"체력 : {stat.currentHealth}"; 
                 textCanvasGroup.alpha = 1f;
                 hoverImage.color = new Color(1, 1, 1, 0.75f); // 이미지 표시
             }

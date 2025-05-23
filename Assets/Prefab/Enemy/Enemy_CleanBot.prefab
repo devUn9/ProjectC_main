@@ -1182,6 +1182,9 @@ MonoBehaviour:
   hoverImage: {fileID: 6607756494402715376}
   textOffset: {x: 0, y: 2, z: 0}
   imageOffset: {x: 0, y: 1, z: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!114 &4130654903348724620
 MonoBehaviour:
   m_ObjectHideFlags: 0
