@@ -956,6 +956,7 @@ GameObject:
   - component: {fileID: 987072145898581738}
   - component: {fileID: 746036141966986485}
   - component: {fileID: 4130654903348724620}
+  - component: {fileID: 7517057356289750332}
   m_Layer: 12
   m_Name: Enemy_CleanBot
   m_TagString: Untagged
@@ -1106,6 +1107,8 @@ MonoBehaviour:
   sightLightAngle: 0
   gizmoColor: {r: 1, g: 0, b: 0, a: 1}
   isSightEffectActive: 1
+  navAgent: {fileID: 0}
+  isNavi: 1
   dissolveShader: {fileID: 0}
 --- !u!114 &987072145898581738
 MonoBehaviour:
@@ -1196,6 +1199,28 @@ MonoBehaviour:
   Stun: {fileID: 2100000, guid: 0051e34bd4ce1a84591e73cdbad8e55d, type: 2}
   EmpShock1: {fileID: 2100000, guid: 91ff24e8c485396429ee3282a4551cb1, type: 2}
   EmpShock2: {fileID: 2100000, guid: e4337f771577b424493652cedb922f19, type: 2}
+--- !u!195 &7517057356289750332
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9208487342649825529}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 6
+  m_Acceleration: 100
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &9214318312080387352
 GameObject:
   m_ObjectHideFlags: 0

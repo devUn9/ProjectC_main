@@ -17,16 +17,25 @@ public class EnemyMoveState : EnemyState
     {
         base.Update();
 
-        enemy.SetVelocity(velocity.x, velocity.y);
-
         if (enemy.isBattle)
         {
+            if (!enemy.isNavi)
+            {
+                enemy.SetVelocity(velocity.x, velocity.y);
+            }
+            else
+            {
+                enemy.navAgent.speed = enemy.runSpeed * TimeManager.Instance.timeScale * enemy.stats.StatusSpeed;
+                Player player = GameObject.FindAnyObjectByType<Player>();
+                enemy.navAgent.SetDestination(player.transform.position);
+            }
             if (EnemyToPlayerDistance() > attackRange)
                 return;
             stateMachine.ChangeState(enemy.attackState);
         }
+        enemy.SetVelocity(velocity.x, velocity.y);
 
-        enemy.moveTimer -= Time.deltaTime* TimeManager.Instance.timeScale * enemy.stats.StatusSpeed;
+        enemy.moveTimer -= Time.deltaTime * TimeManager.Instance.timeScale * enemy.stats.StatusSpeed;
 
         if (enemy.moveTimer < 0)
             stateMachine.ChangeState(enemy.idleState);

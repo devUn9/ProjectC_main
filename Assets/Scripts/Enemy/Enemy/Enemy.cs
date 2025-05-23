@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.EventSystems;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public enum EnemyType
 {
@@ -23,6 +25,8 @@ public class Enemy : MonoBehaviour
 
     public int moveDirection = 1;
 
+
+    [HideInInspector]
     public float idleTimer;
     public float moveTimer;
     public float stateTimer;
@@ -62,6 +66,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool isSightEffectActive = true; // 시야 이펙트 활성화 여부
     private EffectController sightEffect;
 
+    [Header("Navigation Info")]
+    public NavMeshAgent navAgent;
+    public bool isNavi = true;
+
     public Rigidbody2D rb { get; private set; }
     public Animator anim { get; private set; }
     public EntityFX fx { get; private set; }
@@ -78,6 +86,7 @@ public class Enemy : MonoBehaviour
 
     protected void Awake()
     {
+        navAgent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
         fx = GetComponentInChildren<EntityFX>();
@@ -88,7 +97,7 @@ public class Enemy : MonoBehaviour
         idleState = new EnemyIdleState(this, stateMachine, "Idle");
         moveState = new EnemyMoveState(this, stateMachine, "Move");
         attackState = new EnemyAttackState(this, stateMachine, "Attack");
-
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
         isBattle = false;
     }
 
@@ -98,6 +107,9 @@ public class Enemy : MonoBehaviour
             sightEffect = EffectManager.Instance.PlayEffectFollow(EffectType.EnemySightEffect, transform, Quaternion.Euler(0, 0, -180f));
         stats.StatusSpeed = 1f;
         stateMachine.Initialize(idleState);
+
+        navAgent.updateRotation = false;
+        navAgent.updateUpAxis = false; 
     }
 
     public virtual void Update()
@@ -105,18 +117,16 @@ public class Enemy : MonoBehaviour
         anim.speed = TimeManager.Instance.timeScale;
         //Debug.Log(anim.speed);
         stateMachine.currentState.Update();
-       if (isSightEffectActive && sightEffect != null)
-    {
-        SetSightEffectAngle();
-        if (isBattle)
-            sightEffect.SetSightColor(Color.red);
-        else
-            sightEffect.SetSightColor(Color.yellow);
-    }
+        if (isSightEffectActive && sightEffect != null)
+        {
+            SetSightEffectAngle();
+            if (isBattle)
+                sightEffect.SetSightColor(Color.red);
+            else
+                sightEffect.SetSightColor(Color.yellow);
+        }
 
         StartCoroutine("battleCheck");
-
-       
     }
 
     public void healthCheck()

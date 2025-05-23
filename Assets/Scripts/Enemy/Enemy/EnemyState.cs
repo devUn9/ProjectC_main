@@ -54,6 +54,19 @@ public class EnemyState
 
             enemy.anim.SetFloat("VelocityX", enemy.enemyDir.x);
             enemy.anim.SetFloat("VelocityY", enemy.enemyDir.y);
+
+            //enemy.navAgent.enabled = true;
+            
+            //enemy.navAgent.velocity = enemy.navAgent.velocity * TimeManager.Instance.timeScale * enemy.stats.StatusSpeed;
+            if (enemy.navAgent.isOnNavMesh)
+            {
+                Debug.Log("에이전트가 NavMesh 위에 있습니다.");
+            }
+            else
+            {
+                Debug.LogWarning("에이전트가 NavMesh 위에 없습니다!");
+            }
+
         }
 
         if (enemy.CheckForPlayerInSight())
@@ -61,6 +74,8 @@ public class EnemyState
             enemy.isBattle = true;
             Debug.Log("전투 진입");
         }
+
+        
     }
 
     public virtual void Exit()

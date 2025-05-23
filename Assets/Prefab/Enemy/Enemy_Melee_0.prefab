@@ -367,6 +367,7 @@ GameObject:
   - component: {fileID: 429971966340900085}
   - component: {fileID: 827094096881186100}
   - component: {fileID: 3610394022665712663}
+  - component: {fileID: -2661374482665024263}
   m_Layer: 12
   m_Name: Enemy_Melee_0
   m_TagString: Untagged
@@ -439,12 +440,13 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 8
-  BattleCheckRadius: 4
+  BattleCheckRadius: 3
   gizmoRadius: 4
   gizmoAngle: 90
   sightLightAngle: 0
   gizmoColor: {r: 1, g: 0, b: 0, a: 1}
   isSightEffectActive: 1
+  navAgent: {fileID: 0}
   dissolveShader: {fileID: 0}
 --- !u!70 &4131322180144077352
 CapsuleCollider2D:
@@ -599,6 +601,28 @@ MonoBehaviour:
   hoverImage: {fileID: 3257247811012789856}
   textOffset: {x: 0, y: 2, z: 0}
   imageOffset: {x: 0, y: 1, z: 0}
+--- !u!195 &-2661374482665024263
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799821399944889832}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 1
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &2629806777110913608
 GameObject:
   m_ObjectHideFlags: 0

@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 4391835872634714895}
   - component: {fileID: 4474479845181976302}
   - component: {fileID: 6085945513305754363}
+  - component: {fileID: -1318909441677420502}
   m_Layer: 12
   m_Name: Enemy_Guard_1
   m_TagString: Untagged
@@ -162,12 +163,13 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 8
-  BattleCheckRadius: 4
+  BattleCheckRadius: 3
   gizmoRadius: 4
   gizmoAngle: 90
   sightLightAngle: 0
   gizmoColor: {r: 1, g: 0, b: 0, a: 1}
   isSightEffectActive: 1
+  navAgent: {fileID: 0}
   dissolveShader: {fileID: 0}
 --- !u!70 &8681426177200655209
 CapsuleCollider2D:
@@ -322,6 +324,28 @@ MonoBehaviour:
   hoverImage: {fileID: 1449038417527586642}
   textOffset: {x: 0, y: 2, z: 0}
   imageOffset: {x: 0, y: 1, z: 0}
+--- !u!195 &-1318909441677420502
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494261990300519650}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 2
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &554314873220565036
 GameObject:
   m_ObjectHideFlags: 0
