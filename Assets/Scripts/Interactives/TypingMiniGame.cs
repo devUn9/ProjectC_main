@@ -13,7 +13,7 @@ public class TypingMiniGame : MonoBehaviour
     private string playerInput = "";
 
     private float timeLimit = 5f; // 제한 시간
-    private float timer = 0f;
+    [SerializeField] private float timer = 0f;
     private bool isPlaying = false;
 
     private char[] keyPool = new char[] { 'Q', 'W', 'E', 'R' };
@@ -21,10 +21,10 @@ public class TypingMiniGame : MonoBehaviour
     // 투명 문자(Zero-Width Space) - 공백 대신 사용
     private readonly string invisibleChar = "<color=#00000000>O</color>";
 
-    void Start()
-    {
-        StartMiniGame();
-    }
+    //void Start()
+    //{
+    //    StartMiniGame();
+    //}
 
     void Update()
     {

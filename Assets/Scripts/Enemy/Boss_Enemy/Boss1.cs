@@ -99,8 +99,12 @@ public class Boss1 : MonoBehaviour
     private void CheckDistance()
     {
         playerToBossDistance = Vector3.Distance(transform.position, anicontroller.player.position);
-        BossHPUI.SetActive(true);
+        
 
+        if (playerToBossDistance < 30f)
+        {
+            BossHPUI.SetActive(true);
+        }
         if (playerToBossDistance < 3.5f && !isCoroutineRunning)
         {
             StartCoroutine(CloseAttack());
