@@ -36,4 +36,9 @@ public class Ball : MonoBehaviour
     {
         transform.Translate (dir * speed * Time.deltaTime * TimeManager.Instance.timeScale);
     }
+    public void TouchEffect(Transform pos)
+    {
+        GameObject effect = Instantiate(effectPrefab, pos);
+        effect.transform.SetParent(pos);
+    }
 }

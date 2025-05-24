@@ -21,10 +21,4 @@ public class DamageBall : Ball
         }
         Destroy(gameObject);
     }
-
-    public void TouchEffect(Transform pos)
-    {
-        GameObject effect = Instantiate(effectPrefab, pos);
-        effect.transform.SetParent(pos);
-    }
 }

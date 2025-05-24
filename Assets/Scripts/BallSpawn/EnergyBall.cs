@@ -14,7 +14,6 @@ public class EnergyBall : Ball
             Player player = collision.GetComponent<Player>();
             player.InitializeShield();
         }
-        
         Destroy(gameObject);
     }
 }

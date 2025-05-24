@@ -21,13 +21,15 @@ public class EnergyShield : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<DamageBall>())
+        Ball ball = collision.GetComponent<Ball>();
+        if (ball != null)
         {
-            DamageBall ball = collision.GetComponent<DamageBall>();
-            if(ball.ballType == BallType.DamageBall)
-            {
+            Debug.Log("DamageBall 감지됨");
+            if (ball.ballType == BallType.DamageBall)
                 shieldCount -= 1;
-            }
+            else if(ball.ballType == BallType.EnergyBall)
+                shieldCount = 3;
+
             ball.TouchEffect(player.transform);
         }
     }
