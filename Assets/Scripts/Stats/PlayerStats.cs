@@ -34,6 +34,14 @@ public class PlayerStats : CharacterStats
         //추가 데미지 받을 때 효과 추가
     }
 
+
+    //미니 게임용 
+    public void BallInteraction(int _damage)
+    {
+        currentHealth -= Mathf.Abs(_damage);
+        player.DamageEffect();
+    }
+
     protected override void Die()
     {
         base.Die();

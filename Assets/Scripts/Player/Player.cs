@@ -67,6 +67,8 @@ public class Player : MonoBehaviour
     public PlayerLauncherArmState launcherArmSkill { get; private set; }
     public PlayerGravitonState gravitonSurgeSkill { get; private set; }
 
+    public EnergyShield energyShield { get; set; }
+
     protected void Awake()
     {
         stateMachine = new PlayerStateMachine();
@@ -87,6 +89,8 @@ public class Player : MonoBehaviour
         fx = GetComponent<EntityFX>();
         stats = GetComponent<PlayerStats>();
         MeshTrailscript = anim.GetComponent<SpriteTrail>();
+
+        energyShield = GetComponentInChildren<EnergyShield>(true);
 
         skill = SkillManager.instance;
         skill.Initialize(stats);
@@ -317,5 +321,12 @@ public class Player : MonoBehaviour
         rb.AddForce(knockbackDir * KnockbackForce, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.2f);
         isKnocked = false;
+    }
+
+    public void InitializeShield()
+    {
+        energyShield.transform.SetParent(this.transform);
+        energyShield.gameObject.SetActive(true);
+        energyShield.shieldCount = 3;
     }
 }

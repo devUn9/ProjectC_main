@@ -3,29 +3,22 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 
-enum BallType
-{
-    DamageBall,
-    EnergyBall
-}
 
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField] private BallType ballType;
-
     [SerializeField] private Transform[] spawnPoint;
+
+    [SerializeField] private BallType spawnType;
 
     [Header("DamageBall Info")]
     [SerializeField] private GameObject[] damageBallPrefabs;
     [SerializeField] private float respawnDuration;
     [SerializeField] private float respawnPointNumber;
 
-
     [Header("Energy Info")]
     [SerializeField] private GameObject energyPrefab;
     [SerializeField] private float energyRespawnDuration;
     [SerializeField] private float energyRespawnPointNumber;
-
 
     public bool spawnTrigger = false;
     [SerializeField] private bool isRespawn = true;
@@ -38,10 +31,12 @@ public class SpawnManager : MonoBehaviour
 
     void Update()
     {
-        if (!spawnTrigger && !isRespawn)
+        if (!spawnTrigger)
+            return;
+        if (!isRespawn)
             return;
 
-        if (ballType == BallType.EnergyBall)
+        if (spawnType == BallType.EnergyBall)
         {
             StartCoroutine(EnergyBallSpawning());
         }
@@ -63,9 +58,6 @@ public class SpawnManager : MonoBehaviour
         int ballIndex = randomBallIndex % damageBallPrefabs.Length;
 
         Instantiate(damageBallPrefabs[ballIndex], spawnPoint[Index]);
-
-        //randomBallIndex = Random.Range(0, 1);
-        //Instantiate(damageBallPrefabs[0], spawnPoint[Index + 4]);
 
         yield return new WaitForSeconds(respawnDuration);
 
