@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class OptionsManager : MonoBehaviour
 {
@@ -31,6 +33,9 @@ public class OptionsManager : MonoBehaviour
 
     private void Update()
     {
+        // 메인 메뉴 씬에서는 ESC 입력 무시
+        if (SceneManager.GetActiveScene().name == "GameStart") return;
+
         // ESC 키로 옵션 패널 토글
         if (Input.GetKeyDown(KeyCode.Escape))
         {
