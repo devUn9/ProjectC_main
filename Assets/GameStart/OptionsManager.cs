@@ -5,6 +5,7 @@ public class OptionsManager : MonoBehaviour
     public static OptionsManager Instance { get; private set; }
 
     [SerializeField] private GameObject optionsPanel;
+    [SerializeField] private GameObject explanationKey;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class OptionsManager : MonoBehaviour
         else
         {
             optionsPanel.SetActive(false); // 처음엔 비활성화
+            explanationKey.SetActive(false);
         }
     }
 
@@ -46,6 +48,7 @@ public class OptionsManager : MonoBehaviour
 
         bool isOpen = !optionsPanel.activeSelf;
         optionsPanel.SetActive(isOpen);
+        explanationKey.SetActive(isOpen);
 
         if (isOpen)
         {
@@ -86,5 +89,10 @@ public class OptionsManager : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void DisableExplanationButton()
+    {
+        explanationKey.GetComponent<UI_Button>().DisableButton();
     }
 }
