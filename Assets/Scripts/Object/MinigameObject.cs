@@ -11,6 +11,8 @@ public class MinigameObject : MonoBehaviour
     [SerializeField] private SpawnManager damageBallSpawn;
     [SerializeField] private SpawnManager energyBallSpawn;
 
+    [SerializeField] private GameObject targetTrigger;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Ball>())
@@ -37,7 +39,7 @@ public class MinigameObject : MonoBehaviour
         HP -= _interactionPoint;
     }
 
-    private void TriggerOn()
+    public void TriggerOn()
     {
         damageBallSpawn.spawnTrigger = true;
         energyBallSpawn.spawnTrigger = true;
@@ -51,8 +53,7 @@ public class MinigameObject : MonoBehaviour
 
     public void MiniGameClear()
     {
-
-        Debug.Log("MiniGame Clear!!");
+        targetTrigger.SetActive(true);
     }
 
     private void GameOver()

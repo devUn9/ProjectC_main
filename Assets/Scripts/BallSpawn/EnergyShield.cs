@@ -14,7 +14,7 @@ public class EnergyShield : MonoBehaviour
 
     private void Update()
     {
-        if (shieldCount < 0)
+        if (shieldCount <= 0)
         {
             gameObject.SetActive(false);
         }

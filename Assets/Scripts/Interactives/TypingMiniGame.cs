@@ -9,6 +9,8 @@ public class TypingMiniGame : MonoBehaviour
     public TextMeshProUGUI inputText;   // 현재 입력된 키
     public Image LeftTime;
 
+    [SerializeField] private Player player;
+
     private string currentSequence = "";
     private string playerInput = "";
 
@@ -21,16 +23,29 @@ public class TypingMiniGame : MonoBehaviour
     // 투명 문자(Zero-Width Space) - 공백 대신 사용
     private readonly string invisibleChar = "<color=#00000000>O</color>";
 
-    //void Start()
-    //{
-    //    StartMiniGame();
-    //}
+    private float originalTimeScale; // 원래 Time.timeScale 저장
+
+    private Animator playerAnimator; // 플레이어의 Animator 컴포넌트
+
+    private void Awake()
+    {
+        playerAnimator = player.GetComponentInChildren<Animator>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.CompareTag("Player"))
+        {
+            StartMiniGame();
+        }
+    }
 
     void Update()
     {
         if (!isPlaying) return;
 
-        timer += Time.deltaTime;
+        // Time.unscaledDeltaTime 사용
+        timer += Time.unscaledDeltaTime;
         LeftTime.fillAmount = (timeLimit - timer) / timeLimit;
         if (timer > timeLimit)
         {
@@ -52,6 +67,12 @@ public class TypingMiniGame : MonoBehaviour
 
     void StartMiniGame()
     {
+        // 원래 Time.timeScale 저장
+        originalTimeScale = Time.timeScale;
+        Time.timeScale = 0f; // TimeScale을 0으로 설정
+        playerAnimator.enabled = false;
+
+
         targetText.gameObject.SetActive(true);
         inputText.gameObject.SetActive(true);
         LeftTime.gameObject.SetActive(true);
@@ -139,7 +160,7 @@ public class TypingMiniGame : MonoBehaviour
         Color originalColor = targetText.color;
         targetText.color = Color.red;
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSecondsRealtime(0.3f); // WaitForSecondsRealtime 사용
 
         // 원래 색상으로 복원
         targetText.color = originalColor;
@@ -154,10 +175,16 @@ public class TypingMiniGame : MonoBehaviour
         targetText.color = Color.green;
         targetText.text = "성공!";
         inputText.text = "";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f); // WaitForSecondsRealtime 사용
         targetText.gameObject.SetActive(false);
         inputText.gameObject.SetActive(false);
         LeftTime.gameObject.SetActive(false);
+
+        // TimeScale 복원
+        Time.timeScale = originalTimeScale;
+        playerAnimator.enabled = true;
+
+        gameObject.SetActive(false); // 아이템 비활성화
     }
 
     IEnumerator FailMiniGame()
@@ -165,9 +192,15 @@ public class TypingMiniGame : MonoBehaviour
         isPlaying = false;
         targetText.text = "실패!";
         inputText.text = "";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f); // WaitForSecondsRealtime 사용
         targetText.gameObject.SetActive(false);
         inputText.gameObject.SetActive(false);
         LeftTime.gameObject.SetActive(false);
+
+        // TimeScale 복원
+        Time.timeScale = originalTimeScale;
+        playerAnimator.enabled = true;
+
+        gameObject.SetActive(false); // 아이템 비활성화
     }
 }
