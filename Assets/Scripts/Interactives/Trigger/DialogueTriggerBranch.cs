@@ -9,7 +9,6 @@ public class DialogueTriggerBranch : MonoBehaviour
     [SerializeField] private int csvFileIndexGraviton = 0; // Graviton 활성 시 사용할 CSV 파일 인덱스
     [SerializeField] private Player player; // PlayerSkill 참조
     private GameObject boss1;
-    [SerializeField] private GameObject boss1HPUI;
 
 
     private void Awake()
@@ -34,7 +33,6 @@ public class DialogueTriggerBranch : MonoBehaviour
             {
                 gameObject.SetActive(false);
                 boss1.SetActive(true);
-                boss1HPUI.SetActive(true);
                 Debug.Log("트리거가 비활성화되었습니다.");
             }
         }

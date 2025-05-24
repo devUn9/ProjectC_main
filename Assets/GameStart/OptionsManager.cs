@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class OptionsManager : MonoBehaviour
 {
     public static OptionsManager Instance { get; private set; }
 
     [SerializeField] private GameObject optionsPanel;
+    [SerializeField] private GameObject explanationKey;
 
     private void Awake()
     {
@@ -24,11 +27,15 @@ public class OptionsManager : MonoBehaviour
         else
         {
             optionsPanel.SetActive(false); // 처음엔 비활성화
+            explanationKey.SetActive(false);
         }
     }
 
     private void Update()
     {
+        // 메인 메뉴 씬에서는 ESC 입력 무시
+        if (SceneManager.GetActiveScene().name == "GameStart") return;
+
         // ESC 키로 옵션 패널 토글
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -46,6 +53,7 @@ public class OptionsManager : MonoBehaviour
 
         bool isOpen = !optionsPanel.activeSelf;
         optionsPanel.SetActive(isOpen);
+        explanationKey.SetActive(isOpen);
 
         if (isOpen)
         {
@@ -86,5 +94,10 @@ public class OptionsManager : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void DisableExplanationButton()
+    {
+        explanationKey.GetComponent<UI_Button>().DisableButton();
     }
 }

@@ -10,6 +10,8 @@ public class Boss1 : MonoBehaviour
     public EntityFX fx { get; private set; }
     public SpriteTrail MeshTrailscript { get; private set; }
 
+    [SerializeField] private GameObject BossHPUI;
+
     [Header("움직임 관련 변수들")]
     [SerializeField] private float speed = 5f;
     private float angle;
@@ -97,7 +99,12 @@ public class Boss1 : MonoBehaviour
     private void CheckDistance()
     {
         playerToBossDistance = Vector3.Distance(transform.position, anicontroller.player.position);
+        
 
+        if (playerToBossDistance < 30f)
+        {
+            BossHPUI.SetActive(true);
+        }
         if (playerToBossDistance < 3.5f && !isCoroutineRunning)
         {
             StartCoroutine(CloseAttack());
@@ -216,6 +223,7 @@ public class Boss1 : MonoBehaviour
         SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Boss1PowerOff);
         ChangeState(BossState.PowerOff);
         Boss1Die = true;
+        BossHPUI.SetActive(false);
         yield return new WaitForSeconds(6f);
         if (inspectorObject != null)
         {
