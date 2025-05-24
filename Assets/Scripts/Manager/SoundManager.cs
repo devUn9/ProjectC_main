@@ -12,7 +12,8 @@ public class SoundManager : MonoBehaviour
         Bgm_BossBattle,
         Bgm_EndingCredit,
         Bgm_City,
-        Bgm_Enterprise
+        Bgm_Enterprise,
+        Bgm_MiniGame
     }
 
     public enum ESfx
