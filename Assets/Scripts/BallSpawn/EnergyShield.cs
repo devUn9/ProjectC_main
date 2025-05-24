@@ -7,7 +7,6 @@ public class EnergyShield : MonoBehaviour
 
     private void Awake()
     {
-        gameObject.SetActive(false);
         player = GetComponentInParent<Player>();
     }
 
