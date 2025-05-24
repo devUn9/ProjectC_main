@@ -68,10 +68,39 @@ public class SpawnManager : MonoBehaviour
     {
         isRespawn = false;
 
-        int randomIndex = Random.Range(0, spawnPoint.Length);
-        int Index = randomIndex % spawnPoint.Length;
+        int maxTry = spawnPoint.Length;
+        int tryCount = 0;
+        int Index = -1;
 
-        Instantiate(energyPrefab, spawnPoint[Index]);
+        // 빈 spawnPoint를 찾을 때까지 반복
+        while (tryCount < maxTry)
+        {
+            int randomIndex = Random.Range(0, spawnPoint.Length);
+            Index = randomIndex % spawnPoint.Length;
+
+            // 해당 spawnPoint에 energyPrefab이 이미 있는지 검사
+            bool hasEnergy = false;
+            foreach (Transform child in spawnPoint[Index])
+            {
+                if (child.CompareTag("EnergyBall"))
+                {
+                    hasEnergy = true;
+                    break;
+                }
+            }
+
+            if (!hasEnergy)
+                break; // 빈 자리 발견
+
+            tryCount++;
+        }
+
+        // 빈 자리가 있으면 스폰
+        if (Index != -1)
+        {
+            GameObject obj = Instantiate(energyPrefab, spawnPoint[Index]);
+            obj.tag = "EnergyBall";
+        }
 
         yield return new WaitForSeconds(energyRespawnDuration);
 

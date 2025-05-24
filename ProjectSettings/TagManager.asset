@@ -11,6 +11,7 @@ TagManager:
   - Wall
   - Boss1
   - StopWall
+  - EnergyBall
   layers:
   - Default
   - TransparentFX
