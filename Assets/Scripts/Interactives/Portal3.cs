@@ -16,7 +16,7 @@ public class Portal3 : MonoBehaviour
     [SerializeField] private DialogueManagerTest dialogueManager; // DialogueManagerTest 직접 참조
     [SerializeField] private float postDialogueDelay = 1f; // 대화 종료 후 포털 활성화 지연 시간
 
-    private CinemachineConfiner2D confiner; // Cinemachine Confiner 2D 컴포넌트
+    public CinemachineConfiner2D confiner; // Cinemachine Confiner 2D 컴포넌트
     private bool playerIsInTrigger = false;
     private bool isTriggerActivated = false; // DialogueTrigger가 실행되었는지 확인
     private SpriteRenderer spriteRenderer; // 포털의 SpriteRenderer
@@ -195,7 +195,7 @@ public class Portal3 : MonoBehaviour
         }
     }
 
-    private void MovePlayer()
+    public void MovePlayer()
     {
         if (outPoint != null)
         {

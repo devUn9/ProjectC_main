@@ -10,6 +10,7 @@ public class CheckPoint : MonoBehaviour
     private AudioSource audioSource;
     private Renderer checkpointRenderer;
 
+    public Portal3 portalInfo;
 
     void Start()
     {
@@ -44,7 +45,7 @@ public class CheckPoint : MonoBehaviour
         isActivated = true;
 
         // 체크포인트 매니저에 등록
-        CheckpointManager.Instance.SetCheckpoint(transform);
+        CheckpointManager.Instance.SetCheckpoint(transform, portalInfo);
 
         //// 시각적 효과
         //if (checkpointRenderer != null)
