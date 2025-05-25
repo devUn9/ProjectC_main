@@ -1070,7 +1070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
-  moveSpeed: 1.5
+  moveSpeed: 2
   runSpeed: 6
   isMoveX: 1
   isMoveY: 0
@@ -1202,6 +1202,8 @@ MonoBehaviour:
   Stun: {fileID: 2100000, guid: 0051e34bd4ce1a84591e73cdbad8e55d, type: 2}
   EmpShock1: {fileID: 2100000, guid: 91ff24e8c485396429ee3282a4551cb1, type: 2}
   EmpShock2: {fileID: 2100000, guid: e4337f771577b424493652cedb922f19, type: 2}
+  redBall: {fileID: 0}
+  blueBall: {fileID: 0}
 --- !u!195 &7517057356289750332
 NavMeshAgent:
   m_ObjectHideFlags: 0

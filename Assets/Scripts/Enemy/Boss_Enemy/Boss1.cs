@@ -124,11 +124,18 @@ public class Boss1 : MonoBehaviour
         else if (playerToBossDistance > 30f)
         {
             ChangeState(BossState.Idle);
+            BossHPUI.SetActive(false);
         }
     }
 
     private void Engaging()
     {
+
+        if (playerToBossDistance < 30f)
+        {
+            BossHPUI.SetActive(true);
+        }
+
         if (!hasPowerOffExecuted && boss1stats.Engaging() && !isCoroutineRunning)
         {
             hasPowerOffExecuted = true;
@@ -162,6 +169,11 @@ public class Boss1 : MonoBehaviour
         else if (playerToBossDistance > 6f && !isCoroutineRunning)
         {
             StartCoroutine(LanceAttack());
+        }
+        else if (playerToBossDistance > 30f)
+        {
+            ChangeState(BossState.Idle);
+            BossHPUI.SetActive(false);
         }
     }
 
