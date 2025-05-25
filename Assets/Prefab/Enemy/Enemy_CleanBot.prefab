@@ -1070,13 +1070,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
-  moveSpeed: 2
+  moveSpeed: 1.5
   runSpeed: 6
   isMoveX: 1
   isMoveY: 0
   moveDirection: 1
   idleTimer: 1
-  moveTimer: 3
+  moveTimer: 1.5
   stateTimer: 0
   loopSaveTimer: 0
   bulletPrefab: {fileID: 0}

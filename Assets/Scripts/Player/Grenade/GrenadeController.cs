@@ -27,8 +27,8 @@ public class GrenadeController : MonoBehaviour
     public float disappearTime = 0.1f;      // 수류탄이 사라지는 시간
     
     [Header("StatusConditionControl")]
-    public float empShockDuration = 2f;     // EMP Shock 지속 시간
-    public float stunDuration = 2f;     // EMP Shock 지속 시간
+    public float empShockDuration = 5f;     // EMP Shock 지속 시간
+    public float stunDuration = 5f;     // EMP Shock 지속 시간
 
     [Header("StatusCondition Effect")]
     [SerializeField] private GameObject empEffect; // EMP 이펙트
@@ -231,6 +231,11 @@ public class GrenadeController : MonoBehaviour
                     {
                         Instantiate(empEffect, enemy.transform.position, Quaternion.identity);
                         playerStats.DoEmpGrenadeDamage(_target, empShockDuration);
+                    }
+                    else if (isShock && enemy.enemyType == EnemyType.Human)
+                    {
+                        Instantiate(stunEffect, enemy.transform.position, Quaternion.identity);
+                        playerStats.DoEmpGrenadeDamage(_target, stunDuration);
                     }
                     else if (!isSmoke)
                     {

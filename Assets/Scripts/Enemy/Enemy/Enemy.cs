@@ -382,6 +382,7 @@ public class Enemy : MonoBehaviour
             if (isMelee)
             {
                 EffectManager.Instance.PlayEffect(EffectType.GrenadeEffect, transform.position, 2f);
+                SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_LauncherArmExplosion);
                 stats.DoMeleeDamage(playerStats);
                 Destroy(gameObject);
             }

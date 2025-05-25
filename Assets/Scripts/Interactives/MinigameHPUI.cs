@@ -10,6 +10,8 @@ public class MinigameHPUI : MonoBehaviour
 
     private void Start()
     {
+        gameObject.SetActive(false);
+
         if (minigameObject != null)
         {
             hpSlider.minValue = 0;

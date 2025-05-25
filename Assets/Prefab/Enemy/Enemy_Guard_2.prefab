@@ -98,7 +98,7 @@ MonoBehaviour:
   isMoveX: 0
   isMoveY: 1
   moveDirection: 1
-  idleTimer: 3
+  idleTimer: 1.5
   moveTimer: 2
   stateTimer: 0
   loopSaveTimer: 0
