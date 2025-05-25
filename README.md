@@ -2,9 +2,9 @@
 
 
 ### 개요
-SUPERCENT GAME CHALLANGE 공모전을 위한 유니티 기반 2D 탑뷰 어드벤처 게임
+SUPERCENT GAME CHALLANGE 공모전을 위한 유니티 2D 탑뷰 어드벤처 액션 게임
 <br>
-전투 시스템, 환경 상호작용, VFX를 구현한 팀 프로젝트
+전투 시스템, 기믹 시스템, VFX를 구현한 팀 프로젝트
 
 
 ### 프로젝트 내용
