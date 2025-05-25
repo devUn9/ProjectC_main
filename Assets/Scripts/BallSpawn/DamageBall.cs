@@ -19,6 +19,8 @@ public class DamageBall : Ball
             stats.BallInteraction(damage);
             TouchEffect(pos);
         }
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_RedBall);
+
         Destroy(gameObject);
     }
 }

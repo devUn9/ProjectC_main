@@ -16,6 +16,13 @@ public class MinigameObject : MonoBehaviour
     [SerializeField] private GameObject targetTrigger2;
     [SerializeField] private MinigameHPUI hpUI; // UI 스크립트 참조
 
+    private EntityFX fx;
+
+    private void Awake()
+    {
+        fx= GetComponent<EntityFX>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Ball>())
@@ -24,8 +31,25 @@ public class MinigameObject : MonoBehaviour
             interactionPoint = ball.damage;
             BallInteraction(interactionPoint);
 
+            if (interactionPoint > 0)
+                RedBallHitFx();
+            else 
+                BuleBallHitFx();
+
             Destroy(ball.gameObject);
         }
+    }
+
+    private void RedBallHitFx()
+    {
+        fx.StopAllCoroutines();
+        fx.StartCoroutine("RedBallFX");
+    }
+
+    private void BuleBallHitFx()
+    {
+        fx.StopAllCoroutines();
+        fx.StartCoroutine("BlueBallFX");
     }
 
     private void BallInteraction(int _interactionPoint)

@@ -14,6 +14,7 @@ public class EnergyBall : Ball
             Player player = collision.GetComponent<Player>();
             player.InitializeShield();
         }
+        SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_EnergyBall);
         Destroy(gameObject);
     }
 }

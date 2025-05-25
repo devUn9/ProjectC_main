@@ -4,14 +4,19 @@ public class EnergyShield : MonoBehaviour
 {
     [SerializeField] public int shieldCount;
     [SerializeField] private Player player;
-
     private void Awake()
     {
         player = GetComponentInParent<Player>();
     }
 
+    //private void OnEnable()
+    //{
+    //    SoundManager.instance.LoopESFX(SoundManager.ESfx.SFX_EnergyShield);
+    //}
+
     private void Update()
     {
+        
         if (shieldCount <= 0)
         {
             gameObject.SetActive(false);
@@ -32,4 +37,6 @@ public class EnergyShield : MonoBehaviour
             ball.TouchEffect(player.transform);
         }
     }
+
+
 }

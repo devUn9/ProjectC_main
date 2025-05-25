@@ -33,7 +33,11 @@ public class SoundManager : MonoBehaviour
         SFX_GravitonSurgeExplosion,
         SFX_SwordAttack,
         SFX_PlayerWalking,
-        SFX_MonsterDie
+        SFX_MonsterDie,
+        SFX_RedBall,
+        SFX_BlueBall,
+        SFX_EnergyBall,
+        SFX_EnergyShield
     }
 
     [Serializable]
@@ -60,6 +64,7 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioSource audioBgm;
     [SerializeField] private AudioSource audioSfx;
+    [SerializeField] private AudioSource audioLoop;
 
     private Dictionary<EBgm, BgmClip> bgmDict;
     private Dictionary<ESfx, SfxClip> sfxDict;
@@ -123,6 +128,18 @@ public class SoundManager : MonoBehaviour
         if (sfxDict.TryGetValue(sfxType, out SfxClip sfx))
         {
             audioSfx.PlayOneShot(sfx.clip, sfx.volume);
+        }
+    }
+
+    public void LoopESFX(ESfx sfxType)
+    {
+        if (endingCredit.isScrolling) return;
+        if (sfxDict.TryGetValue(sfxType, out SfxClip sfx))
+        {
+            audioLoop.clip = sfx.clip;
+            audioLoop.volume = sfx.volume;
+            audioLoop.loop = true;
+            audioLoop.Play();
         }
     }
 }
