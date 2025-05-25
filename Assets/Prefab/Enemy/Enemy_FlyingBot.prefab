@@ -473,8 +473,8 @@ GameObject:
   - component: {fileID: 4386237734899147374}
   - component: {fileID: 5584640644309513167}
   - component: {fileID: 1009573430314674835}
-  - component: {fileID: 5824430489035985397}
   - component: {fileID: 3901746914862608064}
+  - component: {fileID: 5824430489035985397}
   - component: {fileID: 8915436489679369915}
   - component: {fileID: 4614055881167369999}
   - component: {fileID: 7031834588244215847}
@@ -535,7 +535,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -578,23 +578,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5824430489035985397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3349909884951247590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc32f5f38bdbb94478839cae7e005ad6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitMat: {fileID: 2100000, guid: 0051e34bd4ce1a84591e73cdbad8e55d, type: 2}
-  GravitonCharge: {fileID: 0}
-  Stun: {fileID: 2100000, guid: 0051e34bd4ce1a84591e73cdbad8e55d, type: 2}
-  EmpShock1: {fileID: 2100000, guid: 91ff24e8c485396429ee3282a4551cb1, type: 2}
-  EmpShock2: {fileID: 2100000, guid: e4337f771577b424493652cedb922f19, type: 2}
 --- !u!114 &3901746914862608064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -613,8 +596,8 @@ MonoBehaviour:
   isMoveX: 1
   isMoveY: 0
   moveDirection: 1
-  idleTimer: 1
-  moveTimer: 4
+  idleTimer: 2
+  moveTimer: 2
   stateTimer: 0
   loopSaveTimer: 0
   bulletPrefab: {fileID: 2506109134509039351, guid: 2e299a01e747511448f00453b74edb87, type: 3}
@@ -648,6 +631,23 @@ MonoBehaviour:
   navAgent: {fileID: 0}
   isNavi: 1
   dissolveShader: {fileID: 0}
+--- !u!114 &5824430489035985397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3349909884951247590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc32f5f38bdbb94478839cae7e005ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitMat: {fileID: 2100000, guid: 0051e34bd4ce1a84591e73cdbad8e55d, type: 2}
+  GravitonCharge: {fileID: 0}
+  Stun: {fileID: 2100000, guid: 0051e34bd4ce1a84591e73cdbad8e55d, type: 2}
+  EmpShock1: {fileID: 2100000, guid: 91ff24e8c485396429ee3282a4551cb1, type: 2}
+  EmpShock2: {fileID: 2100000, guid: e4337f771577b424493652cedb922f19, type: 2}
 --- !u!114 &8915436489679369915
 MonoBehaviour:
   m_ObjectHideFlags: 0

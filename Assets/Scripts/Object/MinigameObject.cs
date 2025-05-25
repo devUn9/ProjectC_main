@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class MinigameObject : MonoBehaviour
@@ -12,6 +13,7 @@ public class MinigameObject : MonoBehaviour
     [SerializeField] private SpawnManager energyBallSpawn;
 
     [SerializeField] private GameObject targetTrigger;
+    [SerializeField] private GameObject targetTrigger2;
     [SerializeField] private MinigameHPUI hpUI; // UI 스크립트 참조
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -50,17 +52,40 @@ public class MinigameObject : MonoBehaviour
     {
         damageBallSpawn.spawnTrigger = true;
         energyBallSpawn.spawnTrigger = true;
+        hpUI.gameObject.SetActive(true);
     }
 
     private void TriggerOff()
     {
         damageBallSpawn.spawnTrigger = false;
         energyBallSpawn.spawnTrigger = false;
+        
     }
 
     public void MiniGameClear()
     {
-        targetTrigger.SetActive(true);
+        // 코루틴 시작
+        StartCoroutine(ActivateTriggersWithDelay());
+    }
+
+    private IEnumerator ActivateTriggersWithDelay()
+    {
+        hpUI.gameObject.SetActive(false);
+        // 3초 뒤 targetTrigger 추가 작업 (예: 재활성화)
+        yield return new WaitForSeconds(5f);
+        if (targetTrigger != null)
+        {
+            targetTrigger.SetActive(true);
+            Debug.Log("targetTrigger 3초 후 활성화");
+        }
+
+        // 5초 뒤 targetTrigger2 활성화
+        yield return new WaitForSeconds(1f);
+        if (targetTrigger2 != null)
+        {
+            targetTrigger2.SetActive(true);
+            Debug.Log("targetTrigger2 8초 후 활성화");
+        }
     }
 
     private void GameOver()

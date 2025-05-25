@@ -602,7 +602,7 @@ MonoBehaviour:
   isMoveY: 0
   moveDirection: 1
   idleTimer: 2
-  moveTimer: 1
+  moveTimer: 1.5
   stateTimer: 0
   loopSaveTimer: 0
   bulletPrefab: {fileID: 857579978013763025, guid: 5a17d79e10bff194d8f255ed3c50ad1f, type: 3}

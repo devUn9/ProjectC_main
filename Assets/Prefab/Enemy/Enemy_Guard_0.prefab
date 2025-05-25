@@ -1084,7 +1084,7 @@ MonoBehaviour:
   isMoveX: 1
   isMoveY: 0
   moveDirection: 1
-  idleTimer: 1
+  idleTimer: 2
   moveTimer: 2
   stateTimer: 0
   loopSaveTimer: 0

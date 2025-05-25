@@ -224,8 +224,8 @@ MonoBehaviour:
   isMoveX: 1
   isMoveY: 0
   moveDirection: 1
-  idleTimer: 7
-  moveTimer: 1
+  idleTimer: 2
+  moveTimer: 2
   stateTimer: 0
   loopSaveTimer: 0
   bulletPrefab: {fileID: 857579978013763025, guid: 5a17d79e10bff194d8f255ed3c50ad1f, type: 3}
