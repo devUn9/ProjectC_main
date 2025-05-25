@@ -11,6 +11,7 @@ public class MinigameObject : MonoBehaviour
 
     [SerializeField] private SpawnManager damageBallSpawn;
     [SerializeField] private SpawnManager energyBallSpawn;
+    [SerializeField] private EnergyShield playerShield;
 
     [SerializeField] private GameObject targetTrigger;
     [SerializeField] private GameObject targetTrigger2;
@@ -90,6 +91,9 @@ public class MinigameObject : MonoBehaviour
 
     public void MiniGameClear()
     {
+        playerShield.gameObject.SetActive(false);
+        Destroy(damageBallSpawn.gameObject);
+        Destroy(energyBallSpawn.gameObject);
         // 코루틴 시작
         StartCoroutine(ActivateTriggersWithDelay());
     }
@@ -98,14 +102,14 @@ public class MinigameObject : MonoBehaviour
     {
         hpUI.gameObject.SetActive(false);
         // 3초 뒤 targetTrigger 추가 작업 (예: 재활성화)
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
         if (targetTrigger != null)
         {
             targetTrigger.SetActive(true);
             Debug.Log("targetTrigger 3초 후 활성화");
         }
 
-        // 5초 뒤 targetTrigger2 활성화
+        // 4초 뒤 targetTrigger2 활성화
         yield return new WaitForSeconds(1f);
         if (targetTrigger2 != null)
         {
