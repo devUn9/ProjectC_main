@@ -77,6 +77,7 @@ public class CharacterStats : MonoBehaviour
         StartCoroutine(DoEmpStatus(_targetStats, _Duration)); // EMP 상태 이상 효과
         _targetStats.TakeDamage(damage);
     }
+
     public virtual void DoLauncherDamage(CharacterStats _targetStats)
     {
         int damage = launcherDamage.GetValue();

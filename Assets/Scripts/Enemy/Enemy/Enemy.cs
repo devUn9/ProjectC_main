@@ -25,8 +25,6 @@ public class Enemy : MonoBehaviour
 
     public int moveDirection = 1;
 
-
-    [HideInInspector]
     public float idleTimer;
     public float moveTimer;
     public float stateTimer;

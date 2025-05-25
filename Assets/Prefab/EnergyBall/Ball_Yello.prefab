@@ -195,7 +195,7 @@ MonoBehaviour:
   shield: 0
   target: {fileID: 0}
   speed: 0
-  effectPrefab: {fileID: 0}
+  effectPrefab: {fileID: 3821946830343970313, guid: 2ecee44fe233a8a4baabfb302478c410, type: 3}
 --- !u!1 &298903098456662479
 GameObject:
   m_ObjectHideFlags: 0
