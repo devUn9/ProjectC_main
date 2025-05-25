@@ -11,6 +11,9 @@ public class EntityFX : MonoBehaviour
     [SerializeField] private Material Stun;
     [SerializeField] private Material EmpShock1;
     [SerializeField] private Material EmpShock2;
+
+    [SerializeField] private Material redBall;
+    [SerializeField] private Material blueBall;
     private Material originalMat;
 
     void Start()
@@ -65,5 +68,27 @@ public class EntityFX : MonoBehaviour
     {
         CancelInvoke();
         sr.color = Color.white;
+    }
+
+    private IEnumerator RedBallFX()
+    {
+        sr.material = redBall;
+        yield return new WaitForSeconds(0.05f);
+        sr.material = originalMat;
+        yield return new WaitForSeconds(0.05f);
+        sr.material = redBall;
+        yield return new WaitForSeconds(0.05f);
+        sr.material = originalMat;
+    }
+
+    private IEnumerator BlueBallFX()
+    {
+        sr.material = blueBall;
+        yield return new WaitForSeconds(0.05f);
+        sr.material = originalMat;
+        yield return new WaitForSeconds(0.05f);
+        sr.material = blueBall;
+        yield return new WaitForSeconds(0.05f);
+        sr.material = originalMat;
     }
 }

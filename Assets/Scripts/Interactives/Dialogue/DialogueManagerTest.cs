@@ -507,6 +507,13 @@ public class DialogueManagerTest : MonoBehaviour
                         }
                     }
                     break;
+
+                case 25:
+                case 26:
+                    {
+                        SoundManager.instance.PlayBGM(SoundManager.EBgm.Bgm_MiniGame);
+                        break;
+                    }
             }
 
             // 게임 재개 및 플레이어 애니메이션 활성화

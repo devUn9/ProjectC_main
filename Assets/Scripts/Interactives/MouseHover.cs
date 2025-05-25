@@ -17,8 +17,8 @@ public class MouseHover : MonoBehaviour
 
     private void Awake()
     {
-        enemy = GetComponent<Enemy>();
-        stat = GetComponent<EnemyStats>();
+        enemy = GetComponentInParent<Enemy>();
+        stat = GetComponentInParent<EnemyStats>();
         mainCamera = Camera.main;
 
         if (speedText == null || hoverImage == null || enemy == null || mainCamera == null || GetComponent<Collider2D>() == null)

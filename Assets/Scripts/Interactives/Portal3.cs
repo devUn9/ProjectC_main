@@ -16,7 +16,7 @@ public class Portal3 : MonoBehaviour
     [SerializeField] private DialogueManagerTest dialogueManager; // DialogueManagerTest 직접 참조
     [SerializeField] private float postDialogueDelay = 1f; // 대화 종료 후 포털 활성화 지연 시간
 
-    private CinemachineConfiner2D confiner; // Cinemachine Confiner 2D 컴포넌트
+    public CinemachineConfiner2D confiner; // Cinemachine Confiner 2D 컴포넌트
     private bool playerIsInTrigger = false;
     private bool isTriggerActivated = false; // DialogueTrigger가 실행되었는지 확인
     private SpriteRenderer spriteRenderer; // 포털의 SpriteRenderer
@@ -53,7 +53,17 @@ public class Portal3 : MonoBehaviour
         // 초기 상태 설정
         isTriggerActivated = stateActive;
         UpdatePortalVisuals(stateActive);
+        CinemachineUpdate();
 
+        // DialogueManagerTest가 할당되었는지 확인
+        if (dialogueManager == null)
+        {
+            Debug.LogError("DialogueManagerTest가 인스펙터에서 지정되지 않았습니다!", this);
+        }
+    }
+
+    public void CinemachineUpdate()
+    {
         // Cinemachine 설정
         if (virtualCamera != null)
         {
@@ -65,12 +75,6 @@ public class Portal3 : MonoBehaviour
         else
         {
             Debug.LogError("Virtual Camera가 지정되지 않았습니다!", this);
-        }
-
-        // DialogueManagerTest가 할당되었는지 확인
-        if (dialogueManager == null)
-        {
-            Debug.LogError("DialogueManagerTest가 인스펙터에서 지정되지 않았습니다!", this);
         }
     }
 
@@ -191,7 +195,7 @@ public class Portal3 : MonoBehaviour
         }
     }
 
-    private void MovePlayer()
+    public void MovePlayer()
     {
         if (outPoint != null)
         {
@@ -214,7 +218,7 @@ public class Portal3 : MonoBehaviour
         }
     }
 
-    private void AssignBoundingShapeFromOutPoint()
+    public void AssignBoundingShapeFromOutPoint()
     {
         Collider2D hit = Physics2D.OverlapPoint(outPoint.position, mapLayerMask);
         if (hit != null && hit is BoxCollider2D box)

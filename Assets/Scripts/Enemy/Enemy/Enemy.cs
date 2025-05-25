@@ -25,8 +25,6 @@ public class Enemy : MonoBehaviour
 
     public int moveDirection = 1;
 
-
-    [HideInInspector]
     public float idleTimer;
     public float moveTimer;
     public float stateTimer;
@@ -125,6 +123,8 @@ public class Enemy : MonoBehaviour
             else
                 sightEffect.SetSightColor(Color.yellow);
         }
+        if (!playerCheck())
+            isBattle = false;
 
         StartCoroutine("battleCheck");
     }
@@ -200,7 +200,7 @@ public class Enemy : MonoBehaviour
         sightEffect.SetSightEffect(gizmoRadius, Quaternion.Euler(0, 0, sightLightAngle), gizmoAngle);
     }
 
-    private bool playerCheck() => Physics2D.Raycast(transform.position, Vector2.zero, 3, playerLayer);
+    private bool playerCheck() => Physics2D.OverlapCircle(transform.position, 10, playerLayer);
 
     // 씬 뷰에서 부채꼴 기즈모 그리기
     private void OnDrawGizmos()
@@ -384,6 +384,7 @@ public class Enemy : MonoBehaviour
             if (isMelee)
             {
                 EffectManager.Instance.PlayEffect(EffectType.GrenadeEffect, transform.position, 2f);
+                SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_LauncherArmExplosion);
                 stats.DoMeleeDamage(playerStats);
                 Destroy(gameObject);
             }

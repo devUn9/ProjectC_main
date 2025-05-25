@@ -18,19 +18,19 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.76
+    m_Value: 0.1
   intensity:
     m_OverrideState: 1
-    m_Value: 2.38
+    m_Value: 1.5
   scatter:
     m_OverrideState: 1
-    m_Value: 0.711
+    m_Value: 0.3
   clamp:
     m_OverrideState: 0
     m_Value: 65472
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0.8332681, g: 0.8396226, b: 0.5505073, a: 1}
+    m_Value: {r: 0, g: 1, b: 0.5265317, a: 1}
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
@@ -41,12 +41,40 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 6
   dirtTexture:
-    m_OverrideState: 0
-    m_Value: {fileID: 0}
+    m_OverrideState: 1
+    m_Value: {fileID: 2800000, guid: 31d4266f3264e6a4db94dce8f085af31, type: 3}
     dimension: 1
   dirtIntensity:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 3
+--- !u!114 &-7531557666704096733
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
+  m_Name: Vignette
+  m_EditorClassIdentifier: 
+  active: 1
+  color:
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
+  center:
+    m_OverrideState: 1
+    m_Value: {x: 0.5, y: 0.5}
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.4
+  smoothness:
+    m_OverrideState: 1
+    m_Value: 0.8
+  rounded:
+    m_OverrideState: 1
+    m_Value: 1
 --- !u!114 &-3394332436695955207
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -65,7 +93,7 @@ MonoBehaviour:
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.8793109, z: 0.95714355, w: 0.09779952}
+    m_Value: {x: 0.8246583, y: 1, z: 0.9858986, w: -0.17793581}
   gain:
     m_OverrideState: 0
     m_Value: {x: 1, y: 1, z: 1, w: 0}
@@ -84,3 +112,4 @@ MonoBehaviour:
   components:
   - {fileID: -8083360831954286626}
   - {fileID: -3394332436695955207}
+  - {fileID: -7531557666704096733}

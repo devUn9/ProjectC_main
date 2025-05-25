@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
+    [SerializeField] private EndingCredit endingCredit; // 인스펙터에서 할당
 
     public enum EBgm
     {
@@ -12,7 +13,8 @@ public class SoundManager : MonoBehaviour
         Bgm_BossBattle,
         Bgm_EndingCredit,
         Bgm_City,
-        Bgm_Enterprise
+        Bgm_Enterprise,
+        Bgm_MiniGame
     }
 
     public enum ESfx
@@ -31,7 +33,12 @@ public class SoundManager : MonoBehaviour
         SFX_GravitonSurgeExplosion,
         SFX_SwordAttack,
         SFX_PlayerWalking,
-        SFX_MonsterDie
+        SFX_MonsterDie,
+        SFX_RedBall,
+        SFX_BlueBall,
+        SFX_EnergyBall,
+        SFX_EnergyShield,
+        SFX_Clicker
     }
 
     [Serializable]
@@ -58,6 +65,7 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioSource audioBgm;
     [SerializeField] private AudioSource audioSfx;
+    [SerializeField] private AudioSource audioLoop;
 
     private Dictionary<EBgm, BgmClip> bgmDict;
     private Dictionary<ESfx, SfxClip> sfxDict;
@@ -117,9 +125,22 @@ public class SoundManager : MonoBehaviour
 
     public void PlayESFX(ESfx sfxType)
     {
+        if (endingCredit.isScrolling) return;
         if (sfxDict.TryGetValue(sfxType, out SfxClip sfx))
         {
             audioSfx.PlayOneShot(sfx.clip, sfx.volume);
+        }
+    }
+
+    public void LoopESFX(ESfx sfxType)
+    {
+        if (endingCredit.isScrolling) return;
+        if (sfxDict.TryGetValue(sfxType, out SfxClip sfx))
+        {
+            audioLoop.clip = sfx.clip;
+            audioLoop.volume = sfx.volume;
+            audioLoop.loop = true;
+            audioLoop.Play();
         }
     }
 }

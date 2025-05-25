@@ -284,7 +284,7 @@ RectTransform:
   m_GameObject: {fileID: 2190021346729556334}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 1.25}
+  m_LocalScale: {x: 0.011428571, y: 0.011428571, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2718310091456725753}
@@ -293,7 +293,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.05, y: 1}
+  m_AnchoredPosition: {x: 0.05, y: 1.3}
   m_SizeDelta: {x: 400, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2491138965814037893
@@ -369,6 +369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 362479363805535353}
   - component: {fileID: 5338527354640694995}
+  - component: {fileID: 7686327545066385964}
   m_Layer: 17
   m_Name: Minimap GFX
   m_TagString: Untagged
@@ -386,7 +387,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.79999995, y: 0.79999995, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3438328651254662378}
@@ -446,6 +447,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &7686327545066385964
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278118803544601749}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.49999997
 --- !u!1 &3290169934539364092
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,8 +821,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.57, y: 7.83}
-  m_SizeDelta: {x: 197.67, y: 68.39}
+  m_AnchoredPosition: {x: 0, y: 10}
+  m_SizeDelta: {x: 250, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4313301537432516444
 CanvasRenderer:
@@ -842,19 +879,19 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 13
-  m_fontSizeBase: 13
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 50
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -925,7 +962,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 80, y: 80, z: 1}
+  m_LocalScale: {x: 100, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4515676107309768862}
@@ -999,8 +1036,8 @@ GameObject:
   - component: {fileID: 6193442529348614954}
   - component: {fileID: 7720615778311260008}
   - component: {fileID: 6102464887587473704}
-  - component: {fileID: 7357890518717528158}
   - component: {fileID: 3889383673760391009}
+  - component: {fileID: 7357890518717528158}
   m_Layer: 12
   m_Name: Enemy_Guard_0
   m_TagString: Untagged
@@ -1017,7 +1054,7 @@ Transform:
   m_GameObject: {fileID: 9192316570014959470}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.2552235, y: 46.281303, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1042,12 +1079,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  moveSpeed: 3
-  runSpeed: 4
+  moveSpeed: 2
+  runSpeed: 3
   isMoveX: 1
   isMoveY: 0
   moveDirection: 1
-  idleTimer: 1
+  idleTimer: 2
   moveTimer: 2
   stateTimer: 0
   loopSaveTimer: 0
@@ -1219,25 +1256,6 @@ MonoBehaviour:
   Stun: {fileID: 2100000, guid: 0051e34bd4ce1a84591e73cdbad8e55d, type: 2}
   EmpShock1: {fileID: 2100000, guid: 91ff24e8c485396429ee3282a4551cb1, type: 2}
   EmpShock2: {fileID: 2100000, guid: e4337f771577b424493652cedb922f19, type: 2}
---- !u!114 &7357890518717528158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9192316570014959470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ce041383783c2e47a484a7e8b224fed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedText: {fileID: 6133178000256882741}
-  hoverImage: {fileID: 6165451710017235195}
-  textOffset: {x: 0, y: 2, z: 0}
-  imageOffset: {x: 0, y: 1, z: 0}
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 4096
 --- !u!195 &3889383673760391009
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1260,6 +1278,25 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7357890518717528158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9192316570014959470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce041383783c2e47a484a7e8b224fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedText: {fileID: 6133178000256882741}
+  hoverImage: {fileID: 6165451710017235195}
+  textOffset: {x: 25, y: 10, z: 0}
+  imageOffset: {x: 0, y: 0, z: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1001 &8031099531377125679
 PrefabInstance:
   m_ObjectHideFlags: 0

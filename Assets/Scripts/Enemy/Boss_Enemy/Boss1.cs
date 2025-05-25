@@ -74,18 +74,18 @@ public class Boss1 : MonoBehaviour
         ChangeState(BossState.Walk);
         MeshTrailscript.StartTrail();
         BasicImplant = true;
-        Vector2 movement;
+        //Vector2 movement;
         Invoke("BasicImplantKids", 2f);
         ani.speed = 3f;
 
-        while (BasicImplant)
-        {
-            movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            if (Input.GetKey("Horizontal") || Input.GetKey("Vertical"))
-            {
-                anicontroller.rb.linearVelocity = movement * 5f;
-            }
-        }
+        //while (BasicImplant)
+        //{
+        //    movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        //    if (Input.GetKey("Horizontal") || Input.GetKey("Vertical"))
+        //    {
+        //        anicontroller.rb.linearVelocity = movement * 5f;
+        //    }
+        //}
         yield return null;
     }
 
