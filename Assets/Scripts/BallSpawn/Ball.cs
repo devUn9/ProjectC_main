@@ -18,18 +18,16 @@ public class Ball : MonoBehaviour
     [SerializeField] protected GameObject effectPrefab;
     
     private Rigidbody2D rb;
-    private Animator anim;
+    [SerializeField] private Animator anim;
 
     Vector3 dir;
     Vector3 target2 = new Vector3 (50, 300, 0);
 
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
 
     void Start()
     {
+        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
         dir = (target2 - transform.position).normalized;
     }
 

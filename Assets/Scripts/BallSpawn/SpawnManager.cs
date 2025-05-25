@@ -59,7 +59,13 @@ public class SpawnManager : MonoBehaviour
 
         Instantiate(damageBallPrefabs[ballIndex], spawnPoint[Index]);
 
-        yield return new WaitForSeconds(respawnDuration);
+        float elapsedTime = 0f;
+        while (elapsedTime < respawnDuration)
+        {
+            // 현재 시간 스케일에 따라 경과 시간 계산
+            elapsedTime += Time.deltaTime * TimeManager.Instance.timeScale;
+            yield return null; // 다음 프레임까지 대기
+        }
 
         isRespawn = true;
     }
@@ -102,7 +108,13 @@ public class SpawnManager : MonoBehaviour
             obj.tag = "EnergyBall";
         }
 
-        yield return new WaitForSeconds(energyRespawnDuration);
+        float elapsedTime = 0f;
+        while (elapsedTime < energyRespawnDuration)
+        {
+            // 현재 시간 스케일에 따라 경과 시간 계산
+            elapsedTime += Time.deltaTime * TimeManager.Instance.timeScale;
+            yield return null; // 다음 프레임까지 대기
+        }
 
         isRespawn = true;
     }

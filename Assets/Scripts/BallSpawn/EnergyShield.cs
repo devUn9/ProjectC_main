@@ -6,8 +6,10 @@ public class EnergyShield : MonoBehaviour
     [SerializeField] private Player player;
 
     private Animator anim;
-    private void Awake()
+    
+    private void Start()
     {
+        anim = GetComponent<Animator>();
         player = GetComponentInParent<Player>();
     }
 
