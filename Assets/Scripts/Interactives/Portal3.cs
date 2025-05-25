@@ -53,7 +53,17 @@ public class Portal3 : MonoBehaviour
         // 초기 상태 설정
         isTriggerActivated = stateActive;
         UpdatePortalVisuals(stateActive);
+        CinemachineUpdate();
 
+        // DialogueManagerTest가 할당되었는지 확인
+        if (dialogueManager == null)
+        {
+            Debug.LogError("DialogueManagerTest가 인스펙터에서 지정되지 않았습니다!", this);
+        }
+    }
+
+    public void CinemachineUpdate()
+    {
         // Cinemachine 설정
         if (virtualCamera != null)
         {
@@ -65,12 +75,6 @@ public class Portal3 : MonoBehaviour
         else
         {
             Debug.LogError("Virtual Camera가 지정되지 않았습니다!", this);
-        }
-
-        // DialogueManagerTest가 할당되었는지 확인
-        if (dialogueManager == null)
-        {
-            Debug.LogError("DialogueManagerTest가 인스펙터에서 지정되지 않았습니다!", this);
         }
     }
 
@@ -214,7 +218,7 @@ public class Portal3 : MonoBehaviour
         }
     }
 
-    private void AssignBoundingShapeFromOutPoint()
+    public void AssignBoundingShapeFromOutPoint()
     {
         Collider2D hit = Physics2D.OverlapPoint(outPoint.position, mapLayerMask);
         if (hit != null && hit is BoxCollider2D box)

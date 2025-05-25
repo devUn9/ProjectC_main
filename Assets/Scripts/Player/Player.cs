@@ -124,6 +124,12 @@ public class Player : MonoBehaviour
             MeshTrailscript.StartTrail();
             skill.sandevistan.StartCoroutine("TimeScaleModify");
         }
+
+        if (stats.currentHealth <= 0)
+        {
+            CheckpointManager.Instance.ResetToCheckpoint();
+        }
+
     }
 
     public virtual void DamageEffect()
