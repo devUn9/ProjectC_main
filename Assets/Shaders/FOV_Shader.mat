@@ -54,17 +54,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Angle: 0.82
-    - _BaseAngle: 0.42
+    - _Angle: 0.78
+    - _BaseAngle: -0.75
     - _EnableExternalAlpha: 0
     - _EndAngle: -2.5
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Radar: 0.1
     - _Radius: 0.5
     - _StartAngle: -0.7
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0.16820931, g: 0.26186922, b: 0.33962262, a: 0.6}
+    - _Color: {r: 0.07903168, g: 0.3540099, b: 0.4528302, a: 0.5058824}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
