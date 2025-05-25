@@ -1,24 +1,24 @@
-# ProjectC
+# Project C
 
 
 ### 개요
-SUPERCENT GAME CHALLANGE 공모전을 위한 유니티 2D 탑뷰 어드벤처 액션 게임
-<br>
+SUPERCENT GAME CHALLANGE 공모전을 위한 **2D 탑뷰 액션 어드벤처 게임**
+
 전투 시스템, 기믹 시스템, VFX를 구현한 팀 프로젝트
 
-
+---
 ### 프로젝트 내용
-- **기간** : 2025.04.14 - 2025.05.12
+- **기간** : 2025.04.14 - 2025.05.25
 - **팀원 수** : [5명]
 - **플랫폼** : [PC]
 
-
+---
 ### 기술 스택
 - Unity [Unity 6(6000.0.40f1)]
 - C#
 - Git, GitHub
 
-
+---
 ### 팀원 목록
 - 문현웅 [@devUn9](https://github.com/devUn9)
   - 스토리, 스킬 UI, 맵, 통합 담당
