@@ -18,6 +18,7 @@ public class Ball : MonoBehaviour
     [SerializeField] protected GameObject effectPrefab;
     
     private Rigidbody2D rb;
+    private Animator anim;
 
     Vector3 dir;
     Vector3 target2 = new Vector3 (50, 300, 0);
@@ -34,6 +35,7 @@ public class Ball : MonoBehaviour
 
     void Update()
     {
+        anim.speed = TimeManager.Instance.timeScale;
         transform.Translate (dir * speed * Time.deltaTime * TimeManager.Instance.timeScale);
     }
     public void TouchEffect(Transform pos)

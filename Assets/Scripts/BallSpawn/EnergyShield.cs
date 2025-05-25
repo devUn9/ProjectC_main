@@ -4,6 +4,8 @@ public class EnergyShield : MonoBehaviour
 {
     [SerializeField] public int shieldCount;
     [SerializeField] private Player player;
+
+    private Animator anim;
     private void Awake()
     {
         player = GetComponentInParent<Player>();
@@ -16,7 +18,7 @@ public class EnergyShield : MonoBehaviour
 
     private void Update()
     {
-        
+        anim.speed = TimeManager.Instance.timeScale;
         if (shieldCount <= 0)
         {
             gameObject.SetActive(false);
