@@ -6,7 +6,9 @@ public class EndingCredit : MonoBehaviour
     [SerializeField] private float scrollSpeed = 50f; // 스크롤 속도
     [SerializeField] private float endPositionY = 2000f; // 크레딧이 도달할 최종 Y 위치
 
+    private PlayerGravitonState playerGravitonState;
     public bool isScrolling = false;
+
 
     void Update()
     {
@@ -20,6 +22,7 @@ public class EndingCredit : MonoBehaviour
         {
             isScrolling = false;
             // 선택적으로 여기서 씬 전환, 게임 종료 등 추가 로직 구현
+            Application.Quit();
         }
     }
 
@@ -27,5 +30,7 @@ public class EndingCredit : MonoBehaviour
     public void StartScrolling()
     {
         isScrolling = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

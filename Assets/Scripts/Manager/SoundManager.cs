@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
+    [SerializeField] private EndingCredit endingCredit; // 인스펙터에서 할당
 
     public enum EBgm
     {
@@ -118,6 +119,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayESFX(ESfx sfxType)
     {
+        if (endingCredit.isScrolling) return;
         if (sfxDict.TryGetValue(sfxType, out SfxClip sfx))
         {
             audioSfx.PlayOneShot(sfx.clip, sfx.volume);

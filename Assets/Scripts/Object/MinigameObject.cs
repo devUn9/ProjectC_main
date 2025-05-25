@@ -12,6 +12,7 @@ public class MinigameObject : MonoBehaviour
     [SerializeField] private SpawnManager energyBallSpawn;
 
     [SerializeField] private GameObject targetTrigger;
+    [SerializeField] private MinigameHPUI hpUI; // UI 스크립트 참조
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,12 +22,18 @@ public class MinigameObject : MonoBehaviour
             interactionPoint = ball.damage;
             BallInteraction(interactionPoint);
 
-            Destroy(ball);
+            Destroy(ball.gameObject);
         }
     }
 
     private void BallInteraction(int _interactionPoint)
     {
+        // UI 갱신
+        if (hpUI != null)
+        {
+            hpUI.UpdateHPUI();
+        }
+
         if (HP > MaxHP)
         {
             TriggerOff();
