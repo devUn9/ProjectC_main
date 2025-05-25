@@ -54,11 +54,6 @@ public class MinigameObject : MonoBehaviour
 
     private void BallInteraction(int _interactionPoint)
     {
-        // UI 갱신
-        if (hpUI != null)
-        {
-            hpUI.UpdateHPUI();
-        }
 
         if (HP > MaxHP)
         {
@@ -70,6 +65,13 @@ public class MinigameObject : MonoBehaviour
             GameOver();
         }
         HP -= _interactionPoint;
+
+        // UI 갱신
+        if (hpUI != null)
+        {
+            hpUI.UpdateHPUI();
+        }
+
     }
 
     public void TriggerOn()

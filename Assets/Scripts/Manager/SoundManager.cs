@@ -37,7 +37,8 @@ public class SoundManager : MonoBehaviour
         SFX_RedBall,
         SFX_BlueBall,
         SFX_EnergyBall,
-        SFX_EnergyShield
+        SFX_EnergyShield,
+        SFX_Clicker
     }
 
     [Serializable]

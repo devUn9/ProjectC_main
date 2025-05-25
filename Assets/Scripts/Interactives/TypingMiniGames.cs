@@ -57,6 +57,7 @@ public class TypingMiniGames : MonoBehaviour
             if (Input.GetKeyDown(key.ToString().ToLower()))
             {
                 playerInput += key;
+                SoundManager.instance.PlayESFX(SoundManager.ESfx.SFX_Clicker);
                 UpdateInputText();
                 CheckInput();
                 break;

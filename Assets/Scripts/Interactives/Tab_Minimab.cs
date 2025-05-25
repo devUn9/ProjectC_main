@@ -9,7 +9,7 @@ public class Tab_Minimab : MonoBehaviour
         // 초기 상태 설정 (선택 사항)
         if (canvasToToggle != null)
         {
-            canvasToToggle.gameObject.SetActive(true); // 기본적으로 활성화
+            canvasToToggle.gameObject.SetActive(false); // 기본적으로 비활성화
         }
     }
 

@@ -17,7 +17,7 @@ public class MinigameHPUI : MonoBehaviour
             hpSlider.minValue = 0;
             hpSlider.maxValue = minigameObject.MaxHP;
             hpSlider.value = minigameObject.HP;
-            UpdateHPText();
+            //UpdateHPText();
         }
     }
 
@@ -27,14 +27,14 @@ public class MinigameHPUI : MonoBehaviour
         {
             hpSlider.value = minigameObject.HP;
         }
-        UpdateHPText();
+        //UpdateHPText();
     }
 
-    private void UpdateHPText()
-    {
-        if (hpText != null && minigameObject != null)
-        {
-            hpText.text = $"HP: {minigameObject.HP}/{minigameObject.MaxHP}";
-        }
-    }
+    //private void UpdateHPText()
+    //{
+    //    if (hpText != null && minigameObject != null)
+    //    {
+    //        hpText.text = $"HP: {minigameObject.HP}/{minigameObject.MaxHP}";
+    //    }
+    //}
 }
