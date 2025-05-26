@@ -20,15 +20,15 @@ public class BgmVolumeSlider : MonoBehaviour
         slider.onValueChanged.AddListener(OnSliderValueChanged);
 
         // 초기 볼륨 설정
-        if (SoundManager2.instance != null)
-            SoundManager2.instance.audioBgm.volume = savedVolume;
+        if (SoundManager.instance != null)
+            SoundManager.instance.audioBgm.volume = savedVolume;
     }
 
     private void OnSliderValueChanged(float value)
     {
-        if (SoundManager2.instance != null)
+        if (SoundManager.instance != null)
         {
-            SoundManager2.instance.audioBgm.volume = value;
+            SoundManager.instance.audioBgm.volume = value;
             PlayerPrefs.SetFloat("BGM_VOLUME", value);
         }
     }

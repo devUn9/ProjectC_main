@@ -365,8 +365,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballType: 0
-  damage: -50
+  damage: -40
   shield: 0
   target: {fileID: 0}
   speed: 7
   effectPrefab: {fileID: 1785424259457805103, guid: 241a0d4cd3ddb834daf0dfef839bcee7, type: 3}
+  anim: {fileID: 0}
