@@ -23,13 +23,13 @@ SUPERCENT GAME CHALLANGE 공모전을 위한 **2D 탑뷰 액션 어드벤처 게
 - 문현웅 [@devUn9](https://github.com/devUn9)
   - 스토리, 스킬 UI, 맵, 통합 담당
 
-- 이진오 [@Leetany](https://github.com/Leetany)
+- 김관영 [@Leetany](https://github.com/Leetany)
   - 스킬 이펙트, VFX 담당
 
 - 배홍범 [@eogk31](https://github.com/eogk31)
   - 로프 액션, 설정 UI 담당
 
-- 김관영 [@manaqua138](https://github.com/manaqua138)
+- 이진오 [@manaqua138](https://github.com/manaqua138)
   - 보스, 사운드, 입력 패턴 기믹 담당
 
 - 임장록 [@limjr1123](https://github.com/limjr1123)
